@@ -1,9 +1,13 @@
 import Layout from '../Components/Layout'
 import { Img } from 'react-image'
+import Head from 'next/head'
 
 const Home = () => {
 	return (
 		<Layout>
+			<Head>
+				<title>Home | iyansr.id</title>
+			</Head>
 			<div className='home-container'>
 				<br />
 				<div className='avatar-wrapper'>
