@@ -3,13 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next -p 8300",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "next": "9.4.4",
+    "nextjs-progressbar": "0.0.5",
+    "node-sass": "^4.14.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-flexbox-grid": "^2.1.2",
+    "react-image": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.14",
+    "@types/react": "^16.9.41",
+    "babel-plugin-inline-react-svg": "^1.1.1",
+    "typescript": "^3.9.5"
   }
 }

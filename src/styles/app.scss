@@ -1,0 +1,48 @@
+.custom-layout {
+   box-sizing: border-box;
+   position: relative;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 6rem;
+   padding-right: 0px;
+   margin-bottom: 3.2rem;
+   max-width: 1199px;
+   min-height: 90vh;
+
+   @media #{$tabletMQ} {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 16px;
+      padding-right: 16px;
+      min-height: 80vh;
+   }
+}
+
+.isr--footer {
+   margin-left: 6rem;
+   text-align: center;
+
+   @media #{$tabletMQ} {
+      margin-bottom: 6rem;
+      margin-left: 0;
+   }
+}
+
+.home-container {
+   text-align: center;
+}
+
+.avatar,
+.loader {
+   height: 16rem;
+   width: 16rem;
+   object-fit: cover;
+   border-radius: 32rem;
+   border: 0.25rem solid #6649b8;
+}
+
+.avatar-wrapper {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
