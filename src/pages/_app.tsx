@@ -2,6 +2,7 @@ import { AppProps } from 'next/app'
 import '../styles/main.scss'
 import NextNprogress from 'nextjs-progressbar'
 import { Fragment } from 'react'
+import 'react-flexbox-grid/dist/react-flexbox-grid.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (

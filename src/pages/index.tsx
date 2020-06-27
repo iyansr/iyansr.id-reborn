@@ -1,12 +1,13 @@
 import Layout from '../Components/Layout'
 import { Img } from 'react-image'
 import Head from 'next/head'
+import { Row, Col } from 'react-flexbox-grid/dist/react-flexbox-grid'
 
 const Home = () => {
 	return (
 		<Layout>
 			<Head>
-				<title>Home | iyansr.id</title>
+				<title>Iyan Saputra — Full Stack Developer | iyansr.id</title>
 			</Head>
 			<div className='home-container'>
 				<br />
@@ -23,17 +24,30 @@ const Home = () => {
 				</div>
 				<br />
 				<hr className='main-line' />
-				<h1>About</h1>
-				<p>
-					A Fullstack Developer who passionate about modern mobile and web technology using Node JS, React JS, React Native, and Flutter. And would be a
-					fast learner to doing new things and build good teamwork either. Can become a project leader/manager and using tools like Trello to manage
-					project and task.
-				</p>
+				<div>
+					<h1>About</h1>
+					<p>
+						A Fullstack Developer who passionate about modern mobile and web technology using Node JS, React JS, React Native, and Flutter. And would be a
+						fast learner to doing new things and build good teamwork either. Can become a project leader/manager and using tools like Trello to manage
+						project and task.
+					</p>
+					<br />
+					<hr className='main-line' />
+					<br />
+					<h1 className='mb-5'>Contribution Chart</h1>
+					<img src='https://ghchart.rshah.org/iyansr' alt='contribution chart' style={{ width: '100%' }} />
+				</div>
 				<br />
 				<hr className='main-line' />
-				<br />
-				<h1 className='mb-5'>Contribution Chart</h1>
-				<img src='https://ghchart.rshah.org/iyansr' alt='contribution chart' style={{ width: '100%' }} />
+
+				<Row center='xs'>
+					<Col xs={24} sm={24} md={8} lg={8}>
+						<h1>Top Languages (Last 7 Days)</h1>
+						<figure>
+							<embed src='https://wakatime.com/share/@iyansr/b99c86ec-14c0-4db4-996d-4e5c3a9e19ae.svg'></embed>
+						</figure>
+					</Col>
+				</Row>
 			</div>
 		</Layout>
 	)
