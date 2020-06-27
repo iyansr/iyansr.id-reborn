@@ -1,0 +1,8 @@
+{
+   "build": {
+      "env": {
+         "NEXT_PUBLIC_CONTENTFUL_SPACE_ID": "@contentful_space_id",
+         "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token"
+      }
+   }
+}
