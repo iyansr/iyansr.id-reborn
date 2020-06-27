@@ -12,7 +12,7 @@ const Navigation = () => {
 			<ul className='navbar-nav-isr'>
 				<NavLogo />
 				<NavLink href='/' name='Home' logo={<HomeLogo className='nav-logo-isr' />} />
-				<NavLink href='/work' name='Porfolio' logo={<Branch className='nav-logo-isr' />} />
+				<NavLink href='/work' name='Portfolio' logo={<Branch className='nav-logo-isr' />} />
 				<NavLink href='/blog' name='Blog' logo={<Pen className='nav-logo-isr' />} />
 				<NavLink href='/about' name='About' logo={<Person className='nav-logo-isr' />} />
 			</ul>

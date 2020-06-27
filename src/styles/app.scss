@@ -53,11 +53,27 @@
    align-items: center;
    justify-content: center;
    flex-direction: column;
+   width: 100%;
+   margin-top: 32px;
 
-   >h1 {
-      font-size: 50px;
-      margin: 0;
+   >div {
+      text-align: center;
+
+      >h1 {
+         font-size: 42px;
+         margin: 0;
+         color: #fff;
+      }
    }
+
+}
+
+.banner {
+   object-fit: cover;
+   height: 300px;
+   width: 100%;
+   opacity: 0.5;
+   border-radius: 0.25rem;
 }
 
 .card {
@@ -157,4 +173,17 @@
       background: #6649b8;
       color: white;
    }
+}
+
+.mini-header-card {
+   font-size: 14px;
+}
+
+.post-wrapper {
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 0px;
+   padding-right: 0px;
+   max-width: 900px;
+   text-align: justify;
 }
