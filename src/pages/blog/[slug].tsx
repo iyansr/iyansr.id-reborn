@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { client } from '../../../utils/contentful'
 import { BlogEntries } from '../../types/iyansr'
 import Layout from '../../Components/Layout'
 import Head from 'next/head'
 import Meta from '../../Components/Meta'
 import ReactMarkdown from 'react-markdown'
+import hljs from 'highlight.js'
 
 interface BlogPostProps {
 	entry: BlogEntries;
 }
 
 const BlogPost = ({ entry }: BlogPostProps) => {
+	const updateCodeSyntaxHighlighting = () => {
+		document.querySelectorAll('pre code').forEach((block: any) => {
+			hljs.highlightBlock(block)
+		})
+	}
+
+	useEffect(() => {
+		updateCodeSyntaxHighlighting()
+	})
+
 	return (
 		<Layout>
 			<Head>
@@ -36,7 +47,7 @@ const BlogPost = ({ entry }: BlogPostProps) => {
 			<br />
 
 			<div className='post-wrapper'>
-				<ReactMarkdown source={entry.fields.content} />
+				<ReactMarkdown source={entry.fields.content} escapeHtml={false} />
 			</div>
 		</Layout>
 	)

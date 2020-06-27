@@ -12,6 +12,7 @@
     "@contentful/rich-text-types": "^14.1.1",
     "axios": "^0.19.2",
     "contentful": "^7.14.5",
+    "highlight.js": "^10.1.1",
     "moment": "^2.27.0",
     "next": "9.4.4",
     "nextjs-progressbar": "0.0.5",
