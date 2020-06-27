@@ -30,6 +30,7 @@ const Work = ({ entries }: any) => {
 				return ''
 		}
 	}
+
 	return (
 		<Layout>
 			<Head>
@@ -84,7 +85,9 @@ const Work = ({ entries }: any) => {
 }
 
 export const getStaticProps = async () => {
-	const rawEntry = await client.getEntries()
+	const rawEntry = await client.getEntries({
+		content_type: 'portfolio',
+	})
 
 	return {
 		props: {
