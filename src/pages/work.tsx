@@ -17,7 +17,6 @@ interface LinkPortfolio {
 	type: 'github' | 'web';
 	url: string;
 }
-//
 
 const Work = ({ entries }: any) => {
 	const getTagClassname = (label: string) => {
