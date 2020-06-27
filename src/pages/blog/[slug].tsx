@@ -11,7 +11,6 @@ interface BlogPostProps {
 }
 
 const BlogPost = ({ entry }: BlogPostProps) => {
-	console.log(entry)
 	return (
 		<Layout>
 			<Head>
