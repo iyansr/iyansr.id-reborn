@@ -8,7 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "@contentful/rich-text-types": "^14.1.1",
     "axios": "^0.19.2",
+    "contentful": "^7.14.5",
     "next": "9.4.4",
     "nextjs-progressbar": "0.0.5",
     "node-sass": "^4.14.1",

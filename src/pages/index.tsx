@@ -2,12 +2,19 @@ import Layout from '../Components/Layout'
 import { Img } from 'react-image'
 import Head from 'next/head'
 import { Row, Col } from 'react-flexbox-grid/dist/react-flexbox-grid'
+import Meta from '../Components/Meta'
 
 const Home = () => {
 	return (
 		<Layout>
 			<Head>
 				<title>Iyan Saputra — Full Stack Developer | iyansr.id</title>
+				<Meta
+					title='Iyan Saputra — Full Stack Developer | iyansr.id'
+					description='A Fullstack Developer who passionate about modern mobile and web technology using Node JS, React JS, React Native, and Flutter. And would be a
+						fast learner to doing new things and build good teamwork either. Can become a project leader/manager and using tools like Trello to manage
+						project and task.'
+				/>
 			</Head>
 			<div className='home-container'>
 				<br />
