@@ -3,7 +3,7 @@ import '../styles/main.scss'
 import NextNprogress from 'nextjs-progressbar'
 import { Fragment } from 'react'
 import 'react-flexbox-grid/dist/react-flexbox-grid.css'
-import 'highlight.js/styles/atom-one-dark.css'
+import 'highlight.js/styles/atom-one-dark-reasonable.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (

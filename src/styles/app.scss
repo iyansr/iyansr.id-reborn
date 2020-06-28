@@ -210,3 +210,10 @@ blockquote p {
    font-style: italic;
 }
 
+pre code {
+   font: 600 10pt 'Fira Code', monospace !important;
+
+   span {
+      font: 600 10pt 'Fira Code', monospace !important;
+   }
+}

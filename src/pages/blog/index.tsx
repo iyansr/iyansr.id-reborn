@@ -9,7 +9,6 @@ import Card from '../../Components/Card'
 import moment from 'moment'
 
 const Blog = ({ entries }: BlogProps) => {
-	console.log(entries)
 	return (
 		<Layout>
 			<Head>
