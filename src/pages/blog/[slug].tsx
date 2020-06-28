@@ -43,7 +43,7 @@ const BlogPost = ({ entry }: BlogPostProps) => {
 			</Head>
 			<div className='page-header'>
 				<img className='banner' src={entry.fields.image.fields.file.url} alt='thumbnail' />
-				<div style={{ position: 'absolute' }}>
+				<div style={{ position: 'absolute', width: '80%' }}>
 					<h1>{entry.fields.title}</h1>
 					<p>
 						<i>{entry.fields.preview}</i>

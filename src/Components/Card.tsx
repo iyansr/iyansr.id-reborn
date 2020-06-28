@@ -22,7 +22,7 @@ const Card = ({ title, preview, tags, footer, imgUrl, miniHeader }: CardProps) =
 				return 'tags-rn'
 
 			default:
-				return ''
+				return 'tags-rn'
 		}
 	}
 	return (
