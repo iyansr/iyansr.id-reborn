@@ -7,6 +7,7 @@ import Meta from '../../Components/Meta'
 import ReactMarkdown from 'react-markdown'
 import hljs from 'highlight.js'
 import moment from 'moment'
+import { GetServerSideProps } from 'next'
 
 interface BlogPostProps {
 	entry: BlogEntries;
@@ -65,37 +66,16 @@ const BlogPost = ({ entry }: BlogPostProps) => {
 	)
 }
 
-interface BlogPostContext {
-	params: BlogQuery;
-}
-
-interface BlogQuery {
-	slug: string;
-}
-
-export const getStaticProps = async ({ params }: BlogPostContext) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
 	const rawEntry = await client.getEntries({
 		content_type: 'article',
-		'fields.slug[in]': params.slug,
+		'fields.slug[in]': context.params?.slug,
 	})
 
 	return {
 		props: {
 			entry: rawEntry.items[0],
 		},
-	}
-}
-
-export const getStaticPaths = async () => {
-	const rawEntry = await client.getEntries({
-		content_type: 'article',
-	})
-
-	return {
-		paths: rawEntry.items.map((item: BlogEntries) => ({
-			params: { slug: item.fields.slug },
-		})),
-		fallback: false,
 	}
 }
 

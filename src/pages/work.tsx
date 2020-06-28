@@ -9,6 +9,7 @@ import { LinkType } from '../types/iyansr'
 import Github from '../assets/svg/github-brands.svg'
 import Chrome from '../assets/svg/chrome-brands.svg'
 import Card from '../Components/Card'
+import { GetServerSideProps } from 'next'
 
 const Work = ({ entries }: any) => {
 	return (
@@ -49,7 +50,7 @@ const Work = ({ entries }: any) => {
 	)
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	const rawEntry = await client.getEntries({
 		content_type: 'portfolio',
 	})

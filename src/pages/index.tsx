@@ -8,6 +8,7 @@ import Axios from 'axios'
 import RepoIcon from '../assets/svg/github-brands.svg'
 import Star from '../assets/svg/star-regular.svg'
 import Fork from '../assets/svg/code-branch-solid.svg'
+import { GetServerSideProps } from 'next'
 
 interface IyanRepo {
 	id: number;
@@ -108,7 +109,7 @@ const Home = ({ repos }: IyanRepos) => {
 	)
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	const response = await Axios.get('https://api.github.com/users/iyansr/repos?sort=updated')
 
 	return {

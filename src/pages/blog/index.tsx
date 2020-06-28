@@ -7,6 +7,7 @@ import { Row, Col } from 'react-flexbox-grid/dist/react-flexbox-grid'
 import { BlogProps, BlogEntries } from '../../types/iyansr'
 import Card from '../../Components/Card'
 import moment from 'moment'
+import { GetServerSideProps } from 'next'
 
 const Blog = ({ entries }: BlogProps) => {
 	return (
@@ -65,7 +66,7 @@ const Blog = ({ entries }: BlogProps) => {
 	)
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	const rawEntry = await client.getEntries({
 		content_type: 'article',
 		// 'fields.slug[in]': 'postingan-pertama',
