@@ -6,6 +6,7 @@ import Head from 'next/head'
 import Meta from '../../Components/Meta'
 import ReactMarkdown from 'react-markdown'
 import hljs from 'highlight.js'
+import moment from 'moment'
 
 interface BlogPostProps {
 	entry: BlogEntries;
@@ -21,6 +22,13 @@ const BlogPost = ({ entry }: BlogPostProps) => {
 	useEffect(() => {
 		updateCodeSyntaxHighlighting()
 	})
+
+	const wpm = 200
+	let textLength = entry.fields.content.split(' ').length
+	let totalRead
+	if (textLength > 0) {
+		totalRead = Math.ceil(textLength / wpm)
+	}
 
 	return (
 		<Layout>
@@ -39,6 +47,10 @@ const BlogPost = ({ entry }: BlogPostProps) => {
 					<h1>{entry.fields.title}</h1>
 					<p>
 						<i>{entry.fields.preview}</i>
+					</p>
+					<p className='mini-header-card'>
+						<span role='img'>🗓</span>&nbsp; {moment(entry.sys.createdAt).format('DD MMM YYYY')} &nbsp; | &nbsp; <span role='img'>☕️</span>
+						&nbsp; {totalRead} Min Read
 					</p>
 				</div>
 			</div>
