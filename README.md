@@ -12,6 +12,7 @@
 - [x] Comment System
 - [ ] SEO Optimized
 - [ ] Image optimized
+- [x] Twitter Embed
 - Request ? 
 
 ## To-Do Development 
