@@ -73,6 +73,7 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 				<br />
 				<hr className='main-line' />
 				<br />
+
 				<DiscussionEmbed
 					shortname='iyansr-1'
 					config={{
