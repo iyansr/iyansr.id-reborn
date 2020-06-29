@@ -8,12 +8,21 @@ import ReactMarkdown from 'react-markdown'
 import hljs from 'highlight.js'
 import moment from 'moment'
 import { GetServerSideProps } from 'next'
+import Error from 'next/error'
+import { DiscussionEmbed } from 'disqus-react'
 
 interface BlogPostProps {
 	entry: BlogEntries;
+	params: {
+		slug: string,
+	};
 }
 
-const BlogPost = ({ entry }: BlogPostProps) => {
+const BlogPost = ({ entry, params }: BlogPostProps) => {
+	if (!entry) {
+		return <Error statusCode={404} />
+	}
+
 	const updateCodeSyntaxHighlighting = () => {
 		document.querySelectorAll('pre code').forEach((block: any) => {
 			hljs.highlightBlock(block)
@@ -61,20 +70,33 @@ const BlogPost = ({ entry }: BlogPostProps) => {
 
 			<div className='post-wrapper'>
 				<ReactMarkdown source={entry.fields.content} escapeHtml={false} />
+				<br />
+				<hr className='main-line' />
+				<br />
+				<DiscussionEmbed
+					shortname='iyansr-1'
+					config={{
+						url: `https://iyansr.id/${params.slug}`,
+						identifier: params.slug,
+						title: entry.fields.title,
+						language: 'id_ID', //e.g. for Traditional Chinese (Taiwan)
+					}}
+				/>
 			</div>
 		</Layout>
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 	const rawEntry = await client.getEntries({
 		content_type: 'article',
-		'fields.slug[in]': context.params?.slug,
+		'fields.slug[in]': params?.slug,
 	})
 
 	return {
 		props: {
-			entry: rawEntry.items[0],
+			entry: rawEntry.items[0] || null,
+			params: params,
 		},
 	}
 }

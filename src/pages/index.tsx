@@ -47,7 +47,12 @@ const Home = ({ repos }: IyanRepos) => {
 			<div className='home-container'>
 				<br />
 				<div className='avatar-wrapper'>
-					<Img src='https://avatars3.githubusercontent.com/u/42711013?s=460&v=4' className='avatar' loader={<div className='loader'></div>} />
+					<Img
+						alt='Iyan Saputra'
+						src='https://avatars3.githubusercontent.com/u/42711013?s=460&v=4'
+						className='avatar'
+						loader={<div className='loader'></div>}
+					/>
 				</div>
 				<h1 className='main-name'>I Putu Saputrayana</h1>
 				<div className='mini-info'>
