@@ -9,14 +9,14 @@
 - [x] Mobile friendly
 - [x] Portfolio (Work) List
 - [x] Blog Post
-- [ ] Comment System
+- [x] Comment System
 - [ ] SEO Optimized
 - [ ] Image optimized
 - Request ? 
 
 ## To-Do Development 
 
-- [ ] Setup CMS with contentful
+- [x] Setup CMS with contentful
 
 ### Special Thanks to :
 
