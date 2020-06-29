@@ -62,16 +62,15 @@
       height: 600px;
    }
 
-   >div {
+   > div {
       text-align: center;
 
-      >h1 {
+      > h1 {
          font-size: 42px;
          margin: 0;
          color: #fff;
       }
    }
-
 }
 
 .banner {
@@ -123,7 +122,7 @@
    height: 220px;
    overflow: hidden;
 
-   >h1 {
+   > h1 {
       margin: 0;
       font-size: 22px;
       color: #fff;
@@ -161,7 +160,7 @@
       transform: translateY(-4px);
    }
 
-   >.card-link-icon {
+   > .card-link-icon {
       height: 18px;
       width: 18px;
       align-self: center;
@@ -229,10 +228,10 @@ blockquote p {
 }
 
 pre code {
-   font: 600 10pt 'Fira Code', monospace !important;
+   font: 600 10pt "Fira Code", monospace !important;
 
    span {
-      font: 600 10pt 'Fira Code', monospace !important;
+      font: 600 10pt "Fira Code", monospace !important;
    }
 }
 
@@ -253,7 +252,7 @@ pre code {
       transform: translateY(-4px);
    }
 
-   >div>p {
+   > div > p {
       margin: 0px;
       display: flex;
       align-items: center;
@@ -276,4 +275,14 @@ pre code {
    margin: 0px;
    display: flex;
    align-items: center;
+}
+
+#nprogress {
+   .bar {
+      background: #df49a6 !important;
+   }
+   .spinner-icon {
+      border-top-color: #df49a6 !important;
+      border-left-color: #df49a6 !important;
+   }
 }
