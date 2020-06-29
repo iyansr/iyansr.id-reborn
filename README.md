@@ -7,8 +7,8 @@
 ## Ongoing Features 
 
 - [x] Mobile friendly
-- [ ] Portfolio (Work) List
-- [ ] Blog Post
+- [x] Portfolio (Work) List
+- [x] Blog Post
 - [ ] Comment System
 - [ ] SEO Optimized
 - [ ] Image optimized
