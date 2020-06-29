@@ -1,7 +1,11 @@
 {
   "name": "iyansr.id-reborn",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "My Personal Home Page, Blog, Portfolio built with Next.JS",
+  "author": {
+    "name": "Iyan Saputra"
+  },
   "scripts": {
     "dev": "next -p 8300",
     "build": "next build",
