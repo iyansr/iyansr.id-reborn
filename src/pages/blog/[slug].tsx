@@ -50,6 +50,7 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 					url={`https://iyansr.id/blog/${entry.fields.slug}`}
 					image={entry.fields.image.fields.file.url}
 				/>
+				<script async src='https://platform.twitter.com/widgets.js' charSet='utf-8'></script>
 			</Head>
 			<div className='page-header'>
 				<img className='banner' src={entry.fields.image.fields.file.url} alt='thumbnail' />
