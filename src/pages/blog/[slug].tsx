@@ -76,7 +76,7 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 				<DiscussionEmbed
 					shortname='iyansr-1'
 					config={{
-						url: `https://iyansr.id/${params.slug}`,
+						url: `https://iyansr.id/blog/${params.slug}`,
 						identifier: params.slug,
 						title: entry.fields.title,
 						language: 'id_ID', //e.g. for Traditional Chinese (Taiwan)

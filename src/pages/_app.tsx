@@ -6,10 +6,13 @@ import 'highlight.js/styles/atom-one-dark-reasonable.css'
 import Router from 'next/router'
 import NProgress from 'nprogress' //nprogress module
 import 'nprogress/nprogress.css' //styles of nprogress
+import mixpanel from 'mixpanel-browser'
+
 //Binding events.
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
+mixpanel.init(`${process.env.NEXT_PUBLIC_MIXPANEL_TOKEN}`, { track_pageview: true })
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	return <Component {...pageProps} />
