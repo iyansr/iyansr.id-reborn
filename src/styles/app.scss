@@ -119,8 +119,12 @@
    padding-left: 16px;
    padding-right: 16px;
    margin-top: 18px;
-   height: 220px;
+   height: 260px;
    overflow: hidden;
+
+   @media #{$tabletMQ} {
+      height: 320px;
+   }
 
    > h1 {
       margin: 0;
