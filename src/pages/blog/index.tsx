@@ -60,6 +60,21 @@ const Blog = ({ entries }: BlogProps) => {
 							</Col>
 						)
 					})}
+
+					<script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+					<ins
+						className='adsbygoogle'
+						style={{ display: 'block' }}
+						data-ad-format='fluid'
+						data-ad-layout-key='-5g+cq+9-gr+u0'
+						data-ad-client='ca-pub-6171352055782473'
+						data-ad-slot='2517168427'></ins>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `
+(adsbygoogle = window.adsbygoogle || []).push({});
+`,
+						}}></script>
 				</Row>
 			</div>
 		</Layout>

@@ -71,6 +71,20 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 
 			<div className='post-wrapper'>
 				<ReactMarkdown source={entry.fields.content} escapeHtml={false} />
+				<script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+				<ins
+					className='adsbygoogle'
+					style={{ display: 'block', textAlign: 'center' }}
+					data-ad-layout='in-article'
+					data-ad-format='fluid'
+					data-ad-client='ca-pub-6171352055782473'
+					data-ad-slot='7426165585'></ins>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+(adsbygoogle = window.adsbygoogle || []).push({});
+`,
+					}}></script>
 				<br />
 				<hr className='main-line' />
 				<br />
