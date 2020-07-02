@@ -62,10 +62,10 @@
       height: 600px;
    }
 
-   > div {
+   >div {
       text-align: center;
 
-      > h1 {
+      >h1 {
          font-size: 42px;
          margin: 0;
          color: #fff;
@@ -126,7 +126,7 @@
       height: 320px;
    }
 
-   > h1 {
+   >h1 {
       margin: 0;
       font-size: 22px;
       color: #fff;
@@ -164,7 +164,7 @@
       transform: translateY(-4px);
    }
 
-   > .card-link-icon {
+   >.card-link-icon {
       height: 18px;
       width: 18px;
       align-self: center;
@@ -261,7 +261,7 @@ pre code {
       transform: translateY(-4px);
    }
 
-   > div > p {
+   >div>p {
       margin: 0px;
       display: flex;
       align-items: center;
@@ -290,6 +290,7 @@ pre code {
    .bar {
       background: #df49a6 !important;
    }
+
    .spinner-icon {
       border-top-color: #df49a6 !important;
       border-left-color: #df49a6 !important;
@@ -299,4 +300,41 @@ pre code {
 .twitter-tweet-rendered {
    margin-left: auto !important;
    margin-right: auto !important;
+}
+
+.row-div {
+   box-sizing: border-box;
+   display: flex;
+   flex: 0 1 auto;
+   flex-direction: row;
+   flex-wrap: wrap;
+   margin-right: -8px;
+   margin-left: -8px;
+}
+
+.card-container-col {
+   box-sizing: border-box;
+   flex: 0 0 auto;
+   padding-right: 8px;
+   padding-left: 8px;
+   flex-basis: 100%;
+   max-width: 100%;
+
+   @media #{$desktopMQ} {
+      flex-basis: 33.33333333%;
+      max-width: 33.33333333%;
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding-right: 8px;
+      padding-left: 8px;
+   }
+
+   @media #{$tabletMQ} {
+      flex-basis: 50%;
+      max-width: 50%;
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding-right: 8px;
+      padding-left: 8px;
+   }
 }

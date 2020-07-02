@@ -10,6 +10,7 @@ import moment from 'moment'
 import { GetServerSideProps } from 'next'
 import Error from 'next/error'
 import { DiscussionEmbed } from 'disqus-react'
+import { motion } from 'framer-motion'
 
 interface BlogPostProps {
 	entry: BlogEntries;
@@ -41,65 +42,54 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 	}
 
 	return (
-		<Layout>
-			<Head>
-				<title>{entry.fields.title} | iyansr.id</title>
-				<Meta
-					title={`${entry.fields.title} | iyansr.id`}
-					description={entry.fields.preview}
-					url={`https://iyansr.id/blog/${entry.fields.slug}`}
-					image={entry.fields.image.fields.file.url}
-				/>
-				<script async src='https://platform.twitter.com/widgets.js' charSet='utf-8'></script>
-			</Head>
-			<div className='page-header'>
-				<img className='banner' src={entry.fields.image.fields.file.url} alt='thumbnail' />
-				<div style={{ position: 'absolute', width: '80%' }}>
-					<h1>{entry.fields.title}</h1>
-					<p>
-						<i>{entry.fields.preview}</i>
-					</p>
-					<p className='mini-header-card'>
-						<span role='img'>🗓</span>&nbsp; {moment(entry.sys.createdAt).format('DD MMM YYYY')} &nbsp; | &nbsp; <span role='img'>☕️</span>
-						&nbsp; {totalRead} Min Read
-					</p>
+		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+			<Layout>
+				<Head>
+					<title>{entry.fields.title} | iyansr.id</title>
+					<Meta
+						title={`${entry.fields.title} | iyansr.id`}
+						description={entry.fields.preview}
+						url={`https://iyansr.id/blog/${entry.fields.slug}`}
+						image={entry.fields.image.fields.file.url}
+					/>
+					<script async src='https://platform.twitter.com/widgets.js' charSet='utf-8'></script>
+				</Head>
+				<div className='page-header'>
+					<img className='banner' src={entry.fields.image.fields.file.url} alt='thumbnail' />
+					<div style={{ position: 'absolute', width: '80%' }}>
+						<h1>{entry.fields.title}</h1>
+						<p>
+							<i>{entry.fields.preview}</i>
+						</p>
+						<p className='mini-header-card'>
+							<span role='img'>🗓</span>&nbsp; {moment(entry.sys.createdAt).format('DD MMM YYYY')} &nbsp; | &nbsp; <span role='img'>☕️</span>
+							&nbsp; {totalRead} Min Read
+						</p>
+					</div>
 				</div>
-			</div>
-			<br />
-			<hr className='main-line' />
-			<br />
-
-			<div className='post-wrapper'>
-				<ReactMarkdown source={entry.fields.content} escapeHtml={false} />
-				<script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-				<ins
-					className='adsbygoogle'
-					style={{ display: 'block', textAlign: 'center' }}
-					data-ad-layout='in-article'
-					data-ad-format='fluid'
-					data-ad-client='ca-pub-6171352055782473'
-					data-ad-slot='7426165585'></ins>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
-(adsbygoogle = window.adsbygoogle || []).push({});
-`,
-					}}></script>
 				<br />
 				<hr className='main-line' />
 				<br />
 
-				<DiscussionEmbed
-					shortname='iyansr-1'
-					config={{
-						url: `https://iyansr.id/blog/${params.slug}`,
-						identifier: params.slug,
-						title: entry.fields.title,
-						language: 'id_ID', //e.g. for Traditional Chinese (Taiwan)
-					}}
-				/>
-			</div>
-		</Layout>
+				<div className='post-wrapper'>
+					<ReactMarkdown source={entry.fields.content} escapeHtml={false} />
+
+					<br />
+					<hr className='main-line' />
+					<br />
+
+					<DiscussionEmbed
+						shortname='iyansr-1'
+						config={{
+							url: `https://iyansr.id/blog/${params.slug}`,
+							identifier: params.slug,
+							title: entry.fields.title,
+							language: 'id_ID', //e.g. for Traditional Chinese (Taiwan)
+						}}
+					/>
+				</div>
+			</Layout>
+		</motion.div>
 	)
 }
 

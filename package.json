@@ -19,6 +19,7 @@
     "axios": "^0.19.2",
     "contentful": "^7.14.5",
     "disqus-react": "^1.0.9",
+    "framer-motion": "^1.11.1",
     "highlight.js": "^10.1.1",
     "mixpanel-browser": "^2.38.0",
     "moment": "^2.27.0",
