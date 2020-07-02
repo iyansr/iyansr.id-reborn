@@ -24,6 +24,7 @@ const Meta = ({ title, description, url, image }: MetaProps) => {
 			<meta property='twitter:title' content={title} />
 			<meta property='twitter:description' content={description} />
 			<meta property='twitter:image' content={image} />
+			<meta name='p:domain_verify' content='1c45cd484910f8887fdf4c4fe4332510' />
 		</Fragment>
 	)
 }
