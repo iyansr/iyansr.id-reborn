@@ -4,7 +4,7 @@
          "NEXT_PUBLIC_CONTENTFUL_SPACE_ID": "@contentful_space_id",
          "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token",
          "NEXT_PUBLIC_MIXPANEL_TOKEN": "@mixpanel_token",
-         "NEXT_STRAPI_URL": "@strapi_url"
+         "NEXT_STRAPI_URL": "@strapi_url1"
       }
    }
 }
