@@ -1,7 +1,7 @@
 {
    "build": {
       "env": {
-         "API_URL": "@iyansr_api_url"
+         "NEXT_PUBLIC_STRAPI_URL": "@iyansr_api_url"
       }
    }
 }

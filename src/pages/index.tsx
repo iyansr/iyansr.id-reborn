@@ -34,7 +34,6 @@ interface IyanRepos {
 }
 
 const Home = ({ repos }: IyanRepos) => {
-	console.log(process.env.API_URL)
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Layout>
