@@ -2,7 +2,7 @@ import { Blogs, BlogType } from '@customType/blogs'
 import { Portfolios, Portfolio } from '@customType/portfolios'
 
 async function fetchAPI(query: string, { variables }: any) {
-	const res = await fetch(`${process.env.NEXT_STRAPI_URL}/graphql`, {
+	const res = await fetch(`${process.env.API_URL}/graphql`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
