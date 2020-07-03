@@ -1,16 +1,17 @@
-import Layout from '../../Components/Layout'
+import Layout from '@components/Layout'
 import Head from 'next/head'
 import Link from 'next/link'
-import Meta from '../../Components/Meta'
-import { client } from '../../../utils/contentful'
+import Meta from '@components/Meta'
 import { Row, Col } from 'react-flexbox-grid/dist/react-flexbox-grid'
-import { BlogProps, BlogEntries } from '../../types/iyansr'
-import Card from '../../Components/Card'
+import { BlogProps } from '@customType/iyansr'
+import { BlogType } from '@customType/blogs'
+import Card from '@components/Card'
 import moment from 'moment'
 import { GetServerSideProps } from 'next'
 import { motion } from 'framer-motion'
+import { getAllPosts } from '@utils/api'
 
-const Blog = ({ entries }: BlogProps) => {
+const Blog = ({ blogs }: BlogProps) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Layout>
@@ -34,27 +35,27 @@ const Blog = ({ entries }: BlogProps) => {
 
 				<div>
 					<Row>
-						{entries.map((entry: BlogEntries) => {
+						{blogs.map((blog: BlogType) => {
 							const wpm = 200
-							let textLength = entry.fields.content.split(' ').length
+							let textLength = blog.content.split(' ').length
 							let totalRead
 							if (textLength > 0) {
 								totalRead = Math.ceil(textLength / wpm)
 							}
 							return (
-								<Col sm={24} xs={24} md={6} lg={4} key={entry.sys.id}>
+								<Col sm={24} xs={24} md={6} lg={4} key={blog.id}>
 									<Card
 										title={
-											<Link as={`/blog/${entry.fields.slug}`} href='/blog/[slug]'>
-												<a>{entry.fields.title}</a>
+											<Link as={`/blog/${blog.slug}`} href='/blog/[slug]'>
+												<a>{blog.title}</a>
 											</Link>
 										}
-										imgUrl={entry.fields.image.fields.file.url}
-										tags={entry.fields.tags}
-										preview={<p style={{ marginTop: '20px' }}>{entry.fields.preview}</p>}
+										imgUrl={blog.thumbnail.url}
+										tags={blog.tags}
+										preview={<p style={{ marginTop: '20px' }}>{blog.description}</p>}
 										miniHeader={
 											<p className='mini-header-card'>
-												<span role='img'>🗓</span>&nbsp; {moment(entry.sys.createdAt).format('DD MMM YYYY')} &nbsp; | &nbsp;{' '}
+												<span role='img'>🗓</span>&nbsp; {moment(blog.published_at, 'YYYY-MM-DD').format('DD MMM YYYY')} &nbsp; | &nbsp;{' '}
 												<span role='img'>☕️</span>
 												&nbsp; {totalRead} Min Read
 											</p>
@@ -71,14 +72,11 @@ const Blog = ({ entries }: BlogProps) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const rawEntry = await client.getEntries({
-		content_type: 'article',
-		// 'fields.slug[in]': 'postingan-pertama',
-	})
+	const blogs = await getAllPosts()
 
 	return {
 		props: {
-			entries: rawEntry.items,
+			blogs,
 		},
 	}
 }

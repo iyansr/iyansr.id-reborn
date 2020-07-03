@@ -4,9 +4,7 @@ class MyDocument extends Document {
 	render() {
 		return (
 			<Html lang='id, in'>
-				<Head>
-					<script async src='https://www.googletagmanager.com/gtag/js?id=UA-171266287-1'></script>
-				</Head>
+				<Head>{process.env.NODE_ENV === 'production' && <script async src='https://www.googletagmanager.com/gtag/js?id=UA-171266287-1'></script>}</Head>
 				<body>
 					<Main />
 					<NextScript />

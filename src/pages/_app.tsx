@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app'
-import '../styles/main.scss'
+import '@styles/main.scss'
 import 'react-flexbox-grid/dist/react-flexbox-grid.css'
 import 'highlight.js/styles/atom-one-dark-reasonable.css'
 import { AnimatePresence } from 'framer-motion'

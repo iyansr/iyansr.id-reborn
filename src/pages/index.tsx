@@ -1,8 +1,8 @@
-import Layout from '../Components/Layout'
+import Layout from '@components/Layout'
 import { Img } from 'react-image'
 import Head from 'next/head'
 import { Row, Col } from 'react-flexbox-grid/dist/react-flexbox-grid'
-import Meta from '../Components/Meta'
+import Meta from '@components/Meta'
 import Axios from 'axios'
 
 import RepoIcon from '../assets/svg/github-brands.svg'

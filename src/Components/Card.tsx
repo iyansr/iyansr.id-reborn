@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { Row, Col } from 'react-flexbox-grid/dist/react-flexbox-grid'
-import { Tag } from '../types/iyansr'
+import { Tag } from '@customType/blogs'
 
 interface CardProps {
 	title: ReactNode | string;
@@ -12,19 +12,6 @@ interface CardProps {
 }
 
 const Card = ({ title, preview, tags, footer, imgUrl, miniHeader }: CardProps) => {
-	const getTagClassname = (label: string) => {
-		switch (label) {
-			case 'js':
-				return 'tags-js'
-			case 'rn':
-				return 'tags-rn'
-			case 'random':
-				return 'tags-rn'
-
-			default:
-				return 'tags-rn'
-		}
-	}
 	return (
 		<div className='card'>
 			<div className='card-image-wrapper'>
@@ -35,14 +22,16 @@ const Card = ({ title, preview, tags, footer, imgUrl, miniHeader }: CardProps) =
 				<h1>{title}</h1>
 				<Row>
 					{tags &&
-						tags.map((tag, index: number) => (
-							<Col key={index}>
-								<span className={`tags ${getTagClassname(tag.type)}`}>{tag.label}</span>
+						tags.map((tag: Tag) => (
+							<Col key={tag.id}>
+								<span className={`tags`} style={{ color: tag.color, background: tag.bg_color }}>
+									{tag.name}
+								</span>
 							</Col>
 						))}
 				</Row>
 
-				<div>{miniHeader}</div>
+				<div>{miniHeader || <p></p>}</div>
 
 				{preview}
 			</div>

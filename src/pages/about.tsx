@@ -1,6 +1,6 @@
-import Layout from '../Components/Layout'
+import Layout from '@components/Layout'
 import Head from 'next/head'
-import Meta from '../Components/Meta'
+import Meta from '@components/Meta'
 import { motion } from 'framer-motion'
 
 const About = () => {

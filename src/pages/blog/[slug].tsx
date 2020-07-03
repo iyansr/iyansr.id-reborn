@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
-import { client } from '../../../utils/contentful'
-import { BlogEntries } from '../../types/iyansr'
-import Layout from '../../Components/Layout'
+import Layout from '@components/Layout'
 import Head from 'next/head'
-import Meta from '../../Components/Meta'
+import Meta from '@components/Meta'
 import ReactMarkdown from 'react-markdown'
 import hljs from 'highlight.js'
 import moment from 'moment'
@@ -11,16 +9,19 @@ import { GetServerSideProps } from 'next'
 import Error from 'next/error'
 import { DiscussionEmbed } from 'disqus-react'
 import { motion } from 'framer-motion'
+import { getPostBySlug } from '@utils/api'
+import { BlogType } from '@customType/blogs'
 
 interface BlogPostProps {
-	entry: BlogEntries;
 	params: {
 		slug: string,
 	};
+	blogsBySlug: BlogType;
 }
 
-const BlogPost = ({ entry, params }: BlogPostProps) => {
-	if (!entry) {
+const BlogPost = ({ params, blogsBySlug }: BlogPostProps) => {
+	console.log(blogsBySlug)
+	if (!blogsBySlug) {
 		return <Error statusCode={404} />
 	}
 
@@ -35,7 +36,7 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 	})
 
 	const wpm = 200
-	let textLength = entry.fields.content.split(' ').length
+	let textLength = blogsBySlug.content.split(' ').length
 	let totalRead
 	if (textLength > 0) {
 		totalRead = Math.ceil(textLength / wpm)
@@ -45,24 +46,25 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Layout>
 				<Head>
-					<title>{entry.fields.title} | iyansr.id</title>
+					<title>{blogsBySlug.title} | iyansr.id</title>
 					<Meta
-						title={`${entry.fields.title} | iyansr.id`}
-						description={entry.fields.preview}
-						url={`https://iyansr.id/blog/${entry.fields.slug}`}
-						image={entry.fields.image.fields.file.url}
+						title={`${blogsBySlug.title} | iyansr.id`}
+						description={blogsBySlug.description}
+						url={`https://iyansr.id/blog/${blogsBySlug.slug}`}
+						image={blogsBySlug.thumbnail.url}
 					/>
 					<script async src='https://platform.twitter.com/widgets.js' charSet='utf-8'></script>
 				</Head>
 				<div className='page-header'>
-					<img className='banner' src={entry.fields.image.fields.file.url} alt='thumbnail' />
+					<img className='banner' src={blogsBySlug.thumbnail.url} alt='thumbnail' />
 					<div style={{ position: 'absolute', width: '80%' }}>
-						<h1>{entry.fields.title}</h1>
+						<h1>{blogsBySlug.title}</h1>
 						<p>
-							<i>{entry.fields.preview}</i>
+							<i>{blogsBySlug.description}</i>
 						</p>
 						<p className='mini-header-card'>
-							<span role='img'>🗓</span>&nbsp; {moment(entry.sys.createdAt).format('DD MMM YYYY')} &nbsp; | &nbsp; <span role='img'>☕️</span>
+							<span role='img'>🗓</span>&nbsp; {moment(blogsBySlug.published_at, 'YYYY-MM-DD').format('DD MMM YYYY')} &nbsp; | &nbsp;{' '}
+							<span role='img'>☕️</span>
 							&nbsp; {totalRead} Min Read
 						</p>
 					</div>
@@ -72,7 +74,7 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 				<br />
 
 				<div className='post-wrapper'>
-					<ReactMarkdown source={entry.fields.content} escapeHtml={false} />
+					<ReactMarkdown source={blogsBySlug.content} escapeHtml={false} />
 
 					<br />
 					<hr className='main-line' />
@@ -83,7 +85,7 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 						config={{
 							url: `https://iyansr.id/blog/${params.slug}`,
 							identifier: params.slug,
-							title: entry.fields.title,
+							title: blogsBySlug.title,
 							language: 'id_ID', //e.g. for Traditional Chinese (Taiwan)
 						}}
 					/>
@@ -94,15 +96,12 @@ const BlogPost = ({ entry, params }: BlogPostProps) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-	const rawEntry = await client.getEntries({
-		content_type: 'article',
-		'fields.slug[in]': params?.slug,
-	})
+	const blogsBySlug = await getPostBySlug(params?.slug)
 
 	return {
 		props: {
-			entry: rawEntry.items[0] || null,
 			params: params,
+			blogsBySlug,
 		},
 	}
 }

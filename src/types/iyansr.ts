@@ -1,3 +1,5 @@
+import { Blogs } from './blogs'
+
 export interface Tag {
 	type: 'js' | 'rn';
 	label: string;
@@ -30,4 +32,5 @@ export interface BlogFields {
 
 export interface BlogProps {
 	entries: BlogEntries[];
+	blogs: Blogs;
 }
