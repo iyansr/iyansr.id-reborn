@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Meta from '@components/Meta'
 import { motion } from 'framer-motion'
 
-const About = () => {
+const About: React.FC = () => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Layout>

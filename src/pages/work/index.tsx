@@ -15,7 +15,7 @@ interface WorkProps {
 	portfolios: Portfolios;
 }
 
-const Work = ({ portfolios }: WorkProps) => {
+const Work: React.FC<WorkProps> = ({ portfolios }) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Layout>

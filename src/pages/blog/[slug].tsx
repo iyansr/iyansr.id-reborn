@@ -19,8 +19,7 @@ interface BlogPostProps {
 	blogsBySlug: BlogType;
 }
 
-const BlogPost = ({ params, blogsBySlug }: BlogPostProps) => {
-	console.log(blogsBySlug)
+const BlogPost: React.FC<BlogPostProps> = ({ params, blogsBySlug }) => {
 	if (!blogsBySlug) {
 		return <Error statusCode={404} />
 	}

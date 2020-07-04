@@ -11,7 +11,7 @@ import { GetServerSideProps } from 'next'
 import { motion } from 'framer-motion'
 import { getAllPosts } from '@utils/api'
 
-const Blog = ({ blogs }: BlogProps) => {
+const Blog: React.FC<BlogProps> = ({ blogs }) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Layout>
