@@ -9,6 +9,8 @@ class MyDocument extends Document {
 					<link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap' rel='stylesheet' />
 					<link href='https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap' rel='stylesheet' />
 					<link rel='shortcut icon' href='/favicon.ico' />
+					<link rel='stylesheet' href='/icofont.css' />
+					<link rel='stylesheet' href='/icofont.min.css' />
 					{process.env.NODE_ENV === 'production' && (
 						<Fragment>
 							<script async src='https://www.googletagmanager.com/gtag/js?id=UA-171266287-1'></script>

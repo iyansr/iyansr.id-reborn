@@ -33,3 +33,14 @@ a {
 .main-logo {
    font-family: "Fugaz One", cursive;
 }
+
+#nprogress {
+   .bar {
+      background: #6649b8 !important;
+   }
+
+   .spinner-icon {
+      border-top-color: #6649b8 !important;
+      border-left-color: #6649b8 !important;
+   }
+}

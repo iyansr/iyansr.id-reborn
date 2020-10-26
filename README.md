@@ -15,10 +15,6 @@
 - [x] Twitter Embed
 - Request ? 
 
-## To-Do Development 
-
-- [x] Setup CMS with contentful
-
 ### Special Thanks to :
 
 - [Fireship.io](https://fireship.io/)

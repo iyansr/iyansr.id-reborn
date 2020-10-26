@@ -3,8 +3,14 @@ import Meta from '@components/Meta'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
+import fs from 'fs'
+import Link from 'next/link'
 
-const Blog = () => {
+type BlogProps = {
+	slugs: string[],
+}
+
+const Blog = ({ slugs }: BlogProps) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
@@ -24,10 +30,34 @@ const Blog = () => {
 					</div>
 				</div>
 				<hr />
+
+				<div>
+					<div>
+						slugs:
+						{slugs.map((slug) => {
+							return (
+								<div key={slug}>
+									<Link href={'/blog/[slug]'} as={`/blog/${slug}`} shallow={false}>
+										<a>{'/blog/' + slug}</a>
+									</Link>
+								</div>
+							)
+						})}
+					</div>
+				</div>
 			</div>
 			<Footer />
 		</motion.div>
 	)
+}
+
+export const getStaticProps = async () => {
+	const files = fs.readdirSync('src/posts')
+	return {
+		props: {
+			slugs: files.map((filename) => filename.replace('.md', '')),
+		},
+	}
 }
 
 export default Blog

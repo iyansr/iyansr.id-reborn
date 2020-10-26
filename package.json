@@ -13,9 +13,14 @@
     "watch:css": "postcss src/assets/styles/tailwind.scss -o src/assets/styles/main.scss"
   },
   "dependencies": {
+    "@types/marked": "^1.1.0",
+    "@types/nprogress": "^0.2.0",
     "framer-motion": "^2.9.4",
+    "gray-matter": "^4.0.2",
+    "marked": "^1.2.2",
     "next": "^9.5.5",
     "node-sass": "^4.14.1",
+    "nprogress": "^0.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "tailwindcss": "^1.9.6"
