@@ -15,7 +15,6 @@
 # production
 /build
 
-src/assets/styles/main.scss
 
 # misc
 .DS_Store
