@@ -2,6 +2,14 @@
    font-family: "Poppins", sans-serif;
 }
 
+:active {
+   outline: none !important;
+}
+
+input:active {
+   outline: none !important;
+}
+
 body::-webkit-scrollbar {
    width: 0.25rem;
 }
@@ -20,4 +28,8 @@ hr {
 
 a {
    @apply text-pink-500;
+}
+
+.main-logo {
+   font-family: "Fugaz One", cursive;
 }

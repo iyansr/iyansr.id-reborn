@@ -1,17 +1,21 @@
 import React from 'react'
 import Meta from '@components/Meta'
 import Footer from '@components/Footer'
+import Header from '@components/Header'
+import { motion } from 'framer-motion'
 
 const Home = () => {
 	return (
-		<div>
+		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
 				title='Iyan Saputra — Full Stack Developer | iyansr.id'
 				description='A Fullstack Developer who passionate about modern mobile and web technology using Node JS, React JS, React Native, and Flutter. And would be a
 						fast learner to doing new things and build good teamwork either. Can become a project leader/manager and using tools like Trello to manage
 						project and task.'
 			/>
-			<div className='container mx-auto'>
+
+			<div className='container mx-auto px-6 md:px-0'>
+				<Header />
 				<div className='my-12'>
 					<img
 						src='https://avatars3.githubusercontent.com/u/42711013?s=460&v=4'
@@ -46,7 +50,7 @@ const Home = () => {
 				</div>
 			</div>
 			<Footer />
-		</div>
+		</motion.div>
 	)
 }
 
