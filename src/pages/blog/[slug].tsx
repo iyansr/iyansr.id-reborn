@@ -5,6 +5,7 @@ import matter from 'gray-matter'
 import marked from 'marked'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 type BlogType = {
 	htmlString: string,
@@ -16,12 +17,12 @@ type BlogType = {
 
 const DetailBlog = ({ htmlString, data }: BlogType) => {
 	return (
-		<div>
-			<Link href='/blog' shallow={true}>
+		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+			<Link href='/blog'>
 				<a>back</a>
 			</Link>
 			<div dangerouslySetInnerHTML={{ __html: htmlString }} />
-		</div>
+		</motion.div>
 	)
 }
 

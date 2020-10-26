@@ -37,7 +37,7 @@ const Blog = ({ slugs }: BlogProps) => {
 						{slugs.map((slug) => {
 							return (
 								<div key={slug}>
-									<Link href={'/blog/[slug]'} as={`/blog/${slug}`} shallow={false}>
+									<Link href={'/blog/[slug]'} as={`/blog/${slug}`} shallow>
 										<a>{'/blog/' + slug}</a>
 									</Link>
 								</div>
