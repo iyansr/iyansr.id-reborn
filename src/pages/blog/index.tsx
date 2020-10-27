@@ -7,19 +7,32 @@ import fs from 'fs'
 import Link from 'next/link'
 import matter from 'gray-matter'
 import path from 'path'
+import { GetStaticProps } from 'next'
 
 type BlogProps = {
-	slugs: string[],
+	fileList: FileType[],
 }
 
-const Blog = ({ slugs }: BlogProps) => {
+type FileType = {
+	description: string,
+	title: string,
+	thumbnail: string,
+	keyword: string,
+	date: string,
+	slug: string,
+	tags: {
+		label: string,
+		color: string,
+	}[],
+}
+
+const Blog = ({ fileList }: BlogProps) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta title='Blog' description="'If I tell you what happen, it won't happen.'" />
 
 			<div className='container mx-auto px-6 md:px-0'>
 				<Header />
-
 				<div className='my-12'>
 					<div className='mx-auto text-center h-40 space-y-2 flex flex-col justify-evenly'>
 						<h1 className='font-bold text-3xl md:text-4xl'>Blog</h1>
@@ -28,18 +41,18 @@ const Blog = ({ slugs }: BlogProps) => {
 				</div>
 				<hr />
 
-				<div>
-					<div>
-						slugs:
-						{slugs.map((slug) => {
-							return (
-								<div key={slug}>
-									<Link href={'/blog/[slug]'} as={`/blog/${slug}`} shallow>
-										<a>{'/blog/' + slug}</a>
-									</Link>
+				<div className='mt-12'>
+					<div className='grid grid-cols-4 gap-4'>
+						{fileList
+							.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+							.map((file, index) => (
+								<div className='bg-secondary rounded-md shadow-md hover:shadow-xl transition duration-200 transform hover:-translate-y-1' key={index}>
+									<img className='w-full h-40 object-cover rounded-t-md' src={file.thumbnail} alt={file.title} />
+
+									<div></div>
+									<p>{file.title}</p>
 								</div>
-							)
-						})}
+							))}
 					</div>
 				</div>
 			</div>
@@ -48,8 +61,7 @@ const Blog = ({ slugs }: BlogProps) => {
 	)
 }
 
-export const getStaticProps = async () => {
-	const files = fs.readdirSync('src/content/posts')
+export const getStaticProps: GetStaticProps = async () => {
 	const directoryPath = path.join('src/content/posts')
 
 	const readDir = fs.readdirSync(directoryPath)
@@ -62,7 +74,6 @@ export const getStaticProps = async () => {
 
 	return {
 		props: {
-			slugs: files.map((filename) => filename.replace('.md', '')),
 			fileList,
 		},
 	}

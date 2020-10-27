@@ -1,10 +1,10 @@
 ---
-title: FAQ
+title: FAQ Lagii
 description: "Frequently Asked Questions"
 thumbnail: "https://res.cloudinary.com/iyansrcloud/image/upload/v1603790245/iyan-content/photo_1555099962_4199c345e5dd_9685824313_d9-DScbjch_eyiwtw.jpg"
 keyword: "keyword"
-date: "2020-10-23"
-slug: "coba-post"
+date: "2020-10-22"
+slug: "coba-post-lagi"
 tags: [
    {
       label: "javascript",

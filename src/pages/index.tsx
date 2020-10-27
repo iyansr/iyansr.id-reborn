@@ -8,7 +8,7 @@ const Home = () => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
-				title='iyansr.id'
+				title='Iyan Saputra — Full Stack Developer'
 				description='A Fullstack Developer who passionate about modern mobile and web technology using Node JS, React JS, React Native, and Flutter. And would be a
 						fast learner to doing new things and build good teamwork either. Can become a project leader/manager and using tools like Trello to manage
 						project and task.'

@@ -16,7 +16,7 @@ const defaultKeyword = 'iyansr, iyan saputra, programmer, react native developer
 const Meta = ({ title = defaultTitle, description, url = defaultURL, image = defaultThumbnail, keywords = defaultKeyword }: MetaProps) => {
 	return (
 		<Head>
-			<title>Iyan Saputra — Full Stack Developer | {title}</title>
+			<title>{title} | iyansr.id</title>
 			<meta name='title' content={title} />
 			<meta name='description' content={description} />
 
