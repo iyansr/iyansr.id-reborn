@@ -1,6 +1,14 @@
 ---
 title: FAQ
 description: "Frequently Asked Questions"
+thumbnail: "https://res.cloudinary.com/iyansrcloud/image/upload/v1603790245/iyan-content/photo_1555099962_4199c345e5dd_9685824313_d9-DScbjch_eyiwtw.jpg"
+keyword: "keyword"
+tags: [
+   {
+      label: "javascript",
+      color: "#ecc94b"
+   }
+]
 ---
 
 ## What keyboard do you use?
@@ -23,3 +31,35 @@ description: "Frequently Asked Questions"
 - iTerm2: [gruvbox](https://github.com/morhetz/gruvbox-contrib)
 
 If you want to see all my VSCode settings/extensions: https://gist.github.com/benawad/1e9dd01994f78489306fbfd6f7b01cd3
+
+# H1
+## H2
+### H3
+
+**bold text**
+
+*italicized text*
+
+> blockquote
+
+1. First item
+2. Second item
+3. Third item
+
+- First item
+- Second item
+- Third item
+
+`code`
+
+```jsx
+const About = () => {
+  return (
+    <div>
+      <p>Hello</p>
+    </div>
+  )
+}
+```
+
+---

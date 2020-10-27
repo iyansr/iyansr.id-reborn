@@ -6,7 +6,7 @@
             "src/components/*"
          ],
          "@utils/*": [
-            "utils/*"
+            "src/utils/*"
          ],
          "@assets/*": [
             "src/assets/*"

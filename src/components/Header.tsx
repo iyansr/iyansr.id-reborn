@@ -6,7 +6,7 @@ const Header = () => {
 	const [showMenu, setShowMenu] = useState(false)
 
 	return (
-		<div className='flex justify-between items-center md:px-6 pt-6'>
+		<div className='flex justify-between items-center md:px-6 py-4 sticky top-0 bg-primary'>
 			<div>
 				<Link href='/' passHref>
 					<a>

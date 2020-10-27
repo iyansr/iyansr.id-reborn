@@ -12,41 +12,44 @@ type BlogType = {
 	data: {
 		description: string,
 		title: string,
+		thumbnail: string,
+		keyword: string,
+		tags: {
+			label: string,
+			color: string,
+		}[],
 	},
 }
 
 const DetailBlog = ({ htmlString, data }: BlogType) => {
+	console.log(data)
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Link href='/blog'>
 				<a>back</a>
 			</Link>
+			<img src={data.thumbnail} />
 			<div dangerouslySetInnerHTML={{ __html: htmlString }} />
 		</motion.div>
 	)
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const files = fs.readdirSync('src/posts')
-	console.log('files: ', files)
+	const files = fs.readdirSync('src/content/posts')
 	const paths = files.map((filename) => ({
 		params: {
 			slug: filename.replace('.md', ''),
 		},
 	}))
-	console.log('paths: ', paths)
-
 	return {
 		paths,
 		fallback: false,
 	}
 }
 
-export const getStaticProps: any = async (ctx: { params: { slug: string } }) => {
-	const markdownWithMetadata = fs.readFileSync(path.join('src/posts', ctx.params.slug + '.md')).toString()
-
+export const getStaticProps: GetStaticProps = async (ctx) => {
+	const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', ctx.params?.slug + '.md')).toString()
 	const parsedMarkdown = matter(markdownWithMetadata)
-
 	const htmlString = marked(parsedMarkdown.content)
 
 	return {

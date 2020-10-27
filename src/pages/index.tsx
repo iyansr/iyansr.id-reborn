@@ -8,7 +8,7 @@ const Home = () => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
-				title='Iyan Saputra — Full Stack Developer | iyansr.id'
+				title='iyansr.id'
 				description='A Fullstack Developer who passionate about modern mobile and web technology using Node JS, React JS, React Native, and Flutter. And would be a
 						fast learner to doing new things and build good teamwork either. Can become a project leader/manager and using tools like Trello to manage
 						project and task.'
@@ -16,7 +16,7 @@ const Home = () => {
 
 			<div className='container mx-auto px-6 md:px-0'>
 				<Header />
-				<div className='my-12'>
+				<div className='mb-12 mt-6'>
 					<img
 						src='https://avatars3.githubusercontent.com/u/42711013?s=460&v=4'
 						alt='Iyan Saputra'
@@ -24,7 +24,10 @@ const Home = () => {
 					/>
 
 					<div className='mx-auto text-center h-64 space-y-2 flex flex-col justify-evenly'>
-						<h1 className='font-bold text-3xl md:text-4xl'>I Putu Saputrayana</h1>
+						<h1>
+							<h1 className='font-bold text-3xl md:text-4xl'>I Putu Saputrayana</h1>
+							<p>(Iyan Saputra)</p>
+						</h1>
 						<h4>Depok, Indonesia</h4>
 						<h4>Software Engineer, React Native Developer</h4>
 						<h4 className='font-bold'>DOOgether</h4>

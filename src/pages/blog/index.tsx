@@ -5,6 +5,8 @@ import Header from '@components/Header'
 import { motion } from 'framer-motion'
 import fs from 'fs'
 import Link from 'next/link'
+import matter from 'gray-matter'
+import path from 'path'
 
 type BlogProps = {
 	slugs: string[],
@@ -13,12 +15,7 @@ type BlogProps = {
 const Blog = ({ slugs }: BlogProps) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-			<Meta
-				title='Iyan Saputra — Full Stack Developer | Blog'
-				description='A Fullstack Developer who passionate about modern mobile and web technology using Node JS, React JS, React Native, and Flutter. And would be a
-						fast learner to doing new things and build good teamwork either. Can become a project leader/manager and using tools like Trello to manage
-						project and task.'
-			/>
+			<Meta title='Blog' description="'If I tell you what happen, it won't happen.'" />
 
 			<div className='container mx-auto px-6 md:px-0'>
 				<Header />
@@ -52,10 +49,21 @@ const Blog = ({ slugs }: BlogProps) => {
 }
 
 export const getStaticProps = async () => {
-	const files = fs.readdirSync('src/posts')
+	const files = fs.readdirSync('src/content/posts')
+	const directoryPath = path.join('src/content/posts')
+
+	const readDir = fs.readdirSync(directoryPath)
+	const fileList = readDir.map((file) => {
+		const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', file)).toString()
+		const parsedMarkdown = matter(markdownWithMetadata)
+
+		return parsedMarkdown.data
+	})
+
 	return {
 		props: {
 			slugs: files.map((filename) => filename.replace('.md', '')),
+			fileList,
 		},
 	}
 }
