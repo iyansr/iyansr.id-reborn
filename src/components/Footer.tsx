@@ -14,7 +14,7 @@ const Footer = () => {
 					<a>Iyan Saputra</a>
 				</Link>
 			</span>
-			<div className='flex justify-center mt-4 space-x-4'>
+			{/* <div className='flex justify-center mt-4 space-x-4'>
 				<a href='http://facebook.com/iyan.scout' target='_blank' rel='noopener noreferrer' className='text-gray-500'>
 					<div className='border border-gray-500 h-6 w-6 flex justify-center items-center rounded-sm transform hover:-translate-y-1 transition duration-200'>
 						<span>
@@ -36,7 +36,7 @@ const Footer = () => {
 						</span>
 					</div>
 				</a>
-			</div>
+			</div> */}
 		</div>
 	)
 }

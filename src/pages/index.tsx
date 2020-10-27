@@ -24,10 +24,10 @@ const Home = () => {
 					/>
 
 					<div className='mx-auto text-center h-64 space-y-2 flex flex-col justify-evenly'>
-						<h1>
+						<div>
 							<h1 className='font-bold text-3xl md:text-4xl'>I Putu Saputrayana</h1>
 							<p>(Iyan Saputra)</p>
-						</h1>
+						</div>
 						<h4>Depok, Indonesia</h4>
 						<h4>Software Engineer, React Native Developer</h4>
 						<h4 className='font-bold'>DOOgether</h4>

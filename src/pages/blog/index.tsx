@@ -3,11 +3,9 @@ import Meta from '@components/Meta'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
-import fs from 'fs'
-import Link from 'next/link'
-import matter from 'gray-matter'
-import path from 'path'
+// import Link from 'next/link'
 import { GetStaticProps } from 'next'
+import { getAllPost } from '@utils/api'
 
 type BlogProps = {
 	fileList: FileType[],
@@ -62,15 +60,7 @@ const Blog = ({ fileList }: BlogProps) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const directoryPath = path.join('src/content/posts')
-
-	const readDir = fs.readdirSync(directoryPath)
-	const fileList = readDir.map((file) => {
-		const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', file)).toString()
-		const parsedMarkdown = matter(markdownWithMetadata)
-
-		return parsedMarkdown.data
-	})
+	const fileList = getAllPost()
 
 	return {
 		props: {
