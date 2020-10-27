@@ -11,6 +11,9 @@
          "@assets/*": [
             "src/assets/*"
          ],
+         "@styles/*": [
+            "src/styles/*"
+         ],
          "@customType/*": [
             "src/types/*"
          ]

@@ -23,7 +23,7 @@ class MyDocument extends Document {
 						</Fragment>
 					)}
 				</Head>
-				<body className='bg-primary text-gray-500 text-sm md:text-base'>
+				<body className='bg-primary text-gray-500 text-sm md:text-base antialiased'>
 					<Main />
 					<NextScript />
 				</body>

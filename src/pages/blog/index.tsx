@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 // import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import { getAllPost } from '@utils/api'
+import Link from 'next/link'
 
 type BlogProps = {
 	fileList: FileType[],
@@ -44,11 +45,38 @@ const Blog = ({ fileList }: BlogProps) => {
 						{fileList
 							.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 							.map((file, index) => (
-								<div className='bg-secondary rounded-md shadow-md hover:shadow-xl transition duration-200 transform hover:-translate-y-1' key={index}>
+								<div
+									className='bg-secondary rounded-md shadow-md hover:shadow-xl transition duration-200 transform hover:-translate-y-1 post-card flex flex-col'
+									key={index}>
 									<img className='w-full h-40 object-cover rounded-t-md' src={file.thumbnail} alt={file.title} />
 
-									<div></div>
-									<p>{file.title}</p>
+									<div className='p-4 flex-1 flex flex-col'>
+										<div>
+											<div className='h-12'>
+												<Link href='/blog/[slug]' as={`/blog/${file.slug}`}>
+													<a className=' font-bold text-gray-500 hover:text-pink-500 transition-colors duration-200 truncate-2-lines'>
+														{file.title}
+													</a>
+												</Link>
+											</div>
+											<p className='text-xs text-gray-600 mt-2'>
+												<span role='img'>📅</span>&nbsp; 20 Mei 2020 | <span role='img'>☕️</span>
+												&nbsp; {20} Min Read
+											</p>
+										</div>
+
+										<div className='flex-1'>
+											<p className='truncate-3-lines mt-4 text-sm'>{file.description}</p>
+										</div>
+
+										<div className='flex flex-wrap'>
+											{file.tags.map((tag, iTag) => (
+												<div key={iTag} style={{ background: tag.color }} className='text-xs font-medium text-primary px-2 rounded-md'>
+													#{tag.label}
+												</div>
+											))}
+										</div>
+									</div>
 								</div>
 							))}
 					</div>

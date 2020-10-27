@@ -10,6 +10,14 @@ module.exports = {
 	separator: ':',
 	presets: [],
 	theme: {
+		truncate: {
+			lines: {
+				2: '2',
+				3: '3',
+				5: '5',
+				8: '8',
+			},
+		},
 		screens: {
 			sm: '640px',
 			md: '768px',
@@ -822,5 +830,5 @@ module.exports = {
 		animation: ['responsive'],
 	},
 	corePlugins: {},
-	plugins: [],
+	plugins: [require('tailwindcss-truncate-multiline')()],
 }
