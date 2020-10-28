@@ -5,6 +5,8 @@ import Header from '@components/Header'
 import { motion } from 'framer-motion'
 
 const Home = () => {
+	console.log(process.env.NEXT_PUBLIC_DISCUSS_SHORTNAME)
+	console.log(process.env.NEXT_PUBLIC_BASE_URL)
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
