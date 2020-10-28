@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
-import '@styles/app.scss'
 import '@styles/tailwind.scss'
+import '@styles/app.scss'
 import { AnimatePresence } from 'framer-motion'
 
 import Router from 'next/router'

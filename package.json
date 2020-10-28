@@ -15,6 +15,7 @@
   "dependencies": {
     "@types/marked": "^1.1.0",
     "@types/nprogress": "^0.2.0",
+    "date-fns": "^2.16.1",
     "framer-motion": "^2.9.4",
     "gray-matter": "^4.0.2",
     "marked": "^1.2.2",

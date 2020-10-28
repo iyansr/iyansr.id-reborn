@@ -6,20 +6,7 @@ import marked from 'marked'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
-type BlogType = {
-	htmlString: string,
-	data: {
-		description: string,
-		title: string,
-		thumbnail: string,
-		keyword: string,
-		tags: {
-			label: string,
-			color: string,
-		}[],
-	},
-}
+import { BlogType } from '@customType/index'
 
 const DetailBlog = ({ htmlString, data }: BlogType) => {
 	return (

@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import path from 'path'
 
 export const getAllPost = () => {
-   const directoryPath = path.join('src/content/posts')
+	const directoryPath = path.join('src/content/posts')
 	const posts = []
 	const readDir = fs.readdirSync(directoryPath)
 
@@ -13,9 +13,10 @@ export const getAllPost = () => {
 
 		posts.push({
 			slug: file.replace('.md', ''),
-			...parsedMarkdown.data
+			...parsedMarkdown.data,
+			content: parsedMarkdown.content,
 		})
-   }
-   
-   return posts
+	}
+
+	return posts
 }
