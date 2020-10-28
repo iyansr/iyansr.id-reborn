@@ -55,11 +55,11 @@ const Blog = ({ fileList }: BlogProps) => {
 											<div className='h-12'>
 												<Link href='/blog/[slug]' as={`/blog/${file.slug}`}>
 													<a className=' font-bold text-gray-500 hover:text-pink-500 transition-colors duration-200 truncate-2-lines'>
-														{file.title}
+														{file.title} lorem
 													</a>
 												</Link>
 											</div>
-											<p className='text-xs text-gray-600 mt-2'>
+											<p className='text-xs text-gray-600'>
 												<span role='img'>📅</span>&nbsp; 20 Mei 2020 | <span role='img'>☕️</span>
 												&nbsp; {20} Min Read
 											</p>
@@ -69,7 +69,7 @@ const Blog = ({ fileList }: BlogProps) => {
 											<p className='truncate-3-lines mt-4 text-sm'>{file.description}</p>
 										</div>
 
-										<div className='flex flex-wrap'>
+										<div className='flex flex-wrap space-x-2 mt-1'>
 											{file.tags.map((tag, iTag) => (
 												<div key={iTag} style={{ background: tag.color }} className='text-xs font-medium text-primary px-2 rounded-md'>
 													#{tag.label}
