@@ -16,7 +16,7 @@ const Error = () => {
 					<div className='mx-auto text-center h-40 space-y-2 flex flex-col justify-evenly'>
 						<h1 className='font-bold text-3xl md:text-4xl'>Uh oh.. you're lost 😶</h1>
 						<Link href='/'>
-							<a>Back to Home</a>
+							<a className='font-semibold'>Back to Home</a>
 						</Link>
 					</div>
 				</div>
