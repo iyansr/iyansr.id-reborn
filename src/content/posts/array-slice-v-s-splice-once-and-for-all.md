@@ -1,7 +1,7 @@
 ---
 title: Array slice v/s splice once and for all!
 description: You know there exists a slice as well as a splice method on the Array prototype but still, open google, type javascript array slice, then javascript array splice, compare them and then make your decision, every single time!
-thumbnail: https://ik.imagekit.io/iyansr/iyansr-content/8d0r07xdvrs91zd486xb_455d29850b__Jx-8qvwF?1740871.4800000016
+thumbnail: https://res.cloudinary.com/iyansrcloud/image/upload/h_420,w_1000,c_fill/v1603899390/iyan-content/8d0r07xdvrs91zd486xb_455d29850b__Jx-8qvwF_x6n7yo.jpg
 keyword: "array, javascript js array, array splice, js array scplice, javascript array slice, array slice"
 date: "2020-06-28"
 tags: ["javascript"]

@@ -9,6 +9,15 @@ export type FileType = {
 	tags: string[],
 }
 
+export type WorkType = {
+	name: string,
+	description: string,
+	github: string | null,
+	website: string | null,
+	image: string,
+	stacks: string[],
+}
+
 export type BlogType = {
 	htmlString: string,
 	data: FileType,

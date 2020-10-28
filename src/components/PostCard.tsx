@@ -25,9 +25,9 @@ const PostCard = (file: FileType) => {
 					<p className='truncate-3-lines mt-4 text-sm'>{file.description}</p>
 				</div>
 
-				<div className='flex flex-wrap space-x-2 mt-1'>
+				<div className='flex flex-wrap'>
 					{file.tags.map((tag, iTag) => (
-						<div key={iTag} className='text-xs font-medium text-gray-200 px-2 rounded-md bg-purple-800 '>
+						<div key={iTag} className='text-xs font-medium text-gray-200 px-2 rounded-md bg-purple-800 mr-2 mt-2'>
 							#{tag}
 						</div>
 					))}

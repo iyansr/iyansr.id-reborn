@@ -27,16 +27,25 @@ const DetailBlog = ({ htmlString, data, randomPost }: BlogType) => {
 
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-			<Meta title={data.title} description={data.description} keywords={data.keyword} />
+			<Meta
+				title={data.title}
+				description={data.description}
+				keywords={data.keyword}
+				image={data.thumbnail}
+				url={`${process.env.NEXT_PUBLIC_BASE_URL}/blog/${data.slug}`}
+			/>
 
 			<div className='container mx-auto px-6'>
 				<Header />
 				<div className='mt-12 flex space-x-4'>
-					<div className='w-9/12'>
+					<div className='w-full md:w-9/12'>
 						<div className='bg-secondary rounded-md border border-gray-800'>
-							<img src={data.thumbnail} alt={data.title} className='w-full object-cover rounded-t-md' style={{ height: '350px' }} />
-							<div className='px-12 py-8'>
-								<h1 className='text-5xl font-bold'>{data.title}</h1>
+							<div className='relative w-full'>
+								<img src={data.thumbnail} alt={data.title} className='w-full h-full object-cover rounded-t-md z-40' />
+							</div>
+
+							<div className='px-6 md:px-12 py-8'>
+								<h1 className='text-3xl md:text-5xl font-bold'>{data.title}</h1>
 
 								<div className='flex flex-wrap space-x-2 mt-1 mb-2'>
 									{data.tags.map((tag, iTag) => (
@@ -70,7 +79,7 @@ const DetailBlog = ({ htmlString, data, randomPost }: BlogType) => {
 						</div>
 					</div>
 
-					<div className='w-3/12 relative'>
+					<div className='hidden md:block md:w-3/12 relative'>
 						<h1 className='text-lg font-bold'>Random Post</h1>
 						<div className='w-1/2 h-1 bg-purple-700 mt-1' />
 

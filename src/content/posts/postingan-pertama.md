@@ -1,7 +1,7 @@
 ---
 title: Postingan Pertama
 description: Postingan Pertama Yang Masih Berantakan
-thumbnail: https://res.cloudinary.com/iyansrcloud/image/upload/v1603790245/iyan-content/photo_1555099962_4199c345e5dd_9685824313_d9-DScbjch_eyiwtw.jpg
+thumbnail: https://res.cloudinary.com/iyansrcloud/image/upload/h_420,w_1000,c_fill/v1603790245/iyan-content/photo_1555099962_4199c345e5dd_9685824313_d9-DScbjch_eyiwtw.jpg
 keyword: random
 date: "2020-06-27"
 tags: ["random"]

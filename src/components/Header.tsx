@@ -37,7 +37,7 @@ const Header = () => {
 								<div className='w-64 px-4 py-2 hover:bg-purple-700 transition duration-200 text-gray-500 rounded-t-md'>Blog</div>
 							</a>
 						</Link>
-						<Link href='/portfolio' passHref>
+						<Link href='/work' passHref>
 							<a onClick={() => setShowMenu(false)}>
 								<div className='w-64 px-4 py-2 hover:bg-purple-700 transition duration-200 text-gray-500'>Portfolio</div>
 							</a>

@@ -10,6 +10,12 @@ class MyDocument extends Document {
 					<link href='https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap' rel='stylesheet' />
 					<link rel='shortcut icon' href='/favicon.ico' />
 					<script async src='https://platform.twitter.com/widgets.js' charSet='utf-8'></script>
+					<link
+						rel='stylesheet'
+						href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
+						integrity='sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=='
+						crossOrigin='anonymous'
+					/>
 					{process.env.NODE_ENV === 'production' && (
 						<Fragment>
 							<script async src='https://www.googletagmanager.com/gtag/js?id=UA-171266287-1'></script>

@@ -1,7 +1,7 @@
 ---
 title: Membuat Custom Email Secara GRATIS Dengan ImprovMX
 description: Bikin custom E-mail engga harus bayar !!
-thumbnail: https://ik.imagekit.io/iyansr/iyansr-content/improvmx_slogan_2de5878915_LNf7K9Lflh?6436294.800000004
+thumbnail: https://res.cloudinary.com/iyansrcloud/image/upload/h_420,w_1000,c_fill/v1603899804/iyan-content/improvmx_slogan_2de5878915_LNf7K9Lflh_n1ddkv.png
 keyword: "email gratis, improvms, custom email gratis, email domain gratis"
 date: "2020-06-29"
 tags: ["tutorial"]

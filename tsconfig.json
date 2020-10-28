@@ -14,6 +14,9 @@
          "@styles/*": [
             "src/styles/*"
          ],
+         "@content/*": [
+            "src/content/*"
+         ],
          "@customType/*": [
             "src/types/*"
          ]
