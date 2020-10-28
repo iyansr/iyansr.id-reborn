@@ -18,6 +18,7 @@
 ### Special Thanks to :
 
 - [Fireship.io](https://fireship.io/)
+- [Ben Awad](https://www.youtube.com/channel/UC-8QAzbLcRglXeN_MY9blyw)
 
 ***
 
