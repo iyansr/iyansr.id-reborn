@@ -24,6 +24,25 @@ export const getAllPost = () => {
 	return posts
 }
 
+export const getRandomPost = (slug: any) => {
+	const directoryPath = path.join('src/content/posts')
+	const posts = []
+	const readDir = fs.readdirSync(directoryPath).filter((fileDir) => fileDir.replace('.md', '') !== slug)
+
+	for (const file of readDir) {
+		const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', file)).toString()
+		const parsedMarkdown = matter(markdownWithMetadata)
+
+		posts.push({
+			slug: file.replace('.md', ''),
+			...parsedMarkdown.data,
+			content: parsedMarkdown.content,
+		})
+	}
+
+	return posts[Math.floor(Math.random() * readDir.length)]
+}
+
 export const gePath = (): PathType[] => {
 	const files: string[] = fs.readdirSync('src/content/posts')
 	const paths: PathType[] = []

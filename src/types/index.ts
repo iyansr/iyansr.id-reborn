@@ -12,6 +12,7 @@ export type FileType = {
 export type BlogType = {
 	htmlString: string,
 	data: FileType,
+	randomPost: FileType,
 }
 
 export type BlogProps = {

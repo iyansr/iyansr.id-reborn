@@ -3,15 +3,16 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import hljs from 'highlight.js'
 import { motion } from 'framer-motion'
 import { BlogType } from '@customType/index'
-import { gePath, getSinglePost } from '@utils/api'
+import { gePath, getRandomPost, getSinglePost } from '@utils/api'
 import Meta from '@components/Meta'
 import Header from '@components/Header'
 import readingTime from '@utils/readingTime'
 import { format } from 'date-fns'
 import Footer from '@components/Footer'
 import { DiscussionEmbed } from 'disqus-react'
+import PostCard from '@components/PostCard'
 
-const DetailBlog = ({ htmlString, data }: BlogType) => {
+const DetailBlog = ({ htmlString, data, randomPost }: BlogType) => {
 	console.log(process.env.NEXT_PUBLIC_DISCUSS_SHORTNAME)
 	console.log(process.env.NEXT_PUBLIC_BASE_URL)
 	const updateCodeSyntaxHighlighting = () => {
@@ -69,8 +70,13 @@ const DetailBlog = ({ htmlString, data }: BlogType) => {
 						</div>
 					</div>
 
-					<div className='w-3/12'>
-						<p>{data.slug}</p>
+					<div className='w-3/12 relative'>
+						<h1 className='text-lg font-bold'>Random Post</h1>
+						<div className='w-1/2 h-1 bg-purple-700 mt-1' />
+
+						<div className='py-4'>
+							<PostCard {...randomPost} />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -89,10 +95,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const htmlString = getSinglePost(params?.slug)
+	const props = getSinglePost(params?.slug)
+	const randomPost = getRandomPost(params?.slug)
 
 	return {
-		props: htmlString,
+		props: { ...props, randomPost },
 	}
 }
 

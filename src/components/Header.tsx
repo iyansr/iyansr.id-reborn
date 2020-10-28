@@ -6,7 +6,7 @@ const Header = () => {
 	const [showMenu, setShowMenu] = useState(false)
 
 	return (
-		<div className='flex justify-between items-center md:px-6 py-4 sticky top-0 bg-primary'>
+		<div className='flex justify-between items-center md:px-6 py-4 sticky top-0 bg-primary z-50'>
 			<div>
 				<Link href='/' passHref>
 					<a>
@@ -31,7 +31,7 @@ const Header = () => {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.2, ease: 'easeInOut' }}
-						className='absolute bg-secondary text-left right-0 rounded-md shadow-lg'>
+						className='absolute bg-secondary text-left right-0 rounded-md shadow-lg z-50'>
 						<Link href='/blog' passHref>
 							<a onClick={() => setShowMenu(false)}>
 								<div className='w-64 px-4 py-2 hover:bg-purple-700 transition duration-200 text-gray-500 rounded-t-md'>Blog</div>
