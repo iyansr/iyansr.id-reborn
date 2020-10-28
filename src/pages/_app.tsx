@@ -1,7 +1,9 @@
 import { AppProps } from 'next/app'
+import { AnimatePresence } from 'framer-motion'
+
 import '@styles/tailwind.scss'
 import '@styles/app.scss'
-import { AnimatePresence } from 'framer-motion'
+import 'highlight.js/styles/atom-one-dark-reasonable.css'
 
 import Router from 'next/router'
 import NProgress from 'nprogress' //nprogress module

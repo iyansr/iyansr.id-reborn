@@ -3,3 +3,52 @@
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+
+@layer components {
+   .post-wrapper {
+      h1 {
+         @apply text-3xl;
+         @apply font-bold;
+         @apply my-5;
+         @apply border-l-8;
+         @apply border-pink-600;
+         @apply pl-2;
+      }
+
+      h2 {
+         @apply text-2xl;
+         @apply font-bold;
+         @apply my-5;
+         @apply border-l-4;
+         @apply border-pink-600;
+         @apply pl-2;
+      }
+      h3 {
+         @apply text-xl;
+         @apply font-bold;
+         @apply my-5;
+         @apply border-l-2;
+         @apply border-pink-600;
+         @apply pl-2;
+      }
+
+      h4 {
+         @apply text-lg;
+         @apply font-bold;
+         @apply my-5;
+         @apply border-l;
+         @apply border-pink-600;
+         @apply pl-2;
+      }
+
+      p {
+         @apply my-4;
+      }
+
+      img {
+         @apply w-3/4;
+         @apply object-cover;
+         @apply mx-auto;
+      }
+   }
+}

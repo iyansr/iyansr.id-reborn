@@ -11,14 +11,7 @@ export type FileType = {
 
 export type BlogType = {
 	htmlString: string,
-	data: PostType,
-}
-export type PostType = {
-	description: string,
-	title: string,
-	thumbnail: string,
-	keyword: string,
-	tags: string[],
+	data: FileType,
 }
 
 export type BlogProps = {

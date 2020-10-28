@@ -1,18 +1,67 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import Link from 'next/link'
+import hljs from 'highlight.js'
 import { motion } from 'framer-motion'
 import { BlogType } from '@customType/index'
 import { gePath, getSinglePost } from '@utils/api'
+import Meta from '@components/Meta'
+import Header from '@components/Header'
+import readingTime from '@utils/readingTime'
+import { format } from 'date-fns'
+import Footer from '@components/Footer'
 
 const DetailBlog = ({ htmlString, data }: BlogType) => {
+	const updateCodeSyntaxHighlighting = () => {
+		document.querySelectorAll('pre code').forEach((block: any) => {
+			hljs.highlightBlock(block)
+		})
+	}
+
+	useEffect(() => {
+		updateCodeSyntaxHighlighting()
+	})
+
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-			<Link href='/blog'>
-				<a>back</a>
-			</Link>
-			<img src={data.thumbnail} />
-			<div dangerouslySetInnerHTML={{ __html: htmlString }} />
+			<Meta title={data.title} description={data.description} keywords={data.keyword} />
+
+			<div className='container mx-auto px-6'>
+				<Header />
+				<div className='mt-12 flex space-x-4'>
+					<div className='w-9/12 bg-secondary rounded-md border border-gray-800'>
+						<img src={data.thumbnail} alt={data.title} className='w-full object-cover rounded-t-md' style={{ height: '350px' }} />
+						<div className='px-12 py-8'>
+							<h1 className='text-5xl font-bold'>{data.title}</h1>
+
+							<div className='flex flex-wrap space-x-2 mt-1 mb-2'>
+								{data.tags.map((tag, iTag) => (
+									<div key={iTag} className='text-xs font-medium text-gray-200 px-2 rounded-md bg-purple-800 '>
+										#{tag}
+									</div>
+								))}
+							</div>
+
+							<div className='mt-4'>
+								<p className='text-sm text-gray-600'>
+									<span role='img'>📅</span>&nbsp; {format(new Date(data.date), 'dd MMM yyyy')} | <span role='img'>☕️</span>
+									&nbsp; {readingTime(htmlString)} Min Read
+								</p>
+							</div>
+
+							<div className='mt-12 post-wrapper' dangerouslySetInnerHTML={{ __html: htmlString }} />
+						</div>
+					</div>
+
+					<div className='w-3/12'>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt neque laborum magni repellendus autem maxime asperiores. Eveniet in rerum
+							laborum eligendi nostrum voluptatum quaerat, quae ad sapiente quam inventore saepe.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<Footer />
 		</motion.div>
 	)
 }

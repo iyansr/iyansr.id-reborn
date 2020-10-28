@@ -31,7 +31,7 @@ export const gePath = (): PathType[] => {
 	for (const fileName of files) {
 		paths.push({
 			params: {
-				slug: fileName,
+				slug: fileName.replace('.md', ''),
 			},
 		})
 	}

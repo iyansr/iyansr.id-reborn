@@ -24,7 +24,7 @@ class MyDocument extends Document {
 						</Fragment>
 					)}
 				</Head>
-				<body className='bg-primary text-gray-500 text-sm md:text-base antialiased'>
+				<body className='bg-primary text-gray-400 text-sm md:text-base antialiased'>
 					<Main />
 					<NextScript />
 				</body>
