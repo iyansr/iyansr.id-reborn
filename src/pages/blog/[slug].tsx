@@ -13,8 +13,6 @@ import { DiscussionEmbed } from 'disqus-react'
 import PostCard from '@components/PostCard'
 
 const DetailBlog = ({ htmlString, data, randomPost }: BlogType) => {
-	console.log(process.env.NEXT_PUBLIC_DISCUSS_SHORTNAME)
-	console.log(process.env.NEXT_PUBLIC_BASE_URL)
 	const updateCodeSyntaxHighlighting = () => {
 		document.querySelectorAll('pre code').forEach((block: any) => {
 			hljs.highlightBlock(block)
