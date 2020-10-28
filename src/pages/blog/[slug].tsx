@@ -1,12 +1,9 @@
 import React from 'react'
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import marked from 'marked'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { BlogType } from '@customType/index'
+import { gePath, getSinglePost } from '@utils/api'
 
 const DetailBlog = ({ htmlString, data }: BlogType) => {
 	return (
@@ -21,28 +18,18 @@ const DetailBlog = ({ htmlString, data }: BlogType) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const files = fs.readdirSync('src/content/posts')
-	const paths = files.map((filename) => ({
-		params: {
-			slug: filename.replace('.md', ''),
-		},
-	}))
+	const paths = gePath()
 	return {
 		paths,
 		fallback: false,
 	}
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-	const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', ctx.params?.slug + '.md')).toString()
-	const parsedMarkdown = matter(markdownWithMetadata)
-	const htmlString = marked(parsedMarkdown.content)
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	const htmlString = getSinglePost(params?.slug)
 
 	return {
-		props: {
-			htmlString,
-			data: parsedMarkdown.data,
-		},
+		props: htmlString,
 	}
 }
 

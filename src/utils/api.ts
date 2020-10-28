@@ -1,6 +1,9 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
+import { PathType } from '@customType/index'
+import marked from 'marked'
+import { ParsedUrlQuery } from 'querystring'
 
 export const getAllPost = () => {
 	const directoryPath = path.join('src/content/posts')
@@ -19,4 +22,30 @@ export const getAllPost = () => {
 	}
 
 	return posts
+}
+
+export const gePath = (): PathType[] => {
+	const files: string[] = fs.readdirSync('src/content/posts')
+	const paths: PathType[] = []
+
+	for (const fileName of files) {
+		paths.push({
+			params: {
+				slug: fileName,
+			},
+		})
+	}
+
+	return paths
+}
+
+export const getSinglePost = (slug?: any) => {
+	const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', slug + '.md')).toString()
+	const parsedMarkdown = matter(markdownWithMetadata)
+	const htmlString = marked(parsedMarkdown.content)
+
+	return {
+		htmlString,
+		data: parsedMarkdown.data,
+	}
 }
