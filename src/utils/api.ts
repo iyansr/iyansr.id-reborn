@@ -43,9 +43,13 @@ export const getSinglePost = (slug?: any) => {
 	const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', slug + '.md')).toString()
 	const parsedMarkdown = matter(markdownWithMetadata)
 	const htmlString = marked(parsedMarkdown.content)
+	let data = {
+		...parsedMarkdown.data,
+		slug,
+	}
 
 	return {
 		htmlString,
-		data: parsedMarkdown.data,
+		data,
 	}
 }
