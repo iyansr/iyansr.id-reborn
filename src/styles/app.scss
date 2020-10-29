@@ -1,0 +1,61 @@
+:root {
+   font-family: "Poppins", sans-serif;
+}
+
+:active {
+   outline: none !important;
+}
+
+input:active {
+   outline: none !important;
+}
+
+body::-webkit-scrollbar {
+   width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+   background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+   background: #6649b8;
+}
+
+hr {
+   border: 2px dashed #23232e !important;
+}
+
+a {
+   @apply text-pink-500;
+}
+
+.main-logo {
+   font-family: "Fugaz One", cursive;
+}
+
+#nprogress {
+   .bar {
+      background: #6649b8 !important;
+   }
+
+   .spinner-icon {
+      border-top-color: #6649b8 !important;
+      border-left-color: #6649b8 !important;
+   }
+}
+
+.post-card {
+   min-height: 380px;
+   height: 100%;
+}
+
+.twitter-tweet-rendered {
+   margin-left: auto !important;
+   margin-right: auto !important;
+}
+
+pre code,
+pre code span {
+   font: 600 10pt Fira Code, monospace !important;
+}

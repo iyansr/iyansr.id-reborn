@@ -1,0 +1,8 @@
+{
+   "build": {
+      "env": {
+         "NEXT_PUBLIC_DISCUSS_SHORTNAME": "@discuss_shortname",
+         "NEXT_PUBLIC_BASE_URL": "@base_url"
+      }
+   }
+}
