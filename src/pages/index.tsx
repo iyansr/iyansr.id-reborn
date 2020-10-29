@@ -3,6 +3,7 @@ import Meta from '@components/Meta'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const Home = () => {
 	return (
@@ -17,10 +18,11 @@ const Home = () => {
 			<div className='container mx-auto px-6 md:px-0'>
 				<Header />
 				<div className='mb-12 mt-6'>
-					<img
+					<Image
 						src='https://avatars3.githubusercontent.com/u/42711013?s=460&v=4'
 						alt='Iyan Saputra'
 						className='w-48 h-48 md:h-64 md:w-64 rounded-full object-cover border-4 border-purple-800 mx-auto'
+						unsized
 					/>
 
 					<div className='mx-auto text-center h-64 space-y-2 flex flex-col justify-evenly'>
@@ -48,7 +50,7 @@ const Home = () => {
 				<div className='mt-10 mb-12'>
 					<div className='mx-auto text-center'>
 						<h1 className='font-bold text-3xl md:text-4xl mb-10'>Contribution Chart</h1>
-						<img src='https://ghchart.rshah.org/iyansr' alt='contribution chart' style={{ width: '100%' }} />
+						<Image unsized src='https://ghchart.rshah.org/iyansr' alt='contribution chart' style={{ width: '100%' }} />
 					</div>
 				</div>
 			</div>
