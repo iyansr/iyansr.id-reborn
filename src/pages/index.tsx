@@ -50,7 +50,7 @@ const Home = () => {
 				<div className='mt-10 mb-12'>
 					<div className='mx-auto text-center'>
 						<h1 className='font-bold text-3xl md:text-4xl mb-10'>Contribution Chart</h1>
-						<Image unsized src='https://ghchart.rshah.org/iyansr' alt='contribution chart' style={{ width: '100%' }} />
+						<Image unsized src='https://ghchart.rshah.org/iyansr' alt='contribution chart' className='w-full' />
 					</div>
 				</div>
 			</div>

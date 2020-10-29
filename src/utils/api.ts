@@ -3,7 +3,6 @@ import matter from 'gray-matter'
 import path from 'path'
 import { PathType } from '@customType/index'
 import marked from 'marked'
-import { ParsedUrlQuery } from 'querystring'
 
 export const getAllPost = () => {
 	const directoryPath = path.join('src/content/posts')
