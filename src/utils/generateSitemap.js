@@ -18,7 +18,6 @@ async function generateSiteMap() {
 							.replace('.tsx', '')
 							.replace('.md', '')
 						const route = path === '/index' ? '' : path
-						console.log(route)
 
 						return `
                       <url>
