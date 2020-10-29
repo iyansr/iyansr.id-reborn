@@ -21,6 +21,7 @@
     "highlight.js": "^10.3.1",
     "marked": "^1.2.2",
     "next": "^10.0.0",
+    "next-pwa": "^3.1.5",
     "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "react": "^17.0.1",
