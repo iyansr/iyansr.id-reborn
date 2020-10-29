@@ -1,6 +1,6 @@
 {
   "name": "iyansr.id-reborn",
-  "version": "2.0.0-a",
+  "version": "2.0.1",
   "private": true,
   "description": "My Personal Home Page, Blog, Portfolio built with Next.JS",
   "author": {
@@ -20,7 +20,7 @@
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.3.1",
     "marked": "^1.2.2",
-    "next": "^9.5.5",
+    "next": "^10.0.0",
     "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "react": "^17.0.1",

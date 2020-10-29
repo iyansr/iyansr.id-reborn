@@ -6,4 +6,7 @@ module.exports = {
 
 		return config
 	},
+	images: {
+		domains: ['ghchart.rshah.org', 'res.cloudinary.com'],
+	},
 }
