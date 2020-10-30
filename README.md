@@ -12,7 +12,9 @@
 - [x] Comment System
 - [ ] SEO Optimized
 - [ ] Image optimized
-- [x] Twitter Embed
+- [x] PWA
+- [ ] ~~Twitter Embed~~
+
 - Request ? 
 
 ### Special Thanks to :
