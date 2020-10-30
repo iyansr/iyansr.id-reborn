@@ -6,6 +6,7 @@ export type FileType = {
 	content: string,
 	date: string,
 	slug: string,
+	readingTime: string,
 	tags: string[],
 }
 
@@ -19,9 +20,22 @@ export type WorkType = {
 }
 
 export type BlogType = {
-	htmlString: string,
-	data: FileType,
-	randomPost: FileType,
+	children: React.ReactNode | React.ReactChild | React.ReactChild[],
+	frontMatter: FrontMatterType,
+}
+
+export type FrontMatterType = {
+	description: string,
+	title: string,
+	thumbnail: string,
+	keyword: string,
+	date: string,
+	readingTime: {
+		text: string,
+	},
+	tags: string[],
+	wordCount: number,
+	__resourcePath: string,
 }
 
 export type BlogProps = {

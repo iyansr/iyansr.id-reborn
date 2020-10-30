@@ -4,7 +4,6 @@ import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
-import { getAllPost } from '@utils/api'
 import WorkCard from '@components/WorkCard'
 import workData from '@content/portfolio.json'
 

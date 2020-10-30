@@ -15,8 +15,9 @@ const Home = () => {
 						project and task.'
 			/>
 
+			<Header />
+
 			<div className='container mx-auto px-6 md:px-0'>
-				<Header />
 				<div className='mb-12 mt-6'>
 					<Image
 						src='https://avatars3.githubusercontent.com/u/42711013?s=460&v=4'
