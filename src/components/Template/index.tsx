@@ -8,6 +8,7 @@ import { format } from 'date-fns'
 import Footer from '@components/Footer'
 import { DiscussionEmbed } from 'disqus-react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const DetailBlog = ({ frontMatter, children }: BlogType) => {
 	const slug = frontMatter.__resourcePath.replace('blog/', '').replace('.mdx', '')
@@ -36,8 +37,13 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 			<Header />
 
 			<div className='container mx-auto px-6'>
-				<div className='mt-12 flex space-x-4 justify-center'>
-					<div className='w-full md:w-9/12'>
+				<div className='mt-6 flex space-x-4 justify-center'>
+					<div className='w-full lg:w-9/12'>
+						<div className='mb-6'>
+							<Link href='/blog'>
+								<a className='focus:outline-none text-purple-700 text-sm'>&#8592; Back</a>
+							</Link>
+						</div>
 						<div className='bg-secondary rounded-md border border-gray-800'>
 							<div className='relative w-full'>
 								<img src={frontMatter.thumbnail} alt={frontMatter.title} className='w-full h-full object-cover rounded-t-md z-40' />
@@ -61,7 +67,7 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 									</p>
 								</div>
 
-								<div className='mt-12 post-wrapper'>{children}</div>
+								<div className='mt-8 post-wrapper'>{children}</div>
 							</div>
 						</div>
 

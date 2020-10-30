@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { FileType } from '@customType/index';
 import readingTime from 'reading-time'
+import marked from 'marked'
 
 const postsDirectory = path.join(process.cwd(), 'src/pages/blog');
 
@@ -37,4 +38,12 @@ export function getAllPostIds() {
       },
     };
   });
+}
+
+export function getNowContent(){
+  const file = fs.readFileSync('src/content/now.md')
+  const parsedFile = matter(file)
+  const htmlString = marked(parsedFile.content)
+
+ return htmlString
 }

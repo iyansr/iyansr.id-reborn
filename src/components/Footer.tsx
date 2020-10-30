@@ -14,29 +14,29 @@ const Footer = () => {
 					<a>Iyan Saputra</a>
 				</Link>
 			</span>
-			{/* <div className='flex justify-center mt-4 space-x-4'>
+			<div className='flex justify-center mt-6 space-x-4'>
 				<a href='http://facebook.com/iyan.scout' target='_blank' rel='noopener noreferrer' className='text-gray-500'>
-					<div className='border border-gray-500 h-6 w-6 flex justify-center items-center rounded-sm transform hover:-translate-y-1 transition duration-200'>
+					<div className='h-6 w-6 flex justify-center items-center rounded-sm transform hover:-translate-y-1 transition duration-200'>
 						<span>
-							<i className='icofont-facebook'></i>
+							<i className='fab fa-facebook-f text-xl'></i>
 						</span>
 					</div>
 				</a>
 				<a href='http://instagram.com/iyan_saputraaa' target='_blank' rel='noopener noreferrer' className='text-gray-500'>
-					<div className='border border-gray-500 h-6 w-6 flex justify-center items-center rounded-sm transform hover:-translate-y-1 transition duration-200'>
+					<div className='h-6 w-6 flex justify-center items-center rounded-sm transform hover:-translate-y-1 transition duration-200'>
 						<span>
-							<i className='icofont-instagram'></i>
+							<i className='fab fa-instagram text-xl'></i>
 						</span>
 					</div>
 				</a>
 				<a href='http://github.com/iyansr' target='_blank' rel='noopener noreferrer' className='text-gray-500'>
-					<div className='border border-gray-500 h-6 w-6 flex justify-center items-center rounded-sm transform hover:-translate-y-1 transition duration-200'>
+					<div className='h-6 w-6 flex justify-center items-center rounded-sm transform hover:-translate-y-1 transition duration-200'>
 						<span>
-							<i className='icofont-github'></i>
+							<i className='fab fa-github-alt text-xl'></i>
 						</span>
 					</div>
 				</a>
-			</div> */}
+			</div>
 		</div>
 	)
 }
