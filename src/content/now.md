@@ -44,14 +44,13 @@ Many and most people said :
 > Oh programmer doesn't have girlfriend, they have no live, always watching Anime and sitting in the dark room alone.
 
 Ey man, jus shut the *beep* up.
-
 I'm in a relationship with a girl, of course **a** girl.
-
 Who ? Just check my [Instagram](https://www.instagram.com/iyan_saputraaa)
 
 
 
-
+---
+---
 
 
 *Last updated at: October 30, 2020 from Depok, West Java. Indonesia.*
