@@ -1,3 +1,4 @@
+import { GA_TRACKING_ID } from '@utils/gtag'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { Fragment } from 'react'
 
@@ -31,15 +32,20 @@ class MyDocument extends Document {
 					/>
 					{process.env.NODE_ENV === 'production' && (
 						<Fragment>
-							<script async src='https://www.googletagmanager.com/gtag/js?id=UA-171266287-1'></script>
+							<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></script>
 							<script
 								dangerouslySetInnerHTML={{
 									__html: `
-											window.dataLayer = window.dataLayer || [];
-											function gtag(){dataLayer.push(arguments);}
-											gtag('js', new Date());
-											gtag('config', 'UA-171266287-1');`,
-								}}></script>
+										window.dataLayer = window.dataLayer || [];
+										function gtag(){dataLayer.push(arguments);}
+										gtag('js', new Date());
+
+										gtag('config', '${GA_TRACKING_ID}', {
+											page_path: window.location.pathname,
+										});
+										`,
+								}}
+							/>
 						</Fragment>
 					)}
 				</Head>

@@ -46,6 +46,6 @@
       "next-env.d.ts",
       "**/*.ts",
       "**/*.tsx",
-      "custom.d.ts"
+      "custom.d.ts", "src/utils/gtag.js"
    ]
 }
