@@ -9,7 +9,20 @@ class MyDocument extends Document {
 					<link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap' rel='stylesheet' />
 					<link href='https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap' rel='stylesheet' />
 					<link rel='shortcut icon' href='/favicon.ico' />
-					<script async src='https://platform.twitter.com/widgets.js' charSet='utf-8'></script>
+					<meta name='application-name' content='IyanSR' />
+					<meta name='apple-mobile-web-app-capable' content='yes' />
+					<meta name='apple-mobile-web-app-status-bar-style' content='default' />
+					<meta name='apple-mobile-web-app-title' content='IyanSR' />
+					<meta name='format-detection' content='telephone=no' />
+					<meta name='mobile-web-app-capable' content='yes' />
+					<meta name='msapplication-TileColor' content='#23232e' />
+					<meta name='msapplication-tap-highlight' content='no' />
+					<meta name='theme-color' content='#141418' />
+					<link rel='apple-touch-icon' sizes='180x180' href='/icon/apple-icon-180x180-dunplab-manifest-18529.png' />
+					<link rel='icon' type='image/png' sizes='32x32' href='/icon/favicon-32x32-dunplab-manifest-18529.png' />
+					<link rel='icon' type='image/png' sizes='16x16' href='/icon/favicon-16x16-dunplab-manifest-18529.png' />
+					<link rel='manifest' href='/manifest.json' />
+					<link rel='shortcut icon' href='/favicon.ico' />
 					<link
 						rel='stylesheet'
 						href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'

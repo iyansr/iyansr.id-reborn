@@ -59,3 +59,8 @@ pre code,
 pre code span {
    font: 600 10pt Fira Code, monospace !important;
 }
+
+.main-header {
+   background-color: rgba(20, 20, 24, 0.7);
+   backdrop-filter: saturate(180%) blur(20px);
+}

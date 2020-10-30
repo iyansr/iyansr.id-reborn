@@ -1,73 +1,40 @@
-import fs from 'fs'
-import matter from 'gray-matter'
-import path from 'path'
-import { PathType } from '@customType/index'
-import marked from 'marked'
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { FileType } from '@customType/index';
+import readingTime from 'reading-time'
 
-export const getAllPost = () => {
-	const directoryPath = path.join('src/content/posts')
-	const posts = []
-	const readDir = fs.readdirSync(directoryPath)
+const postsDirectory = path.join(process.cwd(), 'src/pages/blog');
 
-	for (const file of readDir) {
-		const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', file)).toString()
-		const parsedMarkdown = matter(markdownWithMetadata)
+export function getSortedPostsData() {
+  // Get file names under /blog
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allPostsData: FileType[] = fileNames.map((fileName) => {
+    // Remove ".mdx" from file name to get id
+    const slug = fileName.replace(/\.mdx$/, '');
 
-		posts.push({
-			slug: file.replace('.md', ''),
-			...parsedMarkdown.data,
-			content: parsedMarkdown.content,
-		})
-	}
+    // Read markdown file as string
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-	return posts
+    // Use gray-matter to parse the post metadata section
+    const matterResult = matter(fileContents);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const mergedData = { slug, ...matterResult.data,readingTime: readingTime(matterResult.content).text } as any;
+    // Combine the data with the i
+
+    return mergedData;
+  });
+  return allPostsData
 }
 
-export const getRandomPost = (slug: any) => {
-	const directoryPath = path.join('src/content/posts')
-	const posts = []
-	const readDir = fs.readdirSync(directoryPath).filter((fileDir) => fileDir.replace('.md', '') !== slug)
-
-	for (const file of readDir) {
-		const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', file)).toString()
-		const parsedMarkdown = matter(markdownWithMetadata)
-
-		posts.push({
-			slug: file.replace('.md', ''),
-			...parsedMarkdown.data,
-			content: parsedMarkdown.content,
-		})
-	}
-
-	return posts[Math.floor(Math.random() * readDir.length)]
-}
-
-export const gePath = (): PathType[] => {
-	const files: string[] = fs.readdirSync('src/content/posts')
-	const paths: PathType[] = []
-
-	for (const fileName of files) {
-		paths.push({
-			params: {
-				slug: fileName.replace('.md', ''),
-			},
-		})
-	}
-
-	return paths
-}
-
-export const getSinglePost = (slug?: any) => {
-	const markdownWithMetadata = fs.readFileSync(path.join('src/content/posts', slug + '.md')).toString()
-	const parsedMarkdown = matter(markdownWithMetadata)
-	const htmlString = marked(parsedMarkdown.content)
-	let data = {
-		...parsedMarkdown.data,
-		slug,
-	}
-
-	return {
-		htmlString,
-		data,
-	}
+export function getAllPostIds() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  return fileNames.map((fileName) => {
+    return {
+      params: {
+        id: fileName.replace(/\.mdx$/, ''),
+      },
+    };
+  });
 }

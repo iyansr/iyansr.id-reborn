@@ -9,9 +9,9 @@ const Error = () => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta title='Not Found' description='Not found' />
+			<Header />
 
 			<div className='container mx-auto px-6 md:px-0'>
-				<Header />
 				<div className='my-12'>
 					<div className='mx-auto text-center h-40 space-y-2 flex flex-col justify-evenly'>
 						<h1 className='font-bold text-3xl md:text-4xl'>Uh oh.. you're lost 😶</h1>

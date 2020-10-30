@@ -4,6 +4,8 @@ import { AnimatePresence } from 'framer-motion'
 import '@styles/tailwind.scss'
 import '@styles/app.scss'
 import 'highlight.js/styles/atom-one-dark-reasonable.css'
+import { MDXProvider } from '@mdx-js/react'
+import Image from 'next/image'
 
 import Router from 'next/router'
 import NProgress from 'nprogress' //nprogress module
@@ -17,7 +19,9 @@ Router.events.on('routeChangeError', () => NProgress.done())
 const App = ({ Component, router, pageProps }: AppProps) => {
 	return (
 		<AnimatePresence exitBeforeEnter>
-			<Component key={router.route} {...pageProps} />
+			<MDXProvider components={{ img: (props: any) => <Image unsized {...props} /> }}>
+				<Component key={router.route} {...pageProps} />
+			</MDXProvider>
 		</AnimatePresence>
 	)
 }

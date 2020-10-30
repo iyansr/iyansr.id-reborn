@@ -3,10 +3,10 @@ import Meta from '@components/Meta'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
-import { GetStaticProps } from 'next'
-import { getAllPost } from '@utils/api'
-import { BlogProps } from '@customType/index'
+import { FileType, BlogProps } from '@customType/index'
 import PostCard from '@components/PostCard'
+import { getSortedPostsData } from '@utils/api'
+import { GetStaticProps } from 'next'
 
 const Blog = ({ fileList }: BlogProps) => {
 	return (
@@ -17,8 +17,9 @@ const Blog = ({ fileList }: BlogProps) => {
 				keywords='iyansr blog, iyan saputra blog, blog iyan saputra, software blog, nextjs blog, next js blog, jamstack blog, react blog, markdown blog'
 			/>
 
+			<Header />
+
 			<div className='container mx-auto px-6 md:px-0'>
-				<Header />
 				<div className='my-12'>
 					<div className='mx-auto text-center h-40 space-y-2 flex flex-col justify-evenly'>
 						<h1 className='font-bold text-3xl md:text-4xl'>Blog</h1>
@@ -30,8 +31,8 @@ const Blog = ({ fileList }: BlogProps) => {
 				<div className='mt-12'>
 					<div className='grid md:grid-cols-3 lg:grid-cols-4 gap-4'>
 						{fileList
-							.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-							.map((file, index) => (
+							.sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime())
+							.map((file: FileType, index: number) => (
 								<PostCard {...file} key={index} />
 							))}
 					</div>
@@ -43,12 +44,9 @@ const Blog = ({ fileList }: BlogProps) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const fileList = getAllPost()
-
+	const fileList = getSortedPostsData()
 	return {
-		props: {
-			fileList,
-		},
+		props: { fileList },
 	}
 }
 

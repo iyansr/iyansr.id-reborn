@@ -1,19 +1,39 @@
 const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache')
+const readingTime = require('reading-time')
 
-module.exports = withPWA({
-	pwa: {
-		dest: 'public',
-		runtimeCaching,
-	},
-	webpack: (config, { isServer }) => {
-		if (isServer) {
-			require('./src/utils/generateSitemap')
-		}
+const withMdxEnhanced = require('next-mdx-enhanced')
 
-		return config
+module.exports = withMdxEnhanced({
+	layoutPath: 'src/components/Template',
+	defaultLayout: true,
+	fileExtensions: ['mdx'],
+	remarkPlugins: [],
+	rehypePlugins: [],
+	usesSrc: false,
+	extendFrontMatter: {
+		process: (mdxContent) => ({
+			wordCount: mdxContent.split(/\s+/gu).length,
+			readingTime: readingTime(mdxContent),
+		}),
 	},
-	images: {
-		domains: ['iyansr.id', 'localhost:8300', 'ghchart.rshah.org', 'res.cloudinary.com', 'avatars3.githubusercontent.com'],
-	},
-})
+	reExportDataFetching: false,
+})(
+	withPWA({
+		pwa: {
+			dest: 'public',
+			runtimeCaching,
+		},
+		images: {
+			domains: ['iyansr.id', 'ghchart.rshah.org', 'res.cloudinary.com', 'avatars3.githubusercontent.com', 'ik.imagekit.io'],
+		},
+
+		webpack: (config, { isServer }) => {
+			if (isServer) {
+				require('./src/utils/generateSitemap')
+			}
+
+			return config
+		},
+	})
+)

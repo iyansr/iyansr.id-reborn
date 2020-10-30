@@ -1,13 +1,11 @@
 import Link from 'next/link'
 import { FileType } from '@customType/index'
-import readingTime from '@utils/readingTime'
 import Image from 'next/image'
 import { format } from 'date-fns'
 
 const PostCard = (file: FileType) => {
 	return (
 		<div className='bg-secondary rounded-md shadow-md hover:shadow-xl transition duration-200 transform hover:-translate-y-1 post-card flex flex-col'>
-			{/* <img className='w-full h-40 object-cover rounded-t-md' src={file.thumbnail} alt={file.title} /> */}
 			<Image unsized className='w-full h-40 object-cover rounded-t-md' src={file.thumbnail} alt={file.title} />
 
 			<div className='p-4 flex-1 flex flex-col'>
@@ -19,7 +17,7 @@ const PostCard = (file: FileType) => {
 					</div>
 					<p className='text-xs text-gray-600'>
 						<span role='img'>📅</span>&nbsp; {format(new Date(file.date), 'dd MMM yyyy')} | <span role='img'>☕️</span>
-						&nbsp; {readingTime(file.content)} Min Read
+						&nbsp; {file.readingTime}
 					</p>
 				</div>
 
