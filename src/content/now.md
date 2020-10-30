@@ -32,6 +32,7 @@ Currently working as Frontend Engineer at [DOOgether](https://web.doogether.id)
 - OS: Windows, Mac OS
 - Code Editor : Visual Studio Code
 - Browser: Chrome, *a new* Microsoft Edge
+- Devices: PC, Macbook Pro 2019
 - Github
 
 ## Jogja and Depok
