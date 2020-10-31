@@ -60,7 +60,21 @@ pre code span {
    font: 600 10pt Fira Code, monospace !important;
 }
 
+.post-wrapper {
+   code:not(.hljs) {
+      font: 600 10pt Fira Code, monospace;
+      background-color: #282c34;
+      color: #f92672;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+   }
+
+   code.hljs {
+      margin-bottom: 1rem;
+   }
+}
+
 .main-header {
-   background-color: rgba(20, 20, 24, 0.7);
+   background-color: rgba(20, 20, 24, 0.5);
    backdrop-filter: saturate(180%) blur(20px);
 }

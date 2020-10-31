@@ -48,10 +48,7 @@ Ey man, jus shut the *beep* up.
 I'm in a relationship with a girl, of course **a** girl.
 Who ? Just check my [Instagram](https://www.instagram.com/iyan_saputraaa)
 
+<br/>
 
 
----
----
-
-
-*Last updated at: October 30, 2020 from Depok, West Java. Indonesia.*
+*Last updated at: October 30, 2020 from Depok, West Java. Indonesia. [History](https://github.com/iyansr/iyansr.id-reborn/commits/master/src/content/now.md)* 

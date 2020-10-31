@@ -23,6 +23,7 @@ module.exports = withMdxEnhanced({
 		pwa: {
 			dest: 'public',
 			runtimeCaching,
+			disable: process.env.NODE_ENV === 'development',
 		},
 		images: {
 			domains: ['iyansr.id', 'ghchart.rshah.org', 'res.cloudinary.com', 'avatars3.githubusercontent.com', 'ik.imagekit.io'],

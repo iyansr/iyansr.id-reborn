@@ -78,7 +78,7 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 									url: `${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`,
 									identifier: slug,
 									title: frontMatter.title,
-									language: 'id_ID', //e.g. for Traditional Chinese (Taiwan)
+									language: 'id', //e.g. for Traditional Chinese (Taiwan)
 								}}
 							/>
 						</div>

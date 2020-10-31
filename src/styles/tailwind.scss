@@ -9,7 +9,7 @@
       h1 {
          @apply text-2xl;
          @apply font-bold;
-         @apply my-6;
+         @apply mb-6;
          @apply border-l-4;
          @apply border-pink-600;
          @apply pl-2;
@@ -18,7 +18,7 @@
       h2 {
          @apply text-xl;
          @apply font-bold;
-         @apply my-6;
+         @apply mb-6;
          @apply border-l-2;
          @apply border-pink-600;
          @apply pl-2;
@@ -26,7 +26,7 @@
       h3 {
          @apply text-lg;
          @apply font-bold;
-         @apply my-6;
+         @apply mb-6;
          @apply border-l;
          @apply border-pink-600;
          @apply pl-2;
@@ -35,12 +35,12 @@
       h4 {
          @apply text-base;
          @apply font-bold;
-         @apply my-6;
+         @apply mb-6;
          @apply pl-2;
       }
 
       p {
-         @apply my-4;
+         @apply mb-4;
          @apply leading-normal;
       }
 
@@ -48,11 +48,13 @@
          @apply w-3/4;
          @apply object-cover;
          @apply mx-auto;
+         @apply mb-4;
       }
 
       ul {
          @apply list-disc;
-         @apply ml-12;
+         @apply ml-10;
+         @apply mb-4;
       }
 
       a {
@@ -67,7 +69,7 @@
       blockquote {
          @apply bg-gray-800;
          @apply rounded-md;
-         @apply my-4;
+         @apply mb-4;
          @apply px-6;
          @apply py-2;
          @apply border-l-4;
