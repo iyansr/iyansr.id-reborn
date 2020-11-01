@@ -15,9 +15,9 @@ const Blog = () => {
 				description="'Projects, experiments and some stuff i've made.'"
 				keywords='iyansr blog, iyan saputra blog, blog iyan saputra, software blog, nextjs blog, next js blog, jamstack blog, react blog, markdown blog, iyan saputra portfolio, iyan saputra work, iyansr work'
 			/>
+			<Header />
 
 			<div className='container mx-auto px-6 md:px-0'>
-				<Header />
 				<div className='my-12'>
 					<div className='mx-auto text-center h-40 space-y-2 flex flex-col justify-evenly'>
 						<h1 className='font-bold text-3xl md:text-4xl'>Portfolio</h1>

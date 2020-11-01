@@ -6,12 +6,16 @@
    outline: none !important;
 }
 
+:focus {
+   outline: none !important;
+}
+
 input:active {
    outline: none !important;
 }
 
 body::-webkit-scrollbar {
-   width: 0.25rem;
+   width: 0.35rem;
 }
 
 body::-webkit-scrollbar-track {
@@ -20,6 +24,7 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
    background: #6649b8;
+   border-radius: 100px;
 }
 
 hr {
