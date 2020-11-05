@@ -12,9 +12,9 @@ const PostCard = (file: FileType) => {
 
 			<div className='p-4 flex-1 flex flex-col'>
 				<div>
-					<div className='h-12'>
+					<div className='h-16'>
 						<Link href='/blog/[slug]' as={`/blog/${file.slug}`}>
-							<a className=' font-bold text-gray-500 hover:text-pink-500 transition-colors duration-200 truncate-2-lines'>{file.title}</a>
+							<a className=' font-bold text-lg text-gray-500 hover:text-pink-500 transition-colors duration-200 truncate-2-lines'>{file.title}</a>
 						</Link>
 					</div>
 					<p className='text-xs text-gray-600'>

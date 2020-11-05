@@ -15,7 +15,7 @@ const Now = ({ htmlString }: any) => {
 			<div className='container mx-auto px-6 md:px-0'>
 				<div className='my-12'>
 					<div className='mx-auto text-center h-40 space-y-2 flex flex-col justify-evenly'>
-						<h1 className='font-bold text-3xl md:text-4xl'>What I'm Doing right now?</h1>
+						<h1 className='font-bold text-3xl md:text-4xl'>🤔 What I'm Doing right now?</h1>
 						{/* <h4>Projects, experiments and some stuff i've made.</h4> */}
 					</div>
 				</div>

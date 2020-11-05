@@ -50,7 +50,7 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 							</div>
 
 							<div className='px-6 md:px-12 py-8'>
-								<h1 className='text-3xl md:text-5xl font-bold'>{frontMatter.title}</h1>
+								<h1 className='text-3xl md:text-5xl leading-tight font-bold'>{frontMatter.title}</h1>
 
 								<div className='flex flex-wrap space-x-2 mt-1 mb-2'>
 									{frontMatter.tags.map((tag, iTag) => (

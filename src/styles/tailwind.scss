@@ -7,53 +7,84 @@
 @layer components {
    .post-wrapper {
       h1 {
-         @apply text-2xl;
+         @apply text-3xl;
          @apply font-bold;
-         @apply mb-6;
+         @apply mb-4;
+         @apply relative;
+
+         &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 0.125rem;
+            background-image: linear-gradient(90deg, #d53f8c, transparent);
+         }
       }
 
       h2 {
-         @apply text-xl;
+         @apply text-2xl;
          @apply font-bold;
-         @apply mb-6;
+         @apply mb-4;
+         @apply relative;
+         @apply pl-6;
+
+         &::after {
+            content: "# ";
+            position: absolute;
+            left: 0;
+            color: #d53f8c;
+         }
       }
       h3 {
-         @apply text-lg;
+         @apply text-xl;
          @apply font-bold;
-         @apply mb-6;
+         @apply mb-4;
+         @apply pl-6;
+
+         &::after {
+            content: "> ";
+            position: absolute;
+            left: 0;
+            color: #d53f8c;
+         }
       }
 
       h4 {
-         @apply text-base;
+         @apply text-lg;
          @apply font-bold;
-         @apply mb-6;
+         @apply mb-4;
       }
 
       p {
-         @apply mb-4;
+         @apply mb-3;
          @apply leading-normal;
       }
 
       img {
-         @apply w-3/4;
+         @apply w-full;
          @apply h-auto;
          @apply mx-auto;
          @apply mb-4;
-      }
 
+         @media (min-width: 768px) {
+            @apply w-3/4;
+         }
+      }
 
       ul {
          @apply list-disc;
          @apply ml-10;
-         @apply mb-4;
+         @apply mb-2;
       }
 
       a {
-         @apply text-pink-500;
+         @apply text-pink-600;
          &:hover {
             @apply border-b;
             @apply border-dashed;
-            @apply border-pink-500;
+            @apply border-pink-600;
          }
       }
 

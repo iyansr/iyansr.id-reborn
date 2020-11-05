@@ -7,7 +7,7 @@ class MyDocument extends Document {
 		return (
 			<Html lang='id, en'>
 				<Head>
-					<link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap' rel='stylesheet' />
+					<link href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap' rel='stylesheet' />
 					<link href='https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap' rel='stylesheet' />
 					<link rel='shortcut icon' href='/favicon.ico' />
 					<meta name='application-name' content='IyanSR' />
@@ -49,7 +49,7 @@ class MyDocument extends Document {
 						</Fragment>
 					)}
 				</Head>
-				<body className='bg-primary text-gray-400 text-sm md:text-base antialiased'>
+				<body className='bg-primary text-gray-300 text-sm md:text-base antialiased'>
 					<Main />
 					<NextScript />
 				</body>

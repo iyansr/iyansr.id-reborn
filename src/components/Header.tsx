@@ -7,7 +7,7 @@ const Header = () => {
 
 	return (
 		<div className='sticky top-0 main-header w-full z-50 '>
-			<div className='flex justify-between items-center px-6 md:px-0 py-4 container mx-auto'>
+			<div className='flex justify-between items-center px-6 lg:px-6 py-4 container mx-auto'>
 				<div>
 					<Link href='/' passHref>
 						<a>

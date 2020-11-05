@@ -4,30 +4,30 @@ title: Now
 
 Oh, hello there 🤗
 
-## What purpose of this page ?
+# What purpose of this page ?
 
 Well, this page is inspired by [Sutan Gading](https://github.com/sutanlab), the man who inspired me to make my website, and maybe you should check [his website](https://sutanlab.id/) too.
 Main purpose of this page is to tell what i'm doing right now.
 
 If you have your own site, **you should** to make one too.
 
-## Careers
+# Careers
 
 Currently working as Frontend Engineer at [DOOgether](https://web.doogether.id)
 
-## Activities
+# Activities
 
 - Work (of course, why not)
 - Learning and research weird technologies on the internet
 - Coding, Gaming, Streaming
 - Video Call (literally every night)
 
-## Stacks
+# Stacks
 
 - React, Javascript, Typescript
 - Node JS with Express
 
-## Software / Tools / Devices
+# Software / Tools / Devices
 
 - OS: Windows, Mac OS
 - Code Editor : Visual Studio Code
@@ -35,11 +35,11 @@ Currently working as Frontend Engineer at [DOOgether](https://web.doogether.id)
 - Devices: PC, Macbook Pro 2019
 - Github
 
-## Jogja and Depok
+# Jogja and Depok
 
 I went to Jogja by October 2019 to join bootcamp program that also been starting point of my career. Then I *trhew* my self to Depok to start my dream job (literally)
 
-## Relationship 
+# Relationship 
 
 Many and most people said : 
 > Oh programmer doesn't have girlfriend, they have no live, always watching Anime and sitting in the dark room alone.
