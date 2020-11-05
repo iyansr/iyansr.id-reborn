@@ -67,7 +67,7 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 									</p>
 								</div>
 
-								<div className='mt-8 post-wrapper'>{children}</div>
+								<div className='mt-8 post-wrapper relative'>{children}</div>
 							</div>
 						</div>
 

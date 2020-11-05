@@ -4,7 +4,7 @@ import Zoom from 'react-medium-image-zoom'
 export const CustomImage = (props: any) => {
 	return (
 		<Zoom>
-			<Image unsized {...props} />
+			<img {...props} />
 		</Zoom>
 	)
 }

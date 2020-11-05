@@ -36,10 +36,11 @@
 
       img {
          @apply w-3/4;
-         @apply object-cover;
+         @apply h-auto;
          @apply mx-auto;
          @apply mb-4;
       }
+
 
       ul {
          @apply list-disc;

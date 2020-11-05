@@ -19,12 +19,14 @@ const Home = () => {
 
 			<div className='container mx-auto px-6 md:px-0'>
 				<div className='mb-12 mt-6'>
-					<Image
-						src='https://avatars3.githubusercontent.com/u/42711013?s=460&v=4'
-						alt='Iyan Saputra'
-						className='w-48 h-48 md:h-64 md:w-64 rounded-full object-cover border-4 border-purple-800 mx-auto'
-						unsized
-					/>
+					<div className='relative w-48 h-48 md:h-64 md:w-64 rounded-full object-cover border-4 border-purple-800 mx-auto'>
+						<Image
+							src='https://avatars3.githubusercontent.com/u/42711013?s=460&v=4'
+							alt='Iyan Saputra'
+							className='w-48 h-48 md:h-64 md:w-64 rounded-full object-cover border-4 border-purple-800 mx-auto'
+							layout='fill'
+						/>
+					</div>
 
 					<div className='mx-auto text-center h-64 space-y-2 flex flex-col justify-evenly'>
 						<div>
@@ -51,7 +53,7 @@ const Home = () => {
 				<div className='mt-10 mb-12'>
 					<div className='mx-auto text-center'>
 						<h1 className='font-bold text-3xl md:text-4xl mb-10'>Contribution Chart</h1>
-						<Image unsized src='https://ghchart.rshah.org/iyansr' alt='contribution chart' className='w-full' />
+						<img src='https://ghchart.rshah.org/iyansr' alt='contribution chart' className='w-full object-cover' />
 					</div>
 				</div>
 			</div>

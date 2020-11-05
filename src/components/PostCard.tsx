@@ -6,7 +6,9 @@ import { format } from 'date-fns'
 const PostCard = (file: FileType) => {
 	return (
 		<div className='bg-secondary rounded-md shadow-md hover:shadow-xl transition duration-200 transform hover:-translate-y-1 post-card flex flex-col'>
-			<Image unsized className='w-full h-40 object-cover rounded-t-md' src={file.thumbnail} alt={file.title} />
+			<div className='w-full h-40 relative'>
+				<Image layout='fill' className='w-full h-40 object-cover rounded-t-md' src={file.thumbnail} alt={file.title} />
+			</div>
 
 			<div className='p-4 flex-1 flex flex-col'>
 				<div>

@@ -1,12 +1,12 @@
-import Link from 'next/link'
 import { WorkType } from '@customType/index'
-import readingTime from '@utils/readingTime'
-import { format } from 'date-fns'
+import Image from 'next/image'
 
 const WorkCard = (work: WorkType) => {
 	return (
 		<div className='bg-secondary rounded-md shadow-md hover:shadow-xl transition duration-200 transform hover:-translate-y-1 post-card flex flex-col'>
-			<img className='w-full h-40 object-cover rounded-t-md' src={work.image} alt={work.name} />
+			<div className='w-full h-40 relative'>
+				<Image layout='fill' className='w-full h-40 object-cover rounded-t-md' src={work.image} alt={work.name} />
+			</div>
 
 			<div className='p-4 flex-1 flex flex-col'>
 				<div>
