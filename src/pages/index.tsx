@@ -4,6 +4,7 @@ import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Form from '@components/Form'
 
 const Home = () => {
 	return (
@@ -53,7 +54,14 @@ const Home = () => {
 				<div className='mt-10 mb-12'>
 					<div className='mx-auto text-center'>
 						<h1 className='font-bold text-3xl md:text-4xl mb-10'>Contribution Chart</h1>
-						<img src='https://ghchart.rshah.org/iyansr' alt='contribution chart' className='w-full object-cover' />
+						<img src='https://ghchart.rshah.org/iyansr' alt='contribution chart' className='md:w-2/3 mx-auto w-full object-cover' />
+					</div>
+				</div>
+				<hr />
+				<div className='mt-10 mb-12'>
+					<div className='mx-auto'>
+						<h1 className='font-bold text-3xl md:text-4xl mb-10 text-center'>Contact me</h1>
+						<Form />
 					</div>
 				</div>
 			</div>
