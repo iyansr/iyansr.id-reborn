@@ -10,6 +10,7 @@
 - [x] Portfolio (Work) List
 - [x] Blog Post
 - [x] Comment System
+- [x] Contact form
 - [ ] SEO Optimized
 - [ ] Image optimized
 - [x] PWA
