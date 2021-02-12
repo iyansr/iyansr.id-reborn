@@ -55,6 +55,7 @@ module.exports = {
 				700: '#c53030',
 				800: '#9b2c2c',
 				900: '#742a2a',
+				custom: '#f92672',
 			},
 			orange: {
 				100: '#fffaf0',
@@ -99,6 +100,7 @@ module.exports = {
 				700: '#2c7a7b',
 				800: '#285e61',
 				900: '#234e52',
+				custom: '#B9FBDF',
 			},
 			blue: {
 				100: '#ebf8ff',
@@ -132,6 +134,7 @@ module.exports = {
 				700: '#6b46c1',
 				800: '#553c9a',
 				900: '#44337a',
+				custom: '#FF82E2',
 			},
 			pink: {
 				100: '#fff5f7',

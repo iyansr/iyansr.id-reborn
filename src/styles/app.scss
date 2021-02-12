@@ -1,5 +1,5 @@
 :root {
-   font-family: 'Open Sans', sans-serif;
+   font-family: "Poppins", sans-serif;
 }
 
 :active {
@@ -32,7 +32,7 @@ hr {
 }
 
 a {
-   @apply text-pink-500;
+   @apply text-red-custom;
 }
 
 .main-logo {
@@ -41,18 +41,39 @@ a {
 
 #nprogress {
    .bar {
-      background: #6649b8 !important;
+      background: #f92672 !important;
    }
 
    .spinner-icon {
-      border-top-color: #6649b8 !important;
-      border-left-color: #6649b8 !important;
+      border-top-color: #f92672 !important;
+      border-left-color: #f92672 !important;
    }
 }
 
 .post-card {
    min-height: 380px;
    height: 100%;
+   box-shadow: 20px 20px 0px #0e3432;
+   transition: 300ms cubic-bezier(0.23, 1, 0.32, 1);
+
+   &:hover {
+      box-shadow: none;
+      transform: translate(20px, 20px);
+   }
+
+   &--tag {
+      box-shadow: 5px 5px 0px #fed715;
+   }
+}
+
+.article-button {
+   box-shadow: 8px 8px 0px #0e3432;
+   transition: 300ms cubic-bezier(0.23, 1, 0.32, 1);
+
+   &:hover {
+      box-shadow: none;
+      transform: translate(8px, 8px);
+   }
 }
 
 .twitter-tweet-rendered {
@@ -62,13 +83,12 @@ a {
 
 pre code,
 pre code span {
-   font: 600 10pt Fira Code, monospace !important;
+   font: 600 11pt Dank Mono, Fira Code, JetBrains Mono, Consolas, monospace;
 }
 
 .post-wrapper {
    code:not(.hljs) {
-      font: 600 10pt Fira Code, monospace;
-      background-color: #282c34;
+      font: 600 11pt Dank Mono, Fira Code, JetBrains Mono, Consolas, monospace;
       color: #f92672;
       padding: 0.15rem 0.5rem;
       border-radius: 0.25rem;
@@ -76,10 +96,45 @@ pre code span {
 
    code.hljs {
       margin-bottom: 1rem;
+      padding: 1rem 2rem;
+      box-shadow: 6px 6px 0px #f92672;
+      background-color: #2d3748;
    }
 }
 
-.main-header {
-   background-color: rgba(20, 20, 24, 0.5);
-   backdrop-filter: saturate(180%) blur(20px);
+.header-link {
+   &:hover {
+      text-shadow: 2px 2px 0px #fed715;
+   }
+
+   &-active {
+      text-shadow: 4px 4px 0px #fed715;
+   }
+}
+
+.title-front {
+   bottom: 1px;
+   color: #fe0879;
+   text-shadow: 7px 7px 0px #fed715;
+}
+
+.section-one {
+   min-height: 800px;
+}
+
+.header-menu {
+   text-shadow: 3px 3px 0px #fed715;
+}
+
+.react-modal-custom {
+   position: absolute;
+   left: 120px;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   box-shadow: -10px 10px 0px #0e3432;
+   @apply bg-teal-custom;
+   overflow: auto;
+   outline: none;
+   padding: 20px;
 }
