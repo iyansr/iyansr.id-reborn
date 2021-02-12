@@ -90,15 +90,15 @@
 
       blockquote {
          @apply bg-gray-800;
-         @apply rounded-md;
          @apply mb-4;
          @apply px-6;
          @apply py-2;
          @apply border-l-4;
-         @apply border-indigo-700;
+         @apply border-red-custom;
          @apply italic;
          p {
             @apply my-0;
+            @apply text-white;
          }
       }
    }

@@ -3,7 +3,6 @@ import Meta from '@components/Meta'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
-import { GetStaticProps } from 'next'
 import WorkCard from '@components/WorkCard'
 import workData from '@content/portfolio.json'
 
@@ -17,20 +16,19 @@ const Blog = () => {
 			/>
 			<Header />
 
-			<div className='container mx-auto px-6 md:px-0'>
-				<div className='my-12'>
-					<div className='mx-auto text-center h-40 space-y-2 flex flex-col justify-evenly'>
-						<h1 className='font-bold text-3xl md:text-4xl'>💼 Portfolio</h1>
-						<h4>Projects, experiments and some stuff i've made.</h4>
+			<div className='bg-purple-200 overflow-hidden py-24'>
+				<div className='container mx-auto'>
+					<div className='text-center py-12'>
+						<h2 className='text-5xl md:text-6xl lg:text-7xl font-black title-front'>PORTFOLIO</h2>
+						<p className='mt-4 text-sm md:text-base lg:text-lg font-medium text-gray-800'>Projects, experiments and some stuff i've made.</p>
 					</div>
-				</div>
-				<hr />
 
-				<div className='mt-12'>
-					<div className='grid md:grid-cols-3 lg:grid-cols-4 gap-4'>
-						{workData.map((file, index) => (
-							<WorkCard {...file} key={index} />
-						))}
+					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
+						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-10 md:px-4'>
+							{workData.map((file, index) => (
+								<WorkCard {...file} key={index} />
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

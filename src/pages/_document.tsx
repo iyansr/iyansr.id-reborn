@@ -7,8 +7,13 @@ class MyDocument extends Document {
 		return (
 			<Html lang='id, en'>
 				<Head>
+					<link rel='preconnect' href='https://fonts.gstatic.com' />
 					<link href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap' rel='stylesheet' />
 					<link href='https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap' rel='stylesheet' />
+					<link
+						href='https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap'
+						rel='stylesheet'
+					/>
 					<link rel='shortcut icon' href='/favicon.ico' />
 					<meta name='application-name' content='IyanSR' />
 					<meta name='apple-mobile-web-app-capable' content='yes' />
@@ -49,7 +54,7 @@ class MyDocument extends Document {
 						</Fragment>
 					)}
 				</Head>
-				<body className='bg-primary text-gray-400 text-sm md:text-base antialiased'>
+				<body className='text-gray-400 text-sm md:text-base antialiased'>
 					<Main />
 					<NextScript />
 				</body>

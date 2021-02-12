@@ -7,6 +7,7 @@ import { FileType, BlogProps } from '@customType/index'
 import PostCard from '@components/PostCard'
 import { getSortedPostsData } from '@utils/api'
 import { GetStaticProps } from 'next'
+import SectionTwo from '@components/SectionTwo'
 
 const Blog = ({ fileList }: BlogProps) => {
 	return (
@@ -19,25 +20,25 @@ const Blog = ({ fileList }: BlogProps) => {
 
 			<Header />
 
-			<div className='container mx-auto px-6 md:px-0'>
-				<div className='my-12'>
-					<div className='mx-auto text-center h-40 space-y-2 flex flex-col justify-evenly'>
-						<h1 className='font-bold text-3xl md:text-4xl'>📝 Blog</h1>
-						<h4>If I tell you what happen, it won't happen.</h4>
+			<div className='bg-yellow-200 py-24'>
+				<div className='container mx-auto'>
+					<div className='text-center py-12'>
+						<h2 className='text-5xl md:text-6xl lg:text-7xl font-black title-front'>MY ARTICLES</h2>
+						<p className='mt-4 text-sm md:text-base lg:text-lg font-medium text-gray-800'>If I tell you what happen, it won't happen.</p>
 					</div>
-				</div>
-				<hr />
 
-				<div className='mt-12'>
-					<div className='grid md:grid-cols-3 lg:grid-cols-4 gap-4'>
-						{fileList
-							.sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime())
-							.map((file: FileType, index: number) => (
-								<PostCard {...file} key={index} />
-							))}
+					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
+						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-10 md:px-4'>
+							{fileList
+								.sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime())
+								.map((file: FileType, index: number) => (
+									<PostCard {...file} key={index} />
+								))}
+						</div>
 					</div>
 				</div>
 			</div>
+
 			<Footer />
 		</motion.div>
 	)
