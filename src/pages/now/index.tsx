@@ -14,7 +14,7 @@ const Now = ({ htmlString }: any) => {
 			<div className='bg-purple-200 pb-12'>
 				<Header />
 
-				<div className='container mx-auto px-6 md:px-0'>
+				<div className='container mx-auto px-4 md:px-0'>
 					<div className='py-12'>
 						<div className='text-center py-12'>
 							<h2 className='text-5xl md:text-6xl lg:text-7xl font-black title-front'>NOW</h2>

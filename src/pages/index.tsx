@@ -20,7 +20,7 @@ const Home = ({ fileList }: BlogProps) => {
 				And would be a fast learner to doing new things and build good teamwork either.'
 			/>
 
-			<main>
+			<main className='bg-gray-100'>
 				<Header />
 				<SectionOne />
 				<SectionTwo fileList={fileList} />

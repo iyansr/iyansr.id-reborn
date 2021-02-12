@@ -1,5 +1,6 @@
 import { BlogProps, FileType } from '@customType/index'
 import WorkCard from '@components/WorkCard'
+import Link from 'next/link'
 
 import workData from '@content/portfolio.json'
 
@@ -21,7 +22,13 @@ const SectionThree = () => {
 				</div>
 
 				<div className='w-full flex justify-center'>
-					<button className='bg-red-custom focus:outline-none px-4 py-2 text-white font-bold article-button border-2 border-gray-900'>More Work</button>
+					<Link href='/work'>
+						<a>
+							<button className='bg-red-custom focus:outline-none px-4 py-2 text-white font-bold article-button border-2 border-gray-900'>
+								More Work
+							</button>
+						</a>
+					</Link>
 				</div>
 			</div>
 		</div>

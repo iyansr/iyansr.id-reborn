@@ -36,7 +36,7 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 			/>
 			<div className='bg-yellow-200 pb-12'>
 				<Header />
-				<div className='container mx-auto px-6'>
+				<div className='container mx-auto px-4'>
 					<div className='flex space-x-4 justify-center'>
 						<div className='w-full lg:w-9/12 mt-24'>
 							<div className='bg-gray-100 rounded-xl border-4 border-gray-800 text-black font-medium'>
@@ -50,30 +50,32 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 									<div className='h-4 w-4 rounded-full bg-green-400 '></div>
 								</div>
 
-								<div className='relative w-full'>
-									<img src={frontMatter.thumbnail} alt={frontMatter.title} className='w-full h-full object-cover z-40 border-b-4 border-gray-800' />
-								</div>
-
-								<div className='px-6 md:px-12 py-8'>
-									<h1 className='text-3xl md:text-5xl leading-tight font-bold'>{frontMatter.title}</h1>
-
-									<div className='flex flex-wrap space-x-2 mt-1 mb-2'>
-										{frontMatter.tags.map((tag, iTag) => (
-											<div key={iTag} className='text-xs font-medium text-gray-200 px-2 py-1 bg-red-custom mr-2 mt-2 post-card--tag'>
-												#{tag}
-											</div>
-										))}
+								<article>
+									<div className='relative w-full'>
+										<img src={frontMatter.thumbnail} alt={frontMatter.title} className='w-full h-full object-cover z-40 border-b-4 border-gray-800' />
 									</div>
 
-									<div className='mt-4'>
-										<p className='text-sm text-gray-600'>
-											<span role='img'>📅</span>&nbsp; {format(new Date(frontMatter.date), 'dd MMM yyyy')} | <span role='img'>☕️</span>
-											&nbsp; 2 Min Read
-										</p>
-									</div>
+									<div className='px-6 md:px-12 py-8'>
+										<h1 className='text-3xl md:text-5xl leading-tight font-bold'>{frontMatter.title}</h1>
 
-									<div className='mt-8 post-wrapper relative'>{children}</div>
-								</div>
+										<div className='flex flex-wrap space-x-2 mt-1 mb-2'>
+											{frontMatter.tags.map((tag, iTag) => (
+												<div key={iTag} className='text-xs font-medium text-gray-200 px-2 py-1 bg-red-custom mr-2 mt-2 post-card--tag'>
+													#{tag}
+												</div>
+											))}
+										</div>
+
+										<div className='mt-4'>
+											<p className='text-sm text-gray-600'>
+												<span role='img'>📅</span>&nbsp; {format(new Date(frontMatter.date), 'dd MMM yyyy')} | <span role='img'>☕️</span>
+												&nbsp; 2 Min Read
+											</p>
+										</div>
+
+										<div className='mt-8 post-wrapper relative'>{children}</div>
+									</div>
+								</article>
 
 								<div className='mt-8 px-12 pb-8'>
 									<DiscussionEmbed

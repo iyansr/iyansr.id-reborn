@@ -28,7 +28,7 @@ const Blog = ({ fileList }: BlogProps) => {
 					</div>
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
-						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-10 md:px-4'>
+						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 md:px-4'>
 							{fileList
 								.sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime())
 								.map((file: FileType, index: number) => (
