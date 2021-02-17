@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install yarn
-        run: npm install -g yarn
+      - name: Install Dependencies
+        run: yarn install --silent
       - name: Setup ENV
         run: 'echo "${{ secrets.PRODUCTION_ENV }}" > .env.production.local'
       - name: Build
