@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { FileType } from '@customType/index'
-import Image from 'next/image'
 import { format } from 'date-fns'
 
 const PostCard = (file: FileType) => {
@@ -8,7 +7,7 @@ const PostCard = (file: FileType) => {
 		<div className='border-4 border-gray-800 bg-white post-card'>
 			<div className='w-full h-40 relative cursor-pointer border-gray-800 border-b-4'>
 				<Link href='/blog/[slug]' as={`/blog/${file.slug}`}>
-					<Image layout='fill' className='w-full h-40 object-cover ' src={file.thumbnail} alt={file.title} />
+					<img className='w-full h-40 object-cover ' src={file.thumbnail} alt={file.title} />
 				</Link>
 			</div>
 			<div className='p-4 flex-1 flex flex-col'>

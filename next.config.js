@@ -25,15 +25,10 @@ module.exports = withMdxEnhanced({
 			runtimeCaching,
 			disable: process.env.NODE_ENV === 'development',
 		},
-		images: {
-			domains: ['iyansr.id', 'ghchart.rshah.org', 'res.cloudinary.com', 'avatars3.githubusercontent.com', 'ik.imagekit.io'],
-		},
-
 		webpack: (config, { isServer }) => {
 			if (isServer) {
 				require('./src/utils/generateSitemap')
 			}
-
 			return config
 		},
 	})

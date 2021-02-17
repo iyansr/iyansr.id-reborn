@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "next -p 8300",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "deploy": "yarn build && yarn export"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
