@@ -21,12 +21,12 @@ class MyDocument extends Document {
 					<meta name='apple-mobile-web-app-title' content='IyanSR' />
 					<meta name='format-detection' content='telephone=no' />
 					<meta name='mobile-web-app-capable' content='yes' />
-					<meta name='msapplication-TileColor' content='#23232e' />
+					<meta name='msapplication-TileColor' content='#B9FBDF' />
 					<meta name='msapplication-tap-highlight' content='no' />
-					<meta name='theme-color' content='#141418' />
-					<link rel='apple-touch-icon' sizes='180x180' href='/icon/apple-icon-180x180-dunplab-manifest-18529.png' />
-					<link rel='icon' type='image/png' sizes='32x32' href='/icon/favicon-32x32-dunplab-manifest-18529.png' />
-					<link rel='icon' type='image/png' sizes='16x16' href='/icon/favicon-16x16-dunplab-manifest-18529.png' />
+					<meta name='theme-color' content='#B9FBDF' />
+					<link rel='apple-touch-icon' href='/icon/apple-touch-icon.png' />
+					<link rel='icon' type='image/png' sizes='32x32' href='/icon/favicon-32x32.png' />
+					<link rel='icon' type='image/png' sizes='16x16' href='/icon/favicon-16x16.png' />
 					<link rel='manifest' href='/manifest.json' />
 					<link rel='shortcut icon' href='/favicon.ico' />
 					<link

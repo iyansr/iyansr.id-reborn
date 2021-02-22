@@ -34,7 +34,7 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 				image={frontMatter.thumbnail}
 				url={`${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`}
 			/>
-			<div className='bg-yellow-200 pb-12'>
+			<main className='bg-purple-200 pb-12 bg-dots'>
 				<Header />
 				<div className='container mx-auto px-4'>
 					<div className='flex space-x-4 justify-center'>
@@ -92,7 +92,7 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</main>
 
 			<Footer />
 		</motion.div>

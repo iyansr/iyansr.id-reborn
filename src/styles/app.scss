@@ -120,6 +120,13 @@ pre code span {
 
 .section-one {
    min-height: 800px;
+   @extend .bg-dots;
+}
+
+.bg-dots {
+   background-image: radial-gradient(#fe0879 1px, transparent 0), radial-gradient(#fe0879 1px, transparent 0);
+   background-position: 0 0, 25px 25px;
+   background-size: 50px 50px;
 }
 
 .header-menu {

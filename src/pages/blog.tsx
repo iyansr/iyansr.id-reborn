@@ -20,7 +20,7 @@ const Blog = ({ fileList }: BlogProps) => {
 
 			<Header />
 
-			<div className='bg-yellow-200 py-24'>
+			<main className='bg-yellow-200 py-24 bg-dots'>
 				<div className='container mx-auto'>
 					<div className='text-center py-12'>
 						<h2 className='text-5xl md:text-6xl lg:text-7xl font-black title-front'>MY ARTICLES</h2>
@@ -37,7 +37,7 @@ const Blog = ({ fileList }: BlogProps) => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</main>
 
 			<Footer />
 		</motion.div>

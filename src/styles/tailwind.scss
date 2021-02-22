@@ -7,66 +7,26 @@
 @layer components {
    .post-wrapper {
       h1 {
-         @apply text-3xl;
-         @apply font-bold;
-         @apply mb-4;
-         @apply relative;
-
-         &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 0.125rem;
-            background-image: linear-gradient(90deg, #d53f8c, transparent);
-         }
+         @apply text-3xl font-bold mb-4 relative;
       }
 
       h2 {
-         @apply text-2xl;
-         @apply font-bold;
-         @apply mb-4;
-         @apply relative;
-         @apply pl-6;
-
-         &::after {
-            content: "# ";
-            position: absolute;
-            left: 0;
-            color: #d53f8c;
-         }
+         @apply text-3xl font-bold my-4 relative;
       }
       h3 {
-         @apply text-xl;
-         @apply font-bold;
-         @apply mb-4;
-         @apply pl-6;
-
-         &::after {
-            content: "> ";
-            position: absolute;
-            left: 0;
-            color: #d53f8c;
-         }
+         @apply text-2xl font-bold mb-4;
       }
 
       h4 {
-         @apply text-lg;
-         @apply font-bold;
-         @apply mb-4;
+         @apply text-xl font-bold mb-4;
       }
 
       p {
-         @apply mb-3;
-         @apply leading-normal;
+         @apply mb-3 leading-normal;
       }
 
       img {
-         @apply w-full;
-         @apply h-auto;
-         @apply mx-auto;
-         @apply mb-4;
+         @apply w-full h-auto mx-auto mb-4;
 
          @media (min-width: 768px) {
             @apply w-3/4;
@@ -74,32 +34,24 @@
       }
 
       ul {
-         @apply list-disc;
-         @apply ml-10;
-         @apply mb-2;
+         @apply list-disc ml-10 mb-2;
       }
 
       a {
          @apply text-pink-600;
          &:hover {
-            @apply border-b;
-            @apply border-dashed;
-            @apply border-pink-600;
+            @apply border-b border-dashed border-red-custom;
          }
       }
 
       blockquote {
-         @apply bg-gray-800;
-         @apply mb-4;
-         @apply px-6;
-         @apply py-2;
-         @apply border-l-4;
-         @apply border-red-custom;
-         @apply italic;
+         @apply bg-gray-800 mb-4 px-6 py-2 italic;
          p {
             @apply my-0;
             @apply text-white;
          }
+
+         box-shadow: 6px 6px 0px #f92672;
       }
    }
 }
