@@ -76,18 +76,6 @@ const DetailBlog = ({ frontMatter, children }: BlogType) => {
 										<div className='mt-8 post-wrapper relative'>{children}</div>
 									</div>
 								</article>
-
-								<div className='mt-8 px-12 pb-8'>
-									<DiscussionEmbed
-										shortname={`${process.env.NEXT_PUBLIC_DISCUSS_SHORTNAME}`}
-										config={{
-											url: `${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`,
-											identifier: slug,
-											title: frontMatter.title,
-											language: 'id', //e.g. for Traditional Chinese (Taiwan)
-										}}
-									/>
-								</div>
 							</div>
 						</div>
 					</div>
