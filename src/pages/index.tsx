@@ -3,7 +3,6 @@ import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Form from '@components/Form'
 import SectionOne from '@components/SectionOne'
 import SectionTwo from '@components/SectionTwo'
 import { getSortedPostsData } from '@utils/api'
@@ -23,8 +22,8 @@ const Home = ({ fileList }: BlogProps) => {
 			<main className='bg-gray-100'>
 				<Header />
 				<SectionOne />
-				<SectionTwo fileList={fileList} />
-				<SectionThree />
+				{/* <SectionTwo fileList={fileList} />
+				<SectionThree /> */}
 
 				<Footer />
 			</main>
@@ -32,11 +31,11 @@ const Home = ({ fileList }: BlogProps) => {
 	)
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-	const fileList = getSortedPostsData()
-	return {
-		props: { fileList },
-	}
-}
+// export const getStaticProps: GetStaticProps = async () => {
+// 	const fileList = getSortedPostsData()
+// 	return {
+// 		props: { fileList },
+// 	}
+// }
 
 export default Home

@@ -29,11 +29,11 @@ const Blog = ({ fileList }: BlogProps) => {
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 md:px-4'>
-							{fileList
+							{/* {fileList
 								.sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime())
 								.map((file: FileType, index: number) => (
 									<PostCard {...file} key={index} />
-								))}
+								))} */}
 						</div>
 					</div>
 				</div>
@@ -44,11 +44,11 @@ const Blog = ({ fileList }: BlogProps) => {
 	)
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-	const fileList = getSortedPostsData()
-	return {
-		props: { fileList },
-	}
-}
+// export const getStaticProps: GetStaticProps = async () => {
+// 	const fileList = getSortedPostsData()
+// 	return {
+// 		props: { fileList },
+// 	}
+// }
 
 export default Blog
