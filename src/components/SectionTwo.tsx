@@ -2,7 +2,7 @@ import { BlogProps, FileType } from '@customType/index'
 import PostCard from './PostCard'
 import Link from 'next/link'
 
-const SectionTwo = ({ fileList }: BlogProps) => {
+const SectionTwo = () => {
 	return (
 		<div className='bg-yellow-200 pb-24'>
 			<div className='container mx-auto'>
@@ -13,11 +13,11 @@ const SectionTwo = ({ fileList }: BlogProps) => {
 
 				<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 					<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-10 md:px-4'>
-						{fileList
+						{/* {fileList
 							.sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime())
 							.map((file: FileType, index: number) => (
 								<PostCard {...file} key={index} />
-							))}
+							))} */}
 					</div>
 				</div>
 
