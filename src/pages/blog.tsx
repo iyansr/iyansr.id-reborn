@@ -3,13 +3,14 @@ import Meta from '@components/Meta'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
-import { FileType, BlogProps } from '@customType/index'
-import PostCard from '@components/PostCard'
-import { getSortedPostsData } from '@utils/api'
 import { GetStaticProps } from 'next'
-import SectionTwo from '@components/SectionTwo'
+import { blogger_v3 } from 'googleapis'
+import PostCard from '@components/PostCard'
+import { dehydrate, QueryClient } from 'react-query'
+import useQueryBlogPosts, { fetchBlogPosts } from 'src/hooks/blog/useQueryBlogPosts'
 
-const Blog = ({ fileList }: BlogProps) => {
+const Blog = () => {
+	const { data: posts } = useQueryBlogPosts()
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
@@ -17,9 +18,7 @@ const Blog = ({ fileList }: BlogProps) => {
 				description="'If I tell you what happen, it won't happen.'"
 				keywords='iyansr blog, iyan saputra blog, blog iyan saputra, software blog, nextjs blog, next js blog, jamstack blog, react blog, markdown blog'
 			/>
-
 			<Header />
-
 			<main className='bg-yellow-200 py-24 bg-dots'>
 				<div className='container mx-auto'>
 					<div className='text-center py-12'>
@@ -29,11 +28,9 @@ const Blog = ({ fileList }: BlogProps) => {
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 md:px-4'>
-							{/* {fileList
-								.sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime())
-								.map((file: FileType, index: number) => (
-									<PostCard {...file} key={index} />
-								))} */}
+							{posts?.map((post) => (
+								<PostCard post={post} key={post?.id} />
+							))}
 						</div>
 					</div>
 				</div>
@@ -44,11 +41,16 @@ const Blog = ({ fileList }: BlogProps) => {
 	)
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-// 	const fileList = getSortedPostsData()
-// 	return {
-// 		props: { fileList },
-// 	}
-// }
+export const getStaticProps: GetStaticProps = async () => {
+	const queryClient = new QueryClient()
+	await queryClient.prefetchQuery('blogPosts', fetchBlogPosts)
+
+	return {
+		props: {
+			dehydratedState: dehydrate(queryClient),
+		},
+		revalidate: 60 * 60,
+	}
+}
 
 export default Blog

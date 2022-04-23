@@ -1,44 +1,53 @@
 import Link from 'next/link'
-import { FileType } from '@customType/index'
 import { format } from 'date-fns'
+import { blogger_v3 } from 'googleapis'
+import sanitizeHtml from 'sanitize-html'
+import readingTime from 'reading-time'
 
-const PostCard = (file: FileType) => {
+const PostCard = ({ post }: { post: blogger_v3.Schema$Post }) => {
+	const path = post?.url?.replace(`${process.env.NEXT_PUBLIC_BLOGGER_URL}/`, '')
+	const image = post.images ? post.images[0].url : null
+
+	const content = sanitizeHtml(String(post.content))
+	const _readingTime = readingTime(content)
+
 	return (
 		<div className='border-4 border-gray-800 bg-white post-card'>
 			<div className='w-full h-40 relative cursor-pointer border-gray-800 border-b-4'>
-				<Link href='/blog/[slug]' as={`/blog/${file.slug}`}>
-					<img className='w-full h-40 object-cover ' src={file.thumbnail} alt={file.title} />
+				<Link href='/blog/[slug]' as={`/blog/${path}`}>
+					<a>
+						{image ? (
+							<img className='w-full h-40 object-cover' src={image} alt={String(post.title)} />
+						) : (
+							<div className='w-full h-40 object-cover bg-gray-400'></div>
+						)}
+					</a>
 				</Link>
 			</div>
 			<div className='p-4 flex-1 flex flex-col'>
 				<div>
 					<div className='h-16'>
-						<Link href='/blog/[slug]' as={`/blog/${file.slug}`}>
-							<a className=' font-bold text-lg text-black hover:text-red-custom transition-colors duration-200 truncate-2-lines'>{file.title}</a>
+						<Link href='/blog/[slug]' as={`/blog/${path}`}>
+							<a className=' font-bold text-lg text-black hover:text-red-custom transition-colors duration-200 line-clamp-2'>{post?.title}</a>
 						</Link>
 					</div>
 					<p className='text-xs text-gray-700'>
-						<span role='img'>📅</span>&nbsp; {format(new Date(file.date), 'dd MMM yyyy')} | <span role='img'>☕️</span>
-						&nbsp; {file.readingTime}
+						<span role='img'>📅</span>&nbsp; {format(new Date(String(post?.published)), 'dd MMM yyyy')} | <span role='img'>☕️</span>
+						&nbsp; {_readingTime.text}
 					</p>
 				</div>
 
-				<div className='flex-1'>
-					<p className='truncate-3-lines mt-4 text-sm text-gray-700'>{file.description}</p>
-				</div>
+				<div className='flex-1 line-clamp-3 card-content-body text-sm text-gray-700 mt-2' dangerouslySetInnerHTML={{ __html: content }} />
 
 				<div className='flex flex-wrap'>
-					{file.tags.map((tag, iTag) => (
-						<div key={iTag} className='text-xs font-medium text-gray-200 px-2 py-1 bg-red-custom mr-2 mt-2 post-card--tag'>
-							#{tag}
+					{post?.labels?.map((label, iLabel) => (
+						<div key={String(iLabel)} className='text-xs font-medium text-gray-200 px-2 py-1 bg-red-custom mr-2 mt-2 post-card--tag'>
+							#{label}
 						</div>
 					))}
 				</div>
 			</div>
 		</div>
-		// <div className='bg-secondary rounded-md shadow-md hover:shadow-xl transition duration-200 transform hover:-translate-y-1 post-card flex flex-col'>
-
-		// </div>
 	)
 }
 

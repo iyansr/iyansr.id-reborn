@@ -16,9 +16,12 @@
   "dependencies": {
     "@mdx-js/loader": "^2.1.1",
     "@mdx-js/react": "^2.1.1",
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "@types/sanitize-html": "^2.6.2",
     "date-fns": "^2.28.0",
     "disqus-react": "^1.1.2",
     "framer-motion": "^6.3.0",
+    "googleapis": "^100.0.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.5.1",
     "marked": "^4.0.14",
@@ -31,10 +34,11 @@
     "react-dom": "^17.0.2",
     "react-medium-image-zoom": "^4.3.7",
     "react-modal": "^3.14.4",
+    "react-query": "^3.38.0",
     "reading-time": "^1.5.0",
+    "sanitize-html": "^2.7.0",
     "sass": "^1.50.0",
-    "tailwindcss": "^3.0.24",
-    "tailwindcss-truncate-multiline": "^1.0.3"
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
     "@types/marked": "^4.0.3",

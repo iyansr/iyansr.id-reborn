@@ -128,3 +128,13 @@ pre code span {
 .header-menu {
    text-shadow: 3px 3px 0px #fed715;
 }
+
+.card-content-body {
+   img:first-child {
+      display: none;
+   }
+
+   .separator {
+      display: none !important;
+   }
+}

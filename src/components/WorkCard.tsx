@@ -10,7 +10,7 @@ const WorkCard = (work: WorkType) => {
 			<div className='p-4 flex-1 flex flex-col'>
 				<div>
 					<div className='h-10'>
-						<h1 className='text-xl font-bold text-black hover:text-red-custom transition-colors duration-200 truncate-2-lines'>{work.name}</h1>
+						<h1 className='text-xl font-bold text-black hover:text-red-custom transition-colors duration-200 line-clamp-2'>{work.name}</h1>
 					</div>
 
 					<div className='flex flex-wrap '>
