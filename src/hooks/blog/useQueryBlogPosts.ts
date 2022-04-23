@@ -1,15 +1,15 @@
+import axios from 'axios'
+import { blogger_v3 } from 'googleapis'
 import { useQuery } from 'react-query'
-import blogger from 'src/services/bloggerService'
 
 export const fetchBlogPosts = async () => {
-	const response = await blogger.posts.list({
-		fetchImages: true,
-		orderBy: 'published',
-		prettyPrint: true,
-		status: ['live'],
+	const response = await axios.request<blogger_v3.Schema$PostList>({
+		method: 'GET',
+		baseURL: process.env.NEXT_PUBLIC_SITE_URL,
+		url: '/api/posts',
 	})
 
-	return response.data.items
+	return response.data
 }
 
 const useQueryBlogPosts = () => {

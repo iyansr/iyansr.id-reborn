@@ -3,9 +3,10 @@ import { format } from 'date-fns'
 import { blogger_v3 } from 'googleapis'
 import sanitizeHtml from 'sanitize-html'
 import readingTime from 'reading-time'
+import Image from 'next/image'
 
 const PostCard = ({ post }: { post: blogger_v3.Schema$Post }) => {
-	const path = post?.url?.replace(`${process.env.NEXT_PUBLIC_BLOGGER_URL}/`, '')
+	const path = post?.url?.replace(`${process.env.NEXT_PUBLIC_BLOGGER_URL}/`, '').replace('.html', '')
 	const image = post.images ? post.images[0].url : null
 
 	const content = sanitizeHtml(String(post.content))
@@ -13,22 +14,16 @@ const PostCard = ({ post }: { post: blogger_v3.Schema$Post }) => {
 
 	return (
 		<div className='border-4 border-gray-800 bg-white post-card'>
-			<div className='w-full h-40 relative cursor-pointer border-gray-800 border-b-4'>
+			<div className='aspect-w-5 aspect-h-3 relative cursor-pointer bg-gray-400'>
 				<Link href='/blog/[slug]' as={`/blog/${path}`}>
-					<a>
-						{image ? (
-							<img className='w-full h-40 object-cover' src={image} alt={String(post.title)} />
-						) : (
-							<div className='w-full h-40 object-cover bg-gray-400'></div>
-						)}
-					</a>
+					<a>{image && <Image layout='fill' className='aspect-w-2 aspect-h-1 object-cover' src={image} alt={String(post.title)} />}</a>
 				</Link>
 			</div>
 			<div className='p-4 flex-1 flex flex-col'>
 				<div>
 					<div className='h-16'>
 						<Link href='/blog/[slug]' as={`/blog/${path}`}>
-							<a className=' font-bold text-lg text-black hover:text-red-custom transition-colors duration-200 line-clamp-2'>{post?.title}</a>
+							<a className='font-bold text-lg text-black hover:text-red-custom transition-colors duration-200 line-clamp-2'>{post?.title}</a>
 						</Link>
 					</div>
 					<p className='text-xs text-gray-700'>

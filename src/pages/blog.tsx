@@ -4,7 +4,6 @@ import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
-import { blogger_v3 } from 'googleapis'
 import PostCard from '@components/PostCard'
 import { dehydrate, QueryClient } from 'react-query'
 import useQueryBlogPosts, { fetchBlogPosts } from 'src/hooks/blog/useQueryBlogPosts'
@@ -28,7 +27,7 @@ const Blog = () => {
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 md:px-4'>
-							{posts?.map((post) => (
+							{posts?.items?.map((post) => (
 								<PostCard post={post} key={post?.id} />
 							))}
 						</div>
