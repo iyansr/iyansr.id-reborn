@@ -27,7 +27,7 @@ const Blog = () => {
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 md:px-4'>
-							{posts?.items?.map((post) => (
+							{posts?.data.map((post) => (
 								<PostCard post={post} key={post?.id} />
 							))}
 						</div>

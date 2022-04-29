@@ -2,6 +2,6 @@
 module.exports = {
 	reactStrictMode: true,
 	images: {
-		domains: ['blogger.googleusercontent.com'],
+		domains: ['blogger.googleusercontent.com', 'ik.imagekit.io'],
 	},
 }
