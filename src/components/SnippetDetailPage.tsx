@@ -40,9 +40,9 @@ const SnippetDetailPage = () => {
 				image={snippet?.data.attributes.icon.data.attributes.url}
 				url={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`}
 			/>
-			<main className='bg-purple-200 pb-12 bg-dots'>
+			<main className='bg-purple-200 pb-12 bg-dots min-h-screen'>
 				<Header />
-				<div className='container mx-auto px-4'>
+				<div className='container mx-auto px-4 max-w-screen-xl'>
 					<div className='flex space-x-4 justify-center'>
 						<div className='w-full lg:w-9/12 mt-24'>
 							<div className='text-center py-12'>

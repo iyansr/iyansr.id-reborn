@@ -44,7 +44,7 @@ const DetailBlog = () => {
 			/>
 			<main className='bg-purple-200 pb-12 bg-dots'>
 				<Header />
-				<div className='container mx-auto px-4'>
+				<div className='container mx-auto px-4 max-w-screen-xl'>
 					<div className='flex space-x-4 justify-center'>
 						<div className='w-full lg:w-9/12 mt-24'>
 							<div className='bg-gray-100 rounded-xl border-4 border-gray-800 text-black font-medium'>

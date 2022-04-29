@@ -17,7 +17,7 @@ const Blog = () => {
 			<Header />
 
 			<main className='bg-purple-200 overflow-hidden py-24 bg-dots'>
-				<div className='container mx-auto'>
+				<div className='container mx-auto max-w-screen-xl'>
 					<div className='text-center py-12'>
 						<h2 className='text-5xl md:text-6xl lg:text-7xl font-black title-front'>PORTFOLIO</h2>
 						<p className='mt-4 text-sm md:text-base lg:text-lg font-medium text-gray-800'>Projects, experiments and some stuff i've made.</p>

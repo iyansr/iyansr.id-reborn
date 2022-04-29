@@ -1,7 +1,7 @@
 const SectionOne = () => {
 	return (
 		<div className='h-screen bg-teal-custom section-one overflow-hidden'>
-			<div className='px-4 md:px-8 lg:px-12 container mx-auto flex flex-col align-middle justify-center text-center h-full'>
+			<div className='px-4 md:px-8 lg:px-12 max-w-screen-lg container mx-auto flex flex-col align-middle justify-center text-center h-full'>
 				<p className='text-lg font-bold text-red-custom'>Hi, I'm</p>
 				<h1 className='text-5xl md:text-6xl lg:text-7xl font-black title-front'>IYAN SAPUTRA</h1>
 
