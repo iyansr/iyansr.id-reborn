@@ -17,7 +17,6 @@ const Header = () => {
 					<i className='fa fa-bars text-3xl text-red-custom font-bold header-menu'></i>
 				</button>
 			</div>
-
 			<Modal isOpen={showMenu} className='react-modal-custom md:hidden block'>
 				<div className='text-right pt-3 pr-3'>
 					<button className='focus:outline-none' onClick={() => setShowMenu(false)}>
@@ -52,6 +51,13 @@ const Header = () => {
 							<a className=' font-extrabold text-3xl text-red-custom header-link-active transition-all duration-100'>NOW</a>
 						) : (
 							<a className='text-gray-800 font-extrabold text-xl hover:text-red-custom header-link transition-all duration-100'>NOW</a>
+						)}
+					</Link>
+					<Link href='/snippets'>
+						{path.includes('/snippets') ? (
+							<a className=' font-extrabold text-3xl text-red-custom header-link-active transition-all duration-100'>SNIPPETS</a>
+						) : (
+							<a className='text-gray-800 font-extrabold text-xl hover:text-red-custom header-link transition-all duration-100'>SNIPPETS</a>
 						)}
 					</Link>
 					<a
@@ -91,6 +97,13 @@ const Header = () => {
 						<a className=' font-extrabold text-3xl text-red-custom header-link-active transition-all duration-100'>NOW</a>
 					) : (
 						<a className='text-gray-800 font-extrabold text-xl hover:text-red-custom header-link transition-all duration-100'>NOW</a>
+					)}
+				</Link>
+				<Link href='/snippets'>
+					{path.includes('/snippets') ? (
+						<a className=' font-extrabold text-3xl text-red-custom header-link-active transition-all duration-100'>SNIPPETS</a>
+					) : (
+						<a className='text-gray-800 font-extrabold text-xl hover:text-red-custom header-link transition-all duration-100'>SNIPPETS</a>
 					)}
 				</Link>
 				<a

@@ -38,6 +38,7 @@ class MyDocument extends Document {
 					{process.env.NODE_ENV === 'production' && (
 						<Fragment>
 							<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></script>
+							<script async defer data-website-id='f6cf2148-5ec7-492d-80e0-42efb4c2cd9e' src='https://analytics.iyansr.id/umami.js'></script>
 							<script
 								dangerouslySetInnerHTML={{
 									__html: `
