@@ -10,6 +10,7 @@ import useQueryBlogPosts, { fetchBlogPosts } from 'src/hooks/blog/useQueryBlogPo
 
 const Blog = () => {
 	const { data: posts } = useQueryBlogPosts()
+
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
