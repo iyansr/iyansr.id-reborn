@@ -3,7 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 
 const SnippetsCard = ({ snippet }: { snippet: Snippet }) => {
-	console.log(snippet)
 	return (
 		<Link passHref href={`/snippets/${snippet.attributes.slug}`}>
 			<a>
