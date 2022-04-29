@@ -45,3 +45,7 @@ export type BlogPostListResponse = {
 	data: BlogPost[]
 	meta: BlogPostMetaResponse
 }
+
+export type BlogPostDetailResponse = {
+	data: BlogPost
+}
