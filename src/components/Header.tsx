@@ -54,7 +54,7 @@ const Header = () => {
 						)}
 					</Link>
 					<Link href='/snippets'>
-						{path === '/snippets' ? (
+						{path.includes('/snippets') ? (
 							<a className=' font-extrabold text-3xl text-red-custom header-link-active transition-all duration-100'>SNIPPETS</a>
 						) : (
 							<a className='text-gray-800 font-extrabold text-xl hover:text-red-custom header-link transition-all duration-100'>SNIPPETS</a>
@@ -100,7 +100,7 @@ const Header = () => {
 					)}
 				</Link>
 				<Link href='/snippets'>
-					{path === '/snippets' ? (
+					{path.includes('/snippets') ? (
 						<a className=' font-extrabold text-3xl text-red-custom header-link-active transition-all duration-100'>SNIPPETS</a>
 					) : (
 						<a className='text-gray-800 font-extrabold text-xl hover:text-red-custom header-link transition-all duration-100'>SNIPPETS</a>

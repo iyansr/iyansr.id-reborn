@@ -33,3 +33,7 @@ export type SnippetsResponse = {
 	data: Snippet[]
 	meta: MetaResponse
 }
+
+export type SnippetResponse = {
+	data: Snippet
+}
