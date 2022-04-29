@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 const Footer = () => {
 	return (
-		<div className='mx-auto container text-center py-8 text-xs bg-gray-100'>
+		<div className='text-center py-8 text-xs bg-gray-100'>
 			<span className='text-gray-900'>
-				© 2020 iyansr.id built with{' '}
+				© 2022 iyansr.id built with{' '}
 				<span role='img' aria-label='emoji'>
 					🔥
 				</span>{' '}

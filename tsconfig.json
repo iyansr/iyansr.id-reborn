@@ -1,51 +1,53 @@
 {
-   "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-         "@components/*": [
-            "src/components/*"
-         ],
-         "@utils/*": [
-            "src/utils/*"
-         ],
-         "@assets/*": [
-            "src/assets/*"
-         ],
-         "@styles/*": [
-            "src/styles/*"
-         ],
-         "@content/*": [
-            "src/content/*"
-         ],
-         "@customType/*": [
-            "src/types/*"
-         ]
-      },
-      "target": "es5",
-      "lib": [
-         "dom",
-         "dom.iterable",
-         "esnext"
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*"
       ],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": true,
-      "esModuleInterop": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "jsx": "preserve"
-   },
-   "exclude": [
-      "node_modules"
-   ],
-   "include": [
-      "next-env.d.ts",
-      "**/*.ts",
-      "**/*.tsx",
-      "custom.d.ts", "src/utils/gtag.js"
-   ]
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@customType/*": [
+        "src/types/*"
+      ]
+    },
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "custom.d.ts",
+    "src/utils/gtag.js"
+  ]
 }

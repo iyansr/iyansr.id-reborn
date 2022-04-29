@@ -13,27 +13,44 @@ If you have your own site, **you should** to make one too.
 
 ## Careers
 
-Currently working as Frontend Engineer at [DOOgether](https://web.doogether.id)
+Currently working as Frontend Engineer at [Pintu](https://pintu.co.id)
 
 ## Activities
 
 - Work (of course, why not)
 - Learning and research weird technologies on the internet
 - Coding, Gaming, Streaming
-- Video Call (literally every night)
+- Rebahan
 
 ## Stacks
 
 - React, Javascript, Typescript
-- Node JS with Express
+- Express JS
+- Nest JS
+- Ethers JS
+- Tailwind CSS
+- Strapi
 
 ## Software / Tools / Devices
 
-- OS: Windows, Mac OS
+- OS: Windows, Mac OS Monterey
 - Code Editor : Visual Studio Code
-- Browser: Chrome, *a new* Microsoft Edge
-- Devices: PC, Macbook Pro 2019
+- Browser: Chrome, Brave Browser
+- Devices: PC, Macbook Air M1 2020
 - Github
+
+## PC Specification
+
+- CPU: Ryzen 5 3600
+- RAM: Team T-Force Dark Z Alpha 16 GB @3600 Mhz
+- GPU: MSI GTX 1660 Super Ventus XS OC 6GB
+- SSD: M.2 Adata XPG 265 GB & Pioneer 120 GB
+- HDD: Seagate 1TB & Toshiba 500GB
+- Mouse: Corsair Harpoon RGB
+- Keyboard: Vortex Series VX8 Pro Red Switch
+- Headset: KZ-ZS3 & KZ-Zsn Pro
+- Monitor 1: AOC 24G2 144Hz
+- Monitor 2: Viewsonic va2256
 
 ## Jogja and Depok
 
@@ -51,4 +68,4 @@ Who ? Just check my [Instagram](https://www.instagram.com/iyan_saputraaa)
 <br/>
 
 
-*Last updated at: October 30, 2020 from Depok, West Java. Indonesia. [History](https://github.com/iyansr/iyansr.id-reborn/commits/master/src/content/now.md)* 
+*Last updated at: April 29, 2022 from Kendari, South East Sulawesi. Indonesia. [History](https://github.com/iyansr/iyansr.id-reborn/commits/master/src/content/now.md)* 

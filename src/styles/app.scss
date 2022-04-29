@@ -31,10 +31,6 @@ hr {
    border: 2px dashed #23232e !important;
 }
 
-a {
-   @apply text-red-custom;
-}
-
 .main-logo {
    font-family: "Fugaz One", cursive;
 }
@@ -133,15 +129,12 @@ pre code span {
    text-shadow: 3px 3px 0px #fed715;
 }
 
-.react-modal-custom {
-   position: absolute;
-   left: 120px;
-   top: 0;
-   bottom: 0;
-   right: 0;
-   box-shadow: -10px 10px 0px #0e3432;
-   @apply bg-teal-custom;
-   overflow: auto;
-   outline: none;
-   padding: 20px;
+.card-content-body {
+   img:first-child {
+      display: none;
+   }
+
+   .separator {
+      display: none !important;
+   }
 }

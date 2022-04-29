@@ -16,6 +16,5 @@
 	"trailingComma": "es5",
 	"useTabs": true,
 	"vueIndentScriptAndStyle": false,
-	"parser": "babel"
-
+	"parser": "babel-ts"
 }

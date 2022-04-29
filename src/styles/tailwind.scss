@@ -1,7 +1,5 @@
-/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
 @tailwind utilities;
 
 @layer components {
@@ -53,5 +51,22 @@
 
          box-shadow: 6px 6px 0px #f92672;
       }
+   }
+
+   a {
+      @apply text-red-custom;
+   }
+
+   .react-modal-custom {
+      position: absolute;
+      left: 120px;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      box-shadow: -10px 10px 0px #0e3432;
+      @apply bg-teal-custom;
+      overflow: auto;
+      outline: none;
+      padding: 20px;
    }
 }
