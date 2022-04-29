@@ -1,10 +1,11 @@
 import { WorkType } from '@customType/index'
+import Image from 'next/image'
 
 const WorkCard = (work: WorkType) => {
 	return (
 		<div className='border-4 border-gray-800 bg-white post-card'>
-			<div className='w-full h-40 relative border-gray-800 border-b-4'>
-				<img className='w-full h-40 object-cover' src={work.image} alt={work.name} />
+			<div className='aspect-w-5 aspect-h-3 relative cursor-pointer bg-gray-400'>
+				<Image layout='fill' className='aspect-w-2 aspect-h-1 object-cover' src={work.image} alt={String(work.name)} />
 			</div>
 
 			<div className='p-4 flex-1 flex flex-col'>

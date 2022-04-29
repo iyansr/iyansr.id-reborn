@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import { format } from 'date-fns'
-import { blogger_v3 } from 'googleapis'
-import sanitizeHtml from 'sanitize-html'
 import readingTime from 'reading-time'
 import Image from 'next/image'
 import { BlogPost } from '@customType/BlogPosts'

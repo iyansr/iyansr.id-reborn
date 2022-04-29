@@ -2,15 +2,14 @@ import Meta from '@components/Meta'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import SectionOne from '@components/SectionOne'
 import SectionTwo from '@components/SectionTwo'
-import { getSortedPostsData } from '@utils/api'
 import { GetStaticProps } from 'next'
-import { FileType, BlogProps } from '@customType/index'
 import SectionThree from '@components/SectionThree'
+import { dehydrate, QueryClient } from 'react-query'
+import { fetchBlogPosts } from 'src/hooks/blog/useQueryBlogPosts'
 
-const Home = ({ fileList }: BlogProps) => {
+const Home = () => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
@@ -22,8 +21,8 @@ const Home = ({ fileList }: BlogProps) => {
 			<main className='bg-gray-100'>
 				<Header />
 				<SectionOne />
-				{/* <SectionTwo fileList={fileList} />
-				<SectionThree /> */}
+				<SectionTwo />
+				<SectionThree />
 
 				<Footer />
 			</main>
@@ -31,11 +30,16 @@ const Home = ({ fileList }: BlogProps) => {
 	)
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-// 	const fileList = getSortedPostsData()
-// 	return {
-// 		props: { fileList },
-// 	}
-// }
+export const getStaticProps: GetStaticProps = async () => {
+	const queryClient = new QueryClient()
+	await queryClient.prefetchQuery('blogPosts', fetchBlogPosts)
+
+	return {
+		props: {
+			dehydratedState: dehydrate(queryClient),
+		},
+		revalidate: 60 * 60,
+	}
+}
 
 export default Home

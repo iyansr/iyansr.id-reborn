@@ -1,4 +1,3 @@
-import { BlogProps, FileType } from '@customType/index'
 import WorkCard from '@components/WorkCard'
 import Link from 'next/link'
 
