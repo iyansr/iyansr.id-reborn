@@ -1,5 +1,13 @@
-import { WorkType } from '@customType/index'
 import Image from 'next/image'
+
+type WorkType = {
+	name: string
+	description: string
+	github: string | null
+	website: string | null
+	image: string
+	stacks: string[]
+}
 
 const WorkCard = (work: WorkType) => {
 	return (

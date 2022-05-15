@@ -1,38 +1,33 @@
 import DetailBlog from '@components/Template'
-import { GetStaticProps } from 'next'
-import { dehydrate, QueryClient } from 'react-query'
-import { fetchBlogPost } from 'src/hooks/blog/useQueryblogPost'
 import Error404PageTemplate from '../404'
 
-const Page = ({ isError = false }: { isError?: boolean }) => {
+import { GetStaticProps } from 'next'
+import { allBlogs } from '@contentlayer/generated'
+import type { Blog } from '@contentlayer/generated'
+
+type BlogPageProps = {
+	isError?: boolean
+	blogPost: Blog
+}
+
+const Page = ({ isError = false, blogPost }: BlogPageProps) => {
 	if (isError) {
 		return <Error404PageTemplate />
 	}
 
-	return <DetailBlog />
+	return <DetailBlog blogPost={blogPost} />
 }
 
-export default Page
-
 export async function getStaticPaths() {
-	const paths: Array<any> = []
-
-	return { paths, fallback: true }
+	return {
+		paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
+		fallback: false,
+	}
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const slug = params?.slug as string
-	const queryClient = new QueryClient()
-	try {
-		await queryClient.prefetchQuery(['blogPost', slug], () => fetchBlogPost(slug))
-
-		return {
-			props: {
-				dehydratedState: dehydrate(queryClient),
-			},
-			revalidate: 60 * 60,
-		}
-	} catch (error) {
+	const blogPost = allBlogs.find((p) => p.slug === (params?.slug as string))
+	if (!blogPost) {
 		return {
 			props: {
 				isError: true,
@@ -40,4 +35,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			revalidate: 60 * 60,
 		}
 	}
+	return {
+		props: {
+			blogPost,
+		},
+		revalidate: 60 * 60,
+	}
 }
+
+export default Page

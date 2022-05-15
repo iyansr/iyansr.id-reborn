@@ -1,27 +1,13 @@
 import React, { useEffect } from 'react'
-import hljs from 'highlight.js'
 import { motion } from 'framer-motion'
 import Meta from '@components/Meta'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import SnippetsCard from '@components/SnippetsCard'
 import { GetStaticProps } from 'next'
-import { dehydrate, QueryClient } from 'react-query'
-import useQuerySnippets, { fetchSnippets } from 'src/hooks/snippet/useQuerySnippets'
+import { allSnippets, Snippet } from '@contentlayer/generated'
+import SnippetsCard from '@components/SnippetsCard'
 
-const Snippets = () => {
-	const { data: snippets } = useQuerySnippets()
-
-	const updateCodeSyntaxHighlighting = () => {
-		document.querySelectorAll('pre code').forEach((block: any) => {
-			hljs.highlightBlock(block)
-		})
-	}
-
-	useEffect(() => {
-		updateCodeSyntaxHighlighting()
-	})
-
+const Snippets = ({ snippets }: { snippets: Snippet[] }) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
@@ -39,8 +25,8 @@ const Snippets = () => {
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 md:px-4'>
-							{snippets?.data.map((snippet) => (
-								<SnippetsCard snippet={snippet} key={snippet.id} />
+							{snippets?.map((snippet) => (
+								<SnippetsCard snippet={snippet} key={snippet._id} />
 							))}
 						</div>
 					</div>
@@ -52,13 +38,12 @@ const Snippets = () => {
 	)
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-	const queryClient = new QueryClient()
-	await queryClient.prefetchQuery('snippet_list', fetchSnippets)
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	const snippets = allSnippets
 
 	return {
 		props: {
-			dehydratedState: dehydrate(queryClient),
+			snippets,
 		},
 		revalidate: 60 * 60,
 	}

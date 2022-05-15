@@ -6,10 +6,9 @@ import SectionOne from '@components/SectionOne'
 import SectionTwo from '@components/SectionTwo'
 import { GetStaticProps } from 'next'
 import SectionThree from '@components/SectionThree'
-import { dehydrate, QueryClient } from 'react-query'
-import { fetchBlogPosts } from 'src/hooks/blog/useQueryBlogPosts'
+import { allBlogs, Blog } from '@contentlayer/generated'
 
-const Home = () => {
+const Home = ({ blogPosts }: { blogPosts: Blog[] }) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
@@ -21,7 +20,7 @@ const Home = () => {
 			<main className='bg-gray-100'>
 				<Header />
 				<SectionOne />
-				<SectionTwo />
+				<SectionTwo blogPosts={blogPosts} />
 				<SectionThree />
 
 				<Footer />
@@ -31,12 +30,11 @@ const Home = () => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const queryClient = new QueryClient()
-	await queryClient.prefetchQuery('blogPosts', fetchBlogPosts)
+	const blogPosts = allBlogs
 
 	return {
 		props: {
-			dehydratedState: dehydrate(queryClient),
+			blogPosts,
 		},
 		revalidate: 60 * 60,
 	}
