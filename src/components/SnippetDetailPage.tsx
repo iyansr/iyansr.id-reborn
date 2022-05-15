@@ -8,13 +8,10 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Markdown from '@components/Markdown'
 import Error404PageTemplate from '@components/Error404PageTemplate'
-import useQuerySnippet from 'src/hooks/snippet/useQuerySnippet'
 
 const SnippetDetailPage = () => {
 	const router = useRouter()
 	const slug = router.query?.slug as string
-
-	const { data: snippet, error, isLoading } = useQuerySnippet(slug)
 
 	const updateCodeSyntaxHighlighting = () => {
 		document.querySelectorAll('pre code').forEach((block: any) => {
@@ -26,15 +23,9 @@ const SnippetDetailPage = () => {
 		updateCodeSyntaxHighlighting()
 	})
 
-	if (isLoading) return null
-
-	if (error) {
-		return <Error404PageTemplate />
-	}
-
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className='bg-gray-100'>
-			<Meta
+			{/* <Meta
 				title={snippet?.data.attributes.title as string}
 				description={snippet?.data.attributes.description as string}
 				image={snippet?.data.attributes.icon.data.attributes.url}
@@ -71,7 +62,7 @@ const SnippetDetailPage = () => {
 						</div>
 					</div>
 				</div>
-			</main>
+			</main> */}
 
 			<Footer />
 		</motion.div>

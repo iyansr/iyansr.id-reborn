@@ -19,7 +19,8 @@
       ],
       "@customType/*": [
         "src/types/*"
-      ]
+      ],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "target": "es5",
     "lib": [
@@ -48,6 +49,7 @@
     "**/*.ts",
     "**/*.tsx",
     "custom.d.ts",
-    "src/utils/gtag.js"
+    "src/utils/gtag.js",
+    ".contentlayer/generated"
   ]
 }

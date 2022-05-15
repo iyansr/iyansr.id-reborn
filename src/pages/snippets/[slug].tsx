@@ -1,7 +1,6 @@
 import SnippetDetailPage from '@components/SnippetDetailPage'
 import { GetStaticProps } from 'next'
 import { dehydrate, QueryClient } from 'react-query'
-import { fetchSnippet } from 'src/hooks/snippet/useQuerySnippet'
 import Error404PageTemplate from '../404'
 
 const Page = ({ isError = false }: { isError?: boolean }) => {
@@ -18,26 +17,25 @@ export async function getStaticPaths() {
 	return { paths, fallback: true }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const slug = params?.slug as string
-	const queryClient = new QueryClient()
-	try {
-		await queryClient.prefetchQuery(['snippet_detail', slug], () => fetchSnippet(slug))
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+// 	const slug = params?.slug as string
+// 	const queryClient = new QueryClient()
+// 	try {
 
-		return {
-			props: {
-				dehydratedState: dehydrate(queryClient),
-			},
-			revalidate: 60 * 60,
-		}
-	} catch (error) {
-		return {
-			props: {
-				isError: true,
-			},
-			revalidate: 60 * 60,
-		}
-	}
-}
+// 		return {
+// 			props: {
+// 				dehydratedState: dehydrate(queryClient),
+// 			},
+// 			revalidate: 60 * 60,
+// 		}
+// 	} catch (error) {
+// 		return {
+// 			props: {
+// 				isError: true,
+// 			},
+// 			revalidate: 60 * 60,
+// 		}
+// 	}
+// }
 
 export default Page

@@ -20,29 +20,11 @@ Router.events.on('routeChangeComplete', (url) => {
 })
 Router.events.on('routeChangeError', () => NProgress.done())
 
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { Hydrate } from 'react-query/hydration'
-
 const App = ({ Component, router, pageProps }: AppProps) => {
-	const [queryClient] = useState(
-		() =>
-			new QueryClient({
-				defaultOptions: {
-					queries: {
-						refetchOnWindowFocus: false,
-					},
-				},
-			})
-	)
-
 	return (
-		<QueryClientProvider client={queryClient}>
-			<Hydrate state={pageProps.dehydratedState}>
-				<AnimatePresence exitBeforeEnter>
-					<Component key={router.route} {...pageProps} />
-				</AnimatePresence>
-			</Hydrate>
-		</QueryClientProvider>
+		<AnimatePresence exitBeforeEnter>
+			<Component key={router.route} {...pageProps} />
+		</AnimatePresence>
 	)
 }
 

@@ -8,15 +8,12 @@ import Footer from '@components/Footer'
 import { DiscussionEmbed } from 'disqus-react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import useQueryBlogPost from 'src/hooks/blog/useQueryblogPost'
 import Markdown from '@components/Markdown'
 import Error404PageTemplate from '@components/Error404PageTemplate'
 
 const DetailBlog = () => {
 	const router = useRouter()
 	const slug = router.query?.slug as string
-
-	const { data: post, error, isLoading } = useQueryBlogPost(slug)
 
 	const updateCodeSyntaxHighlighting = () => {
 		document.querySelectorAll('pre code').forEach((block: any) => {
@@ -28,15 +25,9 @@ const DetailBlog = () => {
 		updateCodeSyntaxHighlighting()
 	})
 
-	if (isLoading) return null
-
-	if (error) {
-		return <Error404PageTemplate />
-	}
-
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className='bg-gray-100'>
-			<Meta
+			{/* <Meta
 				title={post?.data.attributes.title as string}
 				description={post?.data.attributes.excerpt as string}
 				image={post?.data.attributes.cover.data.attributes.url}
@@ -105,7 +96,7 @@ const DetailBlog = () => {
 						</div>
 					</div>
 				</div>
-			</main>
+			</main> */}
 
 			<Footer />
 		</motion.div>

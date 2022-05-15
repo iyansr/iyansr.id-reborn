@@ -3,7 +3,6 @@ import Meta from '@components/Meta'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { motion } from 'framer-motion'
-import { getNowContent } from '@utils/api'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 
@@ -33,7 +32,7 @@ const Now = ({ htmlString }: any) => {
 								<div className='h-4 w-4 rounded-full bg-green-400 '></div>
 							</div>
 							<div className='px-6 md:px-12 py-8'>
-								<div className='mt-8 post-wrapper' dangerouslySetInnerHTML={{ __html: htmlString }}></div>
+								{/* <div className='mt-8 post-wrapper' dangerouslySetInnerHTML={{ __html: htmlString }}></div> */}
 							</div>
 						</div>
 					</div>
@@ -45,11 +44,11 @@ const Now = ({ htmlString }: any) => {
 	)
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-	const htmlString = getNowContent()
-	return {
-		props: { htmlString },
-	}
-}
+// export const getStaticProps: GetStaticProps = async () => {
+// 	const htmlString = getNowContent()
+// 	return {
+// 		props: { htmlString },
+// 	}
+// }
 
 export default Now

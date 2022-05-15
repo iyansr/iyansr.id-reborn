@@ -6,11 +6,8 @@ import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
 import PostCard from '@components/PostCard'
 import { dehydrate, QueryClient } from 'react-query'
-import useQueryBlogPosts, { fetchBlogPosts } from 'src/hooks/blog/useQueryBlogPosts'
 
 const Blog = () => {
-	const { data: posts } = useQueryBlogPosts()
-
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
@@ -28,9 +25,9 @@ const Blog = () => {
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 md:px-4'>
-							{posts?.data.map((post) => (
+							{/* {posts?.data.map((post) => (
 								<PostCard post={post} key={post?.id} />
-							))}
+							))} */}
 						</div>
 					</div>
 				</div>
@@ -41,16 +38,15 @@ const Blog = () => {
 	)
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-	const queryClient = new QueryClient()
-	await queryClient.prefetchQuery('blogPosts', fetchBlogPosts)
+// export const getStaticProps: GetStaticProps = async () => {
+// 	const queryClient = new QueryClient()
 
-	return {
-		props: {
-			dehydratedState: dehydrate(queryClient),
-		},
-		revalidate: 60 * 60,
-	}
-}
+// 	return {
+// 		props: {
+// 			dehydratedState: dehydrate(queryClient),
+// 		},
+// 		revalidate: 60 * 60,
+// 	}
+// }
 
 export default Blog

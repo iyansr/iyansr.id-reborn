@@ -7,11 +7,8 @@ import Footer from '@components/Footer'
 import SnippetsCard from '@components/SnippetsCard'
 import { GetStaticProps } from 'next'
 import { dehydrate, QueryClient } from 'react-query'
-import useQuerySnippets, { fetchSnippets } from 'src/hooks/snippet/useQuerySnippets'
 
 const Snippets = () => {
-	const { data: snippets } = useQuerySnippets()
-
 	const updateCodeSyntaxHighlighting = () => {
 		document.querySelectorAll('pre code').forEach((block: any) => {
 			hljs.highlightBlock(block)
@@ -39,9 +36,9 @@ const Snippets = () => {
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 md:px-4'>
-							{snippets?.data.map((snippet) => (
+							{/* {snippets?.data.map((snippet) => (
 								<SnippetsCard snippet={snippet} key={snippet.id} />
-							))}
+							))} */}
 						</div>
 					</div>
 				</div>
@@ -53,12 +50,9 @@ const Snippets = () => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const queryClient = new QueryClient()
-	await queryClient.prefetchQuery('snippet_list', fetchSnippets)
-
 	return {
 		props: {
-			dehydratedState: dehydrate(queryClient),
+			a: 'a',
 		},
 		revalidate: 60 * 60,
 	}
