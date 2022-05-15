@@ -1,0 +1,25 @@
+---
+title: "useDebounce()"
+description: "Hooks for debounce effect"
+icon: "https://ik.imagekit.io/iyansr/iyansr-content/react_b2738c3a0c_X9zTpwDUa.png"
+---
+
+```js
+import { useEffect, useState } from 'react';
+
+function useDebounce(value, delay) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedValue(value), delay || 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
+export default useDebounce;
+```

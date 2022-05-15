@@ -1,11 +1,6 @@
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 import readingTime from 'reading-time'
-import remarkGfm from 'remark-gfm'
-import rehypeSlug from 'rehype-slug'
-import rehypeCodeTitles from 'rehype-code-titles'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypePrism from 'rehype-prism-plus'
 
 const computedFields: ComputedFields = {
 	readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -34,25 +29,31 @@ const Blog = defineDocumentType(() => ({
 	computedFields,
 }))
 
+const Now = defineDocumentType(() => ({
+	name: 'Now',
+	filePathPattern: 'now/*.mdx',
+	contentType: 'mdx',
+	fields: {
+		title: { type: 'string', required: true },
+	},
+	computedFields,
+}))
+
+const Snippet = defineDocumentType(() => ({
+	name: 'Snippet',
+	filePathPattern: 'snippet/*.mdx',
+	contentType: 'mdx',
+	fields: {
+		title: { type: 'string', required: true },
+		description: { type: 'string', required: true },
+		icon: { type: 'string', required: true },
+	},
+	computedFields,
+}))
+
 const contentLayerConfig = makeSource({
 	contentDirPath: 'data',
-	documentTypes: [Blog],
-	mdx: {
-		remarkPlugins: [remarkGfm],
-		rehypePlugins: [
-			rehypeSlug,
-			rehypeCodeTitles,
-			rehypePrism,
-			[
-				rehypeAutolinkHeadings,
-				{
-					properties: {
-						className: ['anchor'],
-					},
-				},
-			],
-		],
-	},
+	documentTypes: [Blog, Now, Snippet],
 })
 
 export default contentLayerConfig

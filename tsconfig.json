@@ -20,7 +20,7 @@
       "@customType/*": [
         "src/types/*"
       ],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@contentlayer/generated": ["./.contentlayer/generated"]
     },
     "target": "es5",
     "lib": [

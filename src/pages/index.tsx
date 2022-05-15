@@ -6,10 +6,9 @@ import SectionOne from '@components/SectionOne'
 import SectionTwo from '@components/SectionTwo'
 import { GetStaticProps } from 'next'
 import SectionThree from '@components/SectionThree'
-import { allBlogs } from 'contentlayer/generated'
+import { allBlogs, Blog } from '@contentlayer/generated'
 
-const Home = ({ blogPosts }: { blogPosts: any }) => {
-	console.log(blogPosts)
+const Home = ({ blogPosts }: { blogPosts: Blog[] }) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
@@ -21,7 +20,7 @@ const Home = ({ blogPosts }: { blogPosts: any }) => {
 			<main className='bg-gray-100'>
 				<Header />
 				<SectionOne />
-				<SectionTwo />
+				<SectionTwo blogPosts={blogPosts} />
 				<SectionThree />
 
 				<Footer />

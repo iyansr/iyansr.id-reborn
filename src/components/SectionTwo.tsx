@@ -1,7 +1,8 @@
 import PostCard from './PostCard'
 import Link from 'next/link'
+import { Blog } from '@contentlayer/generated'
 
-const SectionTwo = () => {
+const SectionTwo = ({ blogPosts }: { blogPosts: Blog[] }) => {
 	return (
 		<div className='bg-yellow-200 pb-24'>
 			<div className='container mx-auto max-w-screen-xl'>
@@ -12,9 +13,9 @@ const SectionTwo = () => {
 
 				<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 					<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-10 md:px-4'>
-						{/* {posts?.data.slice(0, 3).map((post, index: number) => (
-							<PostCard post={post} key={index} />
-						))} */}
+						{blogPosts.slice(0, 3).map((post, index: number) => (
+							<PostCard post={post} key={post._id} />
+						))}
 					</div>
 				</div>
 

@@ -5,9 +5,9 @@ import Header from '@components/Header'
 import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
 import PostCard from '@components/PostCard'
-import { dehydrate, QueryClient } from 'react-query'
+import { allBlogs, Blog } from '@contentlayer/generated'
 
-const Blog = () => {
+const Blog = ({ blogPosts }: { blogPosts: Blog[] }) => {
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta
@@ -25,9 +25,9 @@ const Blog = () => {
 
 					<div className='pb-12 pt-6 md:pb-24 md:pt-12'>
 						<div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 md:px-4'>
-							{/* {posts?.data.map((post) => (
-								<PostCard post={post} key={post?.id} />
-							))} */}
+							{blogPosts.map((post) => (
+								<PostCard post={post} key={post?._id} />
+							))}
 						</div>
 					</div>
 				</div>
@@ -38,15 +38,15 @@ const Blog = () => {
 	)
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-// 	const queryClient = new QueryClient()
+export const getStaticProps: GetStaticProps = async () => {
+	const blogPosts = allBlogs
 
-// 	return {
-// 		props: {
-// 			dehydratedState: dehydrate(queryClient),
-// 		},
-// 		revalidate: 60 * 60,
-// 	}
-// }
+	return {
+		props: {
+			blogPosts,
+		},
+		revalidate: 60 * 60,
+	}
+}
 
 export default Blog

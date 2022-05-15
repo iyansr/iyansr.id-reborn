@@ -6,7 +6,6 @@ import * as gtag from '@utils/gtag'
 import '@styles/tailwind.scss'
 import '@styles/app.scss'
 import 'highlight.js/styles/atom-one-dark-reasonable.css'
-import 'react-medium-image-zoom/dist/styles.css'
 
 import Router from 'next/router'
 import NProgress from 'nprogress' //nprogress module

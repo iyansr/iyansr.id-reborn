@@ -92,22 +92,21 @@ hr {
 
 pre code,
 pre code span {
-   font: 600 11pt Dank Mono, Fira Code, JetBrains Mono, Consolas, monospace;
+   font: 600 12pt "JetBrainsMono Nerd Font", monospace;
 }
 
 .post-wrapper {
    code:not(.hljs) {
-      font: 600 11pt Dank Mono, Fira Code, JetBrains Mono, Consolas, monospace;
+      font: 600 12pt "JetBrainsMono Nerd Font", monospace;
       color: #f92672;
-      padding: 0.15rem 0.5rem;
-      border-radius: 0.25rem;
+   }
+
+   pre {
+      @apply rounded-lg border-4 border-black bg-gray-800 my-6;
    }
 
    code.hljs {
-      margin-bottom: 1rem;
-      padding: 1rem 2rem;
-      box-shadow: 6px 6px 0px #f92672;
-      background-color: #2d3748;
+      @apply bg-gray-800;
    }
 }
 

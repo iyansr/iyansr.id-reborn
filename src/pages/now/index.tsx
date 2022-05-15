@@ -5,8 +5,11 @@ import Header from '@components/Header'
 import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
+import { allNows, Now } from '@contentlayer/generated'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
-const Now = ({ htmlString }: any) => {
+const Now = ({ nowContent }: { nowContent: Now }) => {
+	const Component = useMDXComponent(nowContent.body.code)
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<Meta title='Now' description="What i'm doing right now ?" />
@@ -32,7 +35,9 @@ const Now = ({ htmlString }: any) => {
 								<div className='h-4 w-4 rounded-full bg-green-400 '></div>
 							</div>
 							<div className='px-6 md:px-12 py-8'>
-								{/* <div className='mt-8 post-wrapper' dangerouslySetInnerHTML={{ __html: htmlString }}></div> */}
+								<div className='mt-8 post-wrapper'>
+									<Component />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -44,11 +49,15 @@ const Now = ({ htmlString }: any) => {
 	)
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-// 	const htmlString = getNowContent()
-// 	return {
-// 		props: { htmlString },
-// 	}
-// }
+export const getStaticProps: GetStaticProps = async () => {
+	const nowContent = allNows[0]
+
+	return {
+		props: {
+			nowContent,
+		},
+		revalidate: 60 * 60,
+	}
+}
 
 export default Now
