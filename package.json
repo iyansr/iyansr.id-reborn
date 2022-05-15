@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "deploy": "yarn build && yarn export"
+    "deploy": "yarn build && yarn export",
+    "postbuild": "node ./src/utils/generateSitemap.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.1.1",
