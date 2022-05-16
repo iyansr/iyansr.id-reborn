@@ -5,6 +5,7 @@ import * as gtag from '@utils/gtag'
 
 import '@styles/tailwind.scss'
 import '@styles/app.scss'
+import '@styles/prism.scss'
 import 'highlight.js/styles/atom-one-dark-reasonable.css'
 
 import Router from 'next/router'

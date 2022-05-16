@@ -21,15 +21,15 @@ const DetailBlog = ({ blogPost }: BlogPageProps) => {
 	const router = useRouter()
 	const Component = useMDXComponent(blogPost.body.code)
 
-	const updateCodeSyntaxHighlighting = () => {
-		document.querySelectorAll('pre code').forEach((block: any) => {
-			hljs.highlightBlock(block)
-		})
-	}
+	// const updateCodeSyntaxHighlighting = () => {
+	// 	document.querySelectorAll('pre code').forEach((block: any) => {
+	// 		hljs.highlightBlock(block)
+	// 	})
+	// }
 
-	useEffect(() => {
-		updateCodeSyntaxHighlighting()
-	})
+	// useEffect(() => {
+	// 	updateCodeSyntaxHighlighting()
+	// })
 
 	return (
 		<motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className='bg-gray-100'>
