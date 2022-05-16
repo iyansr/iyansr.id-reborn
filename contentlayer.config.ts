@@ -1,6 +1,11 @@
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 import readingTime from 'reading-time'
+import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import rehypeCodeTitles from 'rehype-code-titles'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypePrism from 'rehype-prism-plus'
 
 const computedFields: ComputedFields = {
 	readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -54,6 +59,22 @@ const Snippet = defineDocumentType(() => ({
 const contentLayerConfig = makeSource({
 	contentDirPath: 'data',
 	documentTypes: [Blog, Now, Snippet],
+	mdx: {
+		remarkPlugins: [remarkGfm],
+		rehypePlugins: [
+			rehypeSlug,
+			rehypeCodeTitles,
+			rehypePrism,
+			[
+				rehypeAutolinkHeadings,
+				{
+					properties: {
+						className: ['anchor'],
+					},
+				},
+			],
+		],
+	},
 })
 
 export default contentLayerConfig

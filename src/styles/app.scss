@@ -90,23 +90,22 @@ hr {
    margin-right: auto !important;
 }
 
-pre code,
-pre code span {
-   font: 600 12pt "JetBrainsMono Nerd Font", monospace;
-}
-
 .post-wrapper {
-   code:not(.hljs) {
-      font: 600 12pt "JetBrainsMono Nerd Font", monospace;
-      color: #f92672;
+   code:not([class*="language-"]) {
+      font: 600 10pt "JetBrainsMono Nerd Font", monospace;
+      color: hsl(220, 14%, 71%);
+      background: hsl(219, 13%, 22%);
+      @apply px-2 rounded-md;
    }
 
-   pre {
-      @apply rounded-lg border-4 border-black bg-gray-800 my-6;
+   .rehype-code-title {
+      font-family: "JetBrainsMono Nerd Font";
+      background: hsl(219, 13%, 22%);
+      @apply px-5 py-3 text-sm font-bold  border border-b-0 rounded-t-lg text-gray-200 border-gray-700;
    }
 
-   code.hljs {
-      @apply bg-gray-800;
+   .rehype-code-title + pre {
+      @apply mt-0 rounded-t-none;
    }
 }
 
