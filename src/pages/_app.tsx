@@ -1,6 +1,5 @@
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
 
 import '@styles/tailwind.scss'
 import '@styles/app.scss'
