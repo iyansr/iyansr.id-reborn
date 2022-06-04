@@ -26,7 +26,7 @@ const Now = ({ nowContent }: { nowContent: Now }) => {
 					<div className='w-full lg:w-9/12 mx-auto'>
 						<div className='bg-gray-100 rounded-xl border-4 border-gray-800 text-black font-medium'>
 							<div className='px-4 py-2 flex gap-2 bg-orange-400 rounded-t-lg border-b-4 border-gray-800'>
-								<Link href='/work'>
+								<Link passHref href='/'>
 									<a>
 										<div className='h-4 w-4 rounded-full bg-red-500 '></div>
 									</a>

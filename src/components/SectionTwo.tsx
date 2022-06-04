@@ -22,7 +22,7 @@ const SectionTwo = ({ blogPosts }: { blogPosts: Blog[] }) => {
 				<div className='w-full flex justify-center'>
 					<Link href='/blog'>
 						<a>
-							<button className='bg-red-custom focus:outline-none px-4 py-2 text-white font-bold article-button border-2 border-gray-900'>
+							<button className='bg-red-custom focus:outline-none px-4 py-2 text-white font-bold article-button border-2 rounded-lg border-gray-900'>
 								More Articles
 							</button>
 						</a>

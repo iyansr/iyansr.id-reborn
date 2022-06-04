@@ -11,7 +11,7 @@ type WorkType = {
 
 const WorkCard = (work: WorkType) => {
 	return (
-		<div className='border-4 border-gray-800 bg-white post-card'>
+		<div className='border-4 rounded-xl overflow-hidden border-gray-800 bg-white post-card'>
 			<div className='aspect-w-5 aspect-h-3 relative cursor-pointer bg-gray-400'>
 				<Image layout='fill' className='aspect-w-2 aspect-h-1 object-cover' src={work.image} alt={String(work.name)} />
 			</div>

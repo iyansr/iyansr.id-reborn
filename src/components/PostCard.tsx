@@ -11,8 +11,8 @@ const PostCard = ({ post }: { post: Blog }) => {
 	const _readingTime = post.readingTime
 
 	return (
-		<div className='border-4 border-gray-800 bg-white post-card'>
-			<div className='aspect-w-5 aspect-h-3 relative cursor-pointer bg-gray-400'>
+		<div className='border-4 rounded-xl overflow-hidden border-gray-800 bg-white post-card'>
+			<div className='aspect-w-5 aspect-h-3  relative cursor-pointer bg-gray-400'>
 				<Link href='/blog/[slug]' as={`/blog/${path}`}>
 					<a>{image && <Image layout='fill' className='aspect-w-2 aspect-h-1 object-cover' src={image} alt={String(post.title)} />}</a>
 				</Link>

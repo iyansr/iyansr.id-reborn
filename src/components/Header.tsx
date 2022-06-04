@@ -14,13 +14,33 @@ const Header = () => {
 		<div className='absolute top-0 left-0 right-0 main-header w-full'>
 			<div className='py-6 md:hidden block text-right px-8 pt-8'>
 				<button className='focus:outline-none' onClick={() => setShowMenu(true)}>
-					<i className='fa fa-bars text-3xl text-red-custom font-bold header-menu'></i>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						className='h-5 w-5 text-3xl text-red-custom font-bold header-menu'
+						viewBox='0 0 20 20'
+						fill='currentColor'>
+						<path
+							fillRule='evenodd'
+							d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z'
+							clipRule='evenodd'
+						/>
+					</svg>
 				</button>
 			</div>
 			<Modal isOpen={showMenu} className='react-modal-custom md:hidden block'>
 				<div className='text-right pt-3 pr-3'>
 					<button className='focus:outline-none' onClick={() => setShowMenu(false)}>
-						<i className='fa fa-times text-3xl text-red-custom font-bold header-menu'></i>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							className='h-5 w-5 text-3xl text-red-custom font-bold header-menu'
+							viewBox='0 0 20 20'
+							fill='currentColor'>
+							<path
+								fillRule='evenodd'
+								d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z'
+								clipRule='evenodd'
+							/>
+						</svg>
 					</button>
 				</div>
 				<div className='flex flex-col'>
