@@ -1,4 +1,3 @@
-import { GA_TRACKING_ID } from '@utils/gtag'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { Fragment } from 'react'
 
@@ -25,21 +24,7 @@ class MyDocument extends Document {
 					<link href='/assets/fonts/stylesheet.css' rel='stylesheet' />
 					{process.env.NODE_ENV === 'production' && (
 						<Fragment>
-							<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></script>
 							<script async defer data-website-id='f6cf2148-5ec7-492d-80e0-42efb4c2cd9e' src='https://analytics.iyansr.id/umami.js'></script>
-							<script
-								dangerouslySetInnerHTML={{
-									__html: `
-										window.dataLayer = window.dataLayer || [];
-										function gtag(){dataLayer.push(arguments);}
-										gtag('js', new Date());
-
-										gtag('config', '${GA_TRACKING_ID}', {
-											page_path: window.location.pathname,
-										});
-										`,
-								}}
-							/>
 						</Fragment>
 					)}
 				</Head>
