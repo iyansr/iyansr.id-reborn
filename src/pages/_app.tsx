@@ -1,28 +1,16 @@
-import { AppProps } from 'next/app'
-import { AnimatePresence } from 'framer-motion'
-
-import '@styles/tailwind.scss'
+import { Root } from '@components/Layout/containers/Root'
 import '@styles/app.scss'
 import '@styles/prism.scss'
-import 'highlight.js/styles/atom-one-dark-reasonable.css'
+import '@styles/tailwind.scss'
+import type { AppProps } from 'next/app'
+import 'nprogress/nprogress.css'
 
-import Router from 'next/router'
-import NProgress from 'nprogress' //nprogress module
-import 'nprogress/nprogress.css' //styles of nprogress
-
-//Binding events.
-Router.events.on('routeChangeStart', () => NProgress.start())
-Router.events.on('routeChangeComplete', (url) => {
-	NProgress.done()
-})
-Router.events.on('routeChangeError', () => NProgress.done())
-
-const App = ({ Component, router, pageProps }: AppProps) => {
+function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<AnimatePresence exitBeforeEnter>
-			<Component key={router.route} {...pageProps} />
-		</AnimatePresence>
+		<Root>
+			<Component {...pageProps} />
+		</Root>
 	)
 }
 
-export default App
+export default MyApp

@@ -1,0 +1,5 @@
+node_modules
+.next
+.swc
+public
+.contentlayer

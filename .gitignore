@@ -7,21 +7,14 @@
 
 # testing
 /coverage
-.vscode
 
 # next.js
 /.next/
 /out/
+.swc
 
 # production
 /build
-
-/public/sitemap.xml
-/public/sw.js
-/public/sw.js.map
-/public/workbox-*.js
-/public/workbox-*.js.map
-
 
 # misc
 .DS_Store
@@ -32,40 +25,18 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env*.local
+
+# vercel
 .vercel
 
+# typescript
+*.tsbuildinfo
 
-# Mac
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
-
-
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-.deleted
 
 # Contentlayer
 .contentlayer
+
+
+# Sitemap
+public/sitemap.xml

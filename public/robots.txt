@@ -1,4 +1,9 @@
-# robotstxt.org/
-
+# *
 User-agent: *
-Sitemap: https://iyansr.id/sitemap.xml
+Allow: /
+
+# Host
+Host: https://www.iyansr.id/
+
+# Sitemaps
+Sitemap: https://www.iyansr.id/sitemap.xml
