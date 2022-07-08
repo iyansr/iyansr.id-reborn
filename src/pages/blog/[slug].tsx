@@ -1,21 +1,14 @@
-import DetailBlog from '@components/Template'
-import Error404PageTemplate from '../404'
-
+import { BlogPost } from '@components/Layout/containers/BlogPost'
+import { allBlogs, type Blog } from 'contentlayer/generated'
 import { GetStaticProps } from 'next'
-import { allBlogs } from '@contentlayer/generated'
-import type { Blog } from '@contentlayer/generated'
 
 type BlogPageProps = {
 	isError?: boolean
 	blogPost: Blog
 }
 
-const Page = ({ isError = false, blogPost }: BlogPageProps) => {
-	if (isError) {
-		return <Error404PageTemplate />
-	}
-
-	return <DetailBlog blogPost={blogPost} />
+const BlogPostPage = ({ blogPost }: BlogPageProps) => {
+	return <BlogPost blogPost={blogPost} />
 }
 
 export async function getStaticPaths() {
@@ -26,21 +19,19 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const blogPost = allBlogs.find((p) => p.slug === (params?.slug as string))
+	const blogPost = allBlogs.find((p: Blog) => p.slug === (params?.slug as string))
+
 	if (!blogPost) {
 		return {
-			props: {
-				isError: true,
-			},
-			revalidate: 60 * 60,
+			notFound: true,
 		}
 	}
+
 	return {
 		props: {
 			blogPost,
 		},
-		revalidate: 60 * 60,
 	}
 }
 
-export default Page
+export default BlogPostPage

@@ -1,11 +1,10 @@
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
-
 import readingTime from 'reading-time'
-import remarkGfm from 'remark-gfm'
-import rehypeSlug from 'rehype-slug'
-import rehypeCodeTitles from 'rehype-code-titles'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrism from 'rehype-prism-plus'
+import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
 
 const computedFields: ComputedFields = {
 	readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },

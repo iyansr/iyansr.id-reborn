@@ -3,70 +3,63 @@
 @tailwind utilities;
 
 @layer components {
-   .post-wrapper {
-      h1 {
-         @apply text-3xl font-bold mb-4 relative;
-      }
+	.post-wrapper {
+		h1 {
+			@apply relative mb-4 text-3xl font-bold;
+		}
 
-      h2 {
-         @apply text-3xl font-bold my-4 relative;
-      }
-      h3 {
-         @apply text-2xl font-bold mb-4;
-      }
+		h2 {
+			@apply relative my-4 text-3xl font-bold;
+		}
+		h3 {
+			@apply mb-4 text-2xl font-bold;
+		}
 
-      h4 {
-         @apply text-xl font-bold mb-4;
-      }
+		h4 {
+			@apply mb-4 text-xl font-bold;
+		}
 
-      p {
-         @apply mb-3 leading-normal;
-      }
+		p {
+			@apply mb-3 leading-normal;
+		}
 
-      img {
-         @apply w-full h-auto mx-auto mb-4;
+		img {
+			@apply mx-auto mb-4 h-auto w-full;
 
-         @media (min-width: 768px) {
-            @apply w-3/4;
-         }
-      }
+			@media (min-width: 768px) {
+				@apply w-3/4;
+			}
+		}
 
-      ul {
-         @apply list-disc ml-10 mb-2;
-      }
+		ul {
+			@apply ml-10 mb-2 list-disc;
+		}
 
-      a {
-         @apply text-pink-600;
-         &:hover {
-            @apply border-b border-dashed border-red-custom;
-         }
-      }
+		a {
+			@apply text-pink-600;
+			&:hover {
+				@apply border-b border-dashed border-red-custom;
+			}
+		}
 
-      blockquote {
-         @apply bg-gray-800 mb-4 px-6 py-2 italic;
-         p {
-            @apply my-0;
-            @apply text-white;
-         }
+		blockquote {
+			@apply mb-4 bg-gray-800 px-6 py-2 italic;
+			p {
+				@apply my-0;
+				@apply text-white;
+			}
 
-         box-shadow: 6px 6px 0px #f92672;
-      }
-   }
+			box-shadow: 6px 6px 0px #f92672;
+		}
+	}
 
-   a {
-      @apply text-red-custom;
-   }
+	a {
+		@apply text-red-custom;
+	}
 
-   .react-modal-custom {
-      position: absolute;
-      left: 120px;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      box-shadow: -10px 10px 0px #0e3432;
-      @apply bg-teal-custom;
-      overflow: auto;
-      outline: none;
-      padding: 20px;
-   }
+	.react-modal-custom {
+		box-shadow: -10px 10px 0px #0e3432;
+		@apply fixed inset-y-0 right-0 left-[120px] w-2/3 overflow-auto bg-teal-custom outline-none;
+		padding: 20px;
+	}
 }
