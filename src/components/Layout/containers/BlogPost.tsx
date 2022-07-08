@@ -15,16 +15,6 @@ export const BlogPost = ({ blogPost }: BlogPageProps) => {
   const { asPath } = useRouter();
   const Component = useMDXComponent(blogPost.body.code);
 
-  // const updateCodeSyntaxHighlighting = () => {
-  // 	document.querySelectorAll('pre code').forEach((block: any) => {
-  // 		hljs.highlightBlock(block)
-  // 	})
-  // }
-
-  // useEffect(() => {
-  // 	updateCodeSyntaxHighlighting()
-  // })
-
   return (
     <>
       <Meta
