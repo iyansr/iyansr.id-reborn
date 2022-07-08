@@ -1,32 +1,32 @@
-import { SnippetPost } from '@components/Layout/containers/SnippetPost'
-import { allSnippets, type Snippet } from 'contentlayer/generated'
-import { GetStaticProps } from 'next'
+import { SnippetPost } from '@components/Layout/containers/SnippetPost';
+import { allSnippets, type Snippet } from 'contentlayer/generated';
+import { GetStaticProps } from 'next';
 
 const SnippetPage = ({ snippet }: { snippet: Snippet }) => {
-	return <SnippetPost snippet={snippet} />
-}
+  return <SnippetPost snippet={snippet} />;
+};
 
 export async function getStaticPaths() {
-	return {
-		paths: allSnippets.map((p) => ({ params: { slug: p.slug } })),
-		fallback: false,
-	}
+  return {
+    paths: allSnippets.map((p) => ({ params: { slug: p.slug } })),
+    fallback: false,
+  };
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const snippet = allSnippets.find((p) => p.slug === (params?.slug as string))
+  const snippet = allSnippets.find((p) => p.slug === (params?.slug as string));
 
-	if (!snippet) {
-		return {
-			notFound: true,
-		}
-	}
+  if (!snippet) {
+    return {
+      notFound: true,
+    };
+  }
 
-	return {
-		props: {
-			snippet,
-		},
-	}
-}
+  return {
+    props: {
+      snippet,
+    },
+  };
+};
 
-export default SnippetPage
+export default SnippetPage;

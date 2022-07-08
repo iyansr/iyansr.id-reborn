@@ -2,9 +2,9 @@
 
 > My Personal Home Page, Blog, Portfolio built with Next.JS : https://iyansr.id
 
-
 [![Deploy to Vercel](https://vercel.com/button)](https://iyansr.id)
-## Ongoing Features 
+
+## Ongoing Features
 
 - [x] Mobile friendly
 - [x] Portfolio (Work) List
@@ -16,13 +16,13 @@
 - [x] PWA
 - [ ] ~~Twitter Embed~~
 
-- Request ? 
+- Request ?
 
 ### Special Thanks to :
 
 - [Fireship.io](https://fireship.io/)
 - [Ben Awad](https://www.youtube.com/channel/UC-8QAzbLcRglXeN_MY9blyw)
 
-***
+---
 
 Copyright © 2020 by I Putu Saputrayana (Iyan Saputra)

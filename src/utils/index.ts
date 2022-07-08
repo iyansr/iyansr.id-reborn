@@ -1,1 +1,1 @@
-export { sortLinks } from './sort-links'
+export { sortLinks } from './sort-links';
