@@ -22,6 +22,7 @@ export const BlogPost = ({ blogPost }: BlogPageProps) => {
         description={blogPost.description}
         image={blogPost.thumbnail}
         url={`${process.env.NEXT_PUBLIC_SITE_URL}${asPath}`}
+        keywords={blogPost.keyword}
       />
 
       <Section background="purple" className="pb-12">
