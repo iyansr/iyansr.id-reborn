@@ -4,6 +4,7 @@ import { Section } from '@components/Section';
 import { WorkCard } from '@components/WorkCard';
 import workData from '@content/portfolio.json';
 import { allBlogs, type Blog } from 'contentlayer/generated';
+import { getUnixTime } from 'date-fns';
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Link from 'next/link';
 
@@ -84,10 +85,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blogPo
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogs: Blog[] = allBlogs;
+  const sortedBlog = blogs.sort((a,b) => getUnixTime(new Date(b.date)) - getUnixTime(new Date(a.date)))
+
 
   return {
     props: {
-      blogPosts: blogs,
+      blogPosts: sortedBlog,
     },
   };
 };
