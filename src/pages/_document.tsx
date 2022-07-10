@@ -17,7 +17,7 @@ export default function Document() {
         />
 
         {/* preconnect to analytics domin */}
-        <link rel="preconnect" href="https://analytics.iyansr.id" />
+        <link rel="preconnect" href="https://cdn.splitbee.io" />
 
         {/* Meta Data */}
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -38,12 +38,11 @@ export default function Document() {
 
         {process.env.NODE_ENV === 'production' && (
           <Script
-            id="umami-analytics"
+            id="splitbee-analytics"
             strategy="lazyOnload"
             async
             defer
-            data-website-id="f6cf2148-5ec7-492d-80e0-42efb4c2cd9e"
-            src="https://analytics.iyansr.id/umami.js"
+            src="https://cdn.splitbee.io/sb.js"
           />
         )}
       </Head>
