@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.iyansr.id/
+Host: https://iyansr.id/
 
 # Sitemaps
-Sitemap: https://www.iyansr.id/sitemap.xml
+Sitemap: https://iyansr.id/sitemap.xml
