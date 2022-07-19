@@ -40,3 +40,5 @@ yarn-error.log*
 
 # Sitemap
 public/sitemap.xml
+
+.deleted

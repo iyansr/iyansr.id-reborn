@@ -15,6 +15,7 @@ module.exports = withContentlayer({
     browsersListForSwc: true,
 
     images: { allowFutureImage: true },
+    runtime: 'experimental-edge',
   },
 
   compiler: {
