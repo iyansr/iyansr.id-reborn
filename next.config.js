@@ -6,20 +6,12 @@ const { withContentlayer } = require('next-contentlayer');
 module.exports = withContentlayer({
   swcMinify: true,
   reactStrictMode: true,
-
-  experimental: {
-    newNextLinkBehavior: true,
-    scrollRestoration: true,
-
-    legacyBrowsers: false,
-    browsersListForSwc: true,
-
-    images: { allowFutureImage: true },
-    runtime: 'experimental-edge',
-  },
-
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+
+  experimental: {
+    fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
   },
 
   poweredByHeader: false,

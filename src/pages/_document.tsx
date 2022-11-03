@@ -6,7 +6,7 @@ export default function Document() {
     <Html lang="id, en">
       <Head>
         {/* Google Fonts */}
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800;900&display=swap"
           rel="stylesheet"
         />
@@ -14,7 +14,7 @@ export default function Document() {
         <link
           href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
           rel="stylesheet"
-        />
+        /> */}
 
         {/* preconnect to analytics domin */}
         <link rel="preconnect" href="https://cdn.splitbee.io" />
@@ -47,7 +47,7 @@ export default function Document() {
         )}
       </Head>
 
-      <body className="text-sm text-gray-400 antialiased md:text-base">
+      <body className="bg-bg-2 antialiased">
         <Main />
         <NextScript />
       </body>

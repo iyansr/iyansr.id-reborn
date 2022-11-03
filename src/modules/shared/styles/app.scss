@@ -7,8 +7,7 @@ input:active {
 html,
 body {
   @apply h-full min-h-full;
-  font-family: 'Poppins', Mija, -apple-system, Arial, BlinkMacSystemFont, roboto slab, droid serif,
-    segoe ui, Ubuntu, Cantarell, Georgia, sans-serif;
+  font-family: var(--work-sans);
 }
 
 body {
@@ -94,15 +93,15 @@ body {
 }
 
 .post-wrapper {
-  code:not([class*='language-']) {
-    font: 600 10pt 'JetBrains Mono', monospace;
+  code:not([class*="language-"]) {
+    font: 600 10pt "JetBrains Mono", monospace;
     color: hsl(220, 14%, 71%);
     background: hsl(219, 13%, 22%);
     @apply rounded-md px-2 font-mono;
   }
 
   .rehype-code-title {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
     background: hsl(219, 13%, 22%);
     @apply rounded-t-lg border border-b-0 border-gray-700  px-5 py-3 text-sm font-bold text-gray-200;
   }

@@ -53,10 +53,6 @@
     }
   }
 
-  a {
-    @apply text-red-custom;
-  }
-
   .react-modal-custom {
     box-shadow: -10px 10px 0px #0e3432;
     @apply fixed inset-y-0 right-0 left-[120px] w-2/3 overflow-auto bg-teal-custom outline-none;
