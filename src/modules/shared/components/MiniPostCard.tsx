@@ -10,13 +10,13 @@ const MiniPostCard = ({ post }: PostCardProps) => {
   const _readingTime = post.readingTime;
 
   return (
-    <div className="flex items-center space-x-4 overflow-hidden rounded-2xl bg-bg-1 shadow-lg shadow-black/5">
-      <div className="relative aspect-[12/7] flex-1 overflow-hidden rounded-md">
+    <div className="flex items-center space-x-2 overflow-hidden rounded-2xl bg-bg-1 shadow-lg shadow-black/5 md:space-x-4">
+      <div className="relative aspect-[10/7] flex-1 overflow-hidden rounded-md md:aspect-[12/7]">
         <Image src={image} alt={post.title} fill className="object-cover" />
       </div>
       <div className="flex flex-1 flex-col justify-between">
         <div className="">
-          <p className="text-xs font-medium text-earth-1">
+          <p className="text-[9px] font-medium text-earth-1 md:text-xs">
             <span role="img">📅</span>&nbsp; {format(new Date(String(post.date)), 'dd MMM yyyy')} |{' '}
             <span role="img">☕️</span>
             &nbsp; {_readingTime.text}
@@ -25,13 +25,13 @@ const MiniPostCard = ({ post }: PostCardProps) => {
         <div className=" pr-4">
           <Link
             href={`/blog/${path}`}
-            className="text-lg font-semibold text-earth-2 transition-colors duration-200 line-clamp-2"
+            className="text-sm font-semibold text-earth-2 transition-colors duration-200 line-clamp-2 md:text-lg"
           >
             {post.title}
           </Link>
         </div>
         <div className="flex flex-wrap">
-          <div className=" mr-2 mt-2 rounded-md bg-bg-4 px-2 py-1 text-sm font-semibold text-earth-2 ">
+          <div className=" mr-2 mt-2 rounded-md bg-bg-4  px-2 py-1 text-xs font-semibold text-earth-2 md:text-sm ">
             #{post.tags}
           </div>
         </div>

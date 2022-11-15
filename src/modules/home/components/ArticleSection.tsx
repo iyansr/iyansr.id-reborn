@@ -14,12 +14,21 @@ const ArticleSection = ({ blogPosts }: HomeProps) => {
           My Articles
         </h2>
 
-        <div className="grid grid-cols-11 grid-rows-3 gap-4">
+        <div className="grid gap-4 md:grid-cols-11 md:grid-rows-3">
           {blogPosts.slice(0, 4).map((post, index) => (
-            <div key={post._id} className={index === 0 ? 'col-span-5 row-span-3' : 'col-span-6'}>
+            <div
+              key={post._id}
+              className={index === 0 ? 'md:col-span-5 md:row-span-3' : 'md:col-span-6'}
+            >
               {index === 0 ? <FeaturedPostCard post={post} /> : <MiniPostCard post={post} />}
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 flex">
+          <button className="mx-auto rounded-2xl bg-biru-1 py-4 px-6 text-xl font-semibold text-bg-0 transition-transform duration-100 hover:scale-105">
+            <span>View All</span>
+          </button>
         </div>
       </div>
     </section>

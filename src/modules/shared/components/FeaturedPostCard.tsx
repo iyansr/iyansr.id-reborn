@@ -16,21 +16,23 @@ const FeaturedPostCard = ({ post }: PostCardProps) => {
         <Image src={image} alt={post.title} fill className="object-cover" />
       </div>
       <div className="p-6">
-        <p className="text-sm font-medium text-earth-1">
+        <p className=" text-xs font-medium text-earth-1 md:text-sm">
           <span role="img">📅</span>&nbsp; {format(new Date(String(post.date)), 'dd MMM yyyy')} |{' '}
           <span role="img">☕️</span>
           &nbsp; {_readingTime.text}
         </p>
         <Link
           href={`/blog/${path}`}
-          className="mt-2 text-2xl font-semibold text-earth-2 transition-colors duration-200 line-clamp-2"
+          className="mt-2 text-lg font-semibold text-earth-2 transition-colors duration-200 line-clamp-2 md:text-2xl"
         >
           {post.title}
         </Link>
 
-        <div className="mt-2 flex-1 text-lg font-medium text-earth-1 line-clamp-3">{excerpt}</div>
+        <div className="mt-2 flex-1 text-sm font-medium text-earth-1 line-clamp-3 md:text-lg">
+          {excerpt}
+        </div>
         <div className="flex  flex-wrap">
-          <div className=" mr-2 mt-2 rounded-md bg-bg-4 px-2 py-1 text-sm font-semibold text-earth-2 ">
+          <div className=" mr-2 mt-2 rounded-md bg-bg-4 px-2 py-1 text-xs font-semibold text-earth-2 md:text-sm ">
             #{post.tags}
           </div>
         </div>

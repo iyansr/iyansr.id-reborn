@@ -6,19 +6,21 @@ const eczar = Eczar();
 
 const HeroSection = () => {
   return (
-    <section className="mx-auto mt-12 flex max-h-screen max-w-6xl items-center px-4">
-      <div className="flex-1">
+    <section className="mx-auto mt-12 flex max-w-6xl flex-col items-center px-4 md:flex-row">
+      <div className="flex flex-1 flex-col items-center md:items-start">
         <div className="inline-block rounded-md bg-bg-4 px-6 py-3 font-semibold">
           <span role="img">👋</span>
           Hello All
         </div>
         <div className="mt-6">
-          <h1 className={`${eczar.className} text-6xl font-semibold leading-tight text-earth-2`}>
+          <h1
+            className={`${eczar.className} mf:text-6xl text-center text-5xl font-semibold leading-tight text-earth-2 md:text-left`}
+          >
             I'm Iyan Saputra, A Frontend Developer
           </h1>
         </div>
-        <div className="mt-9 flex space-x-4">
-          <button className="flex items-center space-x-4 rounded-2xl bg-biru-1 py-6 px-8 text-2xl font-semibold text-bg-0 transition-transform duration-100 hover:scale-105">
+        <div className="mt-9 mb-12 hidden justify-center space-x-4 md:mb-0 md:flex md:justify-start">
+          <button className="flex items-center space-x-4 rounded-2xl bg-biru-1 px-6 py-4 text-xl font-semibold text-bg-0 transition-transform duration-100 hover:scale-105 md:py-6 md:px-8 md:text-2xl">
             <span>View My Work</span>
             <span>
               <svg width={25} height={24} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,12 +34,12 @@ const HeroSection = () => {
             </span>
           </button>
 
-          <button className=" space-x-4 rounded-2xl border-4 border-biru-2 bg-transparent py-6 px-8 text-center text-2xl font-semibold text-biru-2  transition-transform duration-100 hover:scale-105">
+          <button className=" space-x-4 rounded-2xl border-4 border-biru-2 bg-transparent px-6 py-4 text-center text-2xl font-semibold text-biru-2 transition-transform duration-100  hover:scale-105 md:py-6 md:px-8">
             Contact Me
           </button>
         </div>
       </div>
-      <div className="flex-1">
+      <div className="mt-20 flex-1 md:mt-0">
         <Image src={illu} placeholder="blur" alt="Iyan Saputra" className="mx-auto" />
       </div>
     </section>
