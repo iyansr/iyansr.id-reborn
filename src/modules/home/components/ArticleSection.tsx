@@ -6,7 +6,6 @@ import { HomeProps } from '../home';
 const eczar = Eczar();
 
 const ArticleSection = ({ blogPosts }: HomeProps) => {
-  console.log(eczar);
   return (
     <section className="bg-bg-2">
       <div className="mx-auto max-w-6xl items-center px-4 py-20">

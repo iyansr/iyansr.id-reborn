@@ -9,6 +9,7 @@ const DynamicArticle: ComponentType<HomeProps> = dynamic(
   () => import('@modules/home/components/ArticleSection'),
 );
 const DynamicWork: ComponentType = dynamic(() => import('@modules/home/components/WorkSection'));
+const DynamicFooter: ComponentType = dynamic(() => import('@modules/shared/components/Footer'));
 
 const HomePage = ({ blogPosts }: HomeProps) => {
   return (
@@ -23,6 +24,7 @@ const HomePage = ({ blogPosts }: HomeProps) => {
       <DynamicHero />
       <DynamicWork />
       <DynamicArticle blogPosts={blogPosts} />
+      <DynamicFooter />
     </Fragment>
   );
 };
