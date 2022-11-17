@@ -1,11 +1,9 @@
 import FeaturedPostCard from '@modules/shared/components/FeaturedPostCard';
 import MiniPostCard from '@modules/shared/components/MiniPostCard';
-import { Eczar } from '@next/font/google';
-import { HomeProps } from '../home';
+import eczar from '@modules/shared/utils/font';
+import { ArticleProps } from '../home';
 
-const eczar = Eczar();
-
-const ArticleSection = ({ blogPosts }: HomeProps) => {
+const ArticleSection = ({ blogPosts }: ArticleProps) => {
   return (
     <section className="bg-bg-2">
       <div className="mx-auto max-w-6xl items-center px-4 py-20">

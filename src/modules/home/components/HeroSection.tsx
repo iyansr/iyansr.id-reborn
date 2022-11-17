@@ -1,8 +1,6 @@
 import illu from '@modules/assets/iyansr.png';
-import { Eczar } from '@next/font/google';
+import eczar from '@modules/shared/utils/font';
 import Image from 'next/image';
-
-const eczar = Eczar();
 
 const HeroSection = () => {
   return (

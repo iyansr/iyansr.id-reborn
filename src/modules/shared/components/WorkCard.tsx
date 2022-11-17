@@ -2,15 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import GithubIcon from '../icons/GithubIcon';
 import GlobeIcon from '../icons/GlobeIcon';
-
-export type WorkType = {
-  name: string;
-  description: string;
-  github: string;
-  website: null;
-  image: string;
-  stacks: string[];
-};
+import { WorkType } from '../type';
 
 export type WorkCardProps = {
   file: WorkType;
@@ -67,6 +59,7 @@ const WorkCard = ({ file }: WorkCardProps) => {
         <Image
           src={file.image}
           alt={file.name}
+          blurDataURL={`${file.blurDataUrl}`}
           fill
           className="h-full object-cover transition-transform duration-150 group-hover:scale-105"
         />

@@ -1,17 +1,17 @@
 import Meta from '@modules/shared/components/Meta';
 import dynamic from 'next/dynamic';
 import { ComponentType, Fragment } from 'react';
-import { HomeProps } from '../home';
+import { ArticleProps, HomeProps, WorkProps } from '../home';
 
-const DynamicNavbar: ComponentType = dynamic(() => import('@modules/shared/components/Navbar'));
 const DynamicHero: ComponentType = dynamic(() => import('@modules/home/components/HeroSection'));
-const DynamicArticle: ComponentType<HomeProps> = dynamic(
+const DynamicArticle: ComponentType<ArticleProps> = dynamic(
   () => import('@modules/home/components/ArticleSection'),
 );
-const DynamicWork: ComponentType = dynamic(() => import('@modules/home/components/WorkSection'));
-const DynamicFooter: ComponentType = dynamic(() => import('@modules/shared/components/Footer'));
+const DynamicWork: ComponentType<WorkProps> = dynamic(
+  () => import('@modules/home/components/WorkSection'),
+);
 
-const HomePage = ({ blogPosts }: HomeProps) => {
+const HomePage = ({ blogPosts, works }: HomeProps) => {
   return (
     <Fragment>
       <Meta
@@ -20,11 +20,9 @@ const HomePage = ({ blogPosts }: HomeProps) => {
          And would be a fast learner to doing new things and build good teamwork either."
       />
 
-      <DynamicNavbar />
       <DynamicHero />
-      <DynamicWork />
+      <DynamicWork works={works} />
       <DynamicArticle blogPosts={blogPosts} />
-      <DynamicFooter />
     </Fragment>
   );
 };

@@ -12,7 +12,13 @@ const MiniPostCard = ({ post }: PostCardProps) => {
   return (
     <div className="flex items-center space-x-2 overflow-hidden rounded-2xl bg-bg-1 shadow-lg shadow-black/5 md:space-x-4">
       <div className="relative aspect-[10/7] flex-1 overflow-hidden rounded-md md:aspect-[12/7]">
-        <Image src={image} alt={post.title} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={post.title}
+          blurDataURL={post.blurDataURL}
+          fill
+          className="object-cover"
+        />
       </div>
       <div className="flex flex-1 flex-col justify-between">
         <div className="">

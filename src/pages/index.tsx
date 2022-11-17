@@ -1,18 +1,17 @@
-import { getUnixTime } from 'date-fns';
 import type { GetStaticProps } from 'next';
 
 import HomePage from '@modules/home/pages/HomePage';
-import { allBlogs, type Blog } from 'contentlayer/generated';
+import getPosts from '@modules/shared/api/getPosts';
+import getWork from '@modules/shared/api/getWork';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blogs: Blog[] = allBlogs;
-  const sortedBlog = blogs.sort(
-    (a, b) => getUnixTime(new Date(b.date)) - getUnixTime(new Date(a.date)),
-  );
+  const blogPosts = await getPosts();
+  const works = await getWork();
 
   return {
     props: {
-      blogPosts: sortedBlog,
+      blogPosts,
+      works,
     },
   };
 };

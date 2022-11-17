@@ -7,7 +7,7 @@
     "name": "Iyan Saputra"
   },
   "scripts": {
-    "dev": "next -p 8300",
+    "dev": "next -p 2700",
     "build": "next build",
     "start": "next start",
     "export": "next export",
@@ -25,7 +25,7 @@
     "framer-motion": "^6.4.2",
     "highlight.js": "^11.5.1",
     "next": "13.0.1",
-    "next-contentlayer": "^0.2.5",
+    "next-contentlayer": "^0.2.9",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
