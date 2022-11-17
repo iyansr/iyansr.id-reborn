@@ -11,18 +11,18 @@ body {
 }
 
 body {
-  ::-webkit-scrollbar {
-    width: 0.35rem;
-  }
+  // ::-webkit-scrollbar {
+  //   width: 0.35rem;
+  // }
 
-  ::-webkit-scrollbar-track {
-    background: #1e1e24;
-  }
+  // ::-webkit-scrollbar-track {
+  //   background: #1e1e24;
+  // }
 
-  ::-webkit-scrollbar-thumb {
-    background: #6649b8;
-    border-radius: 100px;
-  }
+  // ::-webkit-scrollbar-thumb {
+  //   background: #6649b8;
+  //   border-radius: 100px;
+  // }
 
   hr {
     border: 2px dashed #23232e !important;
@@ -35,13 +35,13 @@ body {
   @apply pointer-events-none;
 
   .spinner-icon {
-    border-top-color: #f92672 !important;
-    border-left-color: #f92672 !important;
+    border-top-color: #403930 !important;
+    border-left-color: #403930 !important;
   }
 
   .bar {
     @apply fixed top-0 left-0 w-full;
-    background: #f92672 !important;
+    background: #403930 !important;
     z-index: 1031;
     height: 2px;
   }

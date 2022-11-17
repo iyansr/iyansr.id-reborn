@@ -1,18 +1,15 @@
-import { Section } from '@modules/shared/components/Section';
-import eczar from '@modules/shared/utils/font';
+import BlogPage from '@modules/blog/pages/BlogPage';
+import getPosts from '@modules/shared/api/getPosts';
+import type { GetStaticProps } from 'next';
 
-const Blog = () => {
-  return (
-    <Section>
-      <div className="mt-6">
-        <h1
-          className={`${eczar.className} mf:text-6xl text-center text-5xl font-semibold leading-tight text-earth-2 md:text-left`}
-        >
-          I'm Iyan Saputra, A Frontend Developer
-        </h1>
-      </div>
-    </Section>
-  );
+export const getStaticProps: GetStaticProps = async () => {
+  const blogPosts = await getPosts();
+
+  return {
+    props: {
+      blogPosts,
+    },
+  };
 };
 
-export default Blog;
+export default BlogPage;
