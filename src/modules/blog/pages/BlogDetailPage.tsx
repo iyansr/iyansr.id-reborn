@@ -44,6 +44,7 @@ const BlogDetailPage = ({ blogPost }: BlogPageProps) => {
                     src={blogPost.thumbnail}
                     alt={blogPost.title}
                     blurDataURL={blogPost.blurDataURL}
+                    placeholder="blur"
                     fill
                     className="z-40 h-full w-full border-b-4 border-gray-800 object-cover"
                   />
