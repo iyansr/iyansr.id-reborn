@@ -1,4 +1,5 @@
 import { Eczar } from '@next/font/google';
+import Link from 'next/link';
 
 import WorkCard from '@modules/shared/components/WorkCard';
 
@@ -19,9 +20,11 @@ const WorkSection = ({ works }: WorkProps) => {
         </div>
 
         <div className="mt-12 flex">
-          <button className="mx-auto rounded-2xl bg-biru-1 py-4 px-6 text-xl font-semibold text-bg-0 transition-transform duration-100 hover:scale-105">
-            <span>View All</span>
-          </button>
+          <Link href="/work" className="mx-auto">
+            <button className="mx-auto rounded-2xl bg-biru-1 py-4 px-6 text-xl font-semibold text-bg-0 transition-transform duration-100 hover:scale-105">
+              <span>View All</span>
+            </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -16,10 +16,10 @@ export default function Document() {
         <meta name="apple-mobile-web-app-title" content="IyanSR" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="msapplication-TileColor" content="#B9FBDF" />
+        <meta name="msapplication-TileColor" content="#ffeed9" />
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="theme-color" content="#B9FBDF" />
-        <link rel="apple-touch-icon" href="/icon/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/icon/android-icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.json" />
