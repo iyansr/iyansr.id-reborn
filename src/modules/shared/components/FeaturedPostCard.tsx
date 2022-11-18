@@ -17,6 +17,7 @@ const FeaturedPostCard = ({ post }: PostCardProps) => {
         <Image
           src={image}
           alt={post.title}
+          placeholder="blur"
           blurDataURL={post.blurDataURL}
           fill
           className="object-cover"

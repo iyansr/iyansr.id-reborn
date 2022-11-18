@@ -17,6 +17,7 @@ const MiniPostCard = ({ post }: PostCardProps) => {
           src={image}
           alt={post.title}
           blurDataURL={post.blurDataURL}
+          placeholder="blur"
           fill
           className="object-cover"
         />

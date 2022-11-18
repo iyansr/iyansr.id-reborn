@@ -60,7 +60,8 @@ const WorkCard = ({ file }: WorkCardProps) => {
         <Image
           src={file.image}
           alt={file.name}
-          blurDataURL={`${file.blurDataUrl}`}
+          blurDataURL={file.blurDataURL}
+          placeholder="blur"
           fill
           className="h-full object-cover transition-transform duration-150 group-hover:scale-105"
         />

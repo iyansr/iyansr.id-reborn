@@ -8,6 +8,6 @@ export type WorkType = {
   github: string;
   website: null;
   image: string;
-  blurDataUrl?: string;
+  blurDataURL?: string;
   stacks: string[];
 };
