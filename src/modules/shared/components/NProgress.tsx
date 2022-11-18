@@ -1,6 +1,6 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { default as progress } from 'nprogress';
-import { useEffect } from 'react';
 
 export const NProgress = () => {
   const { events } = useRouter();

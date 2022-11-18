@@ -1,12 +1,12 @@
-import { Section } from '@modules/shared/components/Section';
-import { BlogExtended } from '@modules/shared/type';
 import { format } from 'date-fns';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { DiscussionEmbed } from 'disqus-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import { DiscussionEmbed } from 'disqus-react';
+import { Section } from '@modules/shared/components/Section';
+import { BlogExtended } from '@modules/shared/type';
 
 type BlogPageProps = {
   blogPost: BlogExtended;

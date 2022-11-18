@@ -1,7 +1,8 @@
+import type { GetStaticProps } from 'next';
+
 import BlogDetailPage from '@modules/blog/pages/BlogDetailPage';
 import getPosts from '@modules/shared/api/getPosts';
 import { BlogExtended } from '@modules/shared/type';
-import type { GetStaticProps } from 'next';
 
 export async function getStaticPaths() {
   const blogPosts = await getPosts();

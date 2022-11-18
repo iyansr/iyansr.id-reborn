@@ -1,7 +1,8 @@
+import { ReactNode, Suspense } from 'react';
 import { Work_Sans } from '@next/font/google';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { ReactNode, Suspense } from 'react';
+
 import Footer from './Footer';
 import Navbar from './Navbar';
 import { NProgress } from './NProgress';

@@ -1,5 +1,7 @@
-import WorkCard from '@modules/shared/components/WorkCard';
 import { Eczar } from '@next/font/google';
+
+import WorkCard from '@modules/shared/components/WorkCard';
+
 import { WorkProps } from '../home';
 
 const eczar = Eczar();

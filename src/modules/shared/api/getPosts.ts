@@ -1,5 +1,6 @@
-import { allBlogs, type Blog } from 'contentlayer/generated';
+import { type Blog, allBlogs } from 'contentlayer/generated';
 import { getUnixTime } from 'date-fns';
+
 import { BlogExtended } from '../type';
 import { getBase64ImageUrl } from '../utils/getBase64url';
 

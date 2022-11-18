@@ -17,7 +17,7 @@ const BlogPage = ({ blogPosts }: Props) => {
           MY ARTICLES
         </h2>
         <p className="mt-4 text-sm font-medium text-earth-1 md:text-base lg:text-lg">
-          If I tell you what happen, it won't happen.
+          If I tell you what happen, it {"won't"} happen.
         </p>
       </div>
 

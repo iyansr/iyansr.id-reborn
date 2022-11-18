@@ -1,6 +1,7 @@
-import siteConfig from '@modules/shared/config/siteConfig';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+import siteConfig from '@modules/shared/config/siteConfig';
 
 const Navbar = () => {
   const router = useRouter();

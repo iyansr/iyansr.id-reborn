@@ -43,13 +43,24 @@
     }
 
     blockquote {
-      @apply mb-4 bg-gray-800 px-6 py-2 italic;
-      p {
-        @apply my-0;
-        @apply text-white;
+      @apply mb-4 bg-bg-4 p-6 italic relative;
+      margin: 50px auto;
+      color: #555555;
+      border-left: 8px solid #594f43;
+      line-height: 1.6;
+      position: relative;
+      ::before {
+        color: #594f43;
+        content: "\201C";
+        font-size: 4em;
+        position: absolute;
+        left: 10px;
+        top: -10px;
       }
-
-      box-shadow: 6px 6px 0px #f92672;
+      p {
+        @apply my-0 ml-8;
+        @apply text-earth-2;
+      }
     }
   }
 

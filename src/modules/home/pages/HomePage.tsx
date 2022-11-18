@@ -1,6 +1,8 @@
-import Meta from '@modules/shared/components/Meta';
-import dynamic from 'next/dynamic';
 import { ComponentType, Fragment } from 'react';
+import dynamic from 'next/dynamic';
+
+import Meta from '@modules/shared/components/Meta';
+
 import { ArticleProps, HomeProps, WorkProps } from '../home';
 
 const DynamicHero: ComponentType = dynamic(() => import('@modules/home/components/HeroSection'));

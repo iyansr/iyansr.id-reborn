@@ -1,7 +1,8 @@
-import { PostCardProps } from '@modules/home/home';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { PostCardProps } from '@modules/home/home';
 
 const FeaturedPostCard = ({ post }: PostCardProps) => {
   const image = post.thumbnail;

@@ -1,6 +1,9 @@
+import Link from 'next/link';
+
 import FeaturedPostCard from '@modules/shared/components/FeaturedPostCard';
 import MiniPostCard from '@modules/shared/components/MiniPostCard';
 import eczar from '@modules/shared/utils/font';
+
 import { ArticleProps } from '../home';
 
 const ArticleSection = ({ blogPosts }: ArticleProps) => {
@@ -23,9 +26,11 @@ const ArticleSection = ({ blogPosts }: ArticleProps) => {
         </div>
 
         <div className="mt-12 flex">
-          <button className="mx-auto rounded-2xl bg-biru-1 py-4 px-6 text-xl font-semibold text-bg-0 transition-transform duration-100 hover:scale-105">
-            <span>View All</span>
-          </button>
+          <Link href="/blog" className="mx-auto">
+            <button className="mx-auto rounded-2xl bg-biru-1 py-4 px-6 text-xl font-semibold text-bg-0 transition-transform duration-100 hover:scale-105">
+              <span>View All</span>
+            </button>
+          </Link>
         </div>
       </div>
     </section>

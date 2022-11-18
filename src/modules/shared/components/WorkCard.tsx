@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
 import GithubIcon from '../icons/GithubIcon';
 import GlobeIcon from '../icons/GlobeIcon';
 import { WorkType } from '../type';

@@ -1,6 +1,7 @@
+import Image from 'next/image';
+
 import illu from '@modules/assets/iyansr.png';
 import eczar from '@modules/shared/utils/font';
-import Image from 'next/image';
 
 const HeroSection = () => {
   return (
@@ -14,7 +15,7 @@ const HeroSection = () => {
           <h1
             className={`${eczar.className} mf:text-6xl text-center text-5xl font-semibold leading-tight text-earth-2 md:text-left`}
           >
-            I'm Iyan Saputra, A Frontend Developer
+            {"I'm"} Iyan Saputra, A Frontend Developer
           </h1>
         </div>
       </div>
