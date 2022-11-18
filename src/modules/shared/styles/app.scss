@@ -1,0 +1,146 @@
+:active,
+:focus,
+input:active {
+  outline: none !important;
+}
+
+html,
+body {
+  @apply h-full min-h-full;
+  font-family: var(--work-sans);
+}
+
+body {
+  // ::-webkit-scrollbar {
+  //   width: 0.35rem;
+  // }
+
+  // ::-webkit-scrollbar-track {
+  //   background: #1e1e24;
+  // }
+
+  // ::-webkit-scrollbar-thumb {
+  //   background: #6649b8;
+  //   border-radius: 100px;
+  // }
+
+  hr {
+    border: 2px dashed #23232e !important;
+  }
+}
+
+/* nprogress.css */
+/* Make clicks pass-through */
+#nprogress {
+  @apply pointer-events-none;
+
+  .spinner-icon {
+    border-top-color: #403930 !important;
+    border-left-color: #403930 !important;
+  }
+
+  .bar {
+    @apply fixed top-0 left-0 w-full;
+    background: #403930 !important;
+    z-index: 1031;
+    height: 2px;
+  }
+}
+
+.post-card {
+  min-height: 380px;
+  height: 100%;
+  box-shadow: 12px 12px 0px #0e3432;
+  transition: 300ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  &:hover {
+    box-shadow: none;
+    transform: translate(12px, 12px);
+  }
+
+  &--tag {
+    box-shadow: 5px 5px 0px #fed715;
+  }
+}
+
+.snippet-card {
+  cursor: pointer;
+  min-height: 120px;
+  height: 100%;
+  box-shadow: 8px 8px 0px #0e3432;
+  transition: 300ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  &:hover {
+    box-shadow: none;
+    transform: translate(8px, 8px);
+  }
+}
+
+.article-button {
+  box-shadow: 4px 4px 0px #0e3432;
+  transition: 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  @apply rounded-lg;
+
+  &:hover {
+    box-shadow: none;
+    transform: translate(4px, 4px);
+  }
+}
+
+.twitter-tweet-rendered {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.post-wrapper {
+  code:not([class*="language-"]) {
+    font: 600 10pt "JetBrains Mono", monospace;
+    color: hsl(220, 14%, 71%);
+    background: hsl(219, 13%, 22%);
+    @apply rounded-md px-2 font-mono;
+  }
+
+  .rehype-code-title {
+    font-family: "JetBrains Mono", monospace;
+    background: hsl(219, 13%, 22%);
+    @apply rounded-t-lg border border-b-0 border-gray-700  px-5 py-3 text-sm font-bold text-gray-200;
+  }
+
+  .rehype-code-title + pre {
+    @apply mt-0 rounded-t-none;
+  }
+}
+
+.header-link {
+  &:hover {
+    text-shadow: 2px 2px 0px #fed715;
+  }
+
+  &-active {
+    text-shadow: 4px 4px 0px #fed715;
+  }
+}
+
+.title-front {
+  bottom: 1px;
+  color: #fe0879;
+  text-shadow: 7px 7px 0px #fed715;
+}
+
+.section-one {
+  min-height: 800px;
+}
+
+.header-menu {
+  text-shadow: 3px 3px 0px #fed715;
+}
+
+.card-content-body {
+  img:first-child {
+    display: none;
+  }
+
+  .separator {
+    display: none !important;
+  }
+}

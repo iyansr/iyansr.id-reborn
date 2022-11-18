@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .post-wrapper {
+    h1 {
+      @apply relative mb-4 text-3xl font-bold;
+    }
+
+    h2 {
+      @apply relative my-4 text-3xl font-bold;
+    }
+    h3 {
+      @apply mb-4 text-2xl font-bold;
+    }
+
+    h4 {
+      @apply mb-4 text-xl font-bold;
+    }
+
+    p {
+      @apply mb-3 leading-normal;
+    }
+
+    img {
+      @apply mx-auto mb-4 h-auto w-full;
+
+      @media (min-width: 768px) {
+        @apply w-3/4;
+      }
+    }
+
+    ul {
+      @apply ml-10 mb-2 list-disc;
+    }
+
+    a {
+      @apply text-biru-1;
+      &:hover {
+        @apply border-b border-dashed border-biru-1;
+      }
+    }
+
+    blockquote {
+      @apply mb-4 bg-bg-4 p-6 italic relative;
+      margin: 50px auto;
+      color: #555555;
+      border-left: 8px solid #594f43;
+      line-height: 1.6;
+      position: relative;
+      ::before {
+        color: #594f43;
+        content: "\201C";
+        font-size: 4em;
+        position: absolute;
+        left: 10px;
+        top: -10px;
+      }
+      p {
+        @apply my-0 ml-8;
+        @apply text-earth-2;
+      }
+    }
+  }
+
+  .react-modal-custom {
+    box-shadow: -10px 10px 0px #0e3432;
+    @apply fixed inset-y-0 right-0 left-[120px] w-2/3 overflow-auto bg-teal-custom outline-none;
+    padding: 20px;
+  }
+}

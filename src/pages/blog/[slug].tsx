@@ -1,25 +1,20 @@
-import { BlogPost } from '@components/Layout/containers/BlogPost';
-import { allBlogs, type Blog } from 'contentlayer/generated';
-import { GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next';
 
-type BlogPageProps = {
-  isError?: boolean;
-  blogPost: Blog;
-};
-
-const BlogPostPage = ({ blogPost }: BlogPageProps) => {
-  return <BlogPost blogPost={blogPost} />;
-};
+import BlogDetailPage from '@modules/blog/pages/BlogDetailPage';
+import getPosts from '@modules/shared/api/getPosts';
+import { BlogExtended } from '@modules/shared/type';
 
 export async function getStaticPaths() {
+  const blogPosts = await getPosts();
   return {
-    paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
+    paths: blogPosts.map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
   };
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const blogPost = allBlogs.find((p: Blog) => p.slug === (params?.slug as string));
+  const blogPosts = await getPosts();
+  const blogPost = blogPosts.find((p: BlogExtended) => p.slug === (params?.slug as string));
 
   if (!blogPost) {
     return {
@@ -34,4 +29,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default BlogPostPage;
+export default BlogDetailPage;
