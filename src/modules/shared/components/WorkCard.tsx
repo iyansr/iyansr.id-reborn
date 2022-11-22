@@ -58,11 +58,12 @@ const WorkCard = ({ file }: WorkCardProps) => {
       </div>
       <div className="relative aspect-[16/9] w-full flex-1">
         <Image
-          src={file.image}
+          src={`${file.image}?tr=w-640`}
           alt={file.name}
           blurDataURL={file.blurDataURL}
           placeholder="blur"
           fill
+          sizes="100%"
           className="h-full object-cover transition-transform duration-150 group-hover:scale-105"
         />
       </div>

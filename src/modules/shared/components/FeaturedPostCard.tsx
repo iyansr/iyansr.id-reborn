@@ -15,11 +15,12 @@ const FeaturedPostCard = ({ post }: PostCardProps) => {
     <div className="h-full overflow-hidden rounded-2xl bg-bg-1 shadow-lg shadow-black/5">
       <div className="relative aspect-[16/9]">
         <Image
-          src={image}
+          src={`${image}?tr=w-426`}
           alt={post.title}
           placeholder="blur"
           blurDataURL={post.blurDataURL}
           fill
+          sizes="100%"
           className="object-cover"
         />
       </div>

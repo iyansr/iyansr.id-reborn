@@ -20,7 +20,13 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="mt-20 flex-1 md:mt-0">
-        <Image src={illu} placeholder="blur" alt="Iyan Saputra" className="mx-auto" />
+        <Image
+          src={illu}
+          placeholder="blur"
+          alt="Iyan Saputra"
+          className="mx-auto object-cover"
+          width={300}
+        />
       </div>
     </section>
   );
