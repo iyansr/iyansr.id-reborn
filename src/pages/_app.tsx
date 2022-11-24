@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 
 import { Root } from '@modules/shared/components/Root';
@@ -9,9 +11,12 @@ import 'nprogress/nprogress.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Root>
-      <Component {...pageProps} />
-    </Root>
+    <Fragment>
+      <Root>
+        <Component {...pageProps} />
+      </Root>
+      {process.env.NODE_ENV === 'production' && <Analytics />}
+    </Fragment>
   );
 }
 
