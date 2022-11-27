@@ -25,7 +25,7 @@ const HeroSection = () => {
           placeholder="blur"
           alt="Iyan Saputra"
           className="mx-auto object-cover"
-          width={300}
+          width={400}
         />
       </div>
     </section>
