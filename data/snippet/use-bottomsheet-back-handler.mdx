@@ -1,0 +1,43 @@
+---
+title: 'useBottomSheetBackHandler()'
+description: 'Hook that dismisses the bottom sheet on the hardware back button press if it is visible'
+icon: 'https://ik.imagekit.io/iyansr/iyansr-content/react_b2738c3a0c_X9zTpwDUa.png'
+---
+
+```js
+import { useCallback } from 'react';
+import { useRef } from 'react';
+import { BackHandler } from 'react-native';
+
+/**
+ * hook that dismisses the bottom sheet on the hardware back button press if it is visible
+ * @param bottomSheetRef ref to the bottom sheet which is going to be closed/dismissed on the back press
+ */
+const useBottomSheetBackHandler = (bottomSheetRef, indexToVisible = 0) => {
+  const backHandlerSubscriptionRef = useRef(null);
+
+  const handleSheetPositionChange = useCallback(
+    (index) => {
+      const isBottomSheetVisible = index >= indexToVisible;
+      if (isBottomSheetVisible && !backHandlerSubscriptionRef.current) {
+        // setup the back handler if the bottom sheet is right in front of the user
+        backHandlerSubscriptionRef.current = BackHandler.addEventListener(
+          'hardwareBackPress',
+          () => {
+            bottomSheetRef.current?.dismiss?.() ||
+              bottomSheetRef.current?.collapse?.(indexToVisible - 1);
+            return true;
+          },
+        );
+      } else if (!isBottomSheetVisible) {
+        backHandlerSubscriptionRef.current?.remove();
+        backHandlerSubscriptionRef.current = null;
+      }
+    },
+    [bottomSheetRef, backHandlerSubscriptionRef],
+  );
+  return { handleSheetPositionChange };
+};
+
+export default useBottomSheetBackHandler;
+```

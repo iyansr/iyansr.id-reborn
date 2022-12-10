@@ -26,6 +26,7 @@ const HeroSection = () => {
           alt="Iyan Saputra"
           className="mx-auto object-cover"
           width={400}
+          loading="eager"
         />
       </div>
     </section>
