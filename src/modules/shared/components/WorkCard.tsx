@@ -11,12 +11,18 @@ export type WorkCardProps = {
 
 const WorkCard = ({ file }: WorkCardProps) => {
   return (
-    <div className="group flex flex-col-reverse items-center overflow-hidden rounded-xl bg-bg-1 shadow-xl shadow-gray-400/5 md:flex-row">
+    <div className=" flex flex-col-reverse items-center overflow-hidden rounded-xl bg-bg-1 shadow-xl shadow-gray-400/5 md:flex-row">
       <div className="flex-1 ">
-        <div className="p-6 md:p-12">
-          <h3 className="text-2xl font-semibold text-earth-2 md:text-3xl">{file.name}</h3>
-          <p className="mt-4 text-lg font-medium text-earth-1 md:text-xl">{file.description}</p>
-
+        <div className="p-6 md:p-8">
+          <h3 className="text-2xl font-semibold text-earth-2">{file.name}</h3>
+          <div className="group/description relative">
+            <p className="mt-4 text-base font-medium text-earth-1 line-clamp-2">
+              {file.description}
+            </p>
+            <div className="group-hover/description:opacity-100 group-hover/description:translate-y-0 absolute top-0 z-30 -translate-y-96 rounded-lg  bg-bg-2 p-4 opacity-50 shadow-md transition-all delay-100 duration-150">
+              <p className="text-base font-medium text-earth-1">{file.description}</p>
+            </div>
+          </div>
           <div className="mt-3 flex items-center space-x-4">
             {file.github && (
               <Link
@@ -43,7 +49,6 @@ const WorkCard = ({ file }: WorkCardProps) => {
               </Link>
             )}
           </div>
-
           <div className="mt-2 flex flex-wrap">
             {file.stacks.map((stack, i) => (
               <div
@@ -64,7 +69,7 @@ const WorkCard = ({ file }: WorkCardProps) => {
           placeholder="blur"
           fill
           sizes="100%"
-          className="h-full object-cover transition-transform duration-150 group-hover:scale-105"
+          className="h-full object-cover"
         />
       </div>
     </div>

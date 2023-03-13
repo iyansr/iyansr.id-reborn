@@ -5,8 +5,8 @@ export type BlogExtended = Blog & { blurDataURL: string | undefined };
 export type WorkType = {
   name: string;
   description: string;
-  github: string;
-  website: null;
+  github: string | null;
+  website: string | null;
   image: string;
   blurDataURL?: string;
   stacks: string[];

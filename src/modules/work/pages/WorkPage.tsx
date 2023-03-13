@@ -28,8 +28,8 @@ const WorkPage = ({ works }: Props) => {
           </p>
         </div>
 
-        <div className="flex flex-col space-y-6 py-11">
-          {works.slice(0, 4).map((file, index) => (
+        <div className="flex flex-col space-y-6 py-11 px-6">
+          {works.map((file, index) => (
             <div key={String(index)}>
               <WorkCard file={file} key={String(index)} />
             </div>
