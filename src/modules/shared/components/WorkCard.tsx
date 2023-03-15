@@ -19,7 +19,7 @@ const WorkCard = ({ file }: WorkCardProps) => {
             <p className="mt-4 text-base font-medium text-earth-1 line-clamp-2">
               {file.description}
             </p>
-            <div className="group-hover/description:opacity-100 group-hover/description:translate-y-0 absolute top-0 z-30 -translate-y-96 rounded-lg  bg-bg-2 p-4 opacity-50 shadow-md transition-all delay-100 duration-150">
+            <div className="absolute top-0 z-30 -translate-y-[500px] rounded-lg bg-bg-2 p-4  opacity-0 shadow-md transition-all delay-100 duration-150 group-hover/description:translate-y-0 group-hover/description:opacity-100">
               <p className="text-base font-medium text-earth-1">{file.description}</p>
             </div>
           </div>
