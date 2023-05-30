@@ -338,10 +338,10 @@
   dependencies:
     glob "7.1.7"
 
-"@next/font@^13.0.1":
-  version "13.0.1"
-  resolved "https://registry.yarnpkg.com/@next/font/-/font-13.0.1.tgz#def5401c7f031e8b87c31ad08907154b669df187"
-  integrity sha512-ktst4FFbEPtD8SJVQr2HuAqOoFpJx3xKkLOHzCV7D5PUk6KL/sFQa+t6UEucN70X037tqBV39BsFhMJ56hsPOw==
+"@next/font@^13.4.1":
+  version "13.4.4"
+  resolved "https://registry.yarnpkg.com/@next/font/-/font-13.4.4.tgz#513632591a1041e39c1020022c0995ca78dde4fc"
+  integrity sha512-iYmL/O0rV9NS8a2UXuRoZOzImz8Q0mM8bAmxtj8nccrpwZ6iOOZlbf2d0Genczl4wtuXRXVPR8goGjJM4C2SDg==
 
 "@next/swc-android-arm-eabi@13.0.1":
   version "13.0.1"
@@ -619,8 +619,6 @@
   version "0.4.11"
   resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.11.tgz#db23a376761b3d31c26502122f349a21b592c8de"
   integrity sha512-rEUrBSGIoSFuYxwBYtlUFMlE2CwGhmW+w9355/5oduSw8e5h2+Tj4UrAGNNgP9915++wj5vkQo0UuOBqOAq4nw==
-  dependencies:
-    tslib "^2.4.0"
 
 "@tailwindcss/aspect-ratio@^0.4.0":
   version "0.4.2"
