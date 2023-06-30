@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://iyansr.id/
-
-# Sitemaps
-Sitemap: https://iyansr.id/sitemap.xml
