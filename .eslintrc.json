@@ -1,0 +1,68 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:import/recommended"
+  ],
+  "plugins": [
+    "react",
+    "simple-import-sort",
+    "import",
+    "prettier"
+  ],
+  "rules": {
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.js",
+        "*.jsx",
+        "*.ts",
+        "*.tsx"
+      ],
+      "rules": {
+        "prettier/prettier": "error",
+        "simple-import-sort/exports": "error",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+        "simple-import-sort/imports": [
+          "warn",
+          {
+            "groups": [
+              // Node.js builtins. You could also generate this regex if you use a `.js` config.
+              // For example: `^(${require("module").builtinModules.join("|")})(/|$)`
+              [
+                "^react",
+                "^react-dom",
+                "^@?\\w"
+              ],
+              [
+                "^next"
+              ],
+              // Packages. `react` related packages come first.
+              // Internal packages.
+              [
+                "^(@app)(/.*|$)"
+              ],
+              // Side effect imports.
+              [
+                "^\\u0000"
+              ],
+              // Other relative imports. Put same-folder imports and `.` last.
+              [
+                "^\\./(?=.*/)(?!/?$)",
+                "^\\.(?!/?$)",
+                "^\\./?$"
+              ],
+              [
+                "^.+\\.?(css)$"
+              ] // Style imports.
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
