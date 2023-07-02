@@ -36,8 +36,8 @@ const NavMenu = () => {
   const isActive = (href: string) => pathName === href;
 
   return (
-    <nav className="mx-auto max-w-xl px-4">
-      <ul className="flex justify-between space-x-0 rounded-full border border-neutral-800 bg-black/70 p-1 backdrop-blur-md lg:space-x-2">
+    <nav className="relative mx-auto max-w-xl px-4">
+      <ul className="flex justify-between space-x-0 rounded-full border border-neutral-800 bg-black/70 p-1 backdrop-blur-md sm:space-x-2">
         {menu.map((item, index) => (
           <li key={String(index)}>
             <Link href={item.href}>

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <div className="mt-14 lg:mt-24">
-      <h1 className="bg-gradient-to-r from-neutral-50 to-neutral-400  bg-clip-text text-3xl font-black leading-snug text-transparent lg:text-5xl">
+    <div className="mt-14 lg:mt-32">
+      <h1 className="bg-gradient-to-r from-neutral-50 to-neutral-400 bg-clip-text py-2 text-3xl font-bold leading-snug text-transparent lg:text-5xl">
         Hey, {"I'm"} Iyan - A Fullstack Engineer
       </h1>
       <h2 className="home-desc mt-4 text-lg lg:w-2/3 lg:text-xl">
@@ -20,7 +20,7 @@ const Hero = () => {
       </div>
 
       <div className="mt-6 flex items-center">
-        <button className="rounded-full bg-fuchsia-600 px-4 py-2 text-base transition duration-150 hover:scale-105 lg:px-8 lg:text-lg">
+        <button className="rounded-full bg-fuchsia-600 px-4 py-2 text-base font-medium transition duration-150 hover:scale-105 lg:px-8">
           Hire Me
         </button>
       </div>

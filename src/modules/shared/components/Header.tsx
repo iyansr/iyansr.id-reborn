@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Fragment } from 'react';
 
 import Image from 'next/image';
@@ -22,7 +24,7 @@ const Header = () => {
           </div>
         </Link>
       </div>
-      <div className="fixed bottom-8 left-0 right-0 lg:bottom-auto lg:top-8">
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 lg:bottom-auto lg:top-7">
         <NavMenu />
       </div>
     </Fragment>
