@@ -8,6 +8,7 @@ import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { type ArticleWithSlug } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+import Image from 'next/image'
 
 function ArrowLeftIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -32,6 +33,8 @@ export function ArticleLayout({
   let router = useRouter()
   let { previousPathname } = useContext(AppContext)
 
+  console.log({ article })
+
   return (
     <Container className="mt-16 lg:mt-32">
       <div className="xl:relative">
@@ -47,6 +50,12 @@ export function ArticleLayout({
             </button>
           )}
           <article>
+            <Image
+              src={article.thumbnail}
+              alt={article.title}
+              className="mb-4 aspect-video rounded-xl object-cover"
+              placeholder="blur"
+            />
             <header className="flex flex-col">
               <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                 {article.title}
