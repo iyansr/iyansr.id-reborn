@@ -1,10 +1,10 @@
-export type Experience = {
-  dates: string;
-  location: string;
-  title: string;
+export interface Experience {
   company: string;
   companyUrl: string;
+  dates: string;
   description: string;
-  technologies: string[];
+  location: string;
   logo?: string;
-};
+  technologies: string[];
+  title: string;
+}

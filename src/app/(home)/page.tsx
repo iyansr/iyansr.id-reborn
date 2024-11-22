@@ -1,11 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { EXPERIENCE } from '@/data/experience';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { EXPERIENCE } from "@/data/experience";
-
-import { ExperienceCard } from "./ExperienceCard";
-import { TextTransition } from "./TextTransition";
+import { ExperienceCard } from './experience-card';
+import { WordAnimation } from './word-animation';
 
 export default function Home() {
   return (
@@ -15,11 +13,11 @@ export default function Home() {
           <div className="lg:flex lg:justify-between lg:gap-4">
             <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
               <div className="flex lg:items-start gap-4 flex-col lg:flex-row items-center text-center lg:text-left">
-                <Image src="/images/iyansr.png" alt="Iyan" height={64} width={64} className="w-16 h-16" />
+                <Image alt="Iyan" className="w-16 h-16" height={64} src="/images/iyansr.png" width={64} />
                 <div>
                   <Link
-                    href="/"
                     className="text-4xl lg:text-5xl block font-bold tracking-tight bg-clip-text text-transparent pb-2 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50"
+                    href="/"
                   >
                     <h1>I Putu Saputrayana</h1>
                   </Link>
@@ -27,17 +25,17 @@ export default function Home() {
 
                   <div className="mt-2 flex text-center justify-center lg:justify-start lg:text-left items-center gap-3 text-sm lg:text-lg font-medium text-neutral-300">
                     <h2>Experienced</h2>
-                    <TextTransition />
+                    <WordAnimation />
                     <h2>Engineer</h2>
                   </div>
 
                   <a
+                    className="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2 mt-4"
                     data-ccursor
                     href="mailto:hello@iyansr.id"
-                    className="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2 mt-4"
                   >
                     <span>Work with me</span>
-                    <span className="w-2 h-2 rounded-full bg-purple-400 duration-1000 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-lime-400 duration-1000 animate-pulse"></span>
                   </a>
                 </div>
               </div>
@@ -65,11 +63,11 @@ export default function Home() {
               )} */}
             </header>
 
-            <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
+            <main className="pt-24 lg:w-1/2 lg:py-24" id="content">
               <section
-                id="about"
-                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
                 aria-label="About me"
+                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+                id="about"
               >
                 <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                   <h2 className="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only">About</h2>
@@ -77,10 +75,9 @@ export default function Home() {
                 <div>
                   <div className="mb-4 space-y-4">
                     <p>
-                      In my current role as a Frontend Engineer at a stealth startup, I implement pixel-perfect designs
+                      In my current role as a Software Engineer. I implement pixel-perfect designs
                       for web and mobile applications. Using React, React Native, and TypeScript, I create responsive
-                      and visually appealing user interfaces. I leverage NextJS for efficient rendering, Redux for state
-                      management, and TailwindCSS for precise styling. My work ensures seamless user experiences across
+                      and visually appealing user interfaces. I leverage NextJS for efficient rendering, TailwindCSS for precise styling. My work ensures seamless user experiences across
                       platforms while collaborating closely with the design team to bring their visions to life.
                     </p>
 
@@ -89,9 +86,9 @@ export default function Home() {
                 </div>
               </section>
               <section
-                id="experience"
-                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
                 aria-label="Work experience"
+                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+                id="experience"
               >
                 <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                   <h2 className="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only">
@@ -107,33 +104,35 @@ export default function Home() {
 
                   <div className="mt-12">
                     <Link
-                      data-ccursor
-                      className="inline-flex items-center leading-tight text-neutral-200 font-semibold group p-2 rounded px-3"
                       aria-label="View Full Résumé"
-                      target="_blank"
+                      className="inline-flex items-center leading-tight text-neutral-200 font-semibold group p-2 rounded px-3"
+                      data-ccursor
+                      href="https://www.linkedin.com/in/iyansr/"
                       rel="noreferrer noopener"
-                      href="/"
+                      target="_blank"
                     >
                       <span>
                         <span className="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none">
-                          View Full{" "}
+                          View Full
+                          {' '}
                         </span>
                         <span className="whitespace-nowrap">
                           <span className="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none">
                             Résumé
                           </span>
                           <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            className="ml-1 inline-block h-4 w-4 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none"
                             aria-hidden="true"
+                            className="ml-1 inline-block h-4 w-4 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fillRule="evenodd"
-                              d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
                               clipRule="evenodd"
-                            ></path>
+                              d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                              fillRule="evenodd"
+                            >
+                            </path>
                           </svg>
                         </span>
                       </span>
@@ -146,7 +145,13 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="text-center py-4 text-xs">{new Date().getFullYear()} All rights reserved.</footer>
+      <footer className="text-center py-4 text-xs">
+        &copy;
+        {' '}
+        {new Date().getFullYear()}
+        {' '}
+        All rights reserved.
+      </footer>
     </>
   );
 }
