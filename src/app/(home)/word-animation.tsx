@@ -1,39 +1,32 @@
-'use client';
+'use client'
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
-const words = [
-  'React Native',
-  'ReactJS',
-  'NextJS',
-  'Typescript',
-  'TailwindCSS',
-  'Web3',
-];
+const words = ['React Native', 'ReactJS', 'NextJS', 'Typescript', 'TailwindCSS', 'Web3']
 
 function useWordCycle(words: string[], interval: number) {
-  const [index, setIndex] = useState(0);
-  const [isInitial, setIsInitial] = useState(true);
+  const [index, setIndex] = useState(0)
+  const [isInitial, setIsInitial] = useState(true)
 
   useEffect(() => {
     if (isInitial) {
-      setIndex(Math.floor(Math.random() * words.length));
-      setIsInitial(false);
-      return;
+      setIndex(Math.floor(Math.random() * words.length))
+      setIsInitial(false)
+      return
     }
 
     const timer = setInterval(() => {
-      setIndex(current => (current + 1) % words.length);
-    }, interval);
-    return () => clearInterval(timer);
-  }, [words, interval, isInitial]);
+      setIndex((current) => (current + 1) % words.length)
+    }, interval)
+    return () => clearInterval(timer)
+  }, [words, interval, isInitial])
 
-  return words[index];
+  return words[index]
 }
 
 export function WordAnimation() {
-  const word = useWordCycle(words, 2100);
+  const word = useWordCycle(words, 2100)
 
   return (
     <AnimatePresence mode="wait">
@@ -56,5 +49,5 @@ export function WordAnimation() {
         ))}
       </motion.div>
     </AnimatePresence>
-  );
+  )
 }

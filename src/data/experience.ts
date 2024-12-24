@@ -1,11 +1,12 @@
-import type { Experience } from '@/types/experience';
+import type { Experience } from '@/types/experience'
 
 export const EXPERIENCE: Experience[] = [
   {
     company: 'Xellar',
     companyUrl: 'https://xellar.co/',
     dates: 'Oct 2024 — Now',
-    description: 'Building a JavaScript/TypeScript Embedded Wallet SDK for seamless integration. Developing a cutting-edge Web3 wallet powered by Next.js.',
+    description:
+      'Building a JavaScript/TypeScript Embedded Wallet SDK for seamless integration. Developing a cutting-edge Web3 wallet powered by Next.js.',
     location: 'Remote - Indonesia',
     logo: '/images/xellar.jpg',
     technologies: ['Typescript', 'NextJS', 'TailwindCSS'],
@@ -16,7 +17,7 @@ export const EXPERIENCE: Experience[] = [
     companyUrl: 'https://amori.app/',
     dates: 'May 2024 — Now',
     description:
-      'Amori\'s AI dating coaches analyze your conversations for personalized dating insights and matchmaking. Working closely with CEO to build pixel-perfect Mobile app',
+      "Amori's AI dating coaches analyze your conversations for personalized dating insights and matchmaking. Working closely with CEO to build pixel-perfect Mobile app",
     location: 'US Based - Remote from Indonesia',
     logo: '/images/amori.jpg',
     technologies: ['Typescript', 'React Native', 'Redux', 'Styled-Components'],
@@ -26,7 +27,8 @@ export const EXPERIENCE: Experience[] = [
     company: 'Stealth Startup',
     companyUrl: 'https://www.linkedin.com/company/stealth-startup-51/',
     dates: 'March 2024 — Now',
-    description: 'Developing Mobile App with React Native, Typescript, and Firebase. Web app with NextJS, Typescript, and TailwindCSS',
+    description:
+      'Developing Mobile App with React Native, Typescript, and Firebase. Web app with NextJS, Typescript, and TailwindCSS',
     location: 'Remote - Indonesia',
     logo: '/images/stealth.jpg',
     technologies: ['Typescript', 'React Native', 'NextJS', 'TailwindCSS'],
@@ -62,7 +64,15 @@ export const EXPERIENCE: Experience[] = [
       'Develop NFT Marketplace website using Next.JS, connect to smart contract using Ether.JS, help backend team write code using NodeJS and Express JS',
     location: 'Remote - Indonesia',
     logo: '/images/artpedia.png',
-    technologies: ['JavaScript', 'Typescript', 'React', 'Web3', 'Ether.JS', 'NodeJS', 'ExpressJS'],
+    technologies: [
+      'JavaScript',
+      'Typescript',
+      'React',
+      'Web3',
+      'Ether.JS',
+      'NodeJS',
+      'ExpressJS',
+    ],
     title: 'Full Stack Developer',
   },
   {
@@ -73,7 +83,15 @@ export const EXPERIENCE: Experience[] = [
       'Develop and maintain the Pintu Mobile application, especially for Web3 Wallet. Implement new features and fix bugs to improve user experience. Develop the front-end using Typescript, React Native. Write E2E testing with Detox. Become the starting members of the Pintu Web3 Wallet project',
     location: 'Remote - Indonesia',
     logo: '/images/pintu.jpg',
-    technologies: ['JavaScript', 'Typescript', 'React Native', 'Web3', 'Wallet Connect', 'Detox', 'Restyle'],
+    technologies: [
+      'JavaScript',
+      'Typescript',
+      'React Native',
+      'Web3',
+      'Wallet Connect',
+      'Detox',
+      'Restyle',
+    ],
     title: 'Frontend Software Engineer',
   },
   {
@@ -87,4 +105,4 @@ export const EXPERIENCE: Experience[] = [
     technologies: ['JavaScript', 'Typescript', 'React', 'React Native', 'Firebase'],
     title: 'Front-End Engineer',
   },
-];
+]

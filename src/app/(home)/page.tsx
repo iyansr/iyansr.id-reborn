@@ -1,9 +1,10 @@
-import { EXPERIENCE } from '@/data/experience';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { ExperienceCard } from './experience-card';
-import { WordAnimation } from './word-animation';
+import { EXPERIENCE } from '@/data/experience'
+
+import { ExperienceCard } from './experience-card'
+import { WordAnimation } from './word-animation'
 
 export default function Home() {
   return (
@@ -13,7 +14,13 @@ export default function Home() {
           <div className="lg:flex lg:justify-between lg:gap-4">
             <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
               <div className="flex lg:items-start gap-4 flex-col lg:flex-row items-center text-center lg:text-left">
-                <Image alt="Iyan" className="w-16 h-16" height={64} src="/images/iyansr.png" width={64} />
+                <Image
+                  alt="Iyan"
+                  className="w-16 h-16"
+                  height={64}
+                  src="/images/iyansr.png"
+                  width={64}
+                />
                 <div>
                   <Link
                     className="text-4xl lg:text-5xl block font-bold tracking-tight bg-clip-text text-transparent pb-2 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50"
@@ -35,7 +42,7 @@ export default function Home() {
                     href="mailto:hello@iyansr.id"
                   >
                     <span>Work with me</span>
-                    <span className="w-2 h-2 rounded-full bg-lime-400 duration-1000 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-lime-400 duration-1000 animate-pulse" />
                   </a>
                 </div>
               </div>
@@ -70,15 +77,20 @@ export default function Home() {
                 id="about"
               >
                 <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                  <h2 className="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only">About</h2>
+                  <h2 className="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only">
+                    About
+                  </h2>
                 </div>
                 <div>
                   <div className="mb-4 space-y-4">
                     <p>
-                      In my current role as a Software Engineer. I implement pixel-perfect designs
-                      for web and mobile applications. Using React, React Native, and TypeScript, I create responsive
-                      and visually appealing user interfaces. I leverage NextJS for efficient rendering, TailwindCSS for precise styling. My work ensures seamless user experiences across
-                      platforms while collaborating closely with the design team to bring their visions to life.
+                      In my current role as a Software Engineer. I implement pixel-perfect
+                      designs for web and mobile applications. Using React, React Native,
+                      and TypeScript, I create responsive and visually appealing user
+                      interfaces. I leverage NextJS for efficient rendering, TailwindCSS
+                      for precise styling. My work ensures seamless user experiences
+                      across platforms while collaborating closely with the design team to
+                      bring their visions to life.
                     </p>
 
                     <p>Looking forward to new challenges and exciting collaborations!</p>
@@ -98,7 +110,10 @@ export default function Home() {
                 <div>
                   <ol className="group/list space-y-12">
                     {EXPERIENCE.map((experience, index) => (
-                      <ExperienceCard key={String(`experience-${index}`)} {...experience} />
+                      <ExperienceCard
+                        key={String(`experience-${index}`)}
+                        {...experience}
+                      />
                     ))}
                   </ol>
 
@@ -113,8 +128,7 @@ export default function Home() {
                     >
                       <span>
                         <span className="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none">
-                          View Full
-                          {' '}
+                          View Full{' '}
                         </span>
                         <span className="whitespace-nowrap">
                           <span className="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none">
@@ -131,8 +145,7 @@ export default function Home() {
                               clipRule="evenodd"
                               d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
                               fillRule="evenodd"
-                            >
-                            </path>
+                            />
                           </svg>
                         </span>
                       </span>
@@ -146,12 +159,8 @@ export default function Home() {
       </div>
 
       <footer className="text-center py-4 text-xs">
-        &copy;
-        {' '}
-        {new Date().getFullYear()}
-        {' '}
-        All rights reserved.
+        &copy; {new Date().getFullYear()} All rights reserved.
       </footer>
     </>
-  );
+  )
 }
