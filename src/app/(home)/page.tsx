@@ -1,12 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { ExperienceCard } from '@/components/experience-card'
+import { PostCard } from '@/components/post-card'
+import { WordAnimation } from '@/components/word-animation'
 import { EXPERIENCE } from '@/data/experience'
-
-import { ExperienceCard } from './experience-card'
-import { WordAnimation } from './word-animation'
+import { getBlogPosts } from '@/utils/blog'
 
 export default function Home() {
+  const allBlogs = getBlogPosts()
+
+  const sortedBlogs = allBlogs
+    .sort((a, b) => {
+      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+        return -1
+      }
+      return 1
+    })
+    .slice(0, 3)
+
   return (
     <>
       <div className="relative hero z-10">
@@ -133,6 +145,45 @@ export default function Home() {
                         <span className="whitespace-nowrap">
                           <span className="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none">
                             Résumé
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            className="ml-1 inline-block h-4 w-4 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              clipRule="evenodd"
+                              d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                              fillRule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </Link>
+                  </div>
+
+                  <div className="mt-16 space-y-12">
+                    {sortedBlogs.map((post) => (
+                      <PostCard {...post} key={post.slug} />
+                    ))}
+                  </div>
+
+                  <div className="mt-12">
+                    <Link
+                      aria-label="View All Posts"
+                      className="inline-flex items-center leading-tight text-neutral-200 font-semibold group p-2 rounded px-3"
+                      data-ccursor
+                      href="/blog"
+                    >
+                      <span>
+                        <span className="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none">
+                          View All{' '}
+                        </span>
+                        <span className="whitespace-nowrap">
+                          <span className="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none">
+                            Posts
                           </span>
                           <svg
                             aria-hidden="true"

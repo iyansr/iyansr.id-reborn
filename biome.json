@@ -14,8 +14,13 @@
         "noUnusedImports": "error",
         "noUnusedVariables": "error"
       },
+      "style": {
+        "useNodejsImportProtocol": "off"
+      },
       "suspicious": {
-        "noConsoleLog": "error"
+        "noConsoleLog": "error",
+        "noArrayIndexKey": "off",
+        "noExplicitAny": "off"
       },
       "complexity": {
         "useSimplifiedLogicExpression": "error"
