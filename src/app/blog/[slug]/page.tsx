@@ -31,7 +31,9 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
+              ? post.metadata.image.startsWith('http')
+                ? post.metadata.image
+                : `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
