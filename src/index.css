@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+   name: "iyansr";
+   default: false;
+   prefersdark: false;
+   color-scheme: "light";
+   --color-base-100: hsl(40 30% 98%);
+   --color-base-200: #f0efeb;
+   --color-base-300: oklch(95% 0 0);
+   --color-base-content: oklch(21% 0.006 285.885);
+   --color-primary: hsl(25 70% 33%);
+   --color-primary-content: hsl(40 30% 98%);
+   --color-secondary: hsl(30 30% 85%);
+   --color-secondary-content: hsl(20 10% 15%);
+   --color-accent: hsl(20 60% 70%);
+   --color-accent-content: hsl(20 10% 15%);
+   --color-neutral: hsl(20 10% 15%);
+   --color-neutral-content: oklch(92% 0.004 286.32);
+   --color-info: oklch(74% 0.16 232.661);
+   --color-info-content: oklch(29% 0.066 243.157);
+   --color-success: oklch(76% 0.177 163.223);
+   --color-success-content: oklch(37% 0.077 168.94);
+   --color-warning: oklch(82% 0.189 84.429);
+   --color-warning-content: oklch(41% 0.112 45.904);
+   --color-error: oklch(71% 0.194 13.428);
+   --color-error-content: oklch(27% 0.105 12.094);
+   --radius-selector: 0.25rem;
+   --radius-field: 0.5rem;
+   --radius-box: 1rem;
+   --size-selector: 0.25rem;
+   --size-field: 0.25rem;
+   --border: 1px;
+   --depth: 0;
+   --noise: 0;
+}
+
+@layer base {
+   button:not(:disabled),
+   [role="button"]:not(:disabled) {
+      cursor: pointer;
+   }
+}
+
+@theme {
+   --font-sans: "Gabarito", sans-serif;
+   --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+   font-family: var(--font-sans);
+}
+
+code {
+   font-family: var(--font-mono);
+}
+
+.mockup-code {
+   & pre {
+      &:before {
+         content: "";
+         margin-right: 0;
+      }
+   }
+}
+
+.shiki {
+   padding-top: 0;
+   padding-bottom: 0;
+   margin-top: 0;
+   margin-bottom: 0;
+   padding-inline-start: 0;
+   @apply text-sm;
+}
+
+code {
+   counter-reset: step;
+   counter-increment: step 0;
+}
+
+code .line::before {
+   content: counter(step);
+   counter-increment: step;
+   width: 1rem;
+   margin-right: 0.5rem;
+   padding-right: 1.6rem;
+   padding-left: 1.5rem;
+   display: inline-block;
+   text-align: right;
+   color: rgba(121, 116, 14, 0.4);
+   position: sticky;
+   left: 0;
+   background-color: #f9f5d7;
+}
+
+.mockup-code {
+   &:before {
+      box-shadow:
+         1.4em 0 red,
+         2.8em 0 black,
+         4.2em 0 green;
+   }
+}
