@@ -1,4 +1,15 @@
-export const EXPERIENCE = [
+export interface Experience {
+  company: string;
+  companyUrl: string;
+  dates: string;
+  description: string;
+  location: string;
+  logo?: string;
+  technologies: string[];
+  title: string;
+}
+
+export const EXPERIENCE: Experience[] = [
   {
     company: 'Xellar',
     companyUrl: 'https://xellar.co/',
@@ -7,13 +18,13 @@ export const EXPERIENCE = [
       'Building a JavaScript/TypeScript Embedded Wallet SDK for seamless integration. Developing a cutting-edge Web3 wallet powered by Next.js.',
     location: 'Remote - Indonesia',
     logo: '/images/xellar.jpg',
-    technologies: ['Typescript', 'NextJS', 'TailwindCSS'],
+    technologies: ['Typescript', 'NextJS', 'TailwindCSS', 'Fastify', 'Wagmi'],
     title: 'Web3 Engineer',
   },
   {
     company: 'Amori',
     companyUrl: 'https://amori.app/',
-    dates: 'May 2024 — Now',
+    dates: 'May 2024 — October 2024',
     description:
       "Amori's AI dating coaches analyze your conversations for personalized dating insights and matchmaking. Working closely with CEO to build pixel-perfect Mobile app",
     location: 'US Based - Remote from Indonesia',
@@ -46,7 +57,7 @@ export const EXPERIENCE = [
   {
     company: 'Playard Indonesia',
     companyUrl: 'https://www.playard.id/',
-    dates: 'November 2023 — Now',
+    dates: 'November 2023 — May 2024',
     description:
       'Building BasketBall Pickup Game mobile App. Develop and Maintain app with React Native, Typescript, Firebase. Distributing App to the Playstore and App Store. Performing Code Review to ensure code quality',
     location: 'Remote - Indonesia',
@@ -110,5 +121,3 @@ export const EXPERIENCE = [
     title: 'Front-End Engineer',
   },
 ];
-
-export type Experience = (typeof EXPERIENCE)[number];
