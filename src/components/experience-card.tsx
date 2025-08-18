@@ -48,7 +48,7 @@ export const ExperienceCard = ({
       rel="noopener noreferrer"
       onClick={handleClick}
     >
-      <Card className="flex flex-row p-0 gap-0 border-0 bg-transparent">
+      <Card className="flex flex-row p-0 gap-4 border-0 bg-transparent">
         <div className="">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
             <AvatarImage
