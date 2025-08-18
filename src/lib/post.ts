@@ -89,11 +89,22 @@ export async function getAllPosts(): Promise<Omit<BlogPost, 'content'>[]> {
 // Get a single blog post by slug
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
-    // Use dynamic import to get specific post
-    /* @vite-ignore */
-    const module = await import(`/src/content/posts/${slug}.mdx?raw`);
-    const content = module.default;
+    // Use Vite's import.meta.glob to get all MDX files and find the specific one
+    const modules = import.meta.glob('/src/content/posts/*.mdx', {
+      query: '?raw',
+      import: 'default',
+    });
 
+    // Find the module that matches the slug
+    const targetPath = `/src/content/posts/${slug}.mdx`;
+    const resolver = modules[targetPath];
+
+    if (!resolver) {
+      console.error(`Post not found: ${slug}`);
+      return null;
+    }
+
+    const content = (await resolver()) as string;
     const { metadata, content: bodyContent } = parseFrontmatter(content);
 
     return {
