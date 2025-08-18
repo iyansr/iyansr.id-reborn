@@ -1,4 +1,9 @@
-import { createFileRoute, Link, useLoaderData } from '@tanstack/react-router';
+import {
+  createFileRoute,
+  Link,
+  notFound,
+  useLoaderData,
+} from '@tanstack/react-router';
 import Markdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import remarkGfm from 'remark-gfm';
@@ -16,6 +21,9 @@ export const Route = createFileRoute('/blog/$slug')({
   component: RouteComponent,
   loader: async ({ params }) => {
     const post = await getPostBySlug(params.slug);
+    if (!post) {
+      throw notFound();
+    }
     return { post };
   },
   head: ({ loaderData }) => ({

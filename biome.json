@@ -10,7 +10,8 @@
       "src/**/*",
       "*.config.ts",
       "tailwind.config.js",
-      "!src/routeTree.gen.ts"
+      "!src/routeTree.gen.ts",
+      "!dist/**/*"
     ],
     "ignoreUnknown": false
   },

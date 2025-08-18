@@ -11,25 +11,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { EXPERIENCE } from '@/data/experience';
 import { PROJECTS } from '@/data/project';
-import {
-  fetchOpenSourceContributions,
-  useOpenSourceContributions,
-} from '@/hooks/opensource-contrib';
+import { useOpenSourceContributions } from '@/hooks/opensource-contrib';
 import { getAllPosts } from '@/lib/post';
 
 export const Route = createFileRoute('/')({
   component: App,
-  loader: async (ctx) => {
+  loader: async () => {
     const posts = await getAllPosts();
-    try {
-      const contributions = await fetchOpenSourceContributions();
-      await ctx.context.queryClient.setQueryData(
-        ['opensource-contributions'],
-        contributions
-      );
-    } catch (error) {
-      console.log(error);
-    }
     return { posts };
   },
 });
