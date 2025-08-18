@@ -14,6 +14,7 @@ interface ExperienceCardProps {
   altText: string;
   title: string;
   subtitle?: string;
+  location?: string;
   href?: string;
   badges?: readonly string[];
   period: string;
@@ -25,6 +26,7 @@ export const ExperienceCard = ({
   title,
   subtitle,
   href,
+  location,
   badges,
   period,
   description,
@@ -58,9 +60,9 @@ export const ExperienceCard = ({
           </Avatar>
         </div>
         <div className="flex-grow items-center flex-col group">
-          <CardHeader>
+          <CardHeader className="p-0">
             <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+              <h3 className="inline-flex items-center justify-center font-bold leading-none text-xs sm:text-sm">
                 {title}
 
                 <ChevronRightIcon
@@ -74,6 +76,17 @@ export const ExperienceCard = ({
                 {period}
               </div>
             </div>
+            {subtitle && (
+              <div className="font-sans text-xs text-muted-foreground">
+                {subtitle}{' '}
+                {location && (
+                  <span className="font-bold text-foreground">
+                    · {location}
+                  </span>
+                )}
+              </div>
+            )}
+
             {badges && (
               <span className="flex flex-wrap gap-1">
                 {badges.map((badge, index) => (
@@ -87,7 +100,6 @@ export const ExperienceCard = ({
                 ))}
               </span>
             )}
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
           </CardHeader>
           {description && (
             <motion.div
