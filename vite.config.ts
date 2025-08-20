@@ -17,6 +17,7 @@ export default defineConfig({
         routesDirectory: './src/routes',
       },
       customViteReactPlugin: true,
+      target: 'cloudflare-module',
     }),
     react(),
   ],
