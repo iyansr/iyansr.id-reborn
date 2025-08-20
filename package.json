@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite dev --port 2718",
     "build": "vite build",
-    "start": "node .output/server/index.mjs",
-    "deploy": "npm run build && wrangler deploy --assets .output/public",
+    "start": "npm run build && wrangler deploy --assets .output/public --minify",
+    "deploy": "npm run build && wrangler deploy --assets .output/public --minify",
     "cf-typegen": "wrangler types --env-interface Env",
     "serve": "vite preview",
     "test": "vitest run",
