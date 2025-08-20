@@ -1,19 +1,24 @@
 import { resolve } from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
-import { tanstackRouter } from '@tanstack/router-plugin/vite';
+import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    tanstackRouter({
-      autoCodeSplitting: true,
-      enableRouteGeneration: true,
-      target: 'react',
+    tailwindcss(),
+    tsconfigPaths({
+      projects: ['./tsconfig.json'],
+    }),
+    tanstackStart({
+      tsr: {
+        routesDirectory: './src/routes',
+      },
+      customViteReactPlugin: true,
     }),
     react(),
-    tailwindcss(),
   ],
   resolve: {
     alias: {

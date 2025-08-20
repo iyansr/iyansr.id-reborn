@@ -26,33 +26,56 @@ export const Route = createFileRoute('/blog/$slug')({
     }
     return { post };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      {
-        name: 'description',
-        content: loaderData?.post?.metadata.summary,
-      },
-      {
-        title: loaderData?.post?.metadata.summary,
-      },
-      {
-        name: 'og:title',
-        content: loaderData?.post?.metadata.title,
-      },
-      {
-        name: 'og:description',
-        content: loaderData?.post?.metadata.summary,
-      },
-      {
-        name: 'og:image',
-        content: loaderData?.post?.metadata.image,
-      },
-      {
-        name: 'twitter:title',
-        content: loaderData?.post?.metadata.title,
-      },
-    ],
-  }),
+  head: ({ loaderData }) => {
+    const image = loaderData?.post?.metadata.image;
+    return {
+      meta: [
+        {
+          name: 'description',
+          content: loaderData?.post?.metadata.summary,
+        },
+        {
+          title: loaderData?.post?.metadata.summary,
+        },
+        {
+          property: 'og:title',
+          content: loaderData?.post?.metadata.title,
+        },
+        {
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          property: 'og:url',
+          content: `https://iyansr.id/blog/${loaderData?.post?.slug}`,
+        },
+        {
+          property: 'og:description',
+          content: loaderData?.post?.metadata.summary,
+        },
+        {
+          property: 'og:image',
+          content: image,
+        },
+        {
+          name: 'twitter:title',
+          content: loaderData?.post?.metadata.title,
+        },
+        {
+          name: 'twitter:description',
+          content: loaderData?.post?.metadata.summary,
+        },
+        {
+          name: 'twitter:image',
+          content: image,
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+      ],
+    };
+  },
 });
 
 const DELAY = 0.04;
