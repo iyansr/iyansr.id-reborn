@@ -63,6 +63,16 @@ function App() {
             </BlurFade>
           </div>
         </div>
+
+        <a
+          href="https://cal.com/iyansr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="mt-4" size="sm">
+            Book a Call
+          </Button>
+        </a>
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
