@@ -30,7 +30,7 @@ function App() {
   const { data: contributions } = useOpenSourceContributions();
 
   return (
-    <div className="flex flex-col space-y-10">
+    <div className="flex flex-col space-y-10 pb-14">
       <section id="hero">
         <div className="mx-auto w-full space-y-8">
           <div className="gap-2 flex justify-between">
@@ -49,7 +49,7 @@ function App() {
               <BlurFadeText
                 className="max-w-[580px] md:text-xl"
                 delay={BLUR_FADE_DELAY}
-                text="Experienced Software Engineer focused on TypeScript and React, with a growing passion for AI and Blockchain technologies."
+                text="✦ Experienced Software Engineer focused on TypeScript and React, with a growing passion for AI and Blockchain technologies."
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
@@ -82,7 +82,7 @@ function App() {
         <BlurFade delay={BLUR_FADE_DELAY * 4} className="mb-4">
           <h2 className="text-xl font-bold">Work Experience</h2>
         </BlurFade>
-        <div className="flex min-h-0 flex-col gap-y-6">
+        <div className="flex min-h-0 flex-col gap-y-4">
           {EXPERIENCE.map((work, id) => (
             <BlurFade
               key={work.company}

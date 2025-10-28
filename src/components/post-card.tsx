@@ -33,7 +33,7 @@ export function PostCard({
   return (
     <Card
       className={
-        'flex flex-col gap-0 p-0 overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full'
+        'flex flex-col gap-0 p-0 overflow-hidden bg-background/30 backdrop-blur-xl border border-muted/75 hover:shadow-lg transition-all duration-300 ease-out h-full'
       }
     >
       <Link

@@ -8,6 +8,7 @@ import {
 import '@fontsource-variable/inter/index.css';
 
 import { AppDock } from '@/components/app-dock';
+import DarkVeil from '@/components/dark-veil';
 
 interface MyRouterContext {
   queryClient: QueryClient;
@@ -24,20 +25,25 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         title: 'Iyan Saputra',
       },
+      {
+        name: 'keywords',
+        content:
+          'Iyan Saputra, software engineer, web developer, mobile developer, React Native, NextJS, Typescript, TailwindCSS, Firebase, full stack developer',
+      },
     ],
   }),
   component: () => (
     <>
       <HeadContent />
-      <div className="min-h-screen w-full relative bg-background">
-        {/* Pearl Mist Background with Top Glow */}
-        <div
-          className="absolute inset-0 z-0 h-screen"
-          style={{
-            background:
-              'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(226, 232, 240, 0.15), transparent 70%), #000000',
-          }}
-        />
+      <div className="min-h-screen w-full relative">
+        <div className="fixed inset-0 -z-10 opacity-75">
+          <DarkVeil
+            warpAmount={0.4}
+            scanlineIntensity={0.25}
+            scanlineFrequency={1}
+            speed={0.5}
+          />
+        </div>
 
         <AppDock />
         <div className="container z-10 relative min-h-screen max-w-2xl mx-auto py-12 sm:py-24 px-6">

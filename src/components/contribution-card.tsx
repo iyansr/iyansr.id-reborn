@@ -101,7 +101,7 @@ export function ContributionCard({ contribution, className }: Props) {
   return (
     <Card
       className={cn(
-        'hover:shadow-lg transition-all duration-300 ease-out h-full gap-0 p-2',
+        'hover:shadow-lg transition-all duration-300 ease-out h-full gap-0 p-2 bg-background/30 backdrop-blur-xl border border-muted/75',
         className
       )}
     >

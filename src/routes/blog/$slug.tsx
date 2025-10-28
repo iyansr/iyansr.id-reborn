@@ -71,49 +71,51 @@ function RouteComponent() {
           </Button>
         </Link>
       </BlurFade>
-      <BlurFade delay={DELAY * 2}>
-        <div className="mb-6 space-y-4">
-          <img
-            src={post?.metadata.image}
-            alt={post?.metadata.title}
-            className="w-full rounded-lg"
-          />
+      <div className="bg-background/40 backdrop-blur-3xl border border-muted/75 p-4 rounded-lg">
+        <BlurFade delay={DELAY * 2}>
+          <div className="mb-6 space-y-4">
+            <img
+              src={post?.metadata.image}
+              alt={post?.metadata.title}
+              className="w-full rounded-lg"
+            />
 
-          <h1 className="text-3xl font-bold mt-6">{post?.metadata.title}</h1>
-          <time className="text-sm text-muted-foreground">
-            {formatDate(post?.metadata.publishedAt ?? '')}
-          </time>
-        </div>
-      </BlurFade>
-      <BlurFade delay={DELAY * 3}>
-        <article className="prose text-pretty dark:prose-invert">
-          <Markdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              code(props) {
-                const { children, className, ...rest } = props;
-                const match = /language-(\w+)/.exec(className || '');
-                return match ? (
-                  <SyntaxHighlighter
-                    // {...rest}
-                    PreTag="div"
-                    language={match[1]}
-                    style={vesperTheme as any}
-                  >
-                    {String(children).replace(/\n$/, '')}
-                  </SyntaxHighlighter>
-                ) : (
-                  <code {...rest} className={className}>
-                    {children}
-                  </code>
-                );
-              },
-            }}
-          >
-            {post?.content ?? ''}
-          </Markdown>
-        </article>
-      </BlurFade>
+            <h1 className="text-3xl font-bold mt-6">{post?.metadata.title}</h1>
+            <time className="text-sm text-muted-foreground">
+              {formatDate(post?.metadata.publishedAt ?? '')}
+            </time>
+          </div>
+        </BlurFade>
+        <BlurFade delay={DELAY * 3}>
+          <article className="prose text-pretty dark:prose-invert">
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                code(props) {
+                  const { children, className, ...rest } = props;
+                  const match = /language-(\w+)/.exec(className || '');
+                  return match ? (
+                    <SyntaxHighlighter
+                      // {...rest}
+                      PreTag="div"
+                      language={match[1]}
+                      style={vesperTheme as any}
+                    >
+                      {String(children).replace(/\n$/, '')}
+                    </SyntaxHighlighter>
+                  ) : (
+                    <code {...rest} className={className}>
+                      {children}
+                    </code>
+                  );
+                },
+              }}
+            >
+              {post?.content ?? ''}
+            </Markdown>
+          </article>
+        </BlurFade>
+      </div>
     </div>
   );
 }

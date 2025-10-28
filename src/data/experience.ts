@@ -35,7 +35,7 @@ export const EXPERIENCE: Experience[] = [
   {
     company: 'Stealth Startup',
     companyUrl: 'https://www.linkedin.com/company/stealth-startup-51/',
-    dates: 'March 2024 — Now',
+    dates: 'March 2024 — September 2025',
     description:
       'Developing Mobile App with React Native, Typescript, and Firebase. Web app with NextJS, Typescript, and TailwindCSS',
     location: 'Remote - Indonesia',

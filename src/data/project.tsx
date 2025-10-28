@@ -2,6 +2,39 @@ import { GithubIcon, GlobeIcon } from 'lucide-react';
 
 export const PROJECTS = [
   {
+    title: 'Imagined',
+    href: 'https://imagined.directory',
+    dates: 'June 2025 - Present',
+    active: true,
+    openSource: true,
+    description:
+      'Developing from scratch web app to Find and share the best prompts for AI image generation. Browse thousands of creative prompts from the community and create stunning visuals.',
+    technologies: [
+      'Next.js',
+      'TRPC',
+      'Cloudflare Workers',
+      'Typescript',
+      'React',
+      'React Query',
+      'Tailwind CSS',
+      'Shadcn UI',
+    ],
+    links: [
+      {
+        type: 'Website',
+        href: 'https://imagined.directory',
+        icon: <GlobeIcon className="size-3" />,
+      },
+      {
+        type: 'Repository',
+        href: 'https://github.com/iyansr/imagined',
+        icon: <GithubIcon className="size-3" />,
+      },
+    ],
+    image: '/images/imagined.jpg',
+    video: '',
+  },
+  {
     title: 'Yapp',
     href: 'https://yapp.ink',
     dates: 'June 2025 - Present',
