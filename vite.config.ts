@@ -20,4 +20,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  server: {
+    allowedHosts: ['local.iyansr.id'],
+  },
 });
