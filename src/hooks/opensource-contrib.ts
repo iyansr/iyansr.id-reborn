@@ -9,7 +9,7 @@ const fetchPR = async () => {
     sort: "created",
     order: "desc",
     per_page: "25",
-    q: `${query} type:pr -org:Xellar-Protocol -repo:iyansr/iyansr.id-reborn`,
+    q: `${query} type:pr -repo:iyansr/iyansr.id-reborn`,
   });
   const response = await fetch(
     `https://api.github.com/search/issues?${searchParams.toString()}`,
