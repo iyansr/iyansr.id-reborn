@@ -16,7 +16,7 @@ RUN bun run build
 FROM node:22-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-ENV PORT=122825
+ENV PORT=22825
 COPY --from=builder /app/.output ./.output
-EXPOSE 122825
+EXPOSE 22825
 CMD ["node", ".output/server/index.mjs"]
