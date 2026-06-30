@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 2718 --no-open",
-    "start": "node .output/server/index.mjs",
+    "start": "PORT=122825 node .output/server/index.mjs",
     "build": "vite build && tsc --noEmit",
     "serve": "vite preview",
     "test": "vitest run",
