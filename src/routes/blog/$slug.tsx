@@ -33,7 +33,7 @@ export const Route = createFileRoute('/blog/$slug')({
         content: loaderData?.post?.metadata.summary,
       },
       {
-        title: loaderData?.post?.metadata.summary,
+        title: `${loaderData?.post?.metadata.title} | Iyan Saputra`,
       },
       {
         name: 'og:title',

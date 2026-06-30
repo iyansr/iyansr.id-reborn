@@ -1,0 +1,12 @@
+node_modules
+dist
+.output
+.nitro
+.tanstack
+.git
+.env
+.env.*
+*.local
+README.md
+.vscode
+.cursor
