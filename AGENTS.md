@@ -6,7 +6,7 @@ This is a static frontend SPA: a personal portfolio/blog built with Vite + React
 
 Standard scripts live in `package.json`; run them with Bun (e.g. `bun run dev`). Notes:
 
-- `bun run dev` serves on port `2718` (`bun run start` uses port `122825` via `PORT` env).
+- `bun run dev` serves on port `2718` (`bun run start` uses port `22825` via `PORT` env).
 - `vite.config.ts` only allows the extra host `local.iyansr.id`; use `localhost` (or add `--host`) when testing locally.
 - `bun run lint` (Biome) currently reports pre-existing warnings and one `noExplicitAny` error in `src/lib/post.ts` / `src/routes/blog/$slug.tsx`. This is unrelated to environment setup — do not "fix" it as part of setup.
 - `bun run test` (Vitest) exits non-zero with "No test files found" because the template has no tests yet; this is expected, not a setup failure.
