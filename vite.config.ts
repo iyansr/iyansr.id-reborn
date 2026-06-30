@@ -26,8 +26,14 @@ export default defineConfig({
       },
     }),
     react(),
-    nitro(),
+    // Force Node.js server output for consistent production builds.
+    nitro({ preset: 'node-server' }),
   ],
+  preview: {
+    host: '127.0.0.1',
+    port: 4173,
+    strictPort: false,
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
