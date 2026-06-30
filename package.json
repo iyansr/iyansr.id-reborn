@@ -2,9 +2,13 @@
   "name": "iyansr.id-reborn",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.12.1",
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "@swc/core"]
+  },
   "scripts": {
     "dev": "vite dev --port 2718 --no-open",
-    "start": "PORT=22825 node .output/server/index.mjs",
+    "start": "vite preview --host 127.0.0.1 --port 22825",
     "build": "vite build && tsc --noEmit",
     "serve": "vite preview",
     "test": "vitest run",
@@ -34,7 +38,7 @@
     "lenis": "^1.3.13",
     "lucide-react": "^0.476.0",
     "motion": "^12.23.12",
-    "nitro": "^3.0.1-20260630-132908-5e3284e7",
+    "nitro": "npm:nitro-nightly@3.0.1-20260630-132908-5e3284e7",
     "ogl": "^1.0.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
