@@ -66,11 +66,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/open-source'
-    | '/blog/$slug'
-    | '/demo/tanstack-query'
-    | '/blog/'
+    '/' | '/open-source' | '/blog/$slug' | '/demo/tanstack-query' | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/open-source' | '/blog/$slug' | '/demo/tanstack-query' | '/blog'
   id:
