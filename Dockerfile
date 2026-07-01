@@ -17,7 +17,12 @@ ENV SITE_URL=$SITE_URL
 # (Vite preview tries localhost:3000 and gets ConnectionRefused).
 RUN env -u PORT -u NITRO_PORT pnpm run build
 
-FROM nginx:alpine AS runner
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/.output/public /usr/share/nginx/html
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV PORT=22825
+RUN npm install -g pm2@5
+COPY --from=builder /app/.output ./.output
+COPY ecosystem.config.cjs ./
 EXPOSE 22825
+CMD ["pm2-runtime", "start", "ecosystem.config.cjs"]
