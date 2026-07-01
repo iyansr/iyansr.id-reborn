@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite dev --port 2718 --no-open",
-    "start": "PORT=22825 HOST=0.0.0.0 node .output/server/index.mjs",
+    "start": "vite preview --host 127.0.0.1 --port 22825",
     "build": "vite build && tsc --noEmit",
     "serve": "vite preview",
     "test": "vitest run",

@@ -5,7 +5,6 @@ import { BlurFade } from '@/components/magicui/blur-fade';
 import { useOpenSourceContributions } from '@/hooks/opensource-contrib';
 
 export const Route = createFileRoute('/open-source')({
-  ssr: false,
   component: RouteComponent,
   head: () => ({
     meta: [

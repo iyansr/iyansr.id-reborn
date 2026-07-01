@@ -3,6 +3,9 @@ import { createRouter } from '@tanstack/react-router';
 import { setupRouterSsrQueryIntegration } from '@tanstack/react-router-ssr-query';
 
 import { routeTree } from './routeTree.gen';
+import { registerChunkReloadHandler } from './lib/chunk-reload';
+
+registerChunkReloadHandler();
 
 export function getRouter() {
   const queryClient = new QueryClient({
