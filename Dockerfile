@@ -13,16 +13,14 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ARG SITE_URL=https://iyansr.id
 ENV SITE_URL=$SITE_URL
-# Dokploy injects PORT=3000 during builds, which breaks TanStack Start prerender
-# (Vite preview tries localhost:3000 and gets ConnectionRefused).
 RUN env -u PORT -u NITRO_PORT pnpm run build
 
 FROM node:22-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=22825
-RUN npm install -g pm2@5
+ENV HOST=0.0.0.0
+ENV NITRO_HOST=0.0.0.0
 COPY --from=builder /app/.output ./.output
-COPY ecosystem.config.cjs ./
 EXPOSE 22825
-CMD ["pm2-runtime", "start", "ecosystem.config.cjs"]
+CMD ["node", ".output/server/index.mjs"]

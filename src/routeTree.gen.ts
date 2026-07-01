@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OpenSourceRouteImport } from './routes/open-source'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-query'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 

@@ -8,8 +8,7 @@
   },
   "scripts": {
     "dev": "vite dev --port 2718 --no-open",
-    "start": "pm2-runtime start ecosystem.config.cjs",
-    "start:node": "PORT=22825 node .output/server/index.mjs",
+    "start": "PORT=22825 HOST=0.0.0.0 node .output/server/index.mjs",
     "build": "vite build && tsc --noEmit",
     "serve": "vite preview",
     "test": "vitest run",
@@ -41,7 +40,6 @@
     "motion": "^12.23.12",
     "nitro": "npm:nitro-nightly@3.0.1-20260630-132908-5e3284e7",
     "ogl": "^1.0.11",
-    "pm2": "^7.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
