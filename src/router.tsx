@@ -21,6 +21,7 @@ export function getRouter() {
     scrollRestoration: true,
     defaultStructuralSharing: true,
     defaultPreloadStaleTime: 0,
+    trailingSlash: 'never',
   });
 
   setupRouterSsrQueryIntegration({
