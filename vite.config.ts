@@ -27,7 +27,21 @@ export default defineConfig({
     }),
     react(),
     // Force Node.js server output for consistent production builds.
-    nitro({ preset: 'node-server' }),
+    nitro({
+      preset: 'node-server',
+      routeRules: {
+        '/assets/**': {
+          headers: {
+            'cache-control': 'public, max-age=31536000, immutable',
+          },
+        },
+        '/**': {
+          headers: {
+            'cache-control': 'no-cache',
+          },
+        },
+      },
+    }),
   ],
   preview: {
     host: '127.0.0.1',
