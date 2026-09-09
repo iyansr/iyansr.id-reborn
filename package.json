@@ -4,7 +4,10 @@
   "type": "module",
   "packageManager": "pnpm@10.12.1",
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "@swc/core"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "@swc/core"
+    ]
   },
   "scripts": {
     "dev": "vite dev --port 2718 --no-open",
@@ -12,9 +15,11 @@
     "build": "vite build && tsc --noEmit",
     "serve": "vite preview",
     "test": "vitest run",
-    "format": "biome format",
-    "lint": "biome lint",
-    "check": "biome check"
+    "format": "oxfmt src vite.config.ts",
+    "format:check": "oxfmt --check src vite.config.ts",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "check": "oxlint && oxfmt --check src vite.config.ts"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.6",
@@ -56,7 +61,6 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.0",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
@@ -67,6 +71,8 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-react-swc": "^4.0.0",
     "jsdom": "^26.0.0",
+    "oxfmt": "^0.67.0",
+    "oxlint": "^1.82.0",
     "typescript": "^5.7.2",
     "vite": "^7.0.0",
     "vitest": "^3.0.5",

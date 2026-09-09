@@ -4,12 +4,11 @@ import {
   notFound,
   useLoaderData,
 } from '@tanstack/react-router';
+import { ChevronLeft } from 'lucide-react';
 import Markdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import remarkGfm from 'remark-gfm';
 import '@fontsource-variable/jetbrains-mono/index.css';
-
-import { ChevronLeft } from 'lucide-react';
+import remarkGfm from 'remark-gfm';
 
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { Button } from '@/components/ui/button';

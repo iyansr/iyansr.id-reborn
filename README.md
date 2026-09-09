@@ -32,14 +32,18 @@ This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
 
 ## Linting & Formatting
 
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
+This project uses [oxlint](https://oxc.rs/docs/guide/usage/linter.html) for linting and [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) for formatting. The following scripts are available:
 
 
 ```bash
-pnpm lint
-pnpm format
-pnpm check
+pnpm lint          # oxlint
+pnpm lint:fix      # oxlint --fix
+pnpm format        # oxfmt, writes in place
+pnpm format:check  # oxfmt --check
+pnpm check         # lint + format check
 ```
+
+`oxfmt` also sorts imports (configured in `.oxfmtrc.json`), replacing Biome's `organizeImports` assist.
 
 
 ## Shadcn

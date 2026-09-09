@@ -11,22 +11,51 @@ export interface Experience {
 
 export const EXPERIENCE: Experience[] = [
   {
-    company: 'Xellar',
+    company: 'Forbes Predict by Axiom',
+    companyUrl: 'https://axiomcasts.com/',
+    dates: '2025 — Now',
+    description:
+      'Built a compliance and privacy portal from scratch with Firebase Auth, TanStack Router, and Cloudflare Workers + D1, automating GDPR/CCPA data subject request workflows end-to-end. Shipped an interactive prediction widget embedded across Forbes properties serving 140M+ monthly readers, plus the admin portal for prediction market operations. Designed and deployed the company landing page with Astro on Cloudflare Workers. Contributed across every layer of a TypeScript monorepo including CI/CD, Playwright E2E, and Storybook.',
+    location: 'New York Based - Remote from Indonesia',
+    logo: '/images/axiom.png',
+    technologies: [
+      'Typescript',
+      'React',
+      'TanStack Router',
+      'Cloudflare Workers',
+      'D1',
+      'Astro',
+      'Playwright',
+      'Storybook',
+    ],
+    title: 'Fullstack Engineer (Contract)',
+  },
+  {
+    company: 'Xellar / Yapp',
     companyUrl: 'https://xellar.co/',
     dates: 'Oct 2024 — Now',
     description:
-      'Building a JavaScript/TypeScript Embedded Wallet SDK for seamless integration. Developing a cutting-edge Web3 wallet powered by Next.js.',
+      'Built Yapp.ink, an all-in-one creator platform, from zero to 40,000+ users as sole frontend owner of the creator dashboard: course builder, product and order management, wallet and revenue UI, promo campaigns, event ticketing, affiliate system, live streaming config, and Discord-integrated membership tiers. Shipped the buyer-facing storefront with multi-currency checkout including QRIS, per-creator theming, and a product analytics suite with interactive charts and CSV export. Dockerized services on ECS/EC2 behind an ALB with auto-scaling for zero-downtime releases at 1-3 deploys per day. Developed the Xellar Embedded Wallet SDK and Xellar Kit, a wallet-connection component library comparable to RainbowKit/ConnectKit adopted by hundreds of external teams.',
     location: 'Remote - Indonesia',
     logo: '/images/xellar.jpg',
-    technologies: ['Typescript', 'NextJS', 'TailwindCSS', 'Fastify', 'Wagmi'],
-    title: 'Web3 Engineer',
+    technologies: [
+      'Typescript',
+      'NextJS',
+      'React',
+      'TailwindCSS',
+      'Fastify',
+      'Wagmi',
+      'Docker',
+      'AWS',
+    ],
+    title: 'Senior Software Engineer',
   },
   {
     company: 'Amori',
     companyUrl: 'https://amori.app/',
     dates: 'May 2024 — October 2024',
     description:
-      "Amori's AI dating coaches analyze your conversations for personalized dating insights and matchmaking. Working closely with CEO to build pixel-perfect Mobile app",
+      "Amori's AI dating coaches analyze your conversations for personalized dating insights and matchmaking. Built the React Native app working directly with the CEO on pixel-perfect implementation.",
     location: 'US Based - Remote from Indonesia',
     logo: '/images/amori.jpg',
     technologies: ['Typescript', 'React Native', 'Redux', 'Styled-Components'],
@@ -37,7 +66,7 @@ export const EXPERIENCE: Experience[] = [
     companyUrl: 'https://www.linkedin.com/company/stealth-startup-51/',
     dates: 'March 2024 — September 2025',
     description:
-      'Developing Mobile App with React Native, Typescript, and Firebase. Web app with NextJS, Typescript, and TailwindCSS',
+      'Built an AI financial-planning app across React Native and Next.js alongside the founder, backed by Typescript and Firebase.',
     location: 'Remote - Indonesia',
     logo: '/images/stealth.jpg',
     technologies: ['Typescript', 'React Native', 'NextJS', 'TailwindCSS'],
@@ -48,7 +77,7 @@ export const EXPERIENCE: Experience[] = [
     companyUrl: 'https://www.mightyjaxx.com/',
     dates: 'February 2024 — May 2024',
     description:
-      'Developing Crowdfunding Web Platform. Develop and maintain features with NextJS, ReactJS, Styled CSS, Typescript. Translating UI Design to code. Participate in code review to ensure code quality',
+      'Shipped crowdfunding platform features in Next.js/TypeScript for a collectibles brand. Translated UI designs to code and participated in code review to ensure code quality.',
     location: 'Singapore Based - Remote from Indonesia',
     logo: '/images/mjx.png',
     technologies: ['Typescript', 'React', 'NextJS', 'Styled-Components'],
@@ -57,9 +86,9 @@ export const EXPERIENCE: Experience[] = [
   {
     company: 'Playard Indonesia',
     companyUrl: 'https://www.playard.id/',
-    dates: 'November 2023 — May 2024',
+    dates: 'November 2023 — June 2024',
     description:
-      'Building BasketBall Pickup Game mobile App. Develop and Maintain app with React Native, Typescript, Firebase. Distributing App to the Playstore and App Store. Performing Code Review to ensure code quality',
+      'Built and published a basketball pickup-game mobile app to both the Play Store and App Store. Developed and maintained the app with React Native, Typescript, and Firebase, and performed code review to ensure code quality.',
     location: 'Remote - Indonesia',
     logo: '/images/playard.jpg',
     technologies: ['Typescript', 'React Native', 'TailwindCSS', 'Firebase'],
@@ -70,7 +99,7 @@ export const EXPERIENCE: Experience[] = [
     companyUrl: 'https://x.com/artpediahq',
     dates: 'February 2022 — October 2022',
     description:
-      'Develop NFT Marketplace website using Next.JS, connect to smart contract using Ether.JS, help backend team write code using NodeJS and Express JS',
+      'Artpedia is founded by known Indonesian tech influencer, Arjuna Sky Kok. Developed the NFT Marketplace website using Next.js, connected it to smart contracts with Ether.js, and helped the backend team write NodeJS and ExpressJS code.',
     location: 'Remote - Indonesia',
     logo: '/images/artpedia.png',
     technologies: [
@@ -82,14 +111,14 @@ export const EXPERIENCE: Experience[] = [
       'NodeJS',
       'ExpressJS',
     ],
-    title: 'Full Stack Developer',
+    title: 'Fullstack Developer (Part-Time)',
   },
   {
     company: 'Pintu',
     companyUrl: 'https://pintu.co.id/en',
     dates: 'August 2021 — March 2024',
     description:
-      'Develop and maintain the Pintu Mobile application, especially for Web3 Wallet. Implement new features and fix bugs to improve user experience. Develop the front-end using Typescript, React Native. Write E2E testing with Detox. Become the starting members of the Pintu Web3 Wallet project',
+      "Built and maintained features for one of Indonesia's largest crypto exchanges, serving 1 million users across mobile and web. Joined the Web3 team to ship a mobile Web3 wallet covering wallet connect flows, transaction signing, and chain support. Optimized mobile bundle size by replacing external packages with in-house solutions, authored E2E test coverage for onboarding, withdrawal, and transaction flows, and wrote functional requirement docs and implementation guides used by other engineers.",
     location: 'Remote - Indonesia',
     logo: '/images/pintu.jpg',
     technologies: [
@@ -101,14 +130,14 @@ export const EXPERIENCE: Experience[] = [
       'Detox',
       'Restyle',
     ],
-    title: 'Frontend Software Engineer',
+    title: 'Frontend Engineer Web3',
   },
   {
     company: 'DOOgether',
     companyUrl: 'https://web.doogether.id/',
-    dates: 'January 2020 — July 2021',
+    dates: 'January 2020 — August 2021',
     description:
-      'Worked closely with CTO and product team to develop and maintain the DOOgether web and mobile application. Implemented new features and fixed bugs to improve user experience. Developed the front-end using Typescript, React Native, React, and Sass.',
+      'Promoted to lead the frontend team within 6 months, managing 3 engineers. Built and shipped a mobile app from scratch to the App Store and Play Store, reaching 10k+ downloads. Partnered directly with C-level leadership and UI/UX on product direction and release planning.',
     location: 'Onsite - Jakarta',
     logo: '/images/doo.png',
     technologies: [

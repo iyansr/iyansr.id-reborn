@@ -2,6 +2,31 @@ import { GithubIcon, GlobeIcon } from 'lucide-react';
 
 export const PROJECTS = [
   {
+    title: 'Nodus Studio',
+    href: 'https://usenodus.app/',
+    dates: '2025 - Present',
+    active: true,
+    openSource: false,
+    description:
+      'Building from scratch a free Windows desktop app for gamers. Always-on background capture banks the last 30s to 2m with one hotkey, then a node-based editor reframes clips into vertical 9:16 video for TikTok, Reels, and Shorts.',
+    technologies: [
+      'Tauri V2',
+      'React',
+      'Typescript',
+      'Hono',
+      'Cloudflare Workers',
+    ],
+    links: [
+      {
+        type: 'Website',
+        href: 'https://usenodus.app/',
+        icon: <GlobeIcon className="size-3" />,
+      },
+    ],
+    image: '/images/nodus.png',
+    video: '',
+  },
+  {
     title: 'Imagined',
     href: 'https://imagined.directory',
     dates: 'June 2025 - Present',

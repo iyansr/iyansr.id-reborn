@@ -8,7 +8,6 @@
   "version": 1,
   "framework": "react-cra",
   "chosenAddOns": [
-    "biome",
     "shadcn",
     "tanstack-query"
   ]

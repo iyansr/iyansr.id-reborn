@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "react",
+    "unicorn",
+    "oxc",
+    "jsx-a11y",
+    "import",
+    "promise",
+    "vitest"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2024": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "no-unused-vars": ["error", { "ignoreRestSiblings": false }],
+    "no-console": "off",
+    "dot-notation": "off",
+    "typescript/consistent-type-imports": [
+      "error",
+      { "prefer": "type-imports", "fixStyle": "inline-type-imports" }
+    ],
+    "typescript/no-explicit-any": "warn",
+    "oxc/no-accumulating-spread": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-no-target-blank": "error",
+    "react/no-array-index-key": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": "off",
+    "import/no-named-as-default": "off"
+  },
+  "ignorePatterns": [
+    "src/routeTree.gen.ts",
+    "dist/**/*",
+    ".output/**/*",
+    ".nitro/**/*",
+    ".tanstack/**/*"
+  ]
+}

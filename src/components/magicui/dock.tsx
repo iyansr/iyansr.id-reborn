@@ -83,8 +83,10 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 
 Dock.displayName = 'Dock';
 
-export interface DockIconProps
-  extends Omit<MotionProps & React.HTMLAttributes<HTMLDivElement>, 'children'> {
+export interface DockIconProps extends Omit<
+  MotionProps & React.HTMLAttributes<HTMLDivElement>,
+  'children'
+> {
   size?: number;
   magnification?: number;
   distance?: number;
