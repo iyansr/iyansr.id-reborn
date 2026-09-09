@@ -1,16 +1,14 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "iyansr-id",
+  "main": "@tanstack/react-start/server-entry",
   "compatibility_date": "2026-09-08",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
     "enabled": true
   },
-  // The Nitro cloudflare-module preset injects `assets.binding` and
-  // `assets.directory` at build time (into .output/server/wrangler.json) and
-  // logs a warning that `assets` is overridden — the keys below are still
-  // merged in. Routes are emitted without a trailing slash (see sitemap.xml),
-  // so serve /blog from blog/index.html instead of redirecting to /blog/.
+  // Routes are emitted without a trailing slash (see sitemap.xml), so serve
+  // /blog from blog/index.html instead of redirecting to /blog/.
   "assets": {
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "none"

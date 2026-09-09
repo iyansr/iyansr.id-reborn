@@ -1,0 +1,4 @@
+# Hashed build output is content-addressed, so it can be cached forever.
+# Everything else falls back to Cloudflare's default (max-age=0, must-revalidate).
+/assets/*
+  cache-control: public, max-age=31536000, immutable

@@ -6,7 +6,7 @@ To run this application:
 
 ```bash
 pnpm install
-pnpm start
+pnpm dev
 ```
 
 # Building For Production
@@ -17,38 +17,44 @@ To build this application for production:
 pnpm build
 ```
 
-This produces a Node server in `.output/` (`pnpm start`, or the `Dockerfile`).
+The build emits the Worker to `dist/server` and the static assets (including the
+prerendered pages) to `dist/client`.
 
 ## Deploying to Cloudflare Workers
 
-The Nitro preset is selected with `NITRO_PRESET` (default: `node-server`), so the
-same source builds either target. For Cloudflare:
+This app deploys as a single Cloudflare Worker via
+[`@cloudflare/vite-plugin`](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/):
 
 ```bash
-pnpm build:cf     # NITRO_PRESET=cloudflare-module vite build
-pnpm preview:cf   # build, then run the Worker locally via wrangler dev
-pnpm deploy       # build, then wrangler deploy
-```
-
-First-time setup:
-
-```bash
-npx wrangler login
+npx wrangler login   # first time only
+pnpm deploy          # build, then wrangler deploy
+pnpm preview         # run the built Worker locally (vite preview)
 ```
 
 Notes:
 
-- `wrangler.jsonc` at the repo root holds the Worker name, compatibility date
-  and flags. The Cloudflare preset injects `main` and `assets.directory` into a
-  generated `.output/server/wrangler.json` at build time and points
-  `.wrangler/deploy/config.json` at it, which is why `wrangler deploy` can be
-  run from the repo root. Nitro logs a warning that `assets` is overridden —
-  the extra `assets` keys in `wrangler.jsonc` are still merged in.
+- `wrangler.jsonc` is the source of truth. `main` points at
+  `@tanstack/react-start/server-entry`; the plugin resolves it and writes the
+  effective config to `dist/server/wrangler.json`, pointing
+  `.wrangler/deploy/config.json` at it so `wrangler deploy` works from the repo
+  root.
 - `nodejs_compat` is required (`gray-matter` pulls in `Buffer`).
 - Prerendered pages are served from Cloudflare's static-asset store; anything
   else falls through to the Worker for SSR.
+- `assets.html_handling` is `drop-trailing-slash` because routes are emitted
+  without a trailing slash (see `sitemap.xml`); without it `/blog` would 307 to
+  `/blog/`.
+- Cache headers live in `public/_headers` — Cloudflare *merges* every matching
+  rule rather than letting the most specific one win, so only the hashed
+  `/assets/*` rule is set and everything else keeps Cloudflare's default
+  `max-age=0, must-revalidate`.
 - Blog content is bundled at build time via `import.meta.glob`, so there is no
   filesystem access at runtime.
+
+Do not reintroduce the Nitro `cloudflare-module` preset for this: it prerenders
+by spawning `npx wrangler dev` as a child process and killing it with SIGTERM
+afterwards, which never terminated on Workers Builds and hung the CI build until
+it timed out.
 
 ## Testing
 
