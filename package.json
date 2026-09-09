@@ -13,6 +13,10 @@
     "dev": "vite dev --port 2718 --no-open",
     "start": "PORT=22825 HOST=0.0.0.0 node .output/server/index.mjs",
     "build": "vite build && tsc --noEmit",
+    "build:cf": "NITRO_PRESET=cloudflare-module vite build && tsc --noEmit",
+    "preview:cf": "pnpm run build:cf && wrangler dev",
+    "deploy": "pnpm run build:cf && wrangler deploy",
+    "cf-typegen": "wrangler types",
     "serve": "vite preview",
     "test": "vitest run",
     "format": "oxfmt src vite.config.ts",
@@ -76,6 +80,7 @@
     "typescript": "^5.7.2",
     "vite": "^7.0.0",
     "vitest": "^3.0.5",
-    "web-vitals": "^4.2.4"
+    "web-vitals": "^4.2.4",
+    "wrangler": "^4.130.0"
   }
 }

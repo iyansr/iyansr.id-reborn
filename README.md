@@ -17,6 +17,39 @@ To build this application for production:
 pnpm build
 ```
 
+This produces a Node server in `.output/` (`pnpm start`, or the `Dockerfile`).
+
+## Deploying to Cloudflare Workers
+
+The Nitro preset is selected with `NITRO_PRESET` (default: `node-server`), so the
+same source builds either target. For Cloudflare:
+
+```bash
+pnpm build:cf     # NITRO_PRESET=cloudflare-module vite build
+pnpm preview:cf   # build, then run the Worker locally via wrangler dev
+pnpm deploy       # build, then wrangler deploy
+```
+
+First-time setup:
+
+```bash
+npx wrangler login
+```
+
+Notes:
+
+- `wrangler.jsonc` at the repo root holds the Worker name, compatibility date
+  and flags. The Cloudflare preset injects `main` and `assets.directory` into a
+  generated `.output/server/wrangler.json` at build time and points
+  `.wrangler/deploy/config.json` at it, which is why `wrangler deploy` can be
+  run from the repo root. Nitro logs a warning that `assets` is overridden —
+  the extra `assets` keys in `wrangler.jsonc` are still merged in.
+- `nodejs_compat` is required (`gray-matter` pulls in `Buffer`).
+- Prerendered pages are served from Cloudflare's static-asset store; anything
+  else falls through to the Worker for SSR.
+- Blog content is bundled at build time via `import.meta.glob`, so there is no
+  filesystem access at runtime.
+
 ## Testing
 
 This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
