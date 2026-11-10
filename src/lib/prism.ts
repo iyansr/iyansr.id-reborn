@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 export const vesperTheme = {
   'code[class*="language-"]': {
     color: '#FFF',
@@ -146,4 +148,4 @@ export const vesperTheme = {
   italic: {
     fontStyle: 'italic',
   },
-};
+} satisfies Record<string, CSSProperties>;

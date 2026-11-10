@@ -7,8 +7,9 @@ import {
 } from '@tanstack/react-router';
 import type { ReactNode } from 'react';
 
-import { AppDock } from '@/components/app-dock';
-import DarkVeil from '@/components/dark-veil';
+import { Footer } from '@/components/site/footer';
+import { Nav } from '@/components/site/nav';
+import siteCss from '@/components/site/site.css?url';
 import appCss from '@/styles.css?url';
 
 interface MyRouterContext {
@@ -40,11 +41,12 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
       {
         name: 'theme-color',
-        content: '#000000',
+        content: '#0a0a0a',
       },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
+      { rel: 'stylesheet', href: siteCss },
       {
         rel: 'icon',
         href: 'https://avatars.githubusercontent.com/u/42711013?v=4',
@@ -67,7 +69,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 function RootDocument({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
@@ -81,19 +83,11 @@ function RootDocument({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   return (
-    <div className="min-h-screen w-full relative">
-      <div className="fixed inset-0 -z-10 opacity-75">
-        <DarkVeil
-          warpAmount={0.4}
-          scanlineIntensity={0.25}
-          scanlineFrequency={1}
-          speed={0.5}
-        />
-      </div>
-
-      <AppDock />
-      <div className="container z-10 relative min-h-screen max-w-2xl mx-auto py-12 sm:py-24 px-6">
+    <div id="top" className="mn">
+      <div className="mn-col">
+        <Nav />
         <Outlet />
+        <Footer />
       </div>
     </div>
   );

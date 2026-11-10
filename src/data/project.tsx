@@ -2,6 +2,44 @@ import { GithubIcon, GlobeIcon } from 'lucide-react';
 
 export const PROJECTS = [
   {
+    title: 'Forbes Predict',
+    href: 'https://predict.forbes.com/',
+    dates: '2025 - Present',
+    active: true,
+    openSource: false,
+    description:
+      'Prediction markets for the news Forbes readers are already reading. Built the interactive prediction widget embedded across Forbes properties serving 140M+ monthly readers, plus the admin portal for market operations.',
+    technologies: ['Typescript', 'React', 'TanStack Router', 'Cloudflare Workers'],
+    links: [
+      {
+        type: 'Website',
+        href: 'https://predict.forbes.com/',
+        icon: <GlobeIcon className="size-3" />,
+      },
+    ],
+    image: '/images/forbes-predict.jpg',
+    video: '',
+  },
+  {
+    title: 'Forbes Predict: 2026 U.S. Midterms',
+    href: 'https://predict.forbes.com/category/midterms/',
+    dates: '2026',
+    active: true,
+    openSource: false,
+    description:
+      'Live election hub for the 2026 midterms. Senate, House and Governor race maps where readers make their call on each race and markets settle as results come in.',
+    technologies: ['Typescript', 'React'],
+    links: [
+      {
+        type: 'Website',
+        href: 'https://predict.forbes.com/category/midterms/',
+        icon: <GlobeIcon className="size-3" />,
+      },
+    ],
+    image: '/images/forbes-midterms.jpg',
+    video: '',
+  },
+  {
     title: 'Nodus Studio',
     href: 'https://usenodus.app/',
     dates: '2025 - Present',
@@ -134,32 +172,6 @@ export const PROJECTS = [
     ],
     image:
       'https://opengraph.githubassets.com/b84bea45f02c09104cb15eecd8d1a415d64e05fc752f7b3bb0014416c5ada9e8/Xellar-Protocol/ew-sdk',
-    video: '',
-  },
-  {
-    title: 'Wepool',
-    href: 'https://wepool.id',
-    dates: 'Dec 2024 - March 2025',
-    active: true,
-    openSource: false,
-    description:
-      'Developing from scratch pool course booking application for students',
-    technologies: [
-      'Next.js',
-      'Typescript',
-      'React',
-      'React Query',
-      'Tailwind CSS',
-      'Shadcn UI',
-    ],
-    links: [
-      {
-        type: 'Website',
-        href: 'https://wepool.id',
-        icon: <GlobeIcon className="size-3" />,
-      },
-    ],
-    image: '/images/wepool.jpg',
     video: '',
   },
 ];

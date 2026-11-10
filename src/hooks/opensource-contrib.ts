@@ -1,59 +1,58 @@
 import { useQuery } from '@tanstack/react-query';
 
-import type { GithubSearchSchema, IssueSearchResultItem } from '@/types/github';
+import type { GithubSearchSchema } from '@/types/github';
 
-const query = 'author:iyansr -org:Xellar-Protocol';
+export type PullRequestStatus = 'merged' | 'open' | 'closed';
 
-const fetchPR = async () => {
+export interface PullRequest {
+  id: number;
+  number: number;
+  title: string;
+  status: PullRequestStatus;
+  createdAt: string;
+  url: string;
+  repository: string;
+}
+
+const SEARCH_QUERY =
+  'author:iyansr -org:Xellar-Protocol type:pr -repo:iyansr/iyansr.id-reborn';
+
+export const fetchOpenSourceContributions = async (): Promise<PullRequest[]> => {
   const searchParams = new URLSearchParams({
     sort: 'created',
     order: 'desc',
-    per_page: '25',
-    q: `${query} type:pr -repo:iyansr/iyansr.id-reborn`,
+    per_page: '100',
+    q: SEARCH_QUERY,
   });
   const response = await fetch(
     `https://api.github.com/search/issues?${searchParams.toString()}`
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch GitHub issues');
+    throw new Error('Failed to fetch GitHub pull requests');
   }
 
   const data: GithubSearchSchema = await response.json();
-  const issues: IssueSearchResultItem[] = data.items || [];
-  return issues;
-};
 
-export const fetchOpenSourceContributions = async () => {
-  const [prs] = await Promise.all([fetchPR()]);
-
-  const contributions = [...prs].sort((a, b) => {
-    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-  });
-
-  // Transform contributions to common format
-  const openSourceContribution = contributions.map((issue) => ({
-    id: issue.id,
-    number: issue.number,
-    title: issue.title,
-    state: issue.state,
-    created_at: issue.created_at,
-    updated_at: issue.updated_at,
-    html_url: issue.html_url,
-    type: issue.pull_request?.url ? 'pr' : 'issue',
-    repository: issue.repository_url.split('/').slice(-2).join('/'),
-    repositoryUrl: issue.repository_url,
-    user: issue.user,
-    labels: issue.labels,
+  return (data.items ?? []).map((item) => ({
+    id: item.id,
+    number: item.number,
+    title: item.title,
+    status: item.pull_request?.merged_at
+      ? 'merged'
+      : item.state === 'open'
+        ? 'open'
+        : 'closed',
+    createdAt: item.created_at,
+    url: item.html_url,
+    repository: item.repository_url.split('/').slice(-2).join('/'),
   }));
-
-  return openSourceContribution;
 };
 
 export const useOpenSourceContributions = () => {
   return useQuery({
     queryKey: ['opensource-contributions'],
-    queryFn: () => fetchOpenSourceContributions(),
+    queryFn: fetchOpenSourceContributions,
     staleTime: 1000 * 60 * 15, // 15 minutes
     gcTime: 1000 * 60 * 60, // 1 hour
   });

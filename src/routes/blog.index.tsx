@@ -1,7 +1,7 @@
-import { createFileRoute, useLoaderData } from '@tanstack/react-router';
+import { createFileRoute, Link, useLoaderData } from '@tanstack/react-router';
 
-import { BlurFade } from '@/components/magicui/blur-fade';
-import { PostCard } from '@/components/post-card';
+import { PageHeader } from '@/components/site/page-header';
+import { formatDay } from '@/components/site/utils';
 import { getAllPosts } from '@/lib/post';
 
 export const Route = createFileRoute('/blog/')({
@@ -10,7 +10,7 @@ export const Route = createFileRoute('/blog/')({
     meta: [
       {
         name: 'description',
-        content: 'Check out my latest blog posts',
+        content: 'Technical tutorials and personal notes by Iyan Saputra.',
       },
       {
         title: 'Blog | Iyan Saputra',
@@ -23,43 +23,59 @@ export const Route = createFileRoute('/blog/')({
   },
 });
 
-const BLUR_FADE_DELAY = 0.04;
-
 function RouteComponent() {
   const { posts } = useLoaderData({ from: '/blog/' });
 
   return (
-    <section>
-      <BlurFade delay={BLUR_FADE_DELAY} className="mb-4">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-              Blog Posts
-            </div>
-            <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl">
-              Check out my latest blog posts
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base/relaxed">
-              I&apos;ve written a variety of blog posts, from technical
-              tutorials to personal stories.
-            </p>
-          </div>
-        </div>
-      </BlurFade>
-      <BlurFade delay={BLUR_FADE_DELAY * 2}>
-        <div className="grid md:grid-cols-2 gap-4">
+    <main>
+      <PageHeader label="Blog" title="Writing">
+        Technical tutorials and personal notes.
+      </PageHeader>
+
+      {posts.length === 0 ? (
+        <p className="border-t border-(--mn-hair) py-14 text-[14px] text-(--mn-muted)">
+          No posts yet.
+        </p>
+      ) : (
+        <ul className="border-t border-(--mn-hair)">
           {posts.map((post) => (
-            <PostCard
-              key={post.slug}
-              title={post.metadata.title}
-              href={`/blog/${post.slug}`}
-              description={post.metadata.summary}
-              dates={post.metadata.publishedAt}
-              image={post.metadata.image}
-            />
+            <li key={post.slug} className="border-b border-(--mn-hair) last:border-b-0">
+              <Link
+                to="/blog/$slug"
+                params={{ slug: post.slug }}
+                className="mn-card group grid grid-cols-1 gap-4 py-8 md:grid-cols-[11rem_minmax(0,1fr)_10rem] md:gap-10"
+              >
+                <time
+                  dateTime={post.metadata.publishedAt}
+                  className="mn-mono text-[11px] tracking-wide text-(--mn-muted) uppercase md:pt-1"
+                >
+                  {formatDay(post.metadata.publishedAt)}
+                </time>
+                <div className="min-w-0">
+                  <h2 className="mn-card-title text-[15px] leading-snug font-medium">
+                    {post.metadata.title}
+                  </h2>
+                  <p className="mt-1.5 line-clamp-2 text-[13.5px] leading-relaxed text-(--mn-muted)">
+                    {post.metadata.summary}
+                  </p>
+                </div>
+                {post.metadata.image && (
+                  <div className="mn-card-media order-first md:order-none">
+                    <img
+                      src={post.metadata.image}
+                      alt=""
+                      width={320}
+                      height={200}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                )}
+              </Link>
+            </li>
           ))}
-        </div>
-      </BlurFade>
-    </section>
+        </ul>
+      )}
+    </main>
   );
 }
