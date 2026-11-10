@@ -1,0 +1,128 @@
+---
+title: How I Manage My Agent Workflow
+publishedAt: 2026-11-10
+image: /images/blog/thumbnails/agent-workflow-claude-c.svg
+summary: "One expensive model decides, cheaper models do the reading and typing. My current setup, and five real sessions that show where it works and where it does not."
+---
+
+For a long time I ran one model for everything. The same expensive model planned the work, read forty files, wrote the code, ran the tests, and fixed its own typos.
+
+That is a waste. Most of the tokens in a coding session go to reading files and writing edits, not to deciding what to build. Deciding is the hard part. Reading and typing are not.
+
+So I split the two. One model decides. Cheaper models do the reading and the typing.
+
+## The setup
+
+I use [oh-my-pi](https://github.com/can1357/oh-my-pi) (omp) as my coding agent. It lets me give each kind of subagent its own model. This is what I run today:
+
+| Agent | Model | Job |
+| --- | --- | --- |
+| Orchestrator | Claude Opus 5.5 | Plans, routes, judges results, talks to me |
+| `scout` | Claude Haiku 5.5 | Read-only search. Finds code and facts before planning |
+| `task` | DeepSeek Flash | Routine non-UI work, commands, checks. The default worker |
+| `frontend` | Claude Sonnet 5.5 | Anything UI: components, CSS, layout, accessibility |
+| `sonic` | Claude Haiku 5.5 | Mechanical edits: renames, find-and-replace |
+| `deep-task` | Claude Sonnet 5.5 | Cross-file design, subtle bugs, security-sensitive code |
+| `reviewer` | Claude Sonnet 5.5 | Reviews the integrated change. Never the agent that wrote it |
+
+Every request goes to the orchestrator first, and it decides where the request goes. Watch a few requests take different routes, or hover a station to send one there yourself.
+
+![Routing board: a request token goes to the orchestrator, then to the worker it picks, then through review.](/figures/agent-flow)
+
+The model routing is a few lines in `~/.omp/agent/config.yml`:
+
+```yaml
+modelRoles:
+  default: anthropic-3/claude-opus-5-5:medium
+  task: deepseek/deepseek-flash:high
+  deep: anthropic-3/claude-sonnet-5-5:high
+  frontend: anthropic-3/claude-sonnet-5-5:high
+  smol: anthropic-3/claude-haiku-5-5:high
+retry:
+  fallbackChains:
+    task:
+      - anthropic-3/claude-haiku-5-5:high
+task:
+  agentModelOverrides:
+    task: "@task"
+    deep-task: "@deep"
+  showResolvedModelBadge: true
+```
+
+If DeepSeek is down, `task` falls back to Haiku. The badge shows which model each subagent really got. I needed that. In my first test, two of the three agents failed with "No model selected", and without the badge I would not have known which.
+
+## The rules
+
+Models are half of it. The other half is a short block of rules appended to the system prompt. These are the ones that matter:
+
+- **Small work stays with the orchestrator.** Single-file or quick edits are done directly. Delegation only pays off when the worker's reading and editing costs more than writing the brief.
+- **Every brief is self-contained.** Objective, files owned, accepted design, constraints, checks to run, stop condition. Workers cannot see my conversation.
+- **Independent work runs in parallel.** Dependent steps stay ordered.
+- **Two workers never own the same file.**
+- **UI work never goes to `task`.** It goes to `frontend`.
+- **The reviewer is never the author.**
+- **Two failed attempts on the same problem means escalate** to `deep-task` or change the plan. No third try with the same brief.
+
+The orchestrator still owns the plan, the design decisions, and the final check. Workers return evidence. The orchestrator decides if the evidence is good enough.
+
+## Five real sessions
+
+Rules are easy to write. Here is what happened when I used them.
+
+### 1. Redesigning this site
+
+I asked for three different design directions for this portfolio.
+
+The orchestrator did the shared work first. It fetched my real pull request data, wrote the data file, and set up a bare layout for prototype routes. Then it sent out three `frontend` workers in one batch, one direction each. Each worker owned only its own route and folder. They finished in 5m47s, 6m36s, and 6m54s.
+
+Then the orchestrator opened each prototype in a headless browser at 1440px and 390px wide. It found bugs in all three. A missing space in my name. Two images with zero height. A menu button showing on desktop. It sent each worker a fix list of four or five items, and each worker fixed its own.
+
+I dropped all three directions in the end. A fourth worker built the minimal one you are reading now. Three wrong answers in seven minutes is a cheap way to find the right one.
+
+### 2. A ticket at work, from plan to draft PR
+
+This one used eleven subagents in five batches:
+
+1. One `deep-task` reviewed the plan against the codebase. It came back with 17 concerns.
+2. Three workers implemented in parallel: two `task`, one `frontend`. Each had its own files.
+3. Three reviewers ran in parallel: one on the frontend, one on analytics and data, one on test quality.
+4. One reviewer checked the full diff again and found nothing.
+5. After human review, three more workers fixed the comments in parallel.
+
+No worker took longer than six minutes. The orchestrator did the rest itself: type checks, the full test suites, the commit, the draft PR, and the replies to the review threads.
+
+### 3. Eighteen subtasks across three repos
+
+A client ticket with 18 subtasks, touching a Go backend and two Next.js apps.
+
+The orchestrator validated each bug with a screenshot first. Then it wrote the shared contracts, created git worktrees, and sent five workers at once: one `task` for the backend, four `frontend`. A reviewer checked all three diffs afterwards. No blockers, three should-fix items.
+
+One thing went wrong. A worker wrote its changes into my main checkout instead of the worktree. The orchestrator noticed, moved the diff over as a patch, and restored the original file. One owner per file is a good rule. It does not stop a worker from writing to the wrong folder.
+
+### 4. The feature I threw away
+
+I wanted an element picker for a desktop app I use. The orchestrator wrote a shared contract file first: file ownership, the HTTP API, the data types. Then three workers in parallel. One `deep-task` built the helper process in 9m26s. Two `frontend` workers built the panel and the dialog in under two minutes each.
+
+Every worker passed its own checks. The feature still did not work. The helper never started, because the host app could not find `bun` on its `PATH`. No worker could have caught that, because no worker ran the whole thing. The orchestrator found it and fixed it.
+
+Then I tried the feature, decided it was not worth it, and deleted it. I lost about fifteen minutes.
+
+### 5. The sessions with no workers
+
+On the same day I fixed 45 Dependabot alerts, added Open Graph images to this site, and restyled a sidebar. The orchestrator spawned zero subagents in all three.
+
+That is the first rule working. The Dependabot fix changed two files. Writing a brief for that costs more than doing it. The Open Graph work touched more files and could have gone to a worker. The orchestrator kept it. I am fine with that call.
+
+## What I learned
+
+**The cheap model is not good at everything.** I first used DeepSeek Flash as the UI worker. I was not happy with the results, so `frontend` is on Sonnet now. For routine backend work and running checks, DeepSeek Flash is fine.
+
+**The brief is the real work.** A worker starts with nothing. If the brief misses a constraint, the worker will not guess it. The sessions that went well all started with a shared contract.
+
+**Workers passing checks is not the feature working.** Integration belongs to the orchestrator. Session four showed me that.
+
+**Review with fresh eyes.** A reviewer that did not write the code finds different things. In session two the first review round found three medium issues. The second round found none. That is how I knew it was done.
+
+**I have not measured the savings yet.** I want to be honest about this. I can see that Opus reads far fewer files now. In my model catalog, Opus costs $4 per million input tokens and DeepSeek Flash costs $0.30. I do not have a before and after number for a real week of work. When I have one, I will write it up.
+
+For now the setup does what I wanted. The expensive model rarely reads files. It just decides.

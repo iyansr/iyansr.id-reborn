@@ -621,8 +621,34 @@
   --tw-prose-pre-bg: var(--mn-surface);
   --tw-prose-th-borders: var(--mn-line-strong);
   --tw-prose-td-borders: var(--mn-line);
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 17px;
+  line-height: 1.8;
+}
+.mn .mn-prose :where(p, ul, ol, table, blockquote) {
+  margin-block: 1.4em;
+}
+.mn .mn-prose :where(li) {
+  margin-block: 0.6em;
+}
+.mn .mn-prose :where(h2) {
+  margin-top: 2.6em;
+  margin-bottom: 0.9em;
+  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.mn .mn-prose :where(h3) {
+  margin-top: 2.2em;
+  margin-bottom: 0.7em;
+  font-size: 1.2em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+.mn .mn-prose :where(table) {
+  font-size: 0.9em;
+  line-height: 1.6;
 }
 .mn .mn-prose a {
   text-decoration-color: var(--mn-accent);
@@ -643,6 +669,16 @@
 .mn .mn-prose img {
   border-radius: var(--mn-r-card);
   border: 1px solid var(--mn-line);
+}
+.mn .mn-prose .mn-figure-frame {
+  display: block;
+  margin: 2.4em 0;
+}
+.mn .mn-prose .mn-figure-frame iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  color-scheme: normal;
 }
 /* Markdown's <pre> only wraps the highlighter's own block; keep a single box. */
 .mn .mn-prose pre {

@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/site/page-header';
 import { PrList } from '@/components/site/pr-list';
 import { Row } from '@/components/site/row';
 import { contributionsQueryOptions } from '@/hooks/opensource-contrib';
+import { ogMeta } from '@/lib/og';
 
 export const Route = createFileRoute('/open-source')({
   component: RouteComponent,
@@ -20,6 +21,12 @@ export const Route = createFileRoute('/open-source')({
       {
         title: 'Open Source | Iyan Saputra',
       },
+      ...ogMeta({
+        path: '/open-source',
+        eyebrow: 'Open source',
+        title: 'Contributions',
+        description: 'Pull requests Iyan Saputra has sent to open source projects on GitHub.',
+      }),
     ],
   }),
 });

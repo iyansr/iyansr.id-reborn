@@ -2,6 +2,7 @@ import { createFileRoute, Link, useLoaderData } from '@tanstack/react-router';
 
 import { PageHeader } from '@/components/site/page-header';
 import { formatDay } from '@/components/site/utils';
+import { ogMeta } from '@/lib/og';
 import { getAllPosts } from '@/lib/post';
 
 export const Route = createFileRoute('/blog/')({
@@ -15,6 +16,12 @@ export const Route = createFileRoute('/blog/')({
       {
         title: 'Blog | Iyan Saputra',
       },
+      ...ogMeta({
+        path: '/blog',
+        eyebrow: 'Blog',
+        title: 'Writing',
+        description: 'Technical tutorials and personal notes by Iyan Saputra.',
+      }),
     ],
   }),
   loader: async () => {

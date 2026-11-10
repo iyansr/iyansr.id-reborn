@@ -10,6 +10,7 @@ import type { ReactNode } from 'react';
 import { Footer } from '@/components/site/footer';
 import { Nav } from '@/components/site/nav';
 import siteCss from '@/components/site/site.css?url';
+import { ogMeta, SITE_NAME } from '@/lib/og';
 import appCss from '@/styles.css?url';
 
 interface MyRouterContext {
@@ -34,6 +35,15 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         title: 'Iyan Saputra - Software Engineer',
       },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: SITE_NAME },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      ...ogMeta({
+        path: '/',
+        eyebrow: 'Senior Software Engineer',
+        title: 'Hi, I\u2019m Iyan Saputra',
+        description: 'Shipping React and TypeScript products end to end, remotely from Indonesia.',
+      }),
       {
         name: 'keywords',
         content:

@@ -26,8 +26,11 @@
     "check": "oxlint && oxfmt --check src vite.config.ts"
   },
   "dependencies": {
+    "@cf-wasm/og": "^0.5.0",
     "@fontsource-variable/geist": "^5.3.0",
     "@fontsource-variable/geist-mono": "^5.3.0",
+    "@fontsource/geist": "^5.3.0",
+    "@fontsource/geist-mono": "^5.3.0",
     "@tabler/icons-react": "^3.51.0",
     "@tailwindcss/vite": "^4.3.5",
     "@tanstack/react-devtools": "^0.4.6",
