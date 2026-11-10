@@ -8,7 +8,7 @@ import type { ReactNode } from 'react';
 import type { PullRequestStatus } from '@/hooks/opensource-contrib';
 
 const STATUS = {
-  merged: { Icon: IconGitMerge, label: 'Merged', className: 'text-(--mn-accent-text)' },
+  merged: { Icon: IconGitMerge, label: 'Merged', className: 'text-(--mn-merged)' },
   open: { Icon: IconGitPullRequest, label: 'Open', className: 'text-(--mn-open)' },
   closed: { Icon: IconGitPullRequestClosed, label: 'Closed', className: 'text-(--mn-muted)' },
 } as const;

@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { queryOptions } from '@tanstack/react-query';
 
 import type { GithubSearchSchema } from '@/types/github';
 
@@ -14,8 +14,9 @@ export interface PullRequest {
   repository: string;
 }
 
-const SEARCH_QUERY =
-  'author:iyansr -org:Xellar-Protocol type:pr -repo:iyansr/iyansr.id-reborn';
+// PRs to other people's public repositories only: `-user:iyansr` drops every
+// repo under my own account, `-org:Xellar-Protocol` drops employer work.
+const SEARCH_QUERY = 'author:iyansr type:pr is:public -user:iyansr -org:Xellar-Protocol';
 
 export const fetchOpenSourceContributions = async (): Promise<PullRequest[]> => {
   const searchParams = new URLSearchParams({
@@ -25,11 +26,19 @@ export const fetchOpenSourceContributions = async (): Promise<PullRequest[]> => 
     q: SEARCH_QUERY,
   });
   const response = await fetch(
-    `https://api.github.com/search/issues?${searchParams.toString()}`
+    `https://api.github.com/search/issues?${searchParams.toString()}`,
+    {
+      headers: {
+        Accept: 'application/vnd.github+json',
+        // GitHub rejects server requests without a User-Agent (403). Browsers set
+        // their own and treat this header as non-safelisted, so send it only on the server.
+        ...(typeof window === 'undefined' && { 'User-Agent': 'iyansr.id' }),
+      },
+    }
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch GitHub pull requests');
+    throw new Error(`Failed to fetch GitHub pull requests (${response.status})`);
   }
 
   const data: GithubSearchSchema = await response.json();
@@ -49,11 +58,11 @@ export const fetchOpenSourceContributions = async (): Promise<PullRequest[]> => 
   }));
 };
 
-export const useOpenSourceContributions = () => {
-  return useQuery({
-    queryKey: ['opensource-contributions'],
-    queryFn: fetchOpenSourceContributions,
-    staleTime: 1000 * 60 * 15, // 15 minutes
-    gcTime: 1000 * 60 * 60, // 1 hour
-  });
-};
+// Shared by route loaders (fetched at prerender, dehydrated into the HTML)
+// and components (refetched in the browser once the snapshot is stale).
+export const contributionsQueryOptions = queryOptions({
+  queryKey: ['opensource-contributions'],
+  queryFn: fetchOpenSourceContributions,
+  staleTime: 1000 * 60 * 15, // 15 minutes
+  gcTime: 1000 * 60 * 60, // 1 hour
+});

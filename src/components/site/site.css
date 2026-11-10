@@ -18,6 +18,7 @@
   --mn-accent-text: #a3e635;
   --mn-accent-soft: rgb(163 230 53 / 0.12);
   --mn-open: #4ade80;
+  --mn-merged: #a371f7;
   --mn-btn-bg: #fafafa;
   --mn-btn-fg: #0a0a0a;
 
@@ -25,6 +26,7 @@
   --mn-r-card: 10px;
   --mn-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --mn-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, monospace;
+  --mn-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @media (prefers-color-scheme: light) {
@@ -42,6 +44,7 @@
     --mn-accent-text: #3f6212;
     --mn-accent-soft: rgb(101 163 13 / 0.14);
     --mn-open: #1a7f37;
+    --mn-merged: #8250df;
     --mn-btn-bg: #0a0a0a;
     --mn-btn-fg: #fafafa;
   }
@@ -55,6 +58,11 @@
   :root:has(.mn) {
     scroll-behavior: smooth;
   }
+}
+
+/* Lets ::details-content transition to/from block-size: auto. */
+:root:has(.mn) {
+  interpolate-size: allow-keywords;
 }
 
 /* ---------- Base ---------- */
@@ -148,6 +156,22 @@
   background: color-mix(in srgb, var(--mn-bg) 97%, var(--mn-fg));
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
+  /* Grows from the menu button at the top right. */
+  transform-origin: top right;
+  transition:
+    opacity 150ms var(--mn-ease-out),
+    transform 150ms var(--mn-ease-out);
+}
+@starting-style {
+  .mn-menu {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mn-menu {
+    transform: none;
+  }
 }
 
 /* ---------- Buttons ---------- */
@@ -161,7 +185,9 @@
   color: var(--mn-btn-fg);
   font-size: 13px;
   font-weight: 500;
-  transition: opacity 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 160ms var(--mn-ease-out);
 }
 .mn-btn:hover {
   opacity: 0.85;
@@ -179,11 +205,24 @@
   font-weight: 500;
   transition:
     border-color 0.2s,
-    background-color 0.2s;
+    background-color 0.2s,
+    transform 160ms var(--mn-ease-out);
 }
 .mn-btn-ghost:hover {
   border-color: var(--mn-fg);
   background: var(--mn-accent-soft);
+}
+.mn-btn:active,
+.mn-btn-ghost:active,
+.mn-top:active {
+  transform: scale(0.97);
+}
+@media (prefers-reduced-motion: reduce) {
+  .mn-btn:active,
+  .mn-btn-ghost:active,
+  .mn-top:active {
+    transform: none;
+  }
 }
 
 /* Inline hero avatar: memoji has transparent padding, so frame and zoom it to read at text size. */
@@ -307,6 +346,28 @@
   transform: rotate(180deg);
 }
 
+/* Expanded description grows open instead of snapping in. */
+.mn-details::details-content {
+  block-size: 0;
+  opacity: 0;
+  overflow: clip;
+  transition:
+    block-size 250ms var(--mn-ease-out),
+    opacity 200ms var(--mn-ease-out),
+    content-visibility 250ms allow-discrete;
+}
+.mn-details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mn-details::details-content {
+    transition:
+      opacity 200ms var(--mn-ease-out),
+      content-visibility 200ms allow-discrete;
+  }
+}
+
 .mn-tech {
   display: inline-flex;
   align-items: center;
@@ -380,7 +441,8 @@
   color: var(--mn-muted);
   transition:
     color 0.2s,
-    border-color 0.2s;
+    border-color 0.2s,
+    transform 160ms var(--mn-ease-out);
 }
 .mn-top:hover {
   color: var(--mn-fg);
@@ -507,6 +569,32 @@
       animation-timeline: view();
       animation-range: entry 0% entry 40%;
     }
+  }
+}
+
+/* ---------- Hero entrance: once on load ---------- */
+/* The h1 (LCP element) only rises; fading it from 0 could delay LCP. */
+@keyframes mn-rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .mn-hero > * {
+    animation: mn-in 500ms var(--mn-ease-out) both;
+  }
+  .mn-hero > h1 {
+    animation-name: mn-rise;
+    animation-delay: 60ms;
+  }
+  .mn-hero > :nth-child(3) {
+    animation-delay: 120ms;
+  }
+  .mn-hero > :nth-child(4) {
+    animation-delay: 180ms;
   }
 }
 

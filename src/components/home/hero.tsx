@@ -4,7 +4,7 @@ import { CAL_URL, GITHUB_URL, RESUME_URL } from '@/components/site/utils';
 
 export function Hero() {
   return (
-    <section className="pt-24 pb-16 md:pt-28 md:pb-20">
+    <section className="mn-hero pt-24 pb-16 md:pt-28 md:pb-20">
       <p className="mn-label flex items-center gap-2">
         <span className="mn-dot" aria-hidden />
         Open to work
