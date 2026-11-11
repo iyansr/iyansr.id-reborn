@@ -451,7 +451,7 @@ const html = k
   .pageHtml({ title: "Routing board", theme: "dark", body, script: kitScript() + live })
   .replace(
     "</style>",
-    `html,body{background:transparent}.iso-plate{padding:44px 8px}@media (max-width:560px){.iso-plate{padding:44px 4px 66px}}.iso-legend{font-size:14px}.iso-page{width:100%;margin:0;display:flow-root;padding-bottom:4px}.iso{--anatomy-page:#0a0a0a}.iso[data-theme="light"]{--anatomy-page:#f7f7f4}[data-lamp]{transition:opacity .35s ease}</style>`,
+    `html,body{background:transparent;overflow:hidden}.iso-figure{margin:0}.iso-legend{padding:0 20px 20px;background:var(--anatomy-card)}.iso-plate{padding:44px 8px}@media (max-width:560px){.iso-plate{padding:44px 4px 66px}}.iso-legend{font-size:14px}.iso-page{width:100%;margin:0;display:flow-root;padding-bottom:4px}.iso{--anatomy-page:#0a0a0a}.iso[data-theme="light"]{--anatomy-page:#f7f7f4}[data-lamp]{transition:opacity .35s ease}</style>`,
   );
 
 mkdirSync(dirname(OUT), { recursive: true });
