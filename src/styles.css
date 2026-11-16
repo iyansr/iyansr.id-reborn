@@ -1,3 +1,263 @@
 @import "tailwindcss";
+@import "@fontsource-variable/geist/index.css";
+@import "@fontsource-variable/geist-mono/index.css";
 
 @plugin "@tailwindcss/typography";
+
+/* ---------- Tokens: light-dark() pairs, resolved by color-scheme ---------- */
+/* No data-theme (no JS): follow the system. The toggle pins it via data-theme on <html>. */
+@theme {
+  --color-bg: light-dark(#f7f7f4, #0a0a0a);
+  --color-surface: light-dark(#ffffff, #111111);
+  --color-fg: light-dark(#0a0a0a, #f4f4f5);
+  --color-fg-soft: light-dark(#3d3d43, #b8b8bd);
+  --color-muted: light-dark(#62626a, #8c8c94);
+  --color-hair: light-dark(rgb(10 10 10 / 0.08), rgb(255 255 255 / 0.06));
+  --color-line: light-dark(rgb(10 10 10 / 0.1), rgb(255 255 255 / 0.1));
+  --color-line-strong: light-dark(rgb(10 10 10 / 0.22), rgb(255 255 255 / 0.2));
+  --color-accent: light-dark(#65a30d, #a3e635);
+  --color-accent-text: light-dark(#3f6212, #a3e635);
+  --color-accent-soft: light-dark(
+    rgb(101 163 13 / 0.14),
+    rgb(163 230 53 / 0.12)
+  );
+  --color-open: light-dark(#1a7f37, #4ade80);
+  --color-merged: light-dark(#8250df, #a371f7);
+  --color-btn-bg: light-dark(#0a0a0a, #fafafa);
+  --color-btn-fg: light-dark(#fafafa, #0a0a0a);
+  /* Hero scene keycaps. */
+  --color-key-top: light-dark(
+    var(--color-surface),
+    color-mix(in srgb, var(--color-fg) 9%, var(--color-surface))
+  );
+  --color-key-side: light-dark(
+    color-mix(in srgb, var(--color-fg) 8%, var(--color-bg)),
+    color-mix(in srgb, var(--color-fg) 4%, var(--color-bg))
+  );
+
+  --radius-card: 10px;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, monospace;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Inlined so per-element vars (--d, --bob, --bob-d) resolve on the animated element. */
+@theme inline {
+  --animate-enter: enter 500ms var(--ease-out) both;
+  --animate-rise: rise 500ms var(--ease-out) both;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-skel: skel-pulse 1.4s ease-in-out infinite;
+  --animate-scene-glow: fade-in 700ms var(--ease-out) 200ms both;
+  --animate-scene-plate: scene-rise 440ms var(--ease-out) var(--d) both;
+  --animate-scene-feet: fade-in 400ms var(--ease-out) 340ms both;
+  --animate-scene-chip: scene-drop 380ms var(--ease-out) var(--d) both;
+  --animate-scene-bob: scene-bob var(--bob) ease-in-out var(--bob-d) infinite
+    alternate;
+  --animate-scene-fade: fade-in 300ms var(--ease-out) var(--d, 200ms) both;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* The hero h1 (LCP element) only rises; fading it from 0 could delay LCP. */
+@keyframes rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes exit {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes skel-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+@keyframes scene-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes scene-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes scene-bob {
+  to {
+    transform: translateY(-3px);
+  }
+}
+
+/* ---------- Document base ---------- */
+@layer base {
+  :root {
+    color-scheme: dark light;
+    /* Lets ::details-content transition to/from block-size: auto. */
+    interpolate-size: allow-keywords;
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :root {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    background-color: var(--color-bg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ---------- Route transitions ---------- */
+/* Only path changes carry the "page" type (router.tsx). Anything else, including
+   browsers without view-transition types, swaps instantly. */
+::view-transition-group(*),
+::view-transition-new(*) {
+  animation: none;
+}
+::view-transition-old(*) {
+  display: none;
+}
+html:active-view-transition-type(page)::view-transition-old(root) {
+  display: block;
+  animation: exit 120ms var(--ease-out) both;
+}
+html:active-view-transition-type(page)::view-transition-new(root) {
+  animation: enter 220ms var(--ease-out) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:active-view-transition-type(page)::view-transition-old(root) {
+    animation-duration: 150ms;
+  }
+  html:active-view-transition-type(page)::view-transition-new(root) {
+    animation: fade-in 150ms var(--ease-out) both;
+  }
+}
+
+/* ---------- Blog article prose, mapped to site tokens ---------- */
+/* Styles rendered markdown, which has no component markup to put utilities on.
+   `:root` lifts specificity over the typography plugin's `.prose` rules. */
+:root .prose-site {
+  --tw-prose-body: var(--color-fg-soft);
+  --tw-prose-headings: var(--color-fg);
+  --tw-prose-lead: var(--color-fg-soft);
+  --tw-prose-links: var(--color-fg);
+  --tw-prose-bold: var(--color-fg);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-muted);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-fg);
+  --tw-prose-quote-borders: var(--color-line-strong);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-code: var(--color-fg);
+  --tw-prose-pre-code: var(--color-fg);
+  --tw-prose-pre-bg: var(--color-surface);
+  --tw-prose-th-borders: var(--color-line-strong);
+  --tw-prose-td-borders: var(--color-line);
+  font-size: 17px;
+  line-height: 1.8;
+}
+:root .prose-site :where(p, ul, ol, table, blockquote) {
+  margin-block: 1.4em;
+}
+:root .prose-site :where(li) {
+  margin-block: 0.6em;
+}
+:root .prose-site :where(h2) {
+  margin-top: 2.6em;
+  margin-bottom: 0.9em;
+  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+:root .prose-site :where(h3) {
+  margin-top: 2.2em;
+  margin-bottom: 0.7em;
+  font-size: 1.2em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+:root .prose-site :where(table) {
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+:root .prose-site a {
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+:root .prose-site :where(code):not(:where(pre *)) {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  padding: 0.1em 0.35em;
+  border-radius: 5px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+}
+:root .prose-site :where(code):not(:where(pre *))::before,
+:root .prose-site :where(code):not(:where(pre *))::after {
+  content: none;
+}
+:root .prose-site img {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-line);
+}
+/* Markdown's <pre> only wraps the highlighter's own block; keep a single box. */
+:root .prose-site pre {
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+:root .prose-site div:has(> code[class*="language-"]) {
+  margin: 0 !important;
+  border-radius: var(--radius-card) !important;
+  border: 1px solid var(--color-line);
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+}
+:root .prose-site div:has(> code[class*="language-"]) code {
+  font-family: inherit !important;
+}

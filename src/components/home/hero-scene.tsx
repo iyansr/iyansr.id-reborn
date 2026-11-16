@@ -155,6 +155,30 @@ function gridPath(cy: number) {
   return d;
 }
 
+/* Local SVG class strings (kept whole so Tailwind sees every utility). */
+const wall =
+  '[vector-effect:non-scaling-stroke] fill-bg stroke-line stroke-1 [stroke-linejoin:round]';
+const faceTop =
+  '[vector-effect:non-scaling-stroke] fill-bg stroke-line-strong stroke-1 [stroke-linejoin:round]';
+const grid =
+  '[vector-effect:non-scaling-stroke] fill-none stroke-hair stroke-1';
+const gridTop =
+  '[vector-effect:non-scaling-stroke] fill-none stroke-line stroke-1';
+const pillar =
+  '[vector-effect:non-scaling-stroke] fill-none stroke-line-strong stroke-1 [stroke-dasharray:2_3]';
+const foot =
+  '[vector-effect:non-scaling-stroke] fill-none stroke-line stroke-1 [stroke-dasharray:2_2]';
+const keyBase =
+  '[vector-effect:non-scaling-stroke] fill-key-side stroke-line stroke-1 [stroke-linejoin:round]';
+const keyEdge =
+  '[vector-effect:non-scaling-stroke] fill-none stroke-line stroke-1 [stroke-linecap:round]';
+const keyTop =
+  '[vector-effect:non-scaling-stroke] fill-key-top stroke-line-strong stroke-1 [stroke-linejoin:round]';
+const keyTopLabel =
+  '[vector-effect:non-scaling-stroke] fill-[color-mix(in_srgb,var(--color-accent)_9%,var(--color-key-top))] stroke-accent/55 stroke-1 [stroke-linejoin:round]';
+const labelText =
+  'fill-accent-text stroke-none font-mono text-[12px] font-medium tracking-[0.02em]';
+
 function Plate({
   cy,
   index,
@@ -181,26 +205,23 @@ function Plate({
 
   return (
     <g
-      className="mn-scene-plate"
+      className="motion-safe:animate-scene-plate motion-reduce:animate-scene-fade"
       style={{ '--d': `${[160, 220, 290][index]}ms` } as CSSProperties}
     >
-      {pillars && <path className="mn-scene-pillar" d={pillars} />}
+      {pillars && <path className={pillar} d={pillars} />}
       <polygon
-        className="mn-scene-wall"
+        className={wall}
         points={[L, B, down(B), down(L)].map(pt).join(' ')}
       />
       <polygon
-        className="mn-scene-wall"
+        className={wall}
         points={[B, R, down(R), down(B)].map(pt).join(' ')}
       />
       <polygon
-        className={top ? 'mn-scene-face mn-scene-face--top' : 'mn-scene-face'}
+        className={top ? faceTop : wall}
         points={[T, R, B, L].map(pt).join(' ')}
       />
-      <path
-        className={top ? 'mn-scene-grid mn-scene-grid--top' : 'mn-scene-grid'}
-        d={gridPath(cy)}
-      />
+      <path className={top ? gridTop : grid} d={gridPath(cy)} />
     </g>
   );
 }
@@ -234,7 +255,7 @@ function KeyCap({ k }: { k: Key }) {
     );
     face = (
       <g
-        className="mn-scene-icon"
+        className="text-fg-soft"
         transform={`matrix(${n(sc)} ${n(sc / 2)} ${n(-sc)} ${n(sc / 2)} ${e} ${f})`}
       >
         <k.Icon size={24} stroke={1.5} />
@@ -245,7 +266,7 @@ function KeyCap({ k }: { k: Key }) {
     const kk = 0.9;
     face = (
       <text
-        className="mn-scene-label"
+        className={labelText}
         transform={`matrix(${kk} ${kk / 2} ${-kk} ${kk / 2} ${e} ${f})`}
         textAnchor="middle"
         dominantBaseline="central"
@@ -257,7 +278,7 @@ function KeyCap({ k }: { k: Key }) {
 
   return (
     <g
-      className="mn-scene-chip"
+      className="motion-safe:animate-scene-chip motion-reduce:animate-scene-fade"
       style={
         {
           '--d': `${k.delay}ms`,
@@ -266,21 +287,14 @@ function KeyCap({ k }: { k: Key }) {
         } as CSSProperties
       }
     >
-      <g className="mn-scene-bob">
-        <path className="mn-scene-key-base" d={base.d} />
-        <polygon className="mn-scene-key-walls" points={walls} />
+      <g className="motion-safe:animate-scene-bob">
+        <path className={keyBase} d={base.d} />
+        <polygon className="fill-key-side" points={walls} />
         <path
-          className="mn-scene-key-edge"
+          className={keyEdge}
           d={`M${pt(top.left)}L${pt(below(top.left))}M${pt(top.right)}L${pt(below(top.right))}M${pt(top.bottom)}L${pt(below(top.bottom))}`}
         />
-        <path
-          className={
-            k.label
-              ? 'mn-scene-key-top mn-scene-key-top--label'
-              : 'mn-scene-key-top'
-          }
-          d={top.d}
-        />
+        <path className={k.label ? keyTopLabel : keyTop} d={top.d} />
         {face}
       </g>
     </g>
@@ -290,10 +304,13 @@ function KeyCap({ k }: { k: Key }) {
 /** Decorative isometric stack scene that sits behind the hero copy on md+. */
 export function HeroScene() {
   return (
-    <div className="mn-scene-art pointer-events-none absolute" aria-hidden>
-      <div className="mn-scene-glow" />
+    <div
+      className="pointer-events-none absolute top-8 -right-10 -bottom-2 z-0 w-[min(34rem,58%)] [-webkit-mask-composite:source-in] [-webkit-mask-image:radial-gradient(ellipse_66%_70%_at_56%_52%,#000_50%,transparent_100%),linear-gradient(to_right,transparent_0,#000_36%)] [mask-composite:intersect] [mask-image:radial-gradient(ellipse_66%_70%_at_56%_52%,#000_50%,transparent_100%),linear-gradient(to_right,transparent_0,#000_36%)] max-md:top-auto max-md:-right-20 max-md:-bottom-22 max-md:h-68 max-md:w-96 max-md:opacity-40 max-md:[-webkit-mask-image:radial-gradient(ellipse_60%_62%_at_55%_50%,#000_40%,transparent_100%)] max-md:[mask-image:radial-gradient(ellipse_60%_62%_at_55%_50%,#000_40%,transparent_100%)]"
+      aria-hidden
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_46%_40%_at_50%_60%,var(--color-accent-soft),transparent_72%)] motion-safe:animate-scene-glow motion-reduce:animate-scene-fade" />
       <svg
-        className="mn-scene-svg"
+        className="relative block size-full overflow-visible"
         viewBox="0 0 480 340"
         preserveAspectRatio="xMidYMid meet"
         focusable="false"
@@ -301,11 +318,11 @@ export function HeroScene() {
         <Plate cy={PLATE_CY[0]} index={0} />
         <Plate cy={PLATE_CY[1]} index={1} pillarsTo={PLATE_CY[0]} />
         <Plate cy={PLATE_CY[2]} index={2} top pillarsTo={PLATE_CY[1]} />
-        <g className="mn-scene-feet">
+        <g className="motion-safe:animate-scene-feet motion-reduce:animate-scene-fade">
           {KEYS.map((k) => (
             <path
               key={k.id}
-              className="mn-scene-foot"
+              className={foot}
               d={
                 roundedRhombus(k.u, k.v, k.hu + 0.18, k.hv + 0.18, TOP_CY, 0).d
               }

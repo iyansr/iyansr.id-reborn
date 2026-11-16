@@ -12,8 +12,10 @@ export function Impact() {
       <dl className="grid grid-cols-1 gap-6 min-[480px]:grid-cols-3 min-[480px]:gap-4">
         {FIGURES.map((item) => (
           <div key={item.figure} className="flex flex-col gap-1.5">
-            <dt className="text-[12.5px] leading-snug text-(--mn-muted)">{item.label}</dt>
-            <dd className="mn-mono order-first text-[1.125rem] font-medium tracking-tight text-(--mn-fg)">
+            <dt className="text-[12.5px] leading-snug text-muted">
+              {item.label}
+            </dt>
+            <dd className="order-first font-mono text-[1.125rem] font-medium tracking-tight text-fg">
               {item.figure}
             </dd>
           </div>

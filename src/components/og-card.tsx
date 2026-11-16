@@ -2,7 +2,7 @@ import type { OgCard as OgCardProps } from '@/lib/og';
 import { OG_HEIGHT, OG_WIDTH, SITE_NAME, SITE_URL } from '@/lib/og';
 
 /**
- * The dark theme tokens from `site.css` (`--mn-*`) in plain values: satori
+ * The dark theme tokens from `src/styles.css` (`--color-*`) in plain values: satori
  * reads neither CSS variables nor the app stylesheet.
  */
 const COLOR = {
@@ -49,7 +49,7 @@ export function OgCard({
         fontFamily: 'Geist',
       }}
     >
-      {/* The hero's `.mn-avatar` beside the name and role. */}
+      {/* The hero's inline avatar beside the name and role. */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
         <img
           alt=""
@@ -86,7 +86,7 @@ export function OgCard({
           marginTop: 'auto',
         }}
       >
-        {/* `.mn-label`, with the hero's `.mn-dot`. */}
+        {/* The section label style, with the hero's status dot. */}
         <div
           style={{
             display: 'flex',

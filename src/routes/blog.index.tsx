@@ -1,5 +1,11 @@
 import { createFileRoute, Link, useLoaderData } from '@tanstack/react-router';
 
+import {
+  card,
+  cardImage,
+  cardMedia,
+  cardTitle,
+} from '@/components/site/classes';
 import { PageHeader } from '@/components/site/page-header';
 import { formatDay } from '@/components/site/utils';
 import { ogMeta } from '@/lib/og';
@@ -40,35 +46,41 @@ function RouteComponent() {
       </PageHeader>
 
       {posts.length === 0 ? (
-        <p className="border-t border-(--mn-hair) py-14 text-[14px] text-(--mn-muted)">
+        <p className="border-t border-hair py-14 text-[14px] text-muted">
           No posts yet.
         </p>
       ) : (
-        <ul className="border-t border-(--mn-hair)">
+        <ul className="border-t border-hair">
           {posts.map((post) => (
-            <li key={post.slug} className="border-b border-(--mn-hair) last:border-b-0">
+            <li
+              key={post.slug}
+              className="border-b border-hair last:border-b-0"
+            >
               <Link
                 to="/blog/$slug"
                 params={{ slug: post.slug }}
-                className="mn-card group grid grid-cols-1 gap-4 py-8 md:grid-cols-[11rem_minmax(0,1fr)_10rem] md:gap-10"
+                className={`${card} grid grid-cols-1 gap-4 py-8 md:grid-cols-[11rem_minmax(0,1fr)_10rem] md:gap-10`}
               >
                 <time
                   dateTime={post.metadata.publishedAt}
-                  className="mn-mono text-[11px] tracking-wide text-(--mn-muted) uppercase md:pt-1"
+                  className="font-mono text-[11px] tracking-wide text-muted uppercase md:pt-1"
                 >
                   {formatDay(post.metadata.publishedAt)}
                 </time>
                 <div className="min-w-0">
-                  <h2 className="mn-card-title text-[15px] leading-snug font-medium">
+                  <h2
+                    className={`${cardTitle} text-[15px] leading-snug font-medium`}
+                  >
                     {post.metadata.title}
                   </h2>
-                  <p className="mt-1.5 line-clamp-2 text-[13.5px] leading-relaxed text-(--mn-muted)">
+                  <p className="mt-1.5 line-clamp-2 text-[13.5px] leading-relaxed text-muted">
                     {post.metadata.summary}
                   </p>
                 </div>
                 {post.metadata.image && (
-                  <div className="mn-card-media order-first md:order-none">
+                  <div className={`${cardMedia} order-first md:order-none`}>
                     <img
+                      className={cardImage}
                       src={post.metadata.image}
                       alt=""
                       width={320}

@@ -11,13 +11,18 @@ interface MarkdownPageProps {
 }
 
 /** Standalone content page (Now, About): page header over blog-style prose. */
-export function MarkdownPage({ label, title, lead, content }: MarkdownPageProps) {
+export function MarkdownPage({
+  label,
+  title,
+  lead,
+  content,
+}: MarkdownPageProps) {
   return (
     <main className="pb-16">
       <PageHeader label={label} title={title}>
         {lead}
       </PageHeader>
-      <article className="prose mn-prose max-w-none border-t border-(--mn-hair) pt-12 text-pretty">
+      <article className="prose prose-site max-w-none border-t border-hair pt-12 text-pretty">
         <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
       </article>
     </main>

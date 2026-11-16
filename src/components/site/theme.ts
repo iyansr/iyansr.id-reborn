@@ -1,7 +1,7 @@
 export type Theme = 'light' | 'dark';
 
 const STORAGE_KEY = 'theme';
-/** Browser UI colour per theme; matches --mn-bg. */
+/** Browser UI colour per theme; matches --color-bg. */
 const THEME_COLOR = { light: '#f7f7f4', dark: '#0a0a0a' } as const;
 
 /**

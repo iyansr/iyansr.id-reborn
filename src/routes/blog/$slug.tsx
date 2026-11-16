@@ -5,11 +5,12 @@ import {
   notFound,
   useLoaderData,
 } from '@tanstack/react-router';
+import { useEffect, useRef, useState } from 'react';
 import Markdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import remarkGfm from 'remark-gfm';
-import { useEffect, useRef, useState } from 'react';
 
+import { cardImage, cardMedia, label, link } from '@/components/site/classes';
 import { currentTheme } from '@/components/site/theme';
 import { formatDay } from '@/components/site/utils';
 import { ogMeta } from '@/lib/og';
@@ -57,35 +58,41 @@ function RouteComponent() {
 
   return (
     <main className="pt-16 pb-16 md:pt-20">
-      <Link to="/blog" className="mn-link inline-flex items-center gap-1.5 text-[13px]">
+      <Link
+        to="/blog"
+        className={`${link} inline-flex items-center gap-1.5 text-[13px]`}
+      >
         <IconArrowLeft size={14} aria-hidden />
         All posts
       </Link>
 
       <header className="mt-10">
-        <time
-          dateTime={post.metadata.publishedAt}
-          className="mn-label block"
-        >
+        <time dateTime={post.metadata.publishedAt} className={`${label} block`}>
           {formatDay(post.metadata.publishedAt, 'long')}
         </time>
         <h1 className="mt-4 text-[1.625rem] leading-[1.2] font-medium tracking-tight text-balance md:text-[2rem]">
           {post.metadata.title}
         </h1>
         {post.metadata.summary && (
-          <p className="mt-3 text-[17px] leading-relaxed text-(--mn-muted)">
+          <p className="mt-3 text-[17px] leading-relaxed text-muted">
             {post.metadata.summary}
           </p>
         )}
       </header>
 
       {post.metadata.image && (
-        <div className="mn-card-media mt-10">
-          <img src={post.metadata.image} alt="" width={1200} height={750} />
+        <div className={`${cardMedia} mt-10`}>
+          <img
+            className={cardImage}
+            src={post.metadata.image}
+            alt=""
+            width={1200}
+            height={750}
+          />
         </div>
       )}
 
-      <article className="prose mn-prose mt-12 max-w-none text-pretty">
+      <article className="prose prose-site mt-12 max-w-none text-pretty">
         <Markdown
           remarkPlugins={[remarkGfm]}
           components={{
@@ -132,7 +139,10 @@ function PostFigure({ src, title }: { src: string; title: string }) {
 
   useEffect(() => {
     const sendTheme = () =>
-      frame.current?.contentWindow?.postMessage({ type: 'figure-theme', theme: currentTheme() }, '*');
+      frame.current?.contentWindow?.postMessage(
+        { type: 'figure-theme', theme: currentTheme() },
+        '*'
+      );
     const onMessage = (event: MessageEvent) => {
       if (event.source !== frame.current?.contentWindow) return;
       const data = event.data as { type?: string; height?: number };
@@ -142,7 +152,9 @@ function PostFigure({ src, title }: { src: string; title: string }) {
     };
     window.addEventListener('message', onMessage);
     const themeObserver = new MutationObserver(sendTheme);
-    themeObserver.observe(document.documentElement, { attributeFilter: ['data-theme'] });
+    themeObserver.observe(document.documentElement, {
+      attributeFilter: ['data-theme'],
+    });
     // The frame may have loaded before these listeners existed; ask again.
     frame.current?.contentWindow?.postMessage({ type: 'figure-ping' }, '*');
     sendTheme();
@@ -153,7 +165,7 @@ function PostFigure({ src, title }: { src: string; title: string }) {
   }, []);
 
   return (
-    <span className="mn-figure-frame">
+    <span className="my-[2.4em] block *:block *:w-full *:border-0 *:[color-scheme:normal]">
       <iframe
         sandbox="allow-scripts"
         ref={frame}
@@ -163,7 +175,10 @@ function PostFigure({ src, title }: { src: string; title: string }) {
         onLoad={(event) => {
           const target = event.currentTarget.contentWindow;
           target?.postMessage({ type: 'figure-ping' }, '*');
-          target?.postMessage({ type: 'figure-theme', theme: currentTheme() }, '*');
+          target?.postMessage(
+            { type: 'figure-theme', theme: currentTheme() },
+            '*'
+          );
         }}
         style={{ height }}
       />

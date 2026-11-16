@@ -19,6 +19,8 @@ import {
 } from '@tabler/icons-react';
 import type { ReactNode } from 'react';
 
+import { figure } from './classes';
+
 export const HIRE_URL = 'mailto:hello@iyansr.id';
 export const GITHUB_URL = 'https://github.com/iyansr';
 export const RESUME_URL = `/resume/${encodeURIComponent('I Putu Saputrayana - Senior FE.pdf')}`;
@@ -34,7 +36,7 @@ export function highlightFigures(text: string): ReactNode[] {
     .split(FIGURE_RE)
     .map((part, i) =>
       i % 2 === 1 ? (
-        <span key={i} className="mn-figure">
+        <span key={i} className={figure}>
           {part}
         </span>
       ) : (

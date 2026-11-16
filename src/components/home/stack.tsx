@@ -36,7 +36,10 @@ export function Stack() {
       <ul className="flex flex-wrap items-center gap-x-5 gap-y-4">
         {STACK.map(({ name, Icon }) => (
           <li key={name}>
-            <span title={name} className="mn-stack-item inline-flex">
+            <span
+              title={name}
+              className="inline-flex text-muted [transition:color_0.2s] hover:text-fg"
+            >
               <Icon size={20} stroke={1.5} aria-hidden />
               <span className="sr-only">{name}</span>
             </span>

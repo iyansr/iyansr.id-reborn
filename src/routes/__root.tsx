@@ -9,7 +9,6 @@ import type { ReactNode } from 'react';
 
 import { Footer } from '@/components/site/footer';
 import { Nav } from '@/components/site/nav';
-import siteCss from '@/components/site/site.css?url';
 import { THEME_BOOT_SCRIPT } from '@/components/site/theme';
 import { ogMeta, SITE_NAME } from '@/lib/og';
 import appCss from '@/styles.css?url';
@@ -53,7 +52,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
-      { rel: 'stylesheet', href: siteCss },
       {
         rel: 'icon',
         href: 'https://avatars.githubusercontent.com/u/42711013?v=4',
@@ -92,8 +90,12 @@ function RootDocument({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   return (
-    <div id="top" className="mn">
-      <div className="mn-col">
+    <div
+      id="top"
+      className="min-h-dvh overflow-x-clip bg-bg font-sans text-[14px] leading-[1.6] text-fg antialiased selection:bg-accent selection:text-[#0a0a0a]"
+    >
+      {/* One narrow column framed by two full-height hairlines. */}
+      <div className="relative mx-auto w-full max-w-240 px-[clamp(1.25rem,4vw,2.5rem)] before:pointer-events-none before:absolute before:inset-y-0 before:left-0 before:w-px before:bg-hair after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-hair">
         <Nav />
         <Outlet />
         <Footer />
