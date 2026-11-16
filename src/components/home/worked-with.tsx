@@ -19,7 +19,7 @@ export function WorkedWith() {
       aria-labelledby="worked-with-label"
       className="border-t border-hair py-10 md:py-12"
     >
-      <h2 id="worked-with-label" className={`${label} mb-6`}>
+      <h2 id="worked-with-label" className={`${label} mb-6 text-center`}>
         Worked with
       </h2>
       <div className="group/marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)] motion-reduce:[mask-image:none]">
