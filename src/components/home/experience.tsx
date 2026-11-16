@@ -60,7 +60,7 @@ export function Experience() {
 
               {hasMore && (
                 <details className="group/details details-content:overflow-clip details-content:opacity-0 details-content:[block-size:0] open:details-content:opacity-100 open:details-content:[block-size:auto] motion-safe:details-content:[transition:block-size_250ms_var(--ease-out),opacity_200ms_var(--ease-out),content-visibility_250ms_allow-discrete] motion-reduce:details-content:[transition:opacity_200ms_var(--ease-out),content-visibility_200ms_allow-discrete]">
-                  <summary className="mt-1.5 inline-flex cursor-pointer list-none items-center gap-1 text-[12.5px] font-medium text-accent-text [&::-webkit-details-marker]:hidden">
+                  <summary className="mt-1.5 inline-flex list-none items-center gap-1 text-[12.5px] font-medium text-accent-text [&::-webkit-details-marker]:hidden">
                     <span className="group-open/details:hidden">Read more</span>
                     <span className="hidden group-open/details:inline">
                       Show less

@@ -40,6 +40,7 @@
   --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, monospace;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 /* Inlined so per-element vars (--d, --bob, --bob-d) resolve on the animated element. */
@@ -151,14 +152,29 @@
     outline-offset: 3px;
     border-radius: 4px;
   }
-  /* Reserve room so the fixed building card never covers the footer. */
-  body:has(.building-card) {
-    padding-bottom: 374px;
-    @variant compact {
-      padding-bottom: 247px;
+  /* Drow Ranger arcana cursor (Sepulchral Stalker pack); hotspot at the tip. Mouse only. */
+  @media (hover: hover) and (pointer: fine) {
+    html {
+      cursor:
+        url(/cursors/drow.png) 2 2,
+        auto;
+      cursor:
+        image-set(url(/cursors/drow.png) 1x, url(/cursors/drow@2x.png) 2x) 2 2,
+        auto;
     }
-    @media print {
-      padding-bottom: 0;
+    :is(a[href], button, summary, label[for], select, [role="button"]):not(
+      :disabled
+    ) {
+      cursor:
+        url(/cursors/drow-pointer.png) 2 2,
+        pointer;
+      cursor:
+        image-set(
+            url(/cursors/drow-pointer.png) 1x,
+            url(/cursors/drow-pointer@2x.png) 2x
+          )
+          2 2,
+        pointer;
     }
   }
 }
