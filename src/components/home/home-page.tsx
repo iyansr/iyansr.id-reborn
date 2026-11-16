@@ -1,4 +1,5 @@
 import { About } from './about';
+import { BuildingCard } from './building-card';
 import { Experience } from './experience';
 import { Hero } from './hero';
 import { Impact } from './impact';
@@ -18,6 +19,7 @@ export function HomePage() {
       <Experience />
       <Projects />
       <OpenSource />
+      <BuildingCard />
     </main>
   );
 }

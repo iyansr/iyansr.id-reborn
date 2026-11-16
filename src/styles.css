@@ -122,6 +122,9 @@
   }
 }
 
+/* Small viewports (narrow or short): the floating building card shrinks. */
+@custom-variant compact (@media (width <= 560px), (height <= 650px));
+
 /* ---------- Document base ---------- */
 @layer base {
   :root {
@@ -147,6 +150,16 @@
     outline: 2px solid var(--color-accent-text);
     outline-offset: 3px;
     border-radius: 4px;
+  }
+  /* Reserve room so the fixed building card never covers the footer. */
+  body:has(.building-card) {
+    padding-bottom: 374px;
+    @variant compact {
+      padding-bottom: 247px;
+    }
+    @media print {
+      padding-bottom: 0;
+    }
   }
 }
 
