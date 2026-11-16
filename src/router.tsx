@@ -19,6 +19,10 @@ export function getRouter() {
     context: { queryClient },
     defaultPreload: 'intent',
     scrollRestoration: true,
+    // Path changes cross-fade; hash jumps (#work, #experience) keep the smooth scroll.
+    defaultViewTransition: {
+      types: ({ pathChanged }) => (pathChanged ? ['page'] : false),
+    },
     defaultStructuralSharing: true,
     defaultPreloadStaleTime: 0,
     trailingSlash: 'never',

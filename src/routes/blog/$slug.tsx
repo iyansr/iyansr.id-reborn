@@ -10,6 +10,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import remarkGfm from 'remark-gfm';
 import { useEffect, useRef, useState } from 'react';
 
+import { currentTheme } from '@/components/site/theme';
 import { formatDay } from '@/components/site/utils';
 import { ogMeta } from '@/lib/og';
 import { getPostBySlug } from '@/lib/post';
@@ -123,12 +124,15 @@ function RouteComponent() {
   );
 }
 
-// The figure page posts its own height so the frame fits the card exactly.
+// The figure page posts its own height so the frame fits the card exactly,
+// and follows the site theme, which it cannot read from inside the sandbox.
 function PostFigure({ src, title }: { src: string; title: string }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(520);
 
   useEffect(() => {
+    const sendTheme = () =>
+      frame.current?.contentWindow?.postMessage({ type: 'figure-theme', theme: currentTheme() }, '*');
     const onMessage = (event: MessageEvent) => {
       if (event.source !== frame.current?.contentWindow) return;
       const data = event.data as { type?: string; height?: number };
@@ -137,9 +141,15 @@ function PostFigure({ src, title }: { src: string; title: string }) {
       }
     };
     window.addEventListener('message', onMessage);
-    // The frame may have loaded before this listener existed; ask again.
+    const themeObserver = new MutationObserver(sendTheme);
+    themeObserver.observe(document.documentElement, { attributeFilter: ['data-theme'] });
+    // The frame may have loaded before these listeners existed; ask again.
     frame.current?.contentWindow?.postMessage({ type: 'figure-ping' }, '*');
-    return () => window.removeEventListener('message', onMessage);
+    sendTheme();
+    return () => {
+      window.removeEventListener('message', onMessage);
+      themeObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -150,12 +160,11 @@ function PostFigure({ src, title }: { src: string; title: string }) {
         src={src}
         title={title}
         loading="lazy"
-        onLoad={(event) =>
-          event.currentTarget.contentWindow?.postMessage(
-            { type: 'figure-ping' },
-            '*',
-          )
-        }
+        onLoad={(event) => {
+          const target = event.currentTarget.contentWindow;
+          target?.postMessage({ type: 'figure-ping' }, '*');
+          target?.postMessage({ type: 'figure-theme', theme: currentTheme() }, '*');
+        }}
         style={{ height }}
       />
     </span>

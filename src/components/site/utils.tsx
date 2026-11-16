@@ -19,7 +19,7 @@ import {
 } from '@tabler/icons-react';
 import type { ReactNode } from 'react';
 
-export const CAL_URL = 'https://cal.com/iyansr';
+export const HIRE_URL = 'mailto:hello@iyansr.id';
 export const GITHUB_URL = 'https://github.com/iyansr';
 export const RESUME_URL = `/resume/${encodeURIComponent('I Putu Saputrayana - Senior FE.pdf')}`;
 

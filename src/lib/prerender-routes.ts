@@ -10,7 +10,7 @@ export function getBlogPostPaths(): string[] {
 }
 
 export function getPrerenderPages() {
-  const staticPages = ['/', '/blog', '/open-source'];
+  const staticPages = ['/', '/blog', '/now', '/about', '/open-source'];
 
   return [
     ...staticPages.map((path) => ({ path })),

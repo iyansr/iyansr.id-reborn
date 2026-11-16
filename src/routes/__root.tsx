@@ -10,6 +10,7 @@ import type { ReactNode } from 'react';
 import { Footer } from '@/components/site/footer';
 import { Nav } from '@/components/site/nav';
 import siteCss from '@/components/site/site.css?url';
+import { THEME_BOOT_SCRIPT } from '@/components/site/theme';
 import { ogMeta, SITE_NAME } from '@/lib/og';
 import appCss from '@/styles.css?url';
 
@@ -49,10 +50,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content:
           'Iyan Saputra, software engineer, web developer, mobile developer, React Native, NextJS, Typescript, TailwindCSS, Firebase, full stack developer',
       },
-      {
-        name: 'theme-color',
-        content: '#0a0a0a',
-      },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
@@ -79,8 +76,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 function RootDocument({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    // The boot script sets data-theme before hydration, so React must not flag it.
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         <HeadContent />
       </head>
       <body>

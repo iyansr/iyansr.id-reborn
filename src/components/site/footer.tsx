@@ -1,7 +1,7 @@
 import { IconArrowUp, IconArrowUpRight } from '@tabler/icons-react';
 import { Link } from '@tanstack/react-router';
 
-import { CAL_URL, GITHUB_URL, RESUME_URL } from './utils';
+import { GITHUB_URL, HIRE_URL, RESUME_URL } from './utils';
 
 export function Footer() {
   return (
@@ -11,13 +11,11 @@ export function Footer() {
           Building TypeScript products end to end.
         </p>
         <a
-          href={CAL_URL}
-          target="_blank"
-          rel="noreferrer"
+          href={HIRE_URL}
           className="group inline-flex items-center gap-2 text-2xl font-medium tracking-tight transition-colors hover:text-(--mn-accent-text) md:text-[1.75rem]"
         >
-          Book a call
-          <IconArrowUpRight size={22} aria-hidden className="text-(--mn-muted) transition-colors group-hover:text-(--mn-accent-text)" />
+          Hire me
+          <IconArrowUpRight size={22} aria-hidden className="mn-arrow text-(--mn-muted) group-hover:text-(--mn-accent-text)" />
         </a>
       </div>
 
@@ -39,7 +37,7 @@ export function Footer() {
             </Link>
           </li>
         </ul>
-        <a href="#top" aria-label="Back to top" className="mn-top">
+        <a href="#top" aria-label="Back to top" className="mn-glass mn-top">
           <IconArrowUp size={16} aria-hidden />
         </a>
       </div>

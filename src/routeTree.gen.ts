@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as NowRouteImport } from './routes/now'
 import { Route as OgRouteImport } from './routes/og'
 import { Route as OpenSourceRouteImport } from './routes/open-source'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -19,6 +21,16 @@ import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-qu
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NowRoute = NowRouteImport.update({
+  id: '/now',
+  path: '/now',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OgRoute = OgRouteImport.update({
@@ -49,6 +61,8 @@ const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/now': typeof NowRoute
   '/og': typeof OgRoute
   '/open-source': typeof OpenSourceRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -57,6 +71,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/now': typeof NowRoute
   '/og': typeof OgRoute
   '/open-source': typeof OpenSourceRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -66,6 +82,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/now': typeof NowRoute
   '/og': typeof OgRoute
   '/open-source': typeof OpenSourceRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -76,6 +94,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/now'
     | '/og'
     | '/open-source'
     | '/blog/$slug'
@@ -84,6 +104,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/now'
     | '/og'
     | '/open-source'
     | '/blog/$slug'
@@ -92,6 +114,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/now'
     | '/og'
     | '/open-source'
     | '/blog/$slug'
@@ -101,6 +125,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  NowRoute: typeof NowRoute
   OgRoute: typeof OgRoute
   OpenSourceRoute: typeof OpenSourceRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -115,6 +141,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/now': {
+      id: '/now'
+      path: '/now'
+      fullPath: '/now'
+      preLoaderRoute: typeof NowRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/og': {
@@ -157,6 +197,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  NowRoute: NowRoute,
   OgRoute: OgRoute,
   OpenSourceRoute: OpenSourceRoute,
   BlogSlugRoute: BlogSlugRoute,

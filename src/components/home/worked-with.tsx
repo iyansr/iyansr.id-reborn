@@ -1,5 +1,13 @@
 import { EXPERIENCE } from '@/data/experience';
 
+const CLIENT_LOCATIONS = [
+  { flag: '🇮🇩', name: 'Indonesia' },
+  { flag: '🇸🇬', name: 'Singapore' },
+  { flag: '🇺🇸', name: 'United States' },
+  { flag: '🇭🇰', name: 'Hong Kong' },
+  { flag: '🇹🇷', name: 'Turkey' },
+] as const;
+
 // Rendered twice so the track can loop seamlessly at -50%.
 // The second copy is decorative and hidden from assistive tech and tab order.
 export function WorkedWith() {
@@ -30,7 +38,13 @@ export function WorkedWith() {
                     className="mn-company"
                     tabIndex={duplicate ? -1 : undefined}
                   >
-                    <img src={job.logo} alt="" width={22} height={22} loading="lazy" />
+                    <img
+                      src={job.logo}
+                      alt=""
+                      width={22}
+                      height={22}
+                      loading="lazy"
+                    />
                     {job.company}
                   </a>
                 </li>
@@ -39,6 +53,26 @@ export function WorkedWith() {
           ))}
         </div>
       </div>
+
+      <h2 id="clients-from-label" className="mn-label mt-10 mb-5 text-center">
+        Worked with clients from
+      </h2>
+      <ul
+        aria-labelledby="clients-from-label"
+        className="flex flex-wrap justify-center gap-x-8 gap-y-3"
+      >
+        {CLIENT_LOCATIONS.map(({ flag, name }) => (
+          <li
+            key={name}
+            className="inline-flex items-center gap-2 text-[14px] font-medium text-(--mn-muted)"
+          >
+            <span aria-hidden className="text-[18px] leading-none">
+              {flag}
+            </span>
+            {name}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

@@ -931,7 +931,11 @@ stage.addEventListener("keydown", (event) => {
 const page = document.querySelector(".iso-page");
 const report = () => parent.postMessage({ type: "figure-height", id: "agent-flow", height: page.getBoundingClientRect().height }, "*");
 new ResizeObserver(report).observe(page);
-addEventListener("message", (event) => { if (event.data?.type === "figure-ping") report(); });
+addEventListener("message", (event) => {
+  if (event.data?.type === "figure-ping") report();
+  // The host page sends its theme, which overrides the system preference picked at load.
+  if (event.data?.type === "figure-theme") document.body.dataset.theme = event.data.theme === "light" ? "light" : "dark";
+});
 report();
 light("frontend");
 say("frontend · sonnet builds the UI");

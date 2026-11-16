@@ -19,7 +19,10 @@ export type BlogPost = {
 };
 
 // Simple frontmatter parser
-function parseFrontmatter(content: string): { metadata: any; content: string } {
+export function parseFrontmatter(content: string): {
+  metadata: Partial<Record<string, string>>;
+  content: string;
+} {
   const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
   const match = content.match(frontmatterRegex);
 
@@ -28,7 +31,7 @@ function parseFrontmatter(content: string): { metadata: any; content: string } {
   }
 
   const [, frontmatterStr, bodyContent] = match;
-  const metadata: any = {};
+  const metadata: Partial<Record<string, string>> = {};
 
   // Parse YAML-like frontmatter
   frontmatterStr.split('\n').forEach((line) => {
